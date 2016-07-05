@@ -1,0 +1,13 @@
+main-blx.bib
+main.bbl
+*.aux
+Chapters/*.aux
+Appendices/*.aux
+*.log
+Chapters/*.log
+Appendices/*.log
+main.blg
+main.lot
+main.out
+main.run.xml
+main.synctex.gz
