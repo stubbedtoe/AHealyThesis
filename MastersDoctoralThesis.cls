@@ -187,7 +187,7 @@
 
 \renewcommand{\abovechapterspace}{\vspace*{10pt}} % Reduce the whitespace above a chapter heading
 
-\setcounter{tocdepth}{4} % The depth to which the document sections are printed to the table of contents
+\setcounter{tocdepth}{3} % The depth to which the document sections are printed to the table of contents
 \providecommand\addchaptertocentry[1]{%
 \addcontentsline{toc}{chapter}{#1}%
 }
@@ -227,7 +227,7 @@
 \ohead{}% Outer header
 }
 \ifoot{}% Inner footer
-\cfoot[\pagemark]{\pagemark} % central 
+\cfoot{\pagemark} % central 
 \ofoot{}% Outer footer
 \pagestyle{thesisSimple}
 \providepairofpagestyles[thesisSimple]{thesis}{%
