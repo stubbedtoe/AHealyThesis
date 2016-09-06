@@ -1,14 +1,72 @@
 \chapter{Literature Review}% Main chapter title
-
+\thispagestyle{nohead}
 \label{LitReview} % For referencing the chapter elsewhere, use \ref{LitReview} 
 
 %----------------------------------------------------------------------------------------
 
-\section{Proof Engineering}
-\section{Portfolio-based approaches to software verification}
-\section{The use of Machine Learning in formal methods}
-\subsection{Machine learning applied to interactive theorem proving}
-%\subsection{\textit{Sledgehammer} and \textit{ML4PG} for \textsc{ITP}s}
-\subsection{Metrics and \textsc{SVM}s and for model checking}
-\section{Data analysis, measurement, and experimental process}
-\section{ML-specific literature}
+\where incorporates ideas from at least three separate disciplines: software verification, machine learning, and software measurement and metrics. Each of these disciplines has a considerable body of research associated with it. This chapter focusses on the intersections of the three areas while addressing to relevant literature from each individual area.
+A Venn diagram illustrating how the literature was classified is given in Figure \ref{fig:litreview}. It can be seen that the intersection of \textit{software verification} and \textit{measurement/metrics} itself contains two separate categories of interest: benchmarks and competitions in formal methods, and the relatively young field of \textit{proof engineering}.
+The rest of this chapter will review the literature associated with each segment of Figure \ref{fig:litreview} in turn.
+
+\begin{figure}
+
+\centering
+
+% Suppose we have three circles or ellipses or whatever. Let us define
+% commands for their paths since we will need them repeatedly in the
+% following:
+
+\def\firstcircle{(0,0) circle (2.5cm)}
+\def\secondcircle{(55:3cm) circle (2.5cm)}
+\def\thirdcircle{(0:3cm) circle (2.5cm)}
+
+% Now we can draw the sets:
+\begin{tikzpicture}
+    \draw \firstcircle node[below] { $A$ };
+    \draw \secondcircle node [above] { \cite{Boogie} \cite{AltErgo} \cite{CVC3} \cite{CVC4}};
+    \draw \thirdcircle node [below] {$C$};
+    
+    % Next, we want the highlight the intersection of all three circles:
+    
+    \begin{scope}
+      \clip \firstcircle;
+      \clip \secondcircle;
+      \clip \thirdcircle;
+      \node [align=center] (text) {A \\ B \\ C}; 
+    \end{scope}
+
+\end{tikzpicture}
+
+$ A = \lbrace $ \cite{DPVZ15:CAV} $ \rbrace $
+
+%\includegraphics[width=0.7\linewidth]{litreview}
+\caption{Three disciplines identifies as being relevant to this project}
+\label{fig:litreview}
+
+\end{figure}
+
+
+   
+
+
+\section{Software Verification Systems}
+
+\subsection{Verification and Measurement}
+
+\subsubsection{Benchmarks and Competitions}
+
+The need for a standard set of benchmarks for the diverse range of software systems is a recurring issue in the literature \cite{Dagstuhl}. The benefits of such a benchmark suite are identified by the SMTLIB \cite{SMTLIB} project. The performance of SMT solvers has significantly improved in recent years due in part to the standardisation of an input language and the use of standard benchmark programs in  competitions \cite{SMTEVAL2013}\cite{SVCOMP}. The TPTP (Thousands of Problems for Theorem Provers) project \cite{TPTP} has similar aims but a wider scope: targeting theorem provers which specialise in numerical problems as well as general-purpose SAT and SMT solvers. The TPTP library is specifically designed for the rigorous experimental comparison of solvers \cite{Sutcliffe200139}.
+
+\subsubsection{Proof Engineering}
+
+\subsection{Verification and Machine Learning}
+
+\subsection{Where4 and the intersection of all three disciplines}
+
+\section{Software Measurement and Metrics}
+
+%also include the experimental process
+
+\subsection{Measurement and Machine Learning}
+
+\section{Machine Learning}

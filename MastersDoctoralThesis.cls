@@ -219,23 +219,31 @@
 %	HEADERS AND FOOTERS
 %----------------------------------------------------------------------------------------
 
+
 \RequirePackage[markcase=used]{scrlayer-scrpage}
 \providepairofpagestyles{thesisSimple}{%
 \clearpairofpagestyles%
 \automark[chapter]{chapter}
-\chead{\headmark}% Inner header
-\ohead{}% Outer header
-}
+\ohead{\headmark}
+\ihead{A. Healy}
 \ifoot{}% Inner footer
 \cfoot{\pagemark} % central 
 \ofoot{}% Outer footer
+}
 \pagestyle{thesisSimple}
 \providepairofpagestyles[thesisSimple]{thesis}{%
 \automark*[section]{}%
+\cfoot{\pagemark} % central  
+}
+\providepairofpagestyles[thesisSimple]{nohead}{
+\ohead{}
+\ihead{}
+\KOMAoption{headsepline}{false}
 }
 \providepairofpagestyles[thesisSimple]{review}{%
 	\ofoot[\ttitle/\authorname]{\ttitle/\authorname}
 	\ifoot[\today]{\today}
+	\cfoot{\pagemark} % central 
 }
 \pagestyle{thesis}
 \ifbool{headsepline}{\KOMAoption{headsepline}{true}}{}
@@ -243,16 +251,16 @@
 incompatible\MessageBreak with this class}{The pagesyles are defined 
 using package `scrlayer-scrpage', please consult the\MessageBreak 
 KOMA-script documentation for details.}]{fancyhdr}
+%\KOMAoption{footsepline}{true}
 
+%\newcommand{\blank@p@gestyle}{empty}
+%\newcommand{\blankpagestyle}[1]{\def\blank@p@gestyle{#1}}
 
-\newcommand{\blank@p@gestyle}{empty}
-\newcommand{\blankpagestyle}[1]{\def\blank@p@gestyle{#1}}
-
-\def\cleardoublepage{\clearpage\if@twoside \ifodd\c@page\else
-\hbox{}
-\thispagestyle{\blank@p@gestyle}
-\newpage
-\if@twocolumn\hbox{}\newpage\fi\fi\fi}
+%\def\cleardoublepage{\clearpage\if@twoside %\ifodd\c@page\else
+%\hbox{}
+%\thispagestyle{\blank@p@gestyle}
+%\newpage
+%\if@twocolumn\hbox{}\newpage\fi\fi\fi}
 
 %----------------------------------------------------------------------------------------
 %	DEFINE CUSTOM THESIS INFORMATION COMMANDS
@@ -273,6 +281,8 @@ KOMA-script documentation for details.}]{fancyhdr}
 \newcommand*{\subject}[1]{\def\subjectname{#1}}
 \newcommand*{\keywords}[1]{\def\keywordnames{#1}}
 
+\newcommand*{\where}{\textsf{Where4}~}
+\newcommand*{\why}{\textsf{Why3}~}
 %----------------------------------------------------------------------------------------
 %	DECLARATION PAGE DESIGN
 %----------------------------------------------------------------------------------------
@@ -284,7 +294,7 @@ KOMA-script documentation for details.}]{fancyhdr}
 \newenvironment{declaration}{
 	\checktoopen
 	\tttypeout{\authorshipname}
-	\thispagestyle{plain}
+	\thispagestyle{nohead}
 	\null\vfil
 	{\noindent\huge\bfseries\authorshipname\par\vspace{10pt}}
 }{}
@@ -297,7 +307,7 @@ KOMA-script documentation for details.}]{fancyhdr}
 	\checktoopen
 	\tttypeout{Dedicatory}
 	\null\vfil
-	\thispagestyle{plain}
+	\thispagestyle{nohead}
 	\begin{center}{\Large\slshape #1}\end{center}
 	\vfil\null
 }
@@ -313,7 +323,7 @@ KOMA-script documentation for details.}]{fancyhdr}
 	\checktoopen
 	\tttypeout{\abstractname}
 	\null\vfil
-	\thispagestyle{plain}
+	\thispagestyle{nohead}
 	\begin{center}
 	{\normalsize \MakeUppercase{\univname} \par} % University name in capitals
 	\bigskip
@@ -339,6 +349,7 @@ KOMA-script documentation for details.}]{fancyhdr}
 %----------------------------------------------------------------------------------------
 
 \newcommand{\abbrevname}{List of Abbreviations}
+\thispagestyle{nohead}
 \providecaptionname{english,british,american}{\abbrevname}{List of Abbreviations}
 \providecaptionname{ngerman,german,austrian,naustrian}{\abbrevname}{Abk\"urzungsverzeichnis}
 \NewDocumentEnvironment{abbreviations}{ m }{%
@@ -356,6 +367,7 @@ KOMA-script documentation for details.}]{fancyhdr}
 %----------------------------------------------------------------------------------------
 
 \newcommand{\constantsname}{Physical Constants}
+\thispagestyle{nohead}
 \providecaptionname{english,british,american}{\constantsname}{Physical Constants}
 \providecaptionname{ngerman,german,austrian,naustrian}{\constantsname}{Physikalische Konstanten}
 
@@ -374,6 +386,7 @@ KOMA-script documentation for details.}]{fancyhdr}
 %----------------------------------------------------------------------------------------
 
 \newcommand{\symbolsname}{List of Symbols}
+\thispagestyle{nohead}
 \providecaptionname{english,british,american}{\symbolsname}{List of Symbols}
 \providecaptionname{ngerman,german,austrian,naustrian}{\symbolsname}{Symbolverzeichnis}
 
@@ -398,7 +411,7 @@ KOMA-script documentation for details.}]{fancyhdr}
 \NewDocumentEnvironment{acknowledgements}{}{%
 \checktoopen
 \tttypeout{\acknowledgementname}
-\thispagestyle{plain}
+\thispagestyle{nohead}
 \begin{center}{\huge\textit{\acknowledgementname}\par}\end{center}
 }
 {

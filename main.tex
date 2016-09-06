@@ -42,11 +42,14 @@ headsepline, % Uncomment to get a line under the header
 
 \usepackage{palatino} % Use the Palatino font by default
 
-\usepackage[backend=bibtex,style=authoryear,natbib=true]{biblatex} % Use the bibtex backend with the authoryear citation style (which resembles APA)
+\usepackage[backend=bibtex, natbib=true]{biblatex} %,style=authoryear,natbib=true]{biblatex} % Use the bibtex backend with the authoryear citation style (which resembles APA)
 
-\addbibresource{example.bib} % The filename of the bibliography
+\addbibresource{predicting.bib} % The filename of the bibliography
 
 \usepackage[autostyle=true]{csquotes} % Required to generate language-dependent quotes in the bibliography
+
+\usepackage{tikz}
+\usetikzlibrary{shapes, backgrounds}
 
 %----------------------------------------------------------------------------------------
 %	MARGIN SETTINGS
@@ -87,7 +90,7 @@ headsepline, % Uncomment to get a line under the header
 
 \frontmatter % Use roman page numbering style (i, ii, iii, iv...) for the pre-content pages
 
-\pagestyle{plain} % Default to the plain heading style until the thesis style is called for the body content
+\pagestyle{nohead} % Default to the plain heading style until the thesis style is called for the body content
 
 %----------------------------------------------------------------------------------------
 %	TITLE PAGE
@@ -127,7 +130,7 @@ Dr. Adam \textsc{Winstanley}
 %----------------------------------------------------------------------------------------
 %	LIST OF CONTENTS/FIGURES/TABLES PAGES
 %----------------------------------------------------------------------------------------
-
+\thispagestyle{nohead}
 \tableofcontents % Prints the main table of contents
 
 %
@@ -175,7 +178,11 @@ Dr. Adam \textsc{Winstanley}
 \begin{abstract}
 \addchaptertocentry{\abstractname} % Add the abstract to the table of contents
 
-The Thesis Abstract is written here (and usually kept to just this page). The page is kept centered vertically so can expand into the blank space above the title too\ldots
+The approach \why takes to interfacing with a wide variety of interactive and automatic theorem provers works well: it is designed to overcome limitations on what can be proved by a system which relies on a single tightly-integrated solver. In common with other systems, however, the degree to which proof obligations (or ``goals'') are proved depends as much on the SMT solver as the properties of the goal itself. In this work, we present a method to use syntactic analysis to characterise goals and predict the most appropriate solver via machine-learning techniques.  
+
+Combining solvers in this way - a \textit{portfolio-solving} approach - maximises the number of goals which can be proved. The driver-based architecture of \why presents a unique opportunity to use a portfolio of SMT solvers for software verification. The intelligent scheduling of solvers minimises the time it takes to prove these goals by avoiding solvers which return \textit{Timeout} and \textit{Unknown} responses. We assess the suitability of a number of machine-learning algorithms for this scheduling task.  
+
+The performance of our tool \where is evaluated on a large dataset of proof obligations. We compare \where to a range of SMT solvers and theoretical scheduling strategies. We find that \where can prove a greater number of goals in a shorter amount of time than any single solver. Furthermore, \where can integrate into a \why user's normal workflow - simplifying and automating the use of SMT solvers for software verification. 
 
 \end{abstract}
 
@@ -186,7 +193,7 @@ The Thesis Abstract is written here (and usually kept to just this page). The pa
 \begin{acknowledgements}
 \addchaptertocentry{\acknowledgementname} % Add the acknowledgements to the table of contents
 
-The acknowledgments and the people to thank go here, don't forget to include your project advisor\ldots
+The acknowledgments and the people to thank go here, don't forget to include your project adviser\ldots
 
 \end{acknowledgements}
 
@@ -196,16 +203,17 @@ The acknowledgments and the people to thank go here, don't forget to include you
 %----------------------------------------------------------------------------------------
 
 \begin{abbreviations}{ll} % Include a list of abbreviations (a table of two columns)
-
-\textbf{LAH} & \textbf{L}ist \textbf{A}bbreviations \textbf{H}ere\\
+\thispagestyle{nohead}
+\textbf{SMT} & \textbf{S}atisfiability \textbf{M}odulo \textbf{T}heories\\
 \textbf{WSF} & \textbf{W}hat (it) \textbf{S}tands \textbf{F}or\\
 
 \end{abbreviations}
 
 \listoffigures % Prints the list of figures
+\thispagestyle{nohead}
 
 \listoftables % Prints the list of tables
-
+\thispagestyle{nohead}
 %----------------------------------------------------------------------------------------
 %	DEDICATION
 %----------------------------------------------------------------------------------------
@@ -247,7 +255,6 @@ The acknowledgments and the people to thank go here, don't forget to include you
 %----------------------------------------------------------------------------------------
 %	BIBLIOGRAPHY
 %----------------------------------------------------------------------------------------
-
 \printbibliography[heading=bibintoc]
 %----------------------------------------------------------------------------------------
 
