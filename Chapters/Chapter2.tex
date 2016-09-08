@@ -9,6 +9,7 @@ A Venn diagram illustrating how the literature was classified is given in Figure
 %It can be seen that the intersection of \textit{software verification} and \textit{measurement/metrics} itself contains two separate categories of interest: benchmarks and competitions in formal methods, and the relatively young field of \textit{proof engineering}.
 The rest of this chapter will review the literature associated with each segment of Figure \ref{fig:litreview} - moving clockwise from the software verification circle.
 
+
 \begin{figure}
 
 \centering
@@ -56,11 +57,18 @@ The intersection of SV and empirical SE disciplines can be further broken into t
 \subsubsection{Software Verification Competitions}
 \label{sub:lrsvmmbench}
 
-At present, competitions provide the most prominent means of comparing systems which focus on the verification of object-oriented software. In competitions such as those held at FoVeOOS 2011 \cite{bormer:hal-00789525} and the VerifyThis series \cite{Huisman2015}, teams are given the natural-language specifications for a small number of typical SV problems. Any system can be used, with tool developers often choosing to use their own system.  
+At present, competitions provide the most prominent means of comparing systems which focus on the verification of object-oriented software. In competitions such as those held at FoVeOOS 2011 \cite{bormer:hal-00789525} and the VerifyThis series \cite{Huisman2015}, teams are given the natural-language specifications for a small number of typical SV problems. Any system can be used, with tool developers often choosing to use their own system.
+
+
+The situation for automatic program verifiers which use model-checking techniques to ensure properties (such as reachability or termination) is similar: a well-established competition, SV-COMP \cite{SVCOMP}, is held annually. Importantly, a large benchmark repository consisting of competition questions is available. This is made possible due to the standard input format of the tools: all accept input in the C language. Other efforts to standardise benchmark repositories for software verification tools are discussed in the next subsection.  
 
 \subsubsection{Benchmark Repositories}
 
-The need for a standard set of benchmarks for the diverse range of verification systems is identified as an important goal for the advancement of formal methods as a software engineering discipline \cite{Dagstuhl}.   in the  a recurring issue in the literature \cite{Dagstuhl}. The benefits of such a benchmark suite are identified by the SMTLIB \cite{SMTLIB} project. The performance of SMT solvers has significantly improved in recent years due in part to the standardisation of an input language and the use of standard benchmark programs in  competitions \cite{SMTEVAL2013}\cite{SVCOMP}. The TPTP (Thousands of Problems for Theorem Provers) project \cite{TPTP} has similar aims but a wider scope: targeting theorem provers which specialise in numerical problems as well as general-purpose SAT and SMT solvers. The TPTP library is specifically designed for the rigorous experimental comparison of solvers \cite{Sutcliffe200139}.
+The need for a standard set of benchmarks for the diverse range of verification systems was identified by a number of participants in the week-long seminar at Dagstuhl \cite{Dagstuhl} in 2014. The series of workshops and events brought the model-checking and SV system communities together. Qualitative, repeatable comparative evaluation agreed as an important goal for formal methods to advance as a software engineering discipline. 
+
+The benefits of such a benchmark suite are identified by the SMTLIB \cite{SMTLIB} project. The performance of SMT solvers has significantly improved in recent years due in part to the standardisation of an input language and the use of standard benchmark programs in  competitions \cite{SMTEVAL2013}\cite{SVCOMP}. The TPTP (Thousands of Problems for Theorem Provers) project \cite{TPTP} has similar aims but a wider scope: targeting theorem provers which specialise in numerical problems as well as general-purpose SAT and SMT solvers. The TPTP library is specifically designed for the rigorous experimental comparison of solvers \cite{Sutcliffe200139}. Problems written in the TPTP format can be used as input for \why.
+
+More abstract specifications are given by the VACID-0 project \cite{Leino10vacid-0:verification}. 
 
 \subsubsection{Proof Engineering}
 \label{sub:lrsvmmpe}
