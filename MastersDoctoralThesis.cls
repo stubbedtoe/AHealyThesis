@@ -348,9 +348,9 @@ KOMA-script documentation for details.}]{fancyhdr}
 %	ABBREVIATIONS PAGE DESIGN
 %----------------------------------------------------------------------------------------
 
-\newcommand{\abbrevname}{List of Abbreviations}
+\newcommand{\abbrevname}{List of Abbreviations \& Acronyms}
 \thispagestyle{nohead}
-\providecaptionname{english,british,american}{\abbrevname}{List of Abbreviations}
+\providecaptionname{english,british,american}{\abbrevname}{List of Abbreviations \& Acronyms}
 \providecaptionname{ngerman,german,austrian,naustrian}{\abbrevname}{Abk\"urzungsverzeichnis}
 \NewDocumentEnvironment{abbreviations}{ m }{%
 	\ifbool{nolistspace}{\begingroup\singlespacing}{}
