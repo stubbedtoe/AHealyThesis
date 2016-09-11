@@ -51,6 +51,9 @@ headsepline, % Uncomment to get a line under the header
 \usepackage{tikz}
 \usetikzlibrary{shapes, backgrounds}
 
+% page number on first page of bibliography
+\renewcommand{\bibsetup}{\thispagestyle{nohead}\pagestyle{thesis}}
+
 %----------------------------------------------------------------------------------------
 %	MARGIN SETTINGS
 %----------------------------------------------------------------------------------------
@@ -262,7 +265,9 @@ The acknowledgments and the people to thank go here, don't forget to include you
 %----------------------------------------------------------------------------------------
 %	BIBLIOGRAPHY
 %----------------------------------------------------------------------------------------
+
 \printbibliography[heading=bibintoc]
+
 %----------------------------------------------------------------------------------------
 
 \end{document}  

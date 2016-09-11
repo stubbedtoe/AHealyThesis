@@ -57,21 +57,22 @@ The intersection of SV and empirical SE disciplines can be further broken into t
 \subsubsection{Software Verification Competitions}
 \label{sub:lrsvmmbench}
 
-At present, competitions provide the most prominent means of comparing systems which focus on the verification of object-oriented software. In competitions such as those held at FoVeOOS 2011 \cite{bormer:hal-00789525} and the VerifyThis series \cite{Huisman2015}, teams are given the natural-language specifications for a small number of typical SV problems. Any system can be used, with tool developers often choosing to use their own system.
-
+At present, competitions provide the most prominent means of comparing systems which focus on the verification of object-oriented software. In competitions such as those held at FoVeOOS 2011 \cite{bormer:hal-00789525} and the VerifyThis series \cite{Huisman2015}, teams are given the natural-language specifications for a small number of typical SV problems. Any system can be used, with tool developers often choosing to use their own system. Many of the \why gallery of verified programs originated from software verification competitions \cite{verifythis} 
 
 The situation for automatic program verifiers which use model-checking techniques to ensure properties (such as reachability or termination) is similar: a well-established competition, SV-COMP \cite{SVCOMP}, is held annually. Importantly, a large benchmark repository consisting of competition questions is available. This is made possible due to the standard input format of the tools: all accept input in the C language. Other efforts to standardise benchmark repositories for software verification tools are discussed in the next subsection.  
 
 \subsubsection{Benchmark Repositories}
 
-The need for a standard set of benchmarks for the diverse range of verification systems was identified by a number of participants in the week-long seminar at Dagstuhl \cite{Dagstuhl} in 2014. The series of workshops and events brought the model-checking and SV system communities together. Qualitative, repeatable comparative evaluation agreed as an important goal for formal methods to advance as a software engineering discipline. 
+The need for a standard set of benchmarks for the diverse range of verification systems was identified by a number of participants in the week-long seminar at Dagstuhl \cite{Dagstuhl} in 2014. The series of workshops and events brought the model-checking and SV system communities together. Qualitative, repeatable comparative evaluation was agreed as an important goal for formal methods to advance as a software engineering discipline. The VACID-0 \cite{Leino10vacid-0:verification} project is an attempt to maintain a repository of standard abstract specifications for deductive software verification tasks similar to those used in the VerifyThis competition.  
 
-The benefits of such a benchmark suite are identified by the SMTLIB \cite{SMTLIB} project. The performance of SMT solvers has significantly improved in recent years due in part to the standardisation of an input language and the use of standard benchmark programs in  competitions \cite{SMTEVAL2013}\cite{SVCOMP}. The TPTP (Thousands of Problems for Theorem Provers) project \cite{TPTP} has similar aims but a wider scope: targeting theorem provers which specialise in numerical problems as well as general-purpose SAT and SMT solvers. The TPTP library is specifically designed for the rigorous experimental comparison of solvers \cite{Sutcliffe200139}. Problems written in the TPTP format can be used as input for \why.
+The benefits of such a benchmark suite are identified by the SMT-LIB \cite{SMTLIB} project. The performance of SMT solvers has significantly improved in recent years due in part to the standardisation of an input language and the use of standard benchmark programs in competitions \cite{SMTEVAL2013}. \why uses the SMT-LIB language as input format for a number of SMT solvers (including CVC4, Z3, and veriT). Our previous work \cite{Healy:2016} has exploited this feature to characterise verification tasks  compared to other application domains of SMT solvers.
 
-More abstract specifications are given by the VACID-0 project \cite{Leino10vacid-0:verification}. 
+The TPTP (Thousands of Problems for Theorem Provers) project \cite{TPTP} is a benchmark repository with similar aims but a wider scope. The problems target theorem provers which specialise in numerical problems as well as general-purpose SAT and SMT solvers. The TPTP library is specifically designed for the rigorous experimental comparison of solvers \cite{Sutcliffe200139}. There has been significant development effort by \why developers to support the TPTP format in \why and to extend the TPTP language with rank-1 polymorphism \cite{why:tptp}. 
 
 \subsubsection{Proof Engineering}
 \label{sub:lrsvmmpe}
+
+The scale of formal software engineering projects has grown in recent years. The formal verification of the seL4 microkernel \cite{Klein:2014:CFV} and Thomas Hales' \textit{FlySpeck} proof of the Kepler Conjecture \cite{hales-kepler} were large and complicated engineering projects developed over a number of years. Both projects represent significant engineering efforts and produced a large volume of software artefacts in the form of \textit{proof scripts}. Aspinall and Kaliszyk \cite{Aspinall2016} suggest an adaption of the standard Chidamber and Kemerer (``C \& K'') metrics for measuring object-oriented software.     
 
 \section{Software Measurement and Metrics}
 \label{sec:lrmm}
