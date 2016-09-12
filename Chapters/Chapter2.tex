@@ -74,12 +74,11 @@ The TPTP (Thousands of Problems for Theorem Provers) project \cite{TPTP} is a be
 
 The scale of formal software engineering projects has grown in recent years. The formal verification of the seL4 microkernel \cite{Klein:2014:CFV} and Thomas Hales' \textit{FlySpeck} proof of the Kepler Conjecture \cite{hales-kepler} were large and complicated engineering projects developed over a number of years. Both projects represent significant engineering efforts and produced a large volume of software artefacts in the form of \textit{proof scripts}. Researchers applying concepts from software engineering to mangae and measure such projects call their practice ``proof engineering'' \cite{Klein2014}.
 
-Aspinall and Kaliszyk \cite{Aspinall2016} suggest adapting the standard Chidamber and Kemerer \cite{CandK} (``C\&K'') metrics commonly used tor measure object-oriented software (OOS). Both OOS and formal proofs make use of ``modules'' to package related classes and lemmas/axioms respectively. The authors use this analogy to model  and measure the dependency tree for proof modules, the module's  coupling and cohesion metrics. These metrics will be discussed further in Section \ref{sec:lrmm}.
+Both object-oriented software and formal proofs make use of ``modules'' to package related classes and lemmas/axioms respectively. Aspinall and Kaliszyk \cite{Aspinall2016} suggest that this common approach to modularity allows the standard Chidamber and Kemerer \cite{CandK} (``C\&K'') metrics to be adapted for formal SE projects. The authors use this analogy to model and measure the dependency tree for proof modules and the derivation of the module's coupling and cohesion metrics (C\&K metrics will be discussed further in Section \ref{sec:lrmm}).
 
-Other approaches measure syntactic features of the specification to derive complexity metrics. The \textit{size} of a formal proof script was found to be quadratically related to the human effort (and associated cost) of large-scale formal engineering projects \cite{CostIndicator}. 
+Other approaches measure syntactic features of the specification to derive complexity metrics. The \textit{size} of the property statement to was found to be quadratically related to the human effort (and associated cost) in large-scale formal engineering projects \cite{CostIndicator}. 
 The verification of the seL4 microkernel mentioned previously was used as the basis for this study.
        
-
 \section{Software Measurement and Metrics}
 \label{sec:lrmm}
 %also include the experimental process
