@@ -1,24 +1,28 @@
-\chapter{Experimental Methodology: Data Collection}% Main chapter title
+\chapter{Where4 System Overview and Data Collection}% Main chapter title
 
 \label{Experimental} % For referencing the chapter elsewhere, use \ref{experimental} 
 
 %----------------------------------------------------------------------------------------
 
-\section{Selection of tools and programs}
-\subsection{Selection of \textsc{SMT} solvers}
-\subsection{Selection of \why{} programs}
-\subsubsection{The logical theories used}
+%perhaps include a system diagram at this point
 
-\section{Measurement of dynamic properties}
+\section{Selection of tools and programs}
+%Container-based timings using \textit{BenchExec}
+\subsection{Selection of \textsc{SMT} solvers}
+\subsection{Selection of \why programs}
+
+\section{Independent/Predictor variables}
+\subsection{Extracting static metrics from \why proof obligation formul\ae}
+%Using the \why notion of "goal shape"
+
+\section{Dependent/Response variables}
+%Measurement of dynamic properties
 \subsection{Execution time}
-\subsubsection{Container-based timings using \textit{BenchExec}}
+%mention the rationale behind choosing 10 seconds as a reasonable time limit
 \subsubsection{Accounting for randomness with confidence intervals}
-% given a timeout limit of 10 secs, how long did each solver take (via Why3) 
 \subsection{Prover output}
 
-\section{Static metrics}
-\subsection{Using the \why{} notion of "goal shape"}
-\subsection{Extracting static metrics from \why{} proof obligation formul\ae}
+
 
 
 
