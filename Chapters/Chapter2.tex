@@ -7,7 +7,8 @@
 \where incorporates ideas from at least three separate disciplines: software verification, machine learning, and software measurement and metrics. Each of these disciplines has a considerable body of research associated with it. This chapter focusses on the intersections of the three areas while addressing to relevant literature from each individual area.
 A Venn diagram illustrating how the literature was classified is given in Figure \ref{fig:litreview}. 
 %It can be seen that the intersection of \textit{software verification} and \textit{measurement/metrics} itself contains two separate categories of interest: benchmarks and competitions in formal methods, and the relatively young field of \textit{proof engineering}.
-The rest of this chapter will review the literature associated with each segment of Figure \ref{fig:litreview} - moving clockwise from the software verification circle.
+We shall concentrate this review on Software Verification and its intersections with other domains relevant to this project; i.e. Sections \ref{sec:lrsv}, \ref{sub:lrsvmm}, \ref{sub:lrsvml}, and \ref{sub:lrsvmmml}. 
+The rest of this chapter will review the literature associated with each segment of Figure \ref{fig:litreview} - moving clockwise from the top.
 
 
 \begin{figure}
@@ -65,7 +66,7 @@ The situation for automatic program verifiers which use model-checking technique
 
 The need for a standard set of benchmarks for the diverse range of verification systems was identified by a number of participants in the week-long seminar at Dagstuhl \cite{Dagstuhl} in 2014. The series of workshops and events brought the model-checking and SV system communities together. Qualitative, repeatable comparative evaluation was agreed as an important goal for formal methods to advance as a software engineering discipline. The VACID-0 \cite{Leino10vacid-0:verification} project is an attempt to maintain a repository of standard abstract specifications for deductive software verification tasks similar to those used in the VerifyThis competition.  
 
-The benefits of such a benchmark suite are identified by the SMT-LIB \cite{SMTLIB} project. The performance of SMT solvers has significantly improved in recent years due in part to the standardisation of an input language and the use of standard benchmark programs in competitions \cite{SMTEVAL2013}. \why uses the SMT-LIB language as input format for a number of SMT solvers (including CVC4, Z3, and veriT). Our previous work \cite{Healy:2016} has exploited this feature to characterise verification tasks  compared to other application domains of SMT solvers.
+The benefits of such a benchmark suite are identified by the SMT-LIB \cite{SMTLIB} project. The performance of SMT solvers has significantly improved in recent years due in part to the standardisation of an input language and the use of standard benchmark programs in competitions \cite{SMTEVAL2013}. \why uses the SMT-LIB language as input format for a number of SMT solvers (including CVC4 \cite{CVC4}, Z3 \cite{Z3}, and veriT \cite{veriT}). Our previous work \cite{Healy:2016} has exploited this feature to characterise verification tasks  compared to other application domains of SMT solvers.
 
 The TPTP (Thousands of Problems for Theorem Provers) project \cite{TPTP} is a benchmark repository with similar aims but a wider scope. The problems target theorem provers which specialise in numerical problems as well as general-purpose SAT and SMT solvers. The TPTP library is specifically designed for the rigorous experimental comparison of solvers \cite{Sutcliffe200139}. There has been significant development effort by \why developers to support the TPTP format in \why and to extend the TPTP language with rank-1 polymorphism \cite{why:tptp}. 
 
@@ -77,12 +78,21 @@ The scale of formal software engineering projects has grown in recent years. The
 Both object-oriented software and formal proofs make use of ``modules'' to package related classes and lemmas/axioms respectively. Aspinall and Kaliszyk \cite{Aspinall2016} suggest that this common approach to modularity allows the standard Chidamber and Kemerer \cite{CandK} (``C\&K'') metrics to be adapted for formal SE projects. The authors use this analogy to model and measure the dependency tree for proof modules and the derivation of the module's coupling and cohesion metrics (C\&K metrics will be discussed further in Section \ref{sec:lrmm}).
 
 Other approaches measure syntactic features of the specification to derive complexity metrics. The \textit{size} of the property statement to was found to be quadratically related to the human effort (and associated cost) in large-scale formal engineering projects \cite{CostIndicator}. 
-The verification of the seL4 microkernel mentioned previously was used as the basis for this study.
+The verification of the seL4 microkernel mentioned previously was used as the basis for this study. The \textit{quality} of specifications for a single project (the Web-Service Definition Language) was observed over a period of time in a study by Bollin \cite{Zspecs}. In this study, the formal \textit{specifications}, written in the Z language \cite{Zlang}, were measured for their cohesion and coupling. The measurement of specifications is in contrast to the previous examples \cite{Aspinall2016, CostIndicator} which used the proof scripts. This approach is close to the method used to measure \why POs used by \where (as described in Sec. \ref{sub:extracting}).
+
+Formal specification is facilitated by the Object Constraint Language (OCL) in Unified Modelling Language (UML) models. Two studies propose complexity metrics for OCL expressions. The first \cite{TowardsOCL} uses structural metrics such as the number of operators, quantifiers, etc. A later study \cite{OCLalt}, however, takes the view that dynamically measuring the \textit{number of objects} involved in the expressions evaluation provides a more accurate measure of complexity.
+
+Proof engineering is a particularly active research area and this brief survey is not definitive. It is intended to give a flavour of work most relevant to \where.     
+ 
        
 \section{Software Measurement and Metrics}
 \label{sec:lrmm}
 %also include the experimental process
 %cite the metrics book
+The rigorous measurement of software and the definition of metrics to group and comprehend these measurements is a large area of software engineering in itself. A comprehensive overview of the topic is given in Fenton \& Pfleeger's book \cite{FentonPfleeger}. The metrics of most interest to our project, defined in Sec. \ref{sub:extracting}, are \textit{internal, structural} code-based metrics. \textit{External} metrics, meanwhile, measure how long a project is expected to take, or how much it will cost. 
+
+One particularly useful metric for measuring code complexity was defined by McCabe in 1976 \cite{McCabe}. The graph-based cyclomatic complexity of a function,  as it is defined, can be used for testing and is a size-independent and intuitive measure of the code's complexity. We used the notion of decision nodes, \cite{nuimeprn6458}   
+
 
 \subsection{Measurement and Machine Learning}
 \label{sub:lrmmml}
@@ -94,7 +104,11 @@ The verification of the seL4 microkernel mentioned previously was used as the ba
 \subsection{Verification and Machine Learning}
 \label{sub:lrsvml}
 
+The FlySpec \cite{Flyspec} corpus of proofs has been the basis for a growing number of tools integrating interactive theorem provers with machine-learning based fact-selection. The MaSh engine in Sledgehammer \cite{Sledgehammer} is a related example. It uses a Naive Bayes algorithm and clustering to select facts based on syntactic similarity. ML4PG (Machine Learning for Proof General) \cite{ML4PG} also uses clustering techniques to guide the user for interactive theorem proving.
+
 \subsection{Where4 and the intersection of all three disciplines}
 \label{sub:lrsvmmml}
+
+Portfolio-solving approaches have been implemented successfully in the SAT domain by SATzilla \cite{Satzilla} and numerous studies \cite{MUX} \cite{DPVZ15:CAV} have used the SVCOMP \cite{SVCOMP} benchmark suite of C programs for model checkers. These particular studies have been predicated on the use of Support Vector Machines (SVM) with only a cursory use of linear regression \cite{MUX}. In this respect, our project represents a more wide-ranging treatment of the various prediction models available for portfolio solving.
 
 \section{Conclusion}
