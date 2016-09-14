@@ -308,7 +308,7 @@ KOMA-script documentation for details.}]{fancyhdr}
 	\tttypeout{Dedicatory}
 	\null\vfil
 	\thispagestyle{nohead}
-	\begin{center}{\Large\slshape #1}\end{center}
+	\begin{center}{\Large #1}\end{center}
 	\vfil\null
 }
 
@@ -327,7 +327,7 @@ KOMA-script documentation for details.}]{fancyhdr}
 	\begin{center}
 	{\normalsize \MakeUppercase{\univname} \par} % University name in capitals
 	\bigskip
-	{\huge\textit{\abstractname} \par}
+	{\huge \abstractname \par}
 	\bigskip
 	{\normalsize \facname \par} % Faculty name
 	{\normalsize \deptname \par} % Department name
@@ -412,7 +412,7 @@ KOMA-script documentation for details.}]{fancyhdr}
 \checktoopen
 \tttypeout{\acknowledgementname}
 \thispagestyle{nohead}
-\begin{center}{\huge\textit{\acknowledgementname}\par}\end{center}
+\begin{center}{\huge\acknowledgementname\par}\end{center}
 }
 {
 \vfil\vfil\null
