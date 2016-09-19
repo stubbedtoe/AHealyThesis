@@ -43,13 +43,28 @@ headsepline, % Uncomment to get a line under the header
 \usepackage{palatino} % Use the Palatino font by default
 
 \usepackage[backend=bibtex]{biblatex} %,style=authoryear,natbib=true]{biblatex} % Use the bibtex backend with the authoryear citation style (which resembles APA)
+\makeatletter
+\def\blx@maxline{77}
+\makeatother
 
 \addbibresource{predicting.bib} % The filename of the bibliography
 
 \usepackage[autostyle=true]{csquotes} % Required to generate language-dependent quotes in the bibliography
 
 \usepackage{tikz}
-\usetikzlibrary{shapes, backgrounds}
+\usetikzlibrary{arrows,backgrounds,shapes,positioning,shadows,trees}
+
+\tikzset{
+	basic/.style  = {draw, text width=2cm, drop shadow, font=\sffamily, rectangle},
+	root/.style   = {basic, rounded corners=6pt, thin, align=center, fill=cyan!50},
+	level 2/.style = {basic, rounded corners=6pt, thin,align=center, fill=cyan!50, text width=6em},
+	level 3/.style = {basic, thin, align=left, fill=pink!60, text width=3.5em}
+}
+\usepackage{pifont}
+\usepackage[]{algorithm2e}
+\newcommand{\midbar}{\tikz[overlay] \draw (-.5em,.8em)--(-.5em,0em);}
+\newcommand{\upbar}{\tikz[overlay] \draw (-.5em,1em)--(-.5em,0em);}
+\newcommand{\downbar}{\tikz[overlay] \draw (-.5em,.8em)--(-.5em,-1em);}
 
 % page number on first page of bibliography
 \renewcommand{\bibsetup}{\thispagestyle{nohead}\pagestyle{thesis}}
