@@ -224,8 +224,8 @@
 \providepairofpagestyles{thesisSimple}{%
 \clearpairofpagestyles%
 \automark[chapter]{chapter}
-\ohead{\headmark}
-\ihead{A. Healy}
+\ohead{\rightmark}
+\ihead{}
 \ifoot{}% Inner footer
 \cfoot{\pagemark} % central 
 \ofoot{}% Outer footer
@@ -234,6 +234,7 @@
 \providepairofpagestyles[thesisSimple]{thesis}{%
 \automark*[section]{}%
 \cfoot{\pagemark} % central  
+\KOMAoption{headsepline}{true}
 }
 \providepairofpagestyles[thesisSimple]{nohead}{
 \ohead{}
@@ -246,7 +247,8 @@
 	\cfoot{\pagemark} % central 
 }
 \pagestyle{thesis}
-\ifbool{headsepline}{\KOMAoption{headsepline}{true}}{}
+\KOMAoption{headsepline}{true}
+%\ifbool{headsepline}{\KOMAoption{headsepline}{true}}{}
 \PreventPackageFromLoading[\ClassError{\classname}{Package `fancyhdr' is
 incompatible\MessageBreak with this class}{The pagesyles are defined 
 using package `scrlayer-scrpage', please consult the\MessageBreak 

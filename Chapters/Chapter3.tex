@@ -16,11 +16,9 @@ Empirical studies require many choices to be made from the outset. In the case o
 
 In this chapter we detail the tools and data chosen to be measured and the methods used for this measurement; i.e. questions 1-5 are answered. Question 6 is answered in Chapter \ref{Prediction}. The choices made in regard to Question 7 are discussed in Chapter \ref{Implementation}. 
 
-A diagram illustrating this part of the experimental process is given in Fig. \ref{fig:Chapter3}. In Sec. \ref{sub:why3programs} the import formats supported by \why are discussed and the repository of verification programs used for training and testing purposes are introduced. The selection of SMT-solving tools considered by this study is discussed in Sec \ref{sub:smtselection}.  
+A diagram illustrating this part of the experimental process is given in Fig. \ref{fig:Chapter3}. In Sec. \ref{sub:why3programs} the import formats supported by \why are discussed and the repository of verification programs used for training and testing purposes are introduced. The selection of SMT-solving tools to be considered by this study is discussed in Sec \ref{sub:smtselection}.  
 
-The next subsection, Sec. , details the process taken to extract a number of structural code-based metrics from the proof obligations sent to the SMT solvers by \why.  
-
-The accurate measurement of SMT solver execution time is important for training data to reflect actual tool behaviour. The steps taken to ensure the response variables were statistically representative are given in Sec. . 
+The next section, Sec. \ref{sec:independant}, details the process taken to extract a number of structural code-based metrics from the proof obligations sent to the SMT solvers by \why. These metrics are the predictor variables for the \where models; otherwise known as \textit{independent} variables. The \textit{response} (or \textit{dependent}) variables are predicted by the model. The two aspects of solver behaviour we need to measure in order to accurately characterise performance are execution time and prover output. The steps taken to ensure the response variables were statistically representative are given in Sec. \ref{sec:dependant}. 
 
 \begin{figure}
 \centering
@@ -35,13 +33,34 @@ The accurate measurement of SMT solver execution time is important for training 
 \subsection{Selection of \why programs}
 \label{sub:why3programs}
 
-Due to the diverse range of input languages used by software verification systems, a standardised benchmark repository of verification programs does not yet exist \cite{Dagstuhl}.
-For our study we chose the 128 example programs included in the \textsf{Why3} distribution (version 0.87.1) as our corpus for training and testing purposes. The programs in this repository are written in WhyML, a dialect of ML with added specification syntax and verified libraries. Many of the programs are solutions to problems posed at software verification competitions such as VerifyThis \cite{verifythis}, VSTTE \cite{Klebanov2011} and COST \cite{bormer:hal-00789525}. Other programs are implementations of benchmarks proposed by the VACID-0 \cite{Leino10vacid-0:verification} initiative.   It is our assumption that these programs are a representative software verification workload. Alternatives to this dataset are discussed in Section \ref{sec:related}. 
+As we discussed in Chapter \ref{Intro}, \why was chosen for its modular architecture and ability to read from, and write to, many formats associated with software verification tools. The diversity of input languages in the SV domain was referenced in the previous chapter (Sec. \ref{sub:lrsvmmbench}, \cite{Dagstuhl}, \cite{deductiveSV}). %Among the input formats which can be parsed by \why are:
+%the why intermediate logic format
+%
+%\begin{itemize}
+%	\item \texttt{whyML}: a programming language with support for verification specifications and annotations (native)
+%	\item \texttt{why}: the intermediate logic language (native)
+%	\item \texttt{TPTP}: the  
+%	\item \texttt{Dimacs}: A standard input format for SAT solvers
+%\end{itemize} 
+Reference was also made to the lack of a standard benchmark repository for software verification systems. We chose to make use of the 128 example programs written in the WhyML programming language as our corpus for training and testing purposes. These programs are distributed with the \why software; we used version 0.87.1. Many of the programs are solutions to problems posed at software verification competitions such as VerifyThis \cite{verifythis}, VSTTE \cite{Klebanov2011} and COST \cite{bormer:hal-00789525}. Other programs are implementations of benchmarks proposed by the VACID-0 \cite{Leino10vacid-0:verification} initiative.   
+
+It is our assumption that the \why examples are representative of software verification workload. Two alternatives to this dataset are the TPTP \cite{TPTP} library and the BWARE \cite{Delahaye2014} collection of industrial proof obligations. The latter dataset consists of Atelier-B  POs translated into the TPTP format \cite{atelierB2w}. Both these datasets are not specific to the software verification domain: they include scheduling, hardware verification and numerical problems in addition to typical SV tasks. The TPTP repository is limited to first-order logic problems: inductive problems cannot be expressed. The BWARE SMT-LIB translation uses an upper-bound logic of UFNIA - this set of theories does not use arrays or real arithmetic\footnote{More information about the SMT-LIB standard for logical theories can be found at \url{http://smtlib.cs.uiowa.edu/logics.shtml} }. Both datasets are, however, much larger. The TPTP library currently consists of 20306 POs \cite{TPTPsite} - many of which are very similar to each other. There are 12,876 BWARE benchmarks. In comparison, the 128 WhyML programs produced 1048 individual proof obligations. The chosen dataset makes use of the full capabilities of the \why system: the programs include inductive problems and require the use of as many logical theories as each individual SMT solver can reason with.   
 
 \subsection{Selection of \textsc{SMT} solvers}
 \label{sub:smtselection}
 
-We used six current, general-purpose SMT solvers supported by \textsf{Why3}: Alt-Ergo \cite{AltErgo}, CVC3 \cite{CVC3}, CVC4 \cite{CVC4}, veriT\footnote{The most recent version - 201506 - is not officially supported by \why but is the only version available} \cite{veriT}, Yices\footnote{We did not use Yices2 as its lack of support for quantifiers makes it unsuitable for software verification} \cite{Yices}, and Z3 \cite{Z3}. We expanded the range of solvers to eight by also recording the results for two of the most recent major versions of two popular solvers - Alt-Ergo and Z3.
+We used six current, general-purpose SMT solvers supported by \textsf{Why3}: 
+\begin{itemize}
+	\item \textbf{Alt-Ergo} \cite{AltErgo} is a general-purpose SMT solver written in OCaml (the others in this list are written in C++). It is the most tightly-integrated solver supported by \why: it supports polymorphic types and its native input format is a previous version of the \why intermediate language. Two recent major versions, 0.95.1 and 1.01, are used by \where
+	\item \textbf{CVC3} \cite{CVC3} is the open-source SMT solver developed by the University of Iowa and New York University. We used version 2.4.1
+	\item \textbf{CVC4} \cite{CVC4} is an entirely reimplemented update of CVC3. Version 1.4 is used by \where
+	\item \textbf{veriT} \cite{veriT} is an open-source SMT solver developed by the Univerity of Lorraine, France, and the Federal University of Rio Grande do Norte, Brazil. We used the current version, 201506, which is not officially supported by \why but is the only version available.
+	\item \textbf{Yices} \cite{Yices} is developed by SRI International \footnote{\url{https://www.sri.com/}} and is free for non-commercial use. \where uses version 1.0.38 rather than Yices2 because the newer implementation does not support quantifiers - making it unsuitable for SV.  
+\end{itemize}
+
+The reasoning behind using two versions of Alt-Ergo and Z3 can be explained
+
+\footnote{We did not use Yices2 as its lack of support for quantifiers makes it unsuitable for software verification} , and Z3 \cite{Z3}. We expanded the range of solvers to eight by also recording the results for two of the most recent major versions of two popular solvers - Alt-Ergo and Z3.
 
 
 \begin{figure}
@@ -51,19 +70,18 @@ We used six current, general-purpose SMT solvers supported by \textsf{Why3}: Alt
 	\label{fig:barcharts}
 \end{figure}
 
-When a solver is sent a goal by \textsf{Why3}, it returns an answer $A$ where $A$ is one of $\lbrace Valid,Invalid,Unknown,Timeout,Failure \rbrace$. As can be seen from Table \ref{table:avgtimes} and Fig. \ref{fig:barcharts}, not all goals can be proved Valid or Invalid. Such goals usually require the use of an interactive theorem prover to discharge goals that have been inductively defined. Sometimes a splitting transformation needs to be applied to simplify the goals before they are sent to the solver. Our tool does not perform any transformations to goals other than those defined by the solver's \textsf{Why3} driver file. In other cases, more time or memory resources need to be allocated in order to return a conclusive result. We address the issue of resource allocation in Section \ref{sec:independant}.     
-
-
-\subsection{Problem Quantification: predictor and response variables}
-
-Two sets of data need to be gathered in supervised machine learning \cite{Mitchell}: the independent/predictor variables which are used as input for both training and testing phases, and the dependent/response variables which correspond to ground truths during training. Of the 128 programs in our dataset, 25\% were held back for system evaluation (Section \ref{sec:eval}). The remaining 75\% (corresponding to 96 WhyML programs, 768 goals) were used for training and 4-Fold cross-validation.
+When a solver is sent a goal by \textsf{Why3}, it returns an answer $A$ where $A$ is one of $\lbrace Valid,Invalid,Unknown,Timeout,Failure \rbrace$. As can be seen from Table \ref{table:avgtimes} and Fig. \ref{fig:barcharts}, not all goals can be proved Valid or Invalid. Such goals usually require the use of an interactive theorem prover to discharge goals that have been inductively defined. Sometimes a splitting transformation needs to be applied to simplify the goals before they are sent to the solver. Our tool does not perform any transformations to goals other than those defined by the solver's \textsf{Why3} driver file. In other cases, more time or memory resources need to be allocated in order to return a conclusive result. We address the issue of resource allocation in the next section.     
 
 \section{Independent/Predictor variables}
 \label{sec:independant}
 
+In supervised machine learning terms, these variables represent the known properties of the item from which we want to derive a prediction (in the present case, this item is a computer program). 
+The predictor variables  
+
 \subsection{Extracting static metrics from \why proof obligation formul\ae}
 \label{sub:extracting}
 %Using the \why notion of "goal shape"
+
 Fig. \ref{fig:types} lists the predictor variables that were used in our study.  All of these are (integer-valued) metrics that can be calculated by analysing the \textsf{Why3} goal statement, and are similar to the \textit{Syntax} metadata category for proof obligations written in the TPTP format \cite{TPTP}. To construct a feature vector from each task sent to the solvers, we traverse the abstract syntax tree (AST) for each goal and lemma, counting the number of each syntactic feature we find on the way. We ignore the other contextual features such as axiom and predicate definitions as these are not sent to the solver. 
 
 Our feature extraction algorithm has similarities in this respect to the method used by \textsf{Why3} for computing goal ``shapes'' \cite{why:preserving}. These shape strings are used internally by \textsf{Why3} as an identifying fingerprint. Across proof sessions, their use can limit the amount of goals in a file which need to be re-proved.   
