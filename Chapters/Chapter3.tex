@@ -53,20 +53,18 @@ We used six current, general-purpose SMT solvers supported by \textsf{Why3}:
 \begin{itemize}
 	\item \textbf{Alt-Ergo} \cite{AltErgo} is a general-purpose SMT solver written in OCaml (the others in this list are written in C++). It is the most tightly-integrated solver supported by \why: it supports polymorphic types and its native input format is a previous version of the \why intermediate language. Two recent major versions, 0.95.1 and 1.01, are used by \where
 	\item \textbf{CVC3} \cite{CVC3} is the open-source SMT solver developed by the University of Iowa and New York University. We used version 2.4.1
-	\item \textbf{CVC4} \cite{CVC4} is an entirely reimplemented update of CVC3. Version 1.4 is used by \where
+	\item \textbf{CVC4} \cite{CVC4} is an entirely re-implemented update to CVC3. Version 1.4 is used by \where
 	\item \textbf{veriT} \cite{veriT} is an open-source SMT solver developed by the Univerity of Lorraine, France, and the Federal University of Rio Grande do Norte, Brazil. We used the current version, 201506, which is not officially supported by \why but is the only version available.
-	\item \textbf{Yices} \cite{Yices} is developed by SRI International \footnote{\url{https://www.sri.com/}} and is free for non-commercial use. \where uses version 1.0.38 rather than Yices2 because the newer implementation does not support quantifiers - making it unsuitable for SV.  
+	\item \textbf{Yices} \cite{Yices} is developed by SRI International\footnote{\url{https://www.sri.com/}} and is free for non commercial use. \where uses version 1.0.38 rather than Yices2 because the newer implementation does not support quantifiers - making it unsuitable for SV.  
+	\item \textbf{Z3} \cite{Z3} is the SMT solver developed at Microsoft Research. The source code has be available in 2012 and it has been open-source since 2015. \where uses two versions: 4.3.2 an 4.4.1 
 \end{itemize}
 
-The reasoning behind using two versions of Alt-Ergo and Z3 can be explained
-
-\footnote{We did not use Yices2 as its lack of support for quantifiers makes it unsuitable for software verification} , and Z3 \cite{Z3}. We expanded the range of solvers to eight by also recording the results for two of the most recent major versions of two popular solvers - Alt-Ergo and Z3.
-
+Using two versions of Alt-Ergo and Z3 affords the users more flexibility in their local SMT solver installation. We describe the process \where uses to find and use supported SMT solvers in more detail in Chapter \ref{Implementation}. 
 
 \begin{figure}
 	\centering
 	\includegraphics[width=0.8\linewidth]{barcharts}
-	\caption{The relative amount of Valid / Unknown / Timeout / Failure answers from the eight SMT solvers (with a timeout of 60 seconds). Note that no tool returned an answer of Invalid for any of the 1048 proof obligations.}
+	\caption[The relative amount of Valid / Unknown / Timeout / Failure answers from the eight SMT solvers]{The relative amount of Valid / Unknown / Timeout / Failure answers from the eight SMT solvers (with a timeout of 60 seconds). Note that no tool returned an answer of Invalid for any of the 1048 proof obligations.}
 	\label{fig:barcharts}
 \end{figure}
 

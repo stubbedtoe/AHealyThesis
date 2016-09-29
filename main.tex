@@ -42,11 +42,12 @@ headsepline, % Uncomment to get a line under the header
 
 \usepackage{palatino} % Use the Palatino font by default
 
-\usepackage[backend=bibtex]{biblatex} %,style=authoryear,natbib=true]{biblatex} % Use the bibtex backend with the authoryear citation style (which resembles APA)
+\usepackage[maxbibnames=10,backend=bibtex]{biblatex} %,,natbib=true]{biblatex} % Use the bibtex backend with the authoryear citation style (which resembles APA)
 \makeatletter
 \def\blx@maxline{77}
 \makeatother
 
+%\bibliographystyle{splncs03}
 \addbibresource{predicting.bib} % The filename of the bibliography
 
 \usepackage[autostyle=true]{csquotes} % Required to generate language-dependent quotes in the bibliography
@@ -64,6 +65,10 @@ headsepline, % Uncomment to get a line under the header
 \usepackage[]{algorithm2e}
 \usepackage{amssymb}
 \usepackage{amsmath}
+\usepackage{tabularx,multicol,multirow}
+\usepackage{booktabs}
+\usepackage{adjustbox}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X} 
 \newcommand{\midbar}{\tikz[overlay] \draw (-.5em,.8em)--(-.5em,0em);}
 \newcommand{\upbar}{\tikz[overlay] \draw (-.5em,1em)--(-.5em,0em);}
 \newcommand{\downbar}{\tikz[overlay] \draw (-.5em,.8em)--(-.5em,-1em);}
@@ -229,6 +234,7 @@ The acknowledgments and the people to thank go here, don't forget to include you
 \textbf{DSL} & \textbf{D}omain-\textbf{S}pecific \textbf{L}anguage \\
 \textbf{IDE} & \textbf{I}ntegrated \textbf{D}evelopment \textbf{E}nvironment \\
 \textbf{ITP} & \textbf{I}nteractive \textbf{T}heorem \textbf{P}rover \\
+\textbf{IVL} & \textbf{I}ntermediate \textbf{V}erification \textbf{L}anguage \\
 \textbf{ML} & \textbf{M}achine \textbf{L}earning \\
 \textbf{PO} & \textbf{P}roof \textbf{O}bligation \\
 \textbf{SAT} & \textbf{Sat}isfiability \\

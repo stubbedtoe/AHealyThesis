@@ -6,9 +6,16 @@
 
 \where incorporates ideas from at least three separate disciplines: software verification, machine learning, and software measurement and metrics. Each of these disciplines has a considerable body of research associated with it.
 A Venn diagram illustrating how the literature was classified is given in Figure \ref{fig:litreview}. 
-%It can be seen that the intersection of \textit{software verification} and \textit{measurement/metrics} itself contains two separate categories of interest: benchmarks and competitions in formal methods, and the relatively young field of \textit{proof engineering}.
 We shall concentrate this review on Software Verification and its intersections with other domains relevant to this project; i.e. Sections \ref{sec:lrsv}, \ref{sub:lrsvmm}, \ref{sub:lrsvml}, and \ref{sub:lrsvmmml}. 
-The rest of this chapter will review the literature associated with each segment of Figure \ref{fig:litreview} - moving clockwise from the top.
+The rest of this chapter will review the literature associated with each segment of Figure \ref{fig:litreview} - moving clockwise from the top. 
+Each subsection in this review was approached with a question:
+\begin{itemize}
+	\item[\ref{sec:lrsv}] What does the SV tool landscape look like in terms of interoperability?
+	\item[\ref{sub:lrsvmmbench}] How 
+	\item[\ref{sub:lrsvmmrepros}] Does a standardised suite of benchmark programs exist for the comparison of deductive SV tools?
+	\item[\ref{sub:lrsvmmpe}] How have concepts from traditional SE been applied to large-scale SV projects? 
+	
+\end{itemize}
 
 
 \begin{figure}
@@ -51,30 +58,59 @@ The diversity of languages and formalisms has been matched by an increase in sof
 \subsection{Measurement and Metrics in Software Verification}
 \label{sub:lrsvmm}
 
-With the diversity of approaches currently in use in the SV domain, experimental software measurement concepts and techniques must be introduced for the rigorous evaluation, comparison, and characterisation of software. These techniques are usually employed in the general software engineering domain and have been adapted for the specific concerns of formal methods. 
+With the diversity of languages, formats, and approaches currently in use in the SV domain, experimental software measurement concepts and techniques must be introduced for the rigorous evaluation, comparison, and characterisation of software. These techniques are usually employed in the general software engineering domain and have been adapted for the specific concerns of formal methods. 
 
-The intersection of SV and empirical SE disciplines can be further broken into the three subsections to follow.      
+The intersection of SV and empirical SE disciplines can be further broken into the two subsections to follow. 
+Benchmark repositories and tool competitions have proven to be important as a means of evaluation and improvement among SV communities. A number of large-scale SV projects, meanwhile, have necessitated the adaptation of established SE metrics and methodologies.         
+ 
+\begin{table}
+	\caption[Summary of SV Benchmark sources]{Summary of SV Benchmark sources}
+	\begin{adjustbox}{angle=90}  
+	\begin{tabularx}{0.9\textheight}{@{}Y|Y|Y|Y|Y|Y|c@{}}
+		\toprule
+		\textsc{Benchmark Source} & \textsc{Target Domain} &  \textsc{Example tools} & \textsc{Input format} & \textsc{Size} & \textsc{Website} \linebreak \small{(last visited 28/9/16)} & \textsc{Reference} \\
+		\midrule
+		\midrule
+		VerifyThis & Program Verification Systems & \why, Dafny, Spec\#, VeriFast, KIV & Natural Language and Pseudo Code & 33 & \href{http://www.verifythis.org/challenge-db}{verifythis.org} & \cite{Huisman2015} \\ 
+		\midrule
+		VSTTE Incremental Benchmarks & Program Verification Systems & \why, Dafny, RESOLVE & Natural Language & 8 & - & \cite{Weide2008} \\ 
+		\midrule
+		VACID-0 & Program Verification Systems & \why, Dafny, KeY, VCC, Coq & Natural Language and Pseudo Code & 5 & - & \cite{Leino10vacid-0:verification} \\
+		\midrule
+		SMT-LIB & SMT solvers & Z3, CVC4, Yices2, veriT, Alt-Ergo & SMT-LIB v2 & > 100,000 POs & \href{http://smtlib.cs.uiowa.edu/benchmarks.shtml}{smtlib.org} & \cite{BarFT-SMTLIB} \\
+		\midrule
+		TPTP & ATPs and SMT solvers & \why, Eprover, Beagle, CVC3, CVC4 & TPTP & 12,933 POs & \href{http://www.cs.miami.edu/~tptp}{tptp.org} & \cite{SS98} \\
+		\midrule
+		SV-COMP & ATPs and model-checkers & AProVE, BLAST, CPAchecker & C & 6661 files & \href{http://sv-comp.sosy-lab.org}{sv-comp.sosy-lab.org} & \cite{SVCOMP} \\   
+		\midrule
+		The \why examples & Program verification through \why & \why and its supported back-ends & WhyML & 128 programs, 1048 POs & \href{http://tocatta.lri.fr/gallery/why3.en.html}{toccata.lri.fr} & \cite{verifythis, tafat:inria-00636083} \\
+		\bottomrule	
+		
+	\end{tabularx}
+	\end{adjustbox}
+	\label{table:benchmarks}
+\end{table}
 
-\subsubsection{Software Verification Competitions}
+
+\subsubsection{Software Verification Competitions and Benchmark Repositories}
 \label{sub:lrsvmmbench}
 
-At present, competitions provide the most prominent means of comparing systems which focus on the verification of object-oriented software. In competitions such as those held at FoVeOOS 2011 \cite{bormer:hal-00789525} and the VerifyThis series \cite{Huisman2015}, teams are given the natural-language specifications and pseudo-code for a small number of typical SV problems. Any system can be used, with tool developers often choosing to compete using their own system. Many of the \why gallery of verified programs originated from software verification competitions \cite{verifythis, tafat:inria-00636083} . 
+At present, competitions provide the most prominent means of comparing systems which focus on the verification of object-oriented software. In competitions such as those held at FoVeOOS 2011 \cite{bormer:hal-00789525} and the VerifyThis series \cite{Huisman2015}, teams are given the natural-language specifications and pseudo-code for a small number of typical SV problems. Any system can be used, with tool developers often choosing to compete using their own system. Teams are judged on the correctness, completeness and elegance of their implementations. Previous challenges have been based on a set of 8 incremental benchmarks for software verification tools proposed by Weide et al. at VSTTE 2008 \cite{Weide2008}. The \why development team are regular competitors at VerifyThis and some of the standard \why examples are refined versions of solutions submitted at the competition \cite{verifythis}.
 
-The competitive environment for automatic program verifiers (which use model-checking techniques to ensure properties such as reachability or termination) is similar: a well-established competition, SV-COMP \cite{Beyer2016, SVCOMP}, is held annually. Importantly, a large, publicly-available\footnote{\url{https://github.com/sosy-lab/sv-benchmarks}} benchmark repository consisting of 6661 programs  has been developed using these competition questions. It is possible to maintain such a repository due to the standard input format of the tools which all accept input in the C language. Other efforts to standardise benchmark repositories for software verification tools are discussed in the next subsection.  
+%  Many of the \why gallery of verified programs originated from software verification competitions \cite{verifythis, tafat:inria-00636083}.  
 
-\subsubsection{Benchmark Repositories}
+SV-COMP \cite{Beyer2016, SVCOMP} is a well-established annual competition for automatic program verifiers. The tools use static analysis and model-checking techniques to ensure properties such as reachability or termination. Tools can choose to compete in a subset of categories: e.g. if the tool is stronger at verifying termination rather compete in   Importantly, a large, publicly-available benchmark repository consisting of 6661 programs  has been developed using these competition questions. It is possible to maintain such a repository due to the standard input format of the tools which all accept input in the C language. Other efforts to standardise benchmark repositories for software verification tools are discussed in the next subsection and summarised in Table \ref{table:benchmarks}.  
 
-The need for a standard set of benchmarks for the diverse range of verification systems was identified by a number of participants in the week-long seminar at Dagstuhl \cite{Dagstuhl} in 2014. The series of workshops and events brought the model-checking and SV system communities together. Qualitative, repeatable comparative evaluation was agreed as an important goal if deductive software verification is to advance as an engineering discipline. The VACID-0 \cite{Leino10vacid-0:verification} project is an attempt to maintain a repository of standard abstract specifications for deductive software verification tasks similar to those used in the VerifyThis competition.  
+The need for a standard set of benchmarks for the diverse range of verification systems was identified by a number of participants in the week-long seminar at Dagstuhl \cite{Dagstuhl} in 2014. The series of workshops and events brought the model-checking and SV system communities together. Qualitative, repeatable comparative evaluation was agreed as an important goal if deductive software verification is to advance as an engineering discipline. Following on form the 8 incremental benchmarks proposed at VSTTE referenced in the previously, the VACID-0 \cite{Leino10vacid-0:verification} project is another attempt to maintain a repository of standard abstract specifications for verified data structures and operations similar to those used in the VerifyThis competition. The VACID-0 benchmarks also include a marking scheme to identify the most important aspects of the specification to verify.
 
-The benefits of such a benchmark suite are evidenced by the SMT-LIB \cite{SMTLIB} project. The performance of SMT solvers has significantly improved in recent years due in part to the standardisation of an input language and the use of standard benchmark programs in competitions \cite{SMTEVAL2013}. \why uses the SMT-LIB language as input format for a number of SMT solvers (including CVC4 \cite{CVC4}, Z3 \cite{Z3}, and veriT \cite{veriT}). 
-%Our previous work \cite{Healy:2016} has exploited this feature to characterise verification tasks  compared to other application domains of SMT solvers.
+In addition to SV-COMP, the benefits of a large benchmark suite written in a common input language are evidenced by the SMT-LIB \cite{SMTLIB} project. The performance of SMT solvers has significantly improved in recent years due in part to the standardisation of an input language and the use of standard benchmark programs in competitions \cite{SMTEVAL2013}. \why includes a SMT-LIB printer and uses the format for a number of SMT solvers (including CVC4, Z3, and veriT). Our previous work \cite{Healy:2016} has exploited this feature: verification tasks were compared to other application domains of SMT solvers using the SMT-LIB repository as a data source.
 
 The TPTP (Thousands of Problems for Theorem Provers) project \cite{TPTP} is a benchmark repository with similar aims to SMT-LIB but a wider scope. The problems target theorem provers which specialise in numerical problems as well as general-purpose SAT and SMT solvers. The TPTP library is specifically designed for the rigorous experimental comparison of solvers \cite{Sutcliffe200139}. There has been significant development effort by \why developers to support the TPTP format in \why and to extend the TPTP language with rank-1 polymorphism \cite{why:tptp}. 
 
 \subsubsection{Proof Engineering}
 \label{sub:lrsvmmpe}
 
-The scale of formal software engineering projects has grown in recent years. The formal verification of the seL4 microkernel \cite{Klein:2014:CFV} and Thomas Hales' \textit{FlySpeck} proof of the Kepler Conjecture \cite{hales-kepler} are large and complicated engineering projects developed over a number of years. Both projects represent significant engineering efforts - it is estimated that the seL4 verification took 25 person-years of work - and produced a large volume of software artefacts in the form of \textit{proof scripts}. Researchers applying concepts from software engineering to manage and measure such projects call their practice ``proof engineering'' \cite{Klein2014}.
+The scale of formal software engineering projects has grown in recent years. The formal verification of the seL4 microkernel \cite{Klein:2014:CFV} and Thomas Hales' \textit{FlySpeck} proof of the Kepler Conjecture \cite{hales-kepler} are large and complicated engineering projects developed over a number of years. Both projects represent significant engineering efforts - it is estimated that the seL4 verification took 25 person-years of work - and produced a large volume of software artefacts in the form of \textit{proof scripts}. Researchers applying concepts from software engineering to manage and measure such projects call their practice ``proof engineering'' \cite{Klein2014}. Proof engineering is has become an active research area in recent years. 
 
 Both object-oriented software and formal proofs make use of ``modules'' to package related classes and lemmas/axioms respectively. Aspinall and Kaliszyk \cite{Aspinall2016} suggest that this common approach to modularity allows the standard Chidamber and Kemerer \cite{CandK} (CK) metrics to be adapted for formal SE projects. The authors use this analogy to model and measure the dependency tree for proof modules and the derivation of the module's coupling and cohesion metrics (CK metrics will be discussed further in Section \ref{sec:lrmm}).
 
@@ -83,20 +119,33 @@ Other approaches measure syntactic features of the specification to derive compl
 The \textit{quality} of specifications for a single project (the Web-Service Definition Language) was observed over a period of time in a study by Bollin \cite{Zspecs}. In this study, the formal specifications, written in the Z language \cite{Zlang}, were measured for their cohesion and coupling. The measurement of specifications is in contrast to the previous examples \cite{Aspinall2016, CostIndicator} which used the proof scripts.
 % This approach is close to the method used to measure \why POs used by \where (as described in Sec. \ref{sub:extracting}).
 
-Formal specification is facilitated by the Object Constraint Language (OCL) in Unified Modelling Language models. Two studies propose complexity metrics for OCL expressions. The first \cite{TowardsOCL} uses structural metrics such as the number of operators, quantifiers, etc. A later study \cite{OCLalt}, however, takes the view that dynamically measuring the \textit{number of objects} involved in the expressions evaluation provides a more accurate measure of complexity.
+The proof obligation formul\ae~ used by \where are more similar to specifications than to the proof scripts used in interactive theorem proving.  
+Formal specification is facilitated by the Object Constraint Language (OCL) in Unified Modelling Language models. 
+Two studies propose complexity metrics for OCL expressions. 
+The first \cite{TowardsOCL} uses structural metrics such as the number of operators, quantifiers, etc. 
+A later study \cite{OCLalt}, however, takes the view that dynamically measuring the \textit{number of objects} involved in the expressions evaluation provides a more accurate measure of complexity. 
+As this second approach is more specific to object-oriented software, we chose to use mostly structural metrics as input features for \where.
 
-Proof engineering is a particularly active research area and this brief survey is not definitive. It is intended to give a flavour of work most relevant to \where.     
- 
+The application of SE concepts to large-scale SV projects provides an emerging set of metrics by which we can characterise formal software artefacts.   
+The appropriate selection of independent variables is important for all machine learning tasks (we return to our choice of independent variables in Sec. \ref{sec:independant}). 
        
 \section{Software Measurement and Metrics}
 \label{sec:lrmm}
-%also include the experimental process
-%cite the metrics book
-The rigorous measurement of software and the definition of metrics to group and comprehend these measurements is a large area of software engineering in itself. A comprehensive overview of the topic is given in Fenton \& Pfleeger's book \cite{FentonPfleeger}. The metrics of most interest to our project are \textit{internal, structural} code-based metrics. Those introduced in Sec. \ref{sub:extracting} are of this type.
 
-We have previously made reference to CK metrics in this chapter. This metric suite was developed in response to the popularity of object-oriented SE practices. Weighted Methods per Class, Depth of Inheritance Tree and Coupling Between Object classes are examples of some CK metrics. The suite has been relatively successful for prediction of maintenance effort \cite{LiHenry}. 
+The selection of independent variables used by \where was guided by the research discussed in the previous section.
+The rigorous measurement of software and the definition of metrics to group and comprehend these measurements is vital for the accurate prediction of a project's development schedule, cost, lines of code, etc. 
+A comprehensive overview of the topic is given in Fenton \& Pfleeger's book \cite{FentonPfleeger}. 
+The metrics of most interest to our project are \textit{internal, structural} code-based metrics. 
+Those introduced in Sec. \ref{sec:independant} are of this type.
 
-One particularly useful metric for measuring code complexity was defined by McCabe in 1976 \cite{McCabe}. The graph-based cyclomatic complexity of a function is a size-independent and intuitive measure of the code's complexity. It has proved useful in unit-testing scenarios \cite{McCabeTesting}. It is also used to estimate \textit{external} metrics such as how long a project is expected to take, or how much it will cost.  McCabe's complexity metric has previously been adapted for use in measuring the complexity of context-free grammars \cite{nuimeprn6458}. We mapped McCabe's use of decision nodes to the number of conditional operators in \why PO formul\ae.
+We have previously made reference to CK metrics in this chapter. 
+The CK metric suite was developed in response to the popularity of object-oriented SE practices. 
+Weighted Methods per Class, Depth of Inheritance Tree and Coupling Between Object classes are examples of some CK metrics. 
+As an example of its use, the suite has been relatively successful for prediction of maintenance effort \cite{LiHenry}. 
+As our POs are taken as simple, stand-alone formul\ae, (rather than being organised in classes or modules) we do not use CK metrics. 
+This is in contrast to the projects using interactive proof scripts discussed in the previous subsection. 
+
+One particularly useful metric for measuring code complexity was defined by McCabe in 1976 \cite{McCabe}. The graph-based cyclomatic complexity of a function is a size-independent and intuitive measure of the code's complexity. It has proved useful in unit-testing scenarios \cite{McCabeTesting}. It is also used to estimate \textit{external} metrics such as how long a project is expected to take, or how much it will cost.  McCabe's complexity metric has previously been adapted for use in measuring the complexity of context-free grammars \cite{nuimeprn6458}. As we discuss in the next chapter, we followed this  mapped McCabe's use of decision nodes to the number of conditional operators in \why PO formul\ae.
 
 While structural metrics such as McCabe's are statically measured, the statistically-accurate \textit{dynamic} measurement of software is important if the predicted behaviour of a program is to be related to the \textit{actual} observed behaviour. Many of the associated issues are addressed by Lilja \cite{LiljaJ} in his book on the subject. Robust experimental methods for software engineering are the subject of other major studies \cite{AdvancedESE}, including recent work by Kitchenham et al. \cite{Kitchenham2016} who propose the use of kernel density plots as a visualisation method to gain a better understanding of data distributions for empirical software engineering.
 
@@ -106,7 +155,7 @@ While structural metrics such as McCabe's are statically measured, the statistic
 
 At the intersection of software metrics, measurement, and machine learning, there has been a growing trend of using ML techniques to make predictions about SE metrics. Examples of this trend include the use of text-based clustering to predict defect resolution time \cite{Assar2016}, effort estimation using SVMs \cite{Song:2014:PBR:2639490.2639510} and the use of genetic algorithms for the efficient allocation of cloud-based resources \cite{cloudML}. In a survey on the topic, Gandotra et al. \cite{ClassificationSurvey} cite numerous examples of the use of ML classification algorithms to identify potentially dangerous or intrusive software. 
 
-Recent issues of the journals \textit{Empirical Software Engineering} contain many more articles combining the use of ML techniques and standard software metrics. A general overview to the area is given by Zhang and Tsai \cite{ML4SE}.  
+Recent issues of the journals \textit{Empirical Software Engineering} contain many more articles combining the use of ML techniques and standard software metrics. Zhang and Tsai \cite{ML4SE} edited a collection of such journal papers.  
 
 \section{Machine Learning}
 \label{sec:lrml}

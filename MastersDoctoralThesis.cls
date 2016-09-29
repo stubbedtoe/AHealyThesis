@@ -223,7 +223,7 @@
 \RequirePackage[markcase=used]{scrlayer-scrpage}
 \providepairofpagestyles{thesisSimple}{%
 \clearpairofpagestyles%
-\automark[chapter]{chapter}
+\automark[section]{chapter}
 \ohead{\rightmark}
 \ihead{}
 \ifoot{}% Inner footer
