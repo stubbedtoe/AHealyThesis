@@ -4,9 +4,12 @@
 
 %----------------------------------------------------------------------------------------
 
-\where incorporates ideas from at least three separate disciplines: software verification, machine learning, and software measurement and metrics. Each of these disciplines has a considerable body of research associated with it.
-A Venn diagram illustrating how the literature was classified is given in Figure \ref{fig:litreview}. 
-We shall concentrate this review on Software Verification and its intersections with other domains relevant to this project; i.e. Sections \ref{sec:lrsv}, \ref{sub:lrsvmm}, \ref{sub:lrsvml}, and \ref{sub:lrsvmmml}. 
+This chapter views \where as incorporating ideas from three separate disciplines: software verification, machine learning, and software measurement and metrics. 
+%Each of these disciplines has a considerable body of research associated with it.
+A Venn diagram illustrating the intersections of these disciplines and how this chapter is organised according to these intersections is given in Fig. \ref{fig:litreview}. 
+We shall concentrate this review on Software Verification and SV research incorporating concepts from the other two disciplines. 
+Where more background in associated topics outside the SV domain is required, the literature is discussed in the relevant sections (i.e. Sec. \ref{sec:lrmm} and \ref{sec:lrml}).
+
 The rest of this chapter will review the literature associated with each segment of Figure \ref{fig:litreview} - moving clockwise from the top. 
 Each subsection in this review was approached with a question:
 \begin{itemize}
@@ -24,9 +27,6 @@ Each subsection in this review was approached with a question:
 \def\firstcircle{(3cm,0cm) circle (2.5cm)}
 \def\secondcircle{(0cm,0cm) circle (2.5cm)}
 \def\thirdcircle{(1.5cm,3cm) circle (2.5cm)}
-% Suppose we have three circles or ellipses or whatever. Let us define
-% commands for their paths since we will need them repeatedly in the
-% following:
 \begin{tikzpicture}
 	
 	\draw \firstcircle node [below] {};
@@ -35,7 +35,7 @@ Each subsection in this review was approached with a question:
 	\node[align=center] at (-1cm, 0cm) {Machine\\Learning\\ \ref{sec:lrml} };
 	\node[align=center] at (1.5cm, 4cm) {Software\\Verification\\ \ref{sec:lrsv}};
 	\node[align=center] at (4cm, 0cm) {Metrics \&\\ Measurement\\ \ref{sec:lrmm}};
-	\node[align=center] at (1.5cm, 1.2cm) {\ref{sub:lrsvmmml}\\\small{(Where4)} };
+	\node[align=center] at (1.5cm, 1.2cm) {\ref{sub:lrsvmmml}\\\small{\where} };
 	\node[align=center] at (0.3cm, 1.6cm) {\ref{sub:lrsvml}};
 	\node[align=center] at (2.7cm, 1.6cm) {\ref{sub:lrsvmm}};
 	\node[align=center] at (1.5cm, -0.5cm) {\ref{sub:lrmmml}};
@@ -55,6 +55,8 @@ An overview of the \why verification system \cite{why:shephard,why:whereprovers}
 
 The diversity of languages and formalisms has been matched by an increase in software verification \textit{tools} in recent years. Filli{\^a}tre's overview of the deductive verification tool landscape \cite{deductiveSV} counts 65 tools cited or used in the five papers of a special edition of the \textit{Verified Software: Theory, Tools and Experiments} post-proceedings in 2009. Recently, there has been an effort to make these tools more interoperable. The two-dozen ATPs, ITPs and SMT solvers targeted by \why make it an attractive choice for translations: recent projects have used \why as a platform for discharging POs translated from Boogie \cite{b2w} and the B system \cite{rodinplugin,atelierB2w}. 
 
+We chose the \why system for the flexibility of its specification language, extensible driver-based architecture and potential for conducting a comparative evaluation of several theorem-proving tools.
+
 \subsection{Measurement and Metrics in Software Verification}
 \label{sub:lrsvmm}
 
@@ -64,7 +66,7 @@ The intersection of SV and empirical SE disciplines can be further broken into t
 Benchmark repositories and tool competitions have proven to be important as a means of evaluation and improvement among SV communities. A number of large-scale SV projects, meanwhile, have necessitated the adaptation of established SE metrics and methodologies.         
  
 \begin{table}
-	\caption[Summary of SV Benchmark sources]{Summary of SV Benchmark sources}
+	\caption[Summary of SV benchmark sources]{Summary of SV benchmark sources}
 	\begin{adjustbox}{angle=90}  
 	\begin{tabularx}{0.9\textheight}{@{}Y|Y|Y|Y|Y|Y|c@{}}
 		\toprule
@@ -79,7 +81,9 @@ Benchmark repositories and tool competitions have proven to be important as a me
 		\midrule
 		SMT-LIB & SMT solvers & Z3, CVC4, Yices2, veriT, Alt-Ergo & SMT-LIB v2 & > 100,000 POs & \href{http://smtlib.cs.uiowa.edu/benchmarks.shtml}{smtlib.org} & \cite{BarFT-SMTLIB} \\
 		\midrule
-		TPTP & ATPs and SMT solvers & \why, Eprover, Beagle, CVC3, CVC4 & TPTP & 12,933 POs & \href{http://www.cs.miami.edu/~tptp}{tptp.org} & \cite{SS98} \\
+		TPTP & ATPs and SMT solvers & \why, Eprover, Beagle, CVC3, CVC4 & TPTP & 20,306 POs & \href{http://www.cs.miami.edu/~tptp}{tptp.org} & \cite{SS98} \\
+		\midrule
+		BWARE & ATPs and SMT solvers & \why, Alt-Ergo, CVC3, CVC4 & TPTP / SMT-LIB v2 & 12,876 POs & \href{http://bware.lri.fr/index.php/Benchmarks}{bware.lri.fr} & \cite{Delahaye2014} \\
 		\midrule
 		SV-COMP & ATPs and model-checkers & AProVE, BLAST, CPAchecker & C & 6661 files & \href{http://sv-comp.sosy-lab.org}{sv-comp.sosy-lab.org} & \cite{SVCOMP} \\   
 		\midrule
@@ -106,6 +110,9 @@ The need for a standard set of benchmarks for the diverse range of verification 
 In addition to SV-COMP, the benefits of a large benchmark suite written in a common input language are evidenced by the SMT-LIB \cite{SMTLIB} project. The performance of SMT solvers has significantly improved in recent years due in part to the standardisation of an input language and the use of standard benchmark programs in competitions \cite{SMTEVAL2013}. \why includes a SMT-LIB printer and uses the format for a number of SMT solvers (including CVC4, Z3, and veriT). Our previous work \cite{Healy:2016} has exploited this feature: verification tasks were compared to other application domains of SMT solvers using the SMT-LIB repository as a data source.
 
 The TPTP (Thousands of Problems for Theorem Provers) project \cite{TPTP} is a benchmark repository with similar aims to SMT-LIB but a wider scope. The problems target theorem provers which specialise in numerical problems as well as general-purpose SAT and SMT solvers. The TPTP library is specifically designed for the rigorous experimental comparison of solvers \cite{Sutcliffe200139}. There has been significant development effort by \why developers to support the TPTP format in \why and to extend the TPTP language with rank-1 polymorphism \cite{why:tptp}. 
+% explain rank-1 polymorphism here
+
+
 
 \subsubsection{Proof Engineering}
 \label{sub:lrsvmmpe}

@@ -33,7 +33,7 @@ The next section, Sec. \ref{sec:independant}, details the process taken to extra
 \subsection{Selection of \why programs}
 \label{sub:why3programs}
 
-As we discussed in Chapter \ref{Intro}, \why was chosen for its modular architecture and ability to read from, and write to, many formats associated with software verification tools. The diversity of input languages in the SV domain was referenced in the previous chapter (Sec. \ref{sub:lrsvmmbench}, \cite{Dagstuhl}, \cite{deductiveSV}). %Among the input formats which can be parsed by \why are:
+As we mentioned in Chapter \ref{LitReview}, \why was chosen for its modular architecture and ability to read from, and write to, many formats associated with software verification tools. The diversity of input languages in the SV domain was referenced in the previous chapter (Sec. \ref{sub:lrsvmmbench}, \cite{Dagstuhl, deductiveSV}). %Among the input formats which can be parsed by \why are:
 %the why intermediate logic format
 %
 %\begin{itemize}
@@ -42,24 +42,61 @@ As we discussed in Chapter \ref{Intro}, \why was chosen for its modular architec
 %	\item \texttt{TPTP}: the  
 %	\item \texttt{Dimacs}: A standard input format for SAT solvers
 %\end{itemize} 
-Reference was also made to the lack of a standard benchmark repository for software verification systems. We chose to make use of the 128 example programs written in the WhyML programming language as our corpus for training and testing purposes. These programs are distributed with the \why software; we used version 0.87.1. Many of the programs are solutions to problems posed at software verification competitions such as VerifyThis \cite{verifythis}, VSTTE \cite{Klebanov2011} and COST \cite{bormer:hal-00789525}. Other programs are implementations of benchmarks proposed by the VACID-0 \cite{Leino10vacid-0:verification} initiative.   
+We refer the reader to the summary of major benchmark repositories for SV tools given in Table \ref{table:benchmarks}. 
+Given the lack of a large standard benchmark repository for software verification systems, we chose to make use of the 128 example programs written in the WhyML programming language as our corpus for training and testing purposes. 
+%The programs contain solutions to challenges from the VerifyThis competition and the VACID-0 benchmarks.
+These programs are distributed with the \why software; we used version 0.87.1. 
+Many of the programs are solutions to problems posed at software verification competitions such as VerifyThis \cite{verifythis}, VSTTE \cite{Klebanov2011} and COST \cite{bormer:hal-00789525}. 
+Other programs are implementations of benchmarks proposed by the VACID-0 \cite{Leino10vacid-0:verification} initiative.   
 
-It is our assumption that the \why examples are representative of software verification workload. Two alternatives to this dataset are the TPTP \cite{TPTP} library and the BWARE \cite{Delahaye2014} collection of industrial proof obligations. The latter dataset consists of Atelier-B  POs translated into the TPTP format \cite{atelierB2w}. Both these datasets are not specific to the software verification domain: they include scheduling, hardware verification and numerical problems in addition to typical SV tasks. The TPTP repository is limited to first-order logic problems: inductive problems cannot be expressed. The BWARE SMT-LIB translation uses an upper-bound logic of UFNIA - this set of theories does not use arrays or real arithmetic\footnote{More information about the SMT-LIB standard for logical theories can be found at \url{http://smtlib.cs.uiowa.edu/logics.shtml} }. Both datasets are, however, much larger. The TPTP library currently consists of 20306 POs \cite{TPTPsite} - many of which are very similar to each other. There are 12,876 BWARE benchmarks. In comparison, the 128 WhyML programs produced 1048 individual proof obligations. The chosen dataset makes use of the full capabilities of the \why system: the programs include inductive problems and require the use of as many logical theories as each individual SMT solver can reason with.   
+It is our assumption that the \why examples are representative of software verification workload. Two alternatives to this dataset are the TPTP \cite{TPTP} library and the BWARE \cite{Delahaye2014} collection of industrial proof obligations. The latter dataset consists of Atelier-B  POs translated into the TPTP format \cite{atelierB2w}. Both these datasets are not specific to the software verification domain: they include scheduling, hardware verification and numerical problems in addition to typical SV tasks. The TPTP repository is limited to first-order logic problems: inductive problems cannot be expressed. The BWARE SMT-LIB translation uses an upper-bound logic of UFNIA - this set of theories does not use arrays or real arithmetic\footnote{More information about the SMT-LIB standard for logical theories can be found at \url{http://smtlib.cs.uiowa.edu/logics.shtml} }. Both datasets are, however, much larger. The TPTP library currently consists of 20,306 POs \cite{TPTPsite} - many of which are very similar to each other. There are 12,876 BWARE benchmarks. In comparison, the 128 WhyML programs produced 1048 individual proof obligations. 
+
+Importantly, the chosen dataset makes use of the full capabilities of the \why system: the programs include inductive problems and require the use of as many logical theories as each individual SMT solver can reason with.   
 
 \subsection{Selection of \textsc{SMT} solvers}
 \label{sub:smtselection}
 
 We used six current, general-purpose SMT solvers supported by \textsf{Why3}: 
 \begin{itemize}
-	\item \textbf{Alt-Ergo} \cite{AltErgo} is a general-purpose SMT solver written in OCaml (the others in this list are written in C++). It is the most tightly-integrated solver supported by \why: it supports polymorphic types and its native input format is a previous version of the \why intermediate language. Two recent major versions, 0.95.1 and 1.01, are used by \where
-	\item \textbf{CVC3} \cite{CVC3} is the open-source SMT solver developed by the University of Iowa and New York University. We used version 2.4.1
-	\item \textbf{CVC4} \cite{CVC4} is an entirely re-implemented update to CVC3. Version 1.4 is used by \where
-	\item \textbf{veriT} \cite{veriT} is an open-source SMT solver developed by the Univerity of Lorraine, France, and the Federal University of Rio Grande do Norte, Brazil. We used the current version, 201506, which is not officially supported by \why but is the only version available.
-	\item \textbf{Yices} \cite{Yices} is developed by SRI International\footnote{\url{https://www.sri.com/}} and is free for non commercial use. \where uses version 1.0.38 rather than Yices2 because the newer implementation does not support quantifiers - making it unsuitable for SV.  
-	\item \textbf{Z3} \cite{Z3} is the SMT solver developed at Microsoft Research. The source code has be available in 2012 and it has been open-source since 2015. \where uses two versions: 4.3.2 an 4.4.1 
+	\item \textbf{Alt-Ergo} is a general-purpose SMT solver written in OCaml (the others in this list are written in C++). It is the most tightly-integrated solver supported by \why: it supports polymorphic types and its native input format is a previous version of the \why intermediate language. Two recent major versions, 0.95.1 and 1.01, are used by \where
+	\item \textbf{CVC3} is the open-source SMT solver developed by the University of Iowa and New York University. We used version 2.4.1
+	\item \textbf{CVC4} is an entirely re-implemented update to CVC3. Version 1.4 is used by \where
+	\item \textbf{veriT} is an open-source SMT solver developed by the Univerity of Lorraine, France, and the Federal University of Rio Grande do Norte, Brazil. We used the current version, 201506, which is not officially supported by \why but is the only version available.
+	\item \textbf{Yices} is developed by SRI International\footnote{\url{https://www.sri.com/}} and is free for non commercial use. \where uses version 1.0.38 rather than Yices2 because the newer implementation does not support quantifiers - making it unsuitable for SV.  
+	\item \textbf{Z3} is the SMT solver developed at Microsoft Research. The source code has be available in 2012 and it has been open-source since 2015. \where uses two versions: 4.3.2 an 4.4.1 
 \end{itemize}
 
-Using two versions of Alt-Ergo and Z3 affords the users more flexibility in their local SMT solver installation. We describe the process \where uses to find and use supported SMT solvers in more detail in Chapter \ref{Implementation}. 
+As Table \ref{table:solvers} shows, the six solvers use four different input formats between them - three of which are specific to the solver in question. 
+This gives some idea of the interoperability capabilities of \why and the difficulties of comparing tools with a diverse range of input languages. 
+
+Using two versions of Alt-Ergo and Z3 affords the user more flexibility in their local SMT solver installation. 
+We describe the process \where uses to find and use supported SMT solvers on a user's local machine in Chapter \ref{Implementation}. 
+
+\begin{table}
+	\caption[MT solvers supported by \where]{SMT solvers supported by \where}
+ 
+		\begin{tabularx}{\textwidth}{@{}YYYc@{}}
+			\toprule
+			\textsc{Solver} &  \textsc{Licence} & \textsc{Why3 driver output} & \textsc{Reference} \\
+			%\midrule
+			\midrule
+			Alt-Ergo & CeCILL-C & \texttt{.why}: Alt-Ergo native input format & \cite{AltErgo} \\ 
+			\midrule
+			CVC3 & Open-source & \texttt{.cvc}: CVC3 native input format & \cite{CVC3} \\
+			\midrule
+			CVC4 & BSD & \texttt{.smt}: SMT-LIB version 2 & \cite{CVC4} \\ 
+			\midrule
+			veriT & BSD & \texttt{.smt}: SMT-LIB version 2 & \cite{veriT} \\
+			\midrule
+			Yices & Non-commercial use & \texttt{.ycs}: Yices native input format & \cite{Yices} \\
+			\midrule
+			Z3 & MIT & \texttt{.smt}: SMT-LIB version 2 & \cite{Z3} \\
+			\bottomrule	
+			
+		\end{tabularx}
+	
+	\label{table:solvers}
+\end{table}
 
 \begin{figure}
 	\centering
@@ -68,21 +105,17 @@ Using two versions of Alt-Ergo and Z3 affords the users more flexibility in thei
 	\label{fig:barcharts}
 \end{figure}
 
-When a solver is sent a goal by \textsf{Why3}, it returns an answer $A$ where $A$ is one of $\lbrace Valid,Invalid,Unknown,Timeout,Failure \rbrace$. As can be seen from Table \ref{table:avgtimes} and Fig. \ref{fig:barcharts}, not all goals can be proved Valid or Invalid. Such goals usually require the use of an interactive theorem prover to discharge goals that have been inductively defined. Sometimes a splitting transformation needs to be applied to simplify the goals before they are sent to the solver. Our tool does not perform any transformations to goals other than those defined by the solver's \textsf{Why3} driver file. In other cases, more time or memory resources need to be allocated in order to return a conclusive result. We address the issue of resource allocation in the next section.     
+ 
 
 \section{Independent/Predictor variables}
 \label{sec:independant}
 
 In supervised machine learning terms, these variables represent the known properties of the item from which we want to derive a prediction (in the present case, this item is a computer program). 
-The predictor variables  
+The predictor variables must be an accurate characterisation of the program in order to be effective in the ML model. We chose to use the proof obligation goals and lemmas rather than the axioms and predicates (which tend to be repeated in POs using the same logical theories) associated with each PO. The goals and lemmas are the parts sent to the SMT solver to be proved.   
 
 \subsection{Extracting static metrics from \why proof obligation formul\ae}
 \label{sub:extracting}
 %Using the \why notion of "goal shape"
-
-Fig. \ref{fig:types} lists the predictor variables that were used in our study.  All of these are (integer-valued) metrics that can be calculated by analysing the \textsf{Why3} goal statement, and are similar to the \textit{Syntax} metadata category for proof obligations written in the TPTP format \cite{TPTP}. To construct a feature vector from each task sent to the solvers, we traverse the abstract syntax tree (AST) for each goal and lemma, counting the number of each syntactic feature we find on the way. We ignore the other contextual features such as axiom and predicate definitions as these are not sent to the solver. 
-
-Our feature extraction algorithm has similarities in this respect to the method used by \textsf{Why3} for computing goal ``shapes'' \cite{why:preserving}. These shape strings are used internally by \textsf{Why3} as an identifying fingerprint. Across proof sessions, their use can limit the amount of goals in a file which need to be re-proved.   
 
 \begin{figure}
 	\centering
@@ -146,61 +179,107 @@ Our feature extraction algorithm has similarities in this respect to the method 
 	\draw[->] (c4.195) |- (c4\value.west);
 	
 	\end{tikzpicture}
-	\caption{Tree illustrating the Why syntactic features counted individually (\textit{pink nodes}) while traversing the AST. The rectangles represent individual measures, 
-		and the rounded blue nodes represent metrics that are the sum of their children in the tree.}
+	\caption{Tree illustrating the Why syntactic features counted by traversing the AST.}
 	\label{fig:types}
 \end{figure}
 
 
+To extract the structural metrics from the logical formul\ae, we traversed the abstract syntax tree (AST) representation. 
+We made use of the \why OCaml API to do this. 
+Our approach is similar to the method used internally by \why to derive a \textit{shape} string from an interactive proof session \cite{why:preserving}. 
+The purpose of shape strings in this context is to track changes in the POs and avoid re-proving files unnecessarily. 
+The shape acts as a minimal fingerprint representing the structure of the PO formula. 
+Instead of producing a string after traversing the AST, our process simply counts the syntactic features of the formula to construct a feature vector.
 
-%\begin{table}
-%\caption{Static metrics derived from \textit{Why} goal statements}
+Fig. \ref{fig:types} lists the predictor variables that were used in our study.  
+All of these are (integer-valued) metrics that can be calculated by analysing the \textsf{Why3} goal statement, and are similar to the \textit{Syntax} metadata category for proof obligations written in the TPTP format \cite{TPTP}. 
 
-%\begin{tabularx}{\textwidth}{@{}lll@{}} 
-%\toprule
-%\textbf{Category}&\textbf{Metric}&\textbf{Explanation} \\ 
-%\midrule
-%\textsc{operators}
-%&\texttt{and}&\\ &\texttt{or}&\\ &\texttt{not}&\\ &\texttt{let}&\\ &\texttt{as} &\\ &\texttt{eps}& epsilon operator\\ &\texttt{func}&user/library function call with variable arity \\ 
-%\midrule
-%\textsc{conditions}
-%&\texttt{if}&\\ &\texttt{iff}&\\ &\texttt{imp}&implication\\ &\texttt{case}&variable arity \\
-%\midrule
-%\textsc{leaves}
-%&\texttt{var}& Bound/unbound variable \\&\texttt{true}&\\&\texttt{false}&\\&\texttt{wild}&\\&\texttt{int}&integer constant\\&\texttt{float}&floating point constant\\ 
-%\midrule
-%\textsc{quantifiers}
-%&\texttt{forall}& \\&\texttt{exists}& \\ 
-%\midrule
-%\textsc{cumulative}
-%&\texttt{divisor} & sum of types in \textsc{operators}\\
-%&\texttt{zero\_ar} & sum of \texttt{func} with an arity of 0\\
-%&\texttt{conds} & sum of types in \textsc{conditions}\\
-%&\texttt{leaves} & sum of types in \textsc{leaves} + \texttt{zero\_ar} \\
-%&\texttt{quants} & sum of types in \textsc{quantifiers}\\
-%&\texttt{size}&\texttt{divisor} + \texttt{leaves} + \texttt{conds} + \texttt{quants} - \texttt{zero\_ar} \\ 
-%&\texttt{ops}&(\texttt{size} - \texttt{quants} + \texttt{leaves}) \\
-%\midrule
-%\textsc{other} & \texttt{depth} & depth of the parse tree \\
-%&\texttt{avg\_arity}&(total arity of types in \textsc{operators} divided by \texttt{divisor} \\
+The features shown in pink rectangles in Fig. \ref{fig:types} are counted individually by traversing the AST. 
+The rounded blue nodes represent metrics that are the sum of their children in the tree. 
+The metrics represented by pink rectangles measure syntactic features and are self-explanatory except for the following:
+\begin{itemize}
+	\item[\textbf{zero-ar}] The number of functions which do not take any arguments (i.e. zero-arity functions)
+	\item[\textbf{depth}] The depth of the AST
+	\item[\textbf{avg-arity}] The total number of arguments for all functions which are children of the \textit{divisor} node, divided by the value of \textit{divisor}
+\end{itemize}   
 
-%\bottomrule
+\textit{Size} measures the size the expression and is the sum of \textit{ops} (the number of operators), \textit{leaves} (the number of leaf nodes in the AST), and \textit{quants} (the number of quantifiers). 
 
-%\end{tabularx}
-%\label{table:types}
-%\end{table}
+\subsubsection{Example: first\_last lemma}
+
+As a minimal illustrative example, we refer to the code listing in Fig.\ref{fig:code}. 
+This code is one of the 13 \textit{Why} proof obligation goals from the \texttt{edit\_distance.mlw} file in the \textit{Why3} examples directory. 
+The entire program verifies and algorithm which finds the ``edit distance''\footnote{\url{https://en.wikipedia.org/wiki/Edit_distance}} similarity measure between two strings.  
+Informally, this intermediate lemma checks that the same words are produced by (i) prepending a word (minus its first letter \textit{a}) with \textit{a} and (ii) appending a word (minus its last letter \textit{b}) with \textit{b}. 
+A representation of the parse tree from this lemma is shown in Fig. \ref{fig:tree}. The reader will note that the zero-arity function \textit{Nil} is a leaf node in the tree, while all other functions (\textit{Cons, =, ++, length}) and operators (\textit{and}) have an arity > 0. 
+
+Table \ref{table:examplemetrics} shows the non-zero metrics used to describe the formula for predictive purposes.
+
+\begin{figure}
+	\centering 
+	\lstinputlisting[language=ML, firstline=60, lastline=62]{edit_distance.txt}
+	\caption{ \textit{WhyML} code for the \textit{first\_last} lemma in \textit{edit\_distance.mlw}}
+	\label{fig:code}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth]{code}
+	\caption{The parse tree extracted from the \textit{first\_last} goal (Fig. \ref{fig:code})}
+	\label{fig:tree}
+\end{figure}
+
+%%
+
+% 	"and": 1.0,
+% 	"exists": 1.0,
+% 	"n_quants": 2.0,
+% 	"zero_ar": 1.0,
+% 	"n_branches": 7.0,
+% 	"n_ops": 9.0,
+% 	"var": 6.0,
+% 	"size": 17.0,
+% 	"avg_op_arity": 1.55
+% 	"forall": 1.0,
+% 	"func": 8.0,
+% 	"divisor": 9.0,
+% 	"depth": 7.0,
+
+%% 
+
+\begin{table}
+	\centering
+	\caption{Non-zero metrics calculated for \textit{first\_last}} 
+	\label{table:examplemetrics}
+	\begin{tabular}
+		{|r|r|c|r|r|c|r|r|} \hline
+		Metric&Value&&Metric&Value&&Metric&Value \\ \hline
+		\texttt{and}&1&&\texttt{exists}&1&&\texttt{forall}&1 \\ \hline
+		\texttt{var}&6&&\texttt{func}&8&&\texttt{quants}&2 \\ \hline
+		\texttt{ops}&9&&\texttt{leaves}&7&&\texttt{depth}&7 \\ \hline
+		\texttt{size}&17&&\texttt{divisor}&9&& \texttt{avg\_arity}&1.55 \\ 
+		\hline
+		\texttt{zero\_ar}&1&& & && & \\ \hline	
+	\end{tabular}
+\end{table}
+
 
 \section{Dependent/Response variables}
 %Measurement of dynamic properties
 \label{sec:dependant}
 
-Our evaluation of the performance of a solver depends on two factors: the time taken to calculate that result, and whether or not the solver had actually proven the goal.
+Our evaluation of the performance of a solver depends on two factors: the time taken to calculate that result, and the solver's output as interpreted by \why.
 
 \subsection{Execution time}
 %mention the rationale behind choosing 10 seconds as a reasonable time limit
+In order to accurately measure the time each solver takes to return an answer, we used a measurement framework specifically designed for use in competitive environments. 
+The BenchExec \cite{ Beyer2016,benchexec} framework was developed by the organisers of the SVCOMP \cite{SVCOMP} software verification competition to reliably measure CPU time, wall-clock time and memory usage of software verification tools. 
+We recorded the time spent on CPU by each SMT solver for each proof obligation. 
+
 \subsubsection{Accounting for randomness with confidence intervals}
 
-In order to accurately measure the time each solver takes to return an answer, we used a measurement framework specifically designed for use in competitive environments. The BenchExec \cite{benchexec} framework was developed by the organisers of the SVCOMP \cite{SVCOMP} software verification competition to reliably measure CPU time, wall-clock time and memory usage of software verification tools. We recorded the time spent on CPU by each SMT solver for each proof obligation. To account for random errors in measurement introduced at each execution, we used the methodology described by Lilja \cite{LiljaJ} to obtain an approximation of the true mean time. A 90\% confidence interval was used with an allowed error of $\pm$3.5\%.   
+To account for random errors in measurement introduced at each execution, we used the methodology described by Lilja \cite{LiljaJ} to obtain an approximation of the true mean time. 
+A 90\% confidence interval was used with an allowed error of $\pm$3.5\%.   
 
 
 
@@ -232,23 +311,12 @@ By satisfying ourselves with being able to record 99\% of the useful responses w
 \end{figure}
 
 
-
-%----------------------------------------------------------------------------------------
-
-%perhaps include a system diagram at this point
-
-
 %Container-based timings using \textit{BenchExec}
-
-
-
-
-
 
 
 \subsection{Prover output}
 
-
+When a solver is sent a goal by \textsf{Why3}, it returns an answer $A$ where $A$ is one of $\lbrace Valid,Invalid,Unknown,Timeout,Failure \rbrace$. As can be seen from Table \ref{table:avgtimes} and Fig. \ref{fig:barcharts}, not all goals can be proved Valid or Invalid. Such goals usually require the use of an interactive theorem prover to discharge goals that have been inductively defined. Sometimes a splitting transformation needs to be applied to simplify the goals before they are sent to the solver. Our tool does not perform any transformations to goals other than those defined by the solver's \textsf{Why3} driver file. In other cases, more time or memory resources need to be allocated in order to return a conclusive result. We address the issue of resource allocation in the next section.    
 
 
 
