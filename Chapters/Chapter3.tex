@@ -16,9 +16,19 @@ Empirical studies require many choices to be made from the outset. In the case o
 
 In this chapter we detail the tools and data chosen to be measured and the methods used for this measurement; i.e. questions 1-5 are answered. Question 6 is answered in Chapter \ref{Prediction}. The choices made in regard to Question 7 are discussed in Chapter \ref{Implementation}. 
 
-A diagram illustrating this part of the experimental process is given in Fig. \ref{fig:Chapter3}. In Sec. \ref{sub:why3programs} the import formats supported by \why are discussed and the repository of verification programs used for training and testing purposes are introduced. The selection of SMT-solving tools to be considered by this study is discussed in Sec \ref{sub:smtselection}.  
-
-The next section, Sec. \ref{sec:independant}, details the process taken to extract a number of structural code-based metrics from the proof obligations sent to the SMT solvers by \why. These metrics are the predictor variables for the \where models; otherwise known as \textit{independent} variables. The \textit{response} (or \textit{dependent}) variables are predicted by the model. The two aspects of solver behaviour we need to measure in order to accurately characterise performance are execution time and prover output. The steps taken to ensure the response variables were statistically representative are given in Sec. \ref{sec:dependant}. 
+A diagram illustrating this part of the experimental process is given in Fig. \ref{fig:Chapter3}. 
+Verification POs undergo two processes: feature vectors based on syntax are derived statically, and the result of proving the PO using several SMT solvers are recorded. 
+For each PO in the dataset, the static feature vector is associated with the dynamic measurements for each SMT solver to form our database.
+Three quarters of the database will be used in the next chapter for training and validation of the ML models.
+The same portion be used to train the \where tool in Chapter \ref{Implementation}.
+The remaining quarter of the database forms the basis of Chapter \ref{Evaluation}'s evaluation.
+   
+In Sec. \ref{sub:why3programs} the repository of verification programs used for training and testing purposes are introduced. 
+The selection of SMT-solving tools to be considered by this study is discussed in Sec \ref{sub:smtselection}.  
+Sec. \ref{sec:independant} details the process taken to extract a number of structural code-based metrics from the proof obligations sent to the SMT solvers by \why. 
+These metrics are the predictor variables for the \where models; otherwise known as \textit{independent} variables. 
+The \textit{response} (or \textit{dependent}) variables are predicted by the model. Execution time and solver output are the two aspects of solver behaviour we need to  accurately measure in order to characterise solver performance. 
+The steps taken to ensure the response variables are statistically representative are given in Sec. \ref{sec:dependant}. 
 
 \begin{figure}
 \centering
@@ -98,20 +108,14 @@ We describe the process \where uses to find and use supported SMT solvers on a u
 	\label{table:solvers}
 \end{table}
 
-\begin{figure}
-	\centering
-	\includegraphics[width=0.8\linewidth]{barcharts}
-	\caption[The relative amount of Valid / Unknown / Timeout / Failure answers from the eight SMT solvers]{The relative amount of Valid / Unknown / Timeout / Failure answers from the eight SMT solvers (with a timeout of 60 seconds). Note that no tool returned an answer of Invalid for any of the 1048 proof obligations.}
-	\label{fig:barcharts}
-\end{figure}
-
- 
 
 \section{Independent/Predictor variables}
 \label{sec:independant}
 
 In supervised machine learning terms, these variables represent the known properties of the item from which we want to derive a prediction (in the present case, this item is a computer program). 
-The predictor variables must be an accurate characterisation of the program in order to be effective in the ML model. We chose to use the proof obligation goals and lemmas rather than the axioms and predicates (which tend to be repeated in POs using the same logical theories) associated with each PO. The goals and lemmas are the parts sent to the SMT solver to be proved.   
+The predictor variables must be an accurate characterisation of the program in order for the ML model to be effective. 
+We chose to use the proof obligation goals and lemmas rather than the axioms and predicates (which tend to be repeated in POs using the same logical theories) associated with each PO. 
+The goals and lemmas are the parts sent to the SMT solver to be proved.   
 
 \subsection{Extracting static metrics from \why proof obligation formul\ae}
 \label{sub:extracting}
@@ -205,15 +209,15 @@ The metrics represented by pink rectangles measure syntactic features and are se
 
 \textit{Size} measures the size the expression and is the sum of \textit{ops} (the number of operators), \textit{leaves} (the number of leaf nodes in the AST), and \textit{quants} (the number of quantifiers). 
 
-\subsubsection{Example: first\_last lemma}
+\subsubsection{Example: \textit{first\_last} lemma}
 
-As a minimal illustrative example, we refer to the code listing in Fig.\ref{fig:code}. 
-This code is one of the 13 \textit{Why} proof obligation goals from the \texttt{edit\_distance.mlw} file in the \textit{Why3} examples directory. 
+As a minimal illustrative example, we refer to the code listing in Fig. \ref{fig:code}. 
+This code is one of the 13 \textit{Why} proof obligation goals from the \textbf{edit\_distance.mlw} file in the \textit{Why3} examples directory. 
 The entire program verifies and algorithm which finds the ``edit distance''\footnote{\url{https://en.wikipedia.org/wiki/Edit_distance}} similarity measure between two strings.  
 Informally, this intermediate lemma checks that the same words are produced by (i) prepending a word (minus its first letter \textit{a}) with \textit{a} and (ii) appending a word (minus its last letter \textit{b}) with \textit{b}. 
-A representation of the parse tree from this lemma is shown in Fig. \ref{fig:tree}. The reader will note that the zero-arity function \textit{Nil} is a leaf node in the tree, while all other functions (\textit{Cons, =, ++, length}) and operators (\textit{and}) have an arity > 0. 
+A representation of the parse tree from this lemma is shown in Fig. \ref{fig:tree}. The reader will note that the zero-arity function \textit{Nil} is a leaf node in the tree, while all other functions (\textit{Cons, =, ++, length}) and operators (\textit{and}) have an arity of either 1 or 2. 
 
-Table \ref{table:examplemetrics} shows the non-zero metrics used to describe the formula for predictive purposes.
+Table \ref{table:examplemetrics} shows the non-zero metrics used to describe the \textit{first\_last} formula for predictive purposes.
 
 \begin{figure}
 	\centering 
@@ -224,7 +228,7 @@ Table \ref{table:examplemetrics} shows the non-zero metrics used to describe the
 
 \begin{figure}
 	\centering
-	\includegraphics[width=\textwidth]{code}
+	\includegraphics[width=0.9\textwidth]{code}
 	\caption{The parse tree extracted from the \textit{first\_last} goal (Fig. \ref{fig:code})}
 	\label{fig:tree}
 \end{figure}
@@ -268,19 +272,28 @@ Table \ref{table:examplemetrics} shows the non-zero metrics used to describe the
 %Measurement of dynamic properties
 \label{sec:dependant}
 
-Our evaluation of the performance of a solver depends on two factors: the time taken to calculate that result, and the solver's output as interpreted by \why.
+Our evaluation of the performance of a solver depends on two factors: the time taken to calculate the result, and the solver's output as interpreted by \why.
 
 \subsection{Execution time}
-%mention the rationale behind choosing 10 seconds as a reasonable time limit
+%mention the rationale behind choosing 10 seconds as a reasonable time limit   
 In order to accurately measure the time each solver takes to return an answer, we used a measurement framework specifically designed for use in competitive environments. 
-The BenchExec \cite{ Beyer2016,benchexec} framework was developed by the organisers of the SVCOMP \cite{SVCOMP} software verification competition to reliably measure CPU time, wall-clock time and memory usage of software verification tools. 
+The BenchExec \cite{ Beyer2016,benchexec} framework was developed by the organisers of the SV-COMP \cite{SVCOMP} software verification competition to reliably measure CPU time, wall-clock time and memory usage of software verification tools. 
 We recorded the time spent on CPU by each SMT solver for each proof obligation. 
 
 \subsubsection{Accounting for randomness with confidence intervals}
 
-To account for random errors in measurement introduced at each execution, we used the methodology described by Lilja \cite{LiljaJ} to obtain an approximation of the true mean time. 
-A 90\% confidence interval was used with an allowed error of $\pm$3.5\%.   
+Efforts to accurate measure execution time are hampered by random errors introduced by the experimental environment.
+To account for these errors, we used the methodology described by Lilja \cite{LiljaJ} to obtain an approximation of the true mean execution time.  
+Fig. \ref{fig:confidence} shows measurement error modelled as a standard distribution. 
+The probability that \textit{x}, the actual value being measured (i.e. the execution time for each solver to return an answer for a particular PO), is within the confidence interval ($c_1, c_2$) is $1-a$. 
+A value of 0.1 was chosen for \textit{a}, meaning we can be 90\% confident that the actual value of \textit{x} is between $c_1$ and $c_2$, with an allowed error of $\pm$3.5\%.   
 
+\begin{figure}
+\centering
+\includegraphics[width=0.6\linewidth]{Figures/confidence}
+\caption[Accounting for errors in measurement of solver execution time \textit{x}]{Accounting for errors in measurement of solver execution time \textit{x}}
+\label{fig:confidence}
+\end{figure}
 
 
 %By inspecting our data, we saw that most \textit{Valid} and \textit{Invalid} answers returned very quickly, with \textit{Unknown} answers taking slightly longer, and \textit{Failure/Timeout} responses taking longest. We took the relative utility of responses to be $Valid >$ $Invalid>Unknown>Timeout>Failure$ which can be read as ``it is better for a solver to return a \textit{Valid} response than \textit{Timeout}'', etc. A simple function allocates a cost to each solver $S$'s response to each goal $G$:
@@ -297,26 +310,66 @@ A 90\% confidence interval was used with an allowed error of $\pm$3.5\%.
 %
 %Since our cost model depends on the timeout value chosen, we need to choose a value that does not favour any one solver.  To establish a realistic timeout limit, we find each solver's ``Peter Principle Point'' \cite{Sutcliffe200139}. In resource allocation for theorem proving terms, this point can be defined as the time limit at which more resources will not lead to a significant increase in the number of goals the solver can prove. 
 
-Fig. \ref{fig:line_graph} shows the number of \textit{Valid/Invalid/Unknown} results for each prover when given a timeout value of 60 seconds. 
-This value was chosen as an upper limit, since a timeout value of 60 seconds is not realistic for most software verification scenarios.  \textsf{Why3}, for example, has a default timeout value of 5 seconds. 
-From Fig. \ref{fig:line_graph} we can see that the vast majority of useful responses are returned very quickly. 
+\subsection{Prover output}
 
-By satisfying ourselves with being able to record 99\% of the useful responses which would be returned after 60 seconds, a more reasonable threshold is obtained for each solver. This threshold ranges from 7.35 secs (veriT) to 9.69 secs (Z3-4.3.2). Thus we chose a value of 10 seconds as a representative, realistic timeout that gives each solver a fair opportunity to return decent results.     
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.8\linewidth]{barcharts}
+	\caption[The relative amount of Valid / Unknown / Timeout / Failure answers from the eight SMT solvers]{The relative amount of Valid / Unknown / Timeout / Failure answers from the eight SMT solvers (with a timeout of 60 seconds). }
+	\label{fig:barcharts}
+\end{figure}
+
+
+When a solver is sent a goal by \why, it returns an answer $A$ where $A$ is one of $\lbrace Valid,Invalid,Unknown,Timeout,Failure \rbrace$. The following definitions of these answers are taken from the \why User Manual \cite{why:manual}.  
+\begin{itemize}
+	\item[\textbf{Valid}] The goal is proved in the given context.
+	\item[\textbf{Invalid}] The prover knows the goal cannot be proved.  
+	\item[\textbf{Unknown}] The prover has stopped its search.
+	\item[\textbf{Timeout}] The prover has reached the time limit.
+	\item[\textbf{Failure}] An error has occurred. 
+\end{itemize}
+Fig. \ref{fig:barcharts} shows the relative amount of Valid / Unknown / Timeout / Failure answers from the eight SMT solvers (when given a timeout of 60 seconds). 
+Note that no tool returned an answer of Invalid for any of the 1048 proof obligations.
+Often, goals that cannot be proved Valid or Invalid have been inductively defined and usually require the use of an interactive theorem prover. 
+Sometimes a splitting transformation needs to be applied in order to simplify the goals before they are sent to the solver. 
+\where does not perform any transformations to goals other than those defined by the solver's \why driver file. 
+In other cases, more time or memory resources need to be allocated in order to return a conclusive result. 
+We address the issue of resource allocation in the next subsection.    
+
+\subsubsection{Setting a timeout limit for measurement}
+
+A solver is said to return a \textit{useful} result if it returns an answer of \textit{Valid}, \textit{Invalid} or \textit{Unknown} when given a reasonable timeout limit.
+We justify this statement by making the observation that an answer of \textit{Failure} usually means there is an error in logical translation of the PO. 
+The failing solver is not a good choice for the particular logics required to return a \textit{Valid} or \textit{Invalid} answer.
+\textit{Unknown} answers are usually identified as such very quickly therefore they do not impose a long waiting period for an answer and \where can call another solver with a minimal delay.
+By definition, \textit{Timeout} results incur the maximal time penalty.      
+Fig. \ref{fig:line_graph} shows the number of \textit{Valid/Invalid/Unknown} results for each solver when given a timeout value of 60 seconds. 
+This value was chosen as an upper limit, since a timeout value of 60 seconds is not realistic for most software verification scenarios.  
+\why, for example, has a default timeout value of 5 seconds.
+By inspecting the plot of solver answers in Fig. \ref{fig:line_graph}, we can see that the number of useful answers returned levels off very quickly. 
+From this observation we deduce that the likelihood of a \textit{Timeout} answer potentially turning into a \textit{Valid/Invalid} answer given more time is minimal.  
+%From Fig. \ref{fig:line_graph} we can see that the vast majority of useful responses are returned very quickly. 
+
+By satisfying ourselves with being able to record 99\% of the useful responses which would be returned after 60 seconds, a more reasonable threshold is obtained for each solver. This threshold ranges from 7.35 secs (veriT) to 9.69 secs (Z3-4.3.2). Thus we chose a value of 10 seconds (Fig. \ref{fig:line_graph}'s \textit{dotted vertical line}) as a representative, realistic timeout that gives each solver a fair opportunity to return decent results.     
 
 \begin{figure}
 	\centering
 	\includegraphics[width=\linewidth]{line_graph}
-	\caption{The cumulative number of \textit{Valid/Invalid/Unknown} responses for each solver. The plot uses a logarithmic scale on the time axis for increased clarity at the low end of the scale. The chosen timeout limit of 10 secs (\textit{dotted vertical line}) includes 99\% of each solver's useful responses}
+	\caption[Cumulative number of useful responses for each solver over 60 seconds]{The cumulative number of \textit{Valid/Invalid/Unknown} responses for each solver for the entire dataset of 1048 POs. The plot uses a logarithmic scale on the time axis for increased clarity at the low end of the scale.}
 	\label{fig:line_graph}
 \end{figure}
 
+\section{Conclusion}
 
-%Container-based timings using \textit{BenchExec}
+In this chapter, we have introduced the SMT solvers, training and testing dataset, predictor and response variables used by the \where model.
+The choices made in regard to the SMT solvers was dictated to a large extent by \why and its selection of drivers. 
+The dataset contains solutions to canonical SV challenges and is designed to demonstrate the specification and verification of data structures and algorithms fundamental to a wide range of applications, using the full capabilities of the \why system.
+The choice of predictor variables was influenced by the structural metrics introduced by McCabe (see Sec. \ref{sec:lrmm}), which have become established in the SE domain, and syntactic features similar to those used in TPTP library metadata. 
+The response variables of \textit{time} and \textit{result} are similar to the scoring mechanism used for SV tools in the SV-COMP \cite{SVCOMP}.
+The response variables will be combined in the next Chapter as a single value suitable for prediction by a variety of regression models.
+The material presented in this chapter is critical to how the \where model functions and forms the basis for the experiments presented in the next chapter. 
 
-
-\subsection{Prover output}
-
-When a solver is sent a goal by \textsf{Why3}, it returns an answer $A$ where $A$ is one of $\lbrace Valid,Invalid,Unknown,Timeout,Failure \rbrace$. As can be seen from Table \ref{table:avgtimes} and Fig. \ref{fig:barcharts}, not all goals can be proved Valid or Invalid. Such goals usually require the use of an interactive theorem prover to discharge goals that have been inductively defined. Sometimes a splitting transformation needs to be applied to simplify the goals before they are sent to the solver. Our tool does not perform any transformations to goals other than those defined by the solver's \textsf{Why3} driver file. In other cases, more time or memory resources need to be allocated in order to return a conclusive result. We address the issue of resource allocation in the next section.    
-
+  
 
 

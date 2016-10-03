@@ -14,7 +14,6 @@ The rest of this chapter will review the literature associated with each segment
 Each subsection in this review was approached with a question:
 \begin{itemize}
 	\item[\ref{sec:lrsv}] What does the SV tool landscape look like in terms of interoperability?
-	\item[\ref{sub:lrsvmmbench}] How 
 	\item[\ref{sub:lrsvmmrepros}] Does a standardised suite of benchmark programs exist for the comparison of deductive SV tools?
 	\item[\ref{sub:lrsvmmpe}] How have concepts from traditional SE been applied to large-scale SV projects? 
 	
@@ -123,15 +122,17 @@ Both object-oriented software and formal proofs make use of ``modules'' to packa
 
 Other approaches measure syntactic features of the specification to derive complexity metrics. The verification of the seL4 microkernel mentioned previously was used as the basis for at least two similar studies. For this large-scale SV project, the property statement \textit{size} was found to be quadratically related to the human effort (and associated cost) of development \cite{CostIndicator}. Staples et al. argue that code sizing (i.e estimating the number of lines of executable C code that will need to be written) is more strongly correlated to the size of the formal specification (both abstract and executable) than to a metric based on a notion of ``function points'' \cite{Staples:2013}.
    
-The \textit{quality} of specifications for a single project (the Web-Service Definition Language) was observed over a period of time in a study by Bollin \cite{Zspecs}. In this study, the formal specifications, written in the Z language \cite{Zlang}, were measured for their cohesion and coupling. The measurement of specifications is in contrast to the previous examples \cite{Aspinall2016, CostIndicator} which used the proof scripts.
+The \textit{quality} of specifications for a single project (the Web-Service Definition Language) was observed over a period of time in a study by Bollin \cite{Zspecs}. In this study, the formal specifications, written in the Z language \cite{Zlang}, were measured for their cohesion and coupling. The measurement of specifications is in contrast to the previous examples \cite{Aspinall2016, CostIndicator} which used the proof scripts. 
 % This approach is close to the method used to measure \why POs used by \where (as described in Sec. \ref{sub:extracting}).
 
-The proof obligation formul\ae~ used by \where are more similar to specifications than to the proof scripts used in interactive theorem proving.  
+The proof obligation formul\ae~ used by \where are more similar to specifications than to the proof scripts used in interactive theorem proving.
+While proof scripts can be thought of as being similar to conventional programs ( describing \textit{how} something is done), formal specifications are quite different: providing a precise description of \textit{what needs} to be done.
+     
 Formal specification is facilitated by the Object Constraint Language (OCL) in Unified Modelling Language models. 
 Two studies propose complexity metrics for OCL expressions. 
 The first \cite{TowardsOCL} uses structural metrics such as the number of operators, quantifiers, etc. 
 A later study \cite{OCLalt}, however, takes the view that dynamically measuring the \textit{number of objects} involved in the expressions evaluation provides a more accurate measure of complexity. 
-As this second approach is more specific to object-oriented software, we chose to use mostly structural metrics as input features for \where.
+As this second approach is more specific to object-oriented software, we chose to use mostly structural metrics as predictor variables for \where.
 
 The application of SE concepts to large-scale SV projects provides an emerging set of metrics by which we can characterise formal software artefacts.   
 The appropriate selection of independent variables is important for all machine learning tasks (we return to our choice of independent variables in Sec. \ref{sec:independant}). 
@@ -139,7 +140,8 @@ The appropriate selection of independent variables is important for all machine 
 \section{Software Measurement and Metrics}
 \label{sec:lrmm}
 
-The selection of independent variables used by \where was guided by the research discussed in the previous section.
+The selection of independent variables used by \where was guided by the research discussed in the previous section. 
+This section gives more background to the need for software metrics in the wider SE domain.
 The rigorous measurement of software and the definition of metrics to group and comprehend these measurements is vital for the accurate prediction of a project's development schedule, cost, lines of code, etc. 
 A comprehensive overview of the topic is given in Fenton \& Pfleeger's book \cite{FentonPfleeger}. 
 The metrics of most interest to our project are \textit{internal, structural} code-based metrics. 
@@ -152,7 +154,7 @@ As an example of its use, the suite has been relatively successful for predictio
 As our POs are taken as simple, stand-alone formul\ae, (rather than being organised in classes or modules) we do not use CK metrics. 
 This is in contrast to the projects using interactive proof scripts discussed in the previous subsection. 
 
-One particularly useful metric for measuring code complexity was defined by McCabe in 1976 \cite{McCabe}. The graph-based cyclomatic complexity of a function is a size-independent and intuitive measure of the code's complexity. It has proved useful in unit-testing scenarios \cite{McCabeTesting}. It is also used to estimate \textit{external} metrics such as how long a project is expected to take, or how much it will cost.  McCabe's complexity metric has previously been adapted for use in measuring the complexity of context-free grammars \cite{nuimeprn6458}. As we discuss in the next chapter, we followed this  mapped McCabe's use of decision nodes to the number of conditional operators in \why PO formul\ae.
+One particularly useful metric for measuring code complexity was defined by McCabe in 1976 \cite{McCabe}. The graph-based cyclomatic complexity of a function is a size-independent and intuitive measure of the code's complexity. It has proved useful in unit-testing scenarios \cite{McCabeTesting}. It is also used to estimate \textit{external} metrics such as how long a project is expected to take, or how much it will cost.  McCabe's complexity metric has previously been adapted for use in measuring the complexity of context-free grammars \cite{nuimeprn6458}. As we discuss in the next chapter, we mapped McCabe's use of decision nodes to the number of conditional operators in \why PO formul\ae.
 
 While structural metrics such as McCabe's are statically measured, the statistically-accurate \textit{dynamic} measurement of software is important if the predicted behaviour of a program is to be related to the \textit{actual} observed behaviour. Many of the associated issues are addressed by Lilja \cite{LiljaJ} in his book on the subject. Robust experimental methods for software engineering are the subject of other major studies \cite{AdvancedESE}, including recent work by Kitchenham et al. \cite{Kitchenham2016} who propose the use of kernel density plots as a visualisation method to gain a better understanding of data distributions for empirical software engineering.
 
@@ -193,13 +195,41 @@ Portfolio solving can have a number of meanings. For example, the Z3 SMT solver 
 Portfolio-solving approaches have been implemented successfully in the SAT domain by SATzilla \cite{Satzilla}. Early versions of this tool used a ridge regression method to predict runtime for a number of solvers based on an empirical hardness model derived from problem instances. The current version \cite{SATzilla2012} use a forest of decision trees . The earlier paper describes the prediction of a \textit{performance score} (rather than runtime) directly.  This is comparable to our notion of solver \textit{cost} introduced in Sec. \ref{sub:scoring}. SATzilla has been successful in SAT competitions and several portfolio SAT solvers have been developed in recent years \cite{SAT2012}.  The proceedings of the 2012 SAT competition 
 list the participation of 8 portfolio solvers. The SAT competition has had separate tracks and medals for portfolio solvers since 2012.  
 
-A team from University College Cork show that another NP-complete problem, the constraint satisfaction problem, can be solved by translating it to a SAT instance and using a portfolio of solvers \cite{Hurley2014}. Their evaluation of several learning algorithms identified linear regression as the best model for their data.
+A team from University College Cork show that instances of another NP-complete problem, the Constraint Satisfaction Problem (CSP), can be solved by translating them to a SAT instance and using a portfolio of solvers \cite{Hurley2014}. Their evaluation of several learning algorithms identified linear regression as the best model for their data.
 
 Portfolio solvers have also been implemented in the model-checking SV domain. The MUX \cite{MUX} solver uses metrics derived from syntactic features as input variables. SVMs are trained using counts of datatypes such as scalars, arrays and pointers as well as meta-features such as McCabe complexity. The industrial dataset of proprietary device drivers on which MUX is trained and tested is not publicly available, however.   
 
 The large SV-COMP repository of C programs (mentioned in Sec. \ref{sub:lrsvmmbench}) has been used to train and test a similar portfolio solver to MUX. The Verifolio \cite{DPVZ15:CAV} solver uses a different SVM weighting function and an extended suite of metrics for C programs based on data-flow analysis. Verifolio was found to be the hypothetical winner of both the 2014 and 2015 editions of SV-COMP. 
 
 Neither of the previous two studies include an evaluation of a range of learning algorithms: they are predicated on the use of SVMs. Consequently, this thesis represents a wider treatment of the various prediction models available for portfolio solving. \where is the first portfolio solver, to the best of the author's knowledge, specifically designed for the use of SMT solvers in software verification.
+
+\begin{table}
+	\caption[Summary of ML algorithms encountered and evaluated]{Summary of ML algorithms encountered and evaluated}
+	\begin{adjustbox}{angle=90}  
+		\begin{tabularx}{0.9\textheight}{@{}Y|Y|Y|Y@{}}
+			\toprule
+			\textsc{Algorithm} & \textsc{General Use} &  \textsc{Brief Description} & \textsc{Application in SE+SV} \\
+			\midrule
+			\midrule
+			Support Vector Machines (SVM) & Binary Classification. Can be adapted for regression and multi-class uses & Find a number of hyperplanes to separate the data with a maximal margin & Classification and regression of C programs for use by model checkers \cite{MUX,DPVZ15:CAV} \\ 
+			\midrule
+			Na{\"i}ve Bayes & Classification problems (spam filtering); can be adapted for regression uses  & Probability prediction based on Bayes's rule assuming all features are linearly-independent and a given distribution for errors & Sledgehammer's MaSh engine for premise selection \cite{Sledgehammer} \\
+			\midrule
+			Decision Trees & Multi-output, multi-label classification \& regression problems & Recursively partition data by thresholding features based on maximising information gain & Classification and regression of C programs for use by model checkers \cite{MUX,DPVZ15:CAV} \\
+			\midrule
+			Random Forests & Can be used on the same problems as Decision Trees & Multiple Decision Trees which use a subset of features and/or data. Designed to minimise overfitting & Classification and regression of C programs for use by model checkers \cite{MUX,DPVZ15:CAV} \\
+			\midrule
+			Clustering & Multi-output classification & Requires a distance metric for identifying groups of similar data. Can be used in \textit{unsupervised} learning where a ground truth is unknown & Premise selection tools for ITPs: ML4PG \cite{ML4PG} and ACL2(ml) \cite{Heras2013}. Also used by the MaSh engine \cite{Sledgehammer} \\ 
+			\midrule
+			Multiple linear regression & Single-output regression. Can be adapted for many variations & Estimates the parameters of linear prediction functions & The portfolio SAT solver optimised for CSP instances \cite{Hurley2014}. The first version of SATzilla \cite{Satzilla} used a related technique. \\
+			\bottomrule	
+			
+		\end{tabularx}
+	\end{adjustbox}
+	\label{table:algorithms}
+\end{table}
+
+
 
 \section{Conclusion}
 
