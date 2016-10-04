@@ -283,8 +283,8 @@ KOMA-script documentation for details.}]{fancyhdr}
 \newcommand*{\subject}[1]{\def\subjectname{#1}}
 \newcommand*{\keywords}[1]{\def\keywordnames{#1}}
 
-\newcommand*{\where}{\textsf{Where4}~}
-\newcommand*{\why}{\textsf{Why3}~}
+\newcommand*{\where}{\textsf{Where4}}
+\newcommand*{\why}{\textsf{Why3}}
 %----------------------------------------------------------------------------------------
 %	DECLARATION PAGE DESIGN
 %----------------------------------------------------------------------------------------

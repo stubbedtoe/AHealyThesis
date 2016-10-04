@@ -5,13 +5,13 @@
 Empirical studies require many choices to be made from the outset. In the case of \where, the following questions were identified:
 
 \begin{enumerate}
-	\item Which solving back-ends of \why should be supported by \where?
+	\item Which solving back-ends of \why~should be supported by \where?
 	\item What program data should the machine learning algorithm use for training and testing?
 	\item What are the predictor variables to be extracted from these programs?
 	\item What is to be predicted by the machine learning algorithm?
 	\item How is the accuracy of response variables to be ensured?
 	\item Which machine learning algorithm should be used by \where?
-	\item How is \where's interaction with \why implemented?   
+	\item How is \where's interaction with \why~implemented?   
 \end{enumerate}   
 
 In this chapter we detail the tools and data chosen to be measured and the methods used for this measurement; i.e. questions 1-5 are answered. Question 6 is answered in Chapter \ref{Prediction}. The choices made in regard to Question 7 are discussed in Chapter \ref{Implementation}. 
@@ -20,30 +20,30 @@ A diagram illustrating this part of the experimental process is given in Fig. \r
 Verification POs undergo two processes: feature vectors based on syntax are derived statically, and the result of proving the PO using several SMT solvers are recorded. 
 For each PO in the dataset, the static feature vector is associated with the dynamic measurements for each SMT solver to form our database.
 Three quarters of the database will be used in the next chapter for training and validation of the ML models.
-The same portion be used to train the \where tool in Chapter \ref{Implementation}.
+The same portion be used to train the \where~tool in Chapter \ref{Implementation}.
 The remaining quarter of the database forms the basis of Chapter \ref{Evaluation}'s evaluation.
    
 In Sec. \ref{sub:why3programs} the repository of verification programs used for training and testing purposes are introduced. 
 The selection of SMT-solving tools to be considered by this study is discussed in Sec \ref{sub:smtselection}.  
 Sec. \ref{sec:independant} details the process taken to extract a number of structural code-based metrics from the proof obligations sent to the SMT solvers by \why. 
-These metrics are the predictor variables for the \where models; otherwise known as \textit{independent} variables. 
+These metrics are the predictor variables for the \where~models; otherwise known as \textit{independent} variables. 
 The \textit{response} (or \textit{dependent}) variables are predicted by the model. Execution time and solver output are the two aspects of solver behaviour we need to  accurately measure in order to characterise solver performance. 
 The steps taken to ensure the response variables are statistically representative are given in Sec. \ref{sec:dependant}. 
 
 \begin{figure}
 \centering
 \includegraphics[width=0.9\linewidth]{Figures/Chapter3}
-\caption{Diagram illustrating the process to collect predictor and response variables for the \where model}
+\caption{Diagram illustrating the process to collect predictor and response variables for the \where~model}
 \label{fig:Chapter3}
 \end{figure}
 
 \section{Selection of tools and programs}
 \label{sec:selection}
 
-\subsection{Selection of \why programs}
+\subsection{Selection of \why~programs}
 \label{sub:why3programs}
 
-As we mentioned in Chapter \ref{LitReview}, \why was chosen for its modular architecture and ability to read from, and write to, many formats associated with software verification tools. The diversity of input languages in the SV domain was referenced in the previous chapter (Sec. \ref{sub:lrsvmmbench}, \cite{Dagstuhl, deductiveSV}). %Among the input formats which can be parsed by \why are:
+As we mentioned in Chapter \ref{LitReview}, \why~was chosen for its modular architecture and ability to read from, and write to, many formats associated with software verification tools. The diversity of input languages in the SV domain was referenced in the previous chapter (Sec. \ref{sub:lrsvmmbench}, \cite{Dagstuhl, deductiveSV}). %Among the input formats which can be parsed by \why are:
 %the why intermediate logic format
 %
 %\begin{itemize}
@@ -55,32 +55,32 @@ As we mentioned in Chapter \ref{LitReview}, \why was chosen for its modular arch
 We refer the reader to the summary of major benchmark repositories for SV tools given in Table \ref{table:benchmarks}. 
 Given the lack of a large standard benchmark repository for software verification systems, we chose to make use of the 128 example programs written in the WhyML programming language as our corpus for training and testing purposes. 
 %The programs contain solutions to challenges from the VerifyThis competition and the VACID-0 benchmarks.
-These programs are distributed with the \why software; we used version 0.87.1. 
+These programs are distributed with the \why~software; we used version 0.87.1. 
 Many of the programs are solutions to problems posed at software verification competitions such as VerifyThis \cite{verifythis}, VSTTE \cite{Klebanov2011} and COST \cite{bormer:hal-00789525}. 
 Other programs are implementations of benchmarks proposed by the VACID-0 \cite{Leino10vacid-0:verification} initiative.   
 
-It is our assumption that the \why examples are representative of software verification workload. Two alternatives to this dataset are the TPTP \cite{TPTP} library and the BWARE \cite{Delahaye2014} collection of industrial proof obligations. The latter dataset consists of Atelier-B  POs translated into the TPTP format \cite{atelierB2w}. Both these datasets are not specific to the software verification domain: they include scheduling, hardware verification and numerical problems in addition to typical SV tasks. The TPTP repository is limited to first-order logic problems: inductive problems cannot be expressed. The BWARE SMT-LIB translation uses an upper-bound logic of UFNIA - this set of theories does not use arrays or real arithmetic\footnote{More information about the SMT-LIB standard for logical theories can be found at \url{http://smtlib.cs.uiowa.edu/logics.shtml} }. Both datasets are, however, much larger. The TPTP library currently consists of 20,306 POs \cite{TPTPsite} - many of which are very similar to each other. There are 12,876 BWARE benchmarks. In comparison, the 128 WhyML programs produced 1048 individual proof obligations. 
+It is our assumption that the \why~examples are representative of software verification workload. Two alternatives to this dataset are the TPTP \cite{TPTP} library and the BWARE \cite{Delahaye2014} collection of industrial proof obligations. The latter dataset consists of Atelier-B  POs translated into the TPTP format \cite{atelierB2w}. Both these datasets are not specific to the software verification domain: they include scheduling, hardware verification and numerical problems in addition to typical SV tasks. The TPTP repository is limited to first-order logic problems: inductive problems cannot be expressed. The BWARE SMT-LIB translation uses an upper-bound logic of UFNIA - this set of theories does not use arrays or real arithmetic\footnote{More information about the SMT-LIB standard for logical theories can be found at \url{http://smtlib.cs.uiowa.edu/logics.shtml} }. Both datasets are, however, much larger. The TPTP library currently consists of 20,306 POs \cite{TPTPsite} - many of which are very similar to each other. There are 12,876 BWARE benchmarks. In comparison, the 128 WhyML programs produced 1048 individual proof obligations. 
 
-Importantly, the chosen dataset makes use of the full capabilities of the \why system: the programs include inductive problems and require the use of as many logical theories as each individual SMT solver can reason with.   
+Importantly, the chosen dataset makes use of the full capabilities of the \why~system: the programs include inductive problems and require the use of as many logical theories as each individual SMT solver can reason with.   
 
 \subsection{Selection of \textsc{SMT} solvers}
 \label{sub:smtselection}
 
 We used six current, general-purpose SMT solvers supported by \textsf{Why3}: 
 \begin{itemize}
-	\item \textbf{Alt-Ergo} is a general-purpose SMT solver written in OCaml (the others in this list are written in C++). It is the most tightly-integrated solver supported by \why: it supports polymorphic types and its native input format is a previous version of the \why intermediate language. Two recent major versions, 0.95.1 and 1.01, are used by \where
+	\item \textbf{Alt-Ergo} is a general-purpose SMT solver written in OCaml (the others in this list are written in C++). It is the most tightly-integrated solver supported by \why: it supports polymorphic types and its native input format is a previous version of the \why~intermediate language. Two recent major versions, 0.95.1 and 1.01, are used by \where
 	\item \textbf{CVC3} is the open-source SMT solver developed by the University of Iowa and New York University. We used version 2.4.1
 	\item \textbf{CVC4} is an entirely re-implemented update to CVC3. Version 1.4 is used by \where
-	\item \textbf{veriT} is an open-source SMT solver developed by the Univerity of Lorraine, France, and the Federal University of Rio Grande do Norte, Brazil. We used the current version, 201506, which is not officially supported by \why but is the only version available.
-	\item \textbf{Yices} is developed by SRI International\footnote{\url{https://www.sri.com/}} and is free for non commercial use. \where uses version 1.0.38 rather than Yices2 because the newer implementation does not support quantifiers - making it unsuitable for SV.  
-	\item \textbf{Z3} is the SMT solver developed at Microsoft Research. The source code has be available in 2012 and it has been open-source since 2015. \where uses two versions: 4.3.2 an 4.4.1 
+	\item \textbf{veriT} is an open-source SMT solver developed by the Univerity of Lorraine, France, and the Federal University of Rio Grande do Norte, Brazil. We used the current version, 201506, which is not officially supported by \why~but is the only version available.
+	\item \textbf{Yices} is developed by SRI International\footnote{\url{https://www.sri.com/}} and is free for non commercial use. \where~uses version 1.0.38 rather than Yices2 because the newer implementation does not support quantifiers - making it unsuitable for SV.  
+	\item \textbf{Z3} is the SMT solver developed at Microsoft Research. The source code has be available in 2012 and it has been open-source since 2015. \where~uses two versions: 4.3.2 an 4.4.1 
 \end{itemize}
 
 As Table \ref{table:solvers} shows, the six solvers use four different input formats between them - three of which are specific to the solver in question. 
-This gives some idea of the interoperability capabilities of \why and the difficulties of comparing tools with a diverse range of input languages. 
+This gives some idea of the interoperability capabilities of \why~and the difficulties of comparing tools with a diverse range of input languages. 
 
 Using two versions of Alt-Ergo and Z3 affords the user more flexibility in their local SMT solver installation. 
-We describe the process \where uses to find and use supported SMT solvers on a user's local machine in Chapter \ref{Implementation}. 
+We describe the process \where~uses to find and use supported SMT solvers on a user's local machine in Chapter \ref{Implementation}. 
 
 \begin{table}
 	\caption[MT solvers supported by \where]{SMT solvers supported by \where}
@@ -117,7 +117,7 @@ The predictor variables must be an accurate characterisation of the program in o
 We chose to use the proof obligation goals and lemmas rather than the axioms and predicates (which tend to be repeated in POs using the same logical theories) associated with each PO. 
 The goals and lemmas are the parts sent to the SMT solver to be proved.   
 
-\subsection{Extracting static metrics from \why proof obligation formul\ae}
+\subsection{Extracting static metrics from \why~proof obligation formul\ae}
 \label{sub:extracting}
 %Using the \why notion of "goal shape"
 
@@ -156,7 +156,7 @@ The goals and lemmas are the parts sent to the SMT solver to be proved.
 	\node [below of = c3, xshift=5pt, yshift=10pt] (c31) {var};
 	\node [below of = c31, yshift=10pt] (c32) {true};
 	\node [below of = c32, yshift=10pt] (c33) {false};
-	\node [below of = c33, yshift=10pt] (c34) {while};
+	\node [below of = c33, yshift=10pt] (c34) {wild};
 	\node [below of = c34, yshift=10pt] (c35) {zero-ar};
 	\node [below of = c35, yshift=10pt] (c36) {int};
 	\node [below of = c36, yshift=10pt] (c37) {float};
@@ -189,8 +189,8 @@ The goals and lemmas are the parts sent to the SMT solver to be proved.
 
 
 To extract the structural metrics from the logical formul\ae, we traversed the abstract syntax tree (AST) representation. 
-We made use of the \why OCaml API to do this. 
-Our approach is similar to the method used internally by \why to derive a \textit{shape} string from an interactive proof session \cite{why:preserving}. 
+We made use of the \why~OCaml API to do this. 
+Our approach is similar to the method used internally by \why~to derive a \textit{shape} string from an interactive proof session \cite{why:preserving}. 
 The purpose of shape strings in this context is to track changes in the POs and avoid re-proving files unnecessarily. 
 The shape acts as a minimal fingerprint representing the structure of the PO formula. 
 Instead of producing a string after traversing the AST, our process simply counts the syntactic features of the formula to construct a feature vector.
@@ -321,7 +321,7 @@ A value of 0.1 was chosen for \textit{a}, meaning we can be 90\% confident that 
 \end{figure}
 
 
-When a solver is sent a goal by \why, it returns an answer $A$ where $A$ is one of $\lbrace Valid,Invalid,Unknown,Timeout,Failure \rbrace$. The following definitions of these answers are taken from the \why User Manual \cite{why:manual}.  
+When a solver is sent a goal by \why, it returns an answer $A$ where $A$ is one of $\lbrace Valid,Invalid,Unknown,Timeout,Failure \rbrace$. The following definitions of these answers are taken from the \why~User Manual \cite{why:manual}.  
 \begin{itemize}
 	\item[\textbf{Valid}] The goal is proved in the given context.
 	\item[\textbf{Invalid}] The prover knows the goal cannot be proved.  
@@ -333,7 +333,7 @@ Fig. \ref{fig:barcharts} shows the relative amount of Valid / Unknown / Timeout 
 Note that no tool returned an answer of Invalid for any of the 1048 proof obligations.
 Often, goals that cannot be proved Valid or Invalid have been inductively defined and usually require the use of an interactive theorem prover. 
 Sometimes a splitting transformation needs to be applied in order to simplify the goals before they are sent to the solver. 
-\where does not perform any transformations to goals other than those defined by the solver's \why driver file. 
+\where~does not perform any transformations to goals other than those defined by the solver's \why~driver file. 
 In other cases, more time or memory resources need to be allocated in order to return a conclusive result. 
 We address the issue of resource allocation in the next subsection.    
 
@@ -342,7 +342,7 @@ We address the issue of resource allocation in the next subsection.
 A solver is said to return a \textit{useful} result if it returns an answer of \textit{Valid}, \textit{Invalid} or \textit{Unknown} when given a reasonable timeout limit.
 We justify this statement by making the observation that an answer of \textit{Failure} usually means there is an error in logical translation of the PO. 
 The failing solver is not a good choice for the particular logics required to return a \textit{Valid} or \textit{Invalid} answer.
-\textit{Unknown} answers are usually identified as such very quickly therefore they do not impose a long waiting period for an answer and \where can call another solver with a minimal delay.
+\textit{Unknown} answers are usually identified as such very quickly therefore they do not impose a long waiting period for an answer and \where~can call another solver with a minimal delay.
 By definition, \textit{Timeout} results incur the maximal time penalty.      
 Fig. \ref{fig:line_graph} shows the number of \textit{Valid/Invalid/Unknown} results for each solver when given a timeout value of 60 seconds. 
 This value was chosen as an upper limit, since a timeout value of 60 seconds is not realistic for most software verification scenarios.  
@@ -362,13 +362,13 @@ By satisfying ourselves with being able to record 99\% of the useful responses w
 
 \section{Conclusion}
 
-In this chapter, we have introduced the SMT solvers, training and testing dataset, predictor and response variables used by the \where model.
-The choices made in regard to the SMT solvers was dictated to a large extent by \why and its selection of drivers. 
-The dataset contains solutions to canonical SV challenges and is designed to demonstrate the specification and verification of data structures and algorithms fundamental to a wide range of applications, using the full capabilities of the \why system.
+In this chapter, we have introduced the SMT solvers, training and testing dataset, predictor and response variables used by the \where~model.
+The choices made in regard to the SMT solvers was dictated to a large extent by \why~and its selection of drivers. 
+The dataset contains solutions to canonical SV challenges and is designed to demonstrate the specification and verification of data structures and algorithms fundamental to a wide range of applications, using the full capabilities of the \why~system.
 The choice of predictor variables was influenced by the structural metrics introduced by McCabe (see Sec. \ref{sec:lrmm}), which have become established in the SE domain, and syntactic features similar to those used in TPTP library metadata. 
 The response variables of \textit{time} and \textit{result} are similar to the scoring mechanism used for SV tools in the SV-COMP \cite{SVCOMP}.
 The response variables will be combined in the next Chapter as a single value suitable for prediction by a variety of regression models.
-The material presented in this chapter is critical to how the \where model functions and forms the basis for the experiments presented in the next chapter. 
+The material presented in this chapter is critical to how the \where~model functions and forms the basis for the experiments presented in the next chapter. 
 
   
 
