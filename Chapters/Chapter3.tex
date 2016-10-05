@@ -83,7 +83,7 @@ Using two versions of Alt-Ergo and Z3 affords the user more flexibility in their
 We describe the process \where~uses to find and use supported SMT solvers on a user's local machine in Chapter \ref{Implementation}. 
 
 \begin{table}
-	\caption[MT solvers supported by \where]{SMT solvers supported by \where}
+	\caption[SMT solvers supported by \where]{SMT solvers supported by \where}
  
 		\begin{tabularx}{\textwidth}{@{}YYYc@{}}
 			\toprule
@@ -281,6 +281,7 @@ The BenchExec \cite{ Beyer2016,benchexec} framework was developed by the organis
 We recorded the time spent on CPU by each SMT solver for each proof obligation. 
 
 \subsubsection{Accounting for randomness with confidence intervals}
+\label{sub:confidence}
 
 Efforts to accurate measure execution time are hampered by random errors introduced by the experimental environment.
 To account for these errors, we used the methodology described by Lilja \cite{LiljaJ} to obtain an approximation of the true mean execution time.  
@@ -338,6 +339,7 @@ In other cases, more time or memory resources need to be allocated in order to r
 We address the issue of resource allocation in the next subsection.    
 
 \subsubsection{Setting a timeout limit for measurement}
+\label{sub:timeout-limit}
 
 A solver is said to return a \textit{useful} result if it returns an answer of \textit{Valid}, \textit{Invalid} or \textit{Unknown} when given a reasonable timeout limit.
 We justify this statement by making the observation that an answer of \textit{Failure} usually means there is an error in logical translation of the PO. 
