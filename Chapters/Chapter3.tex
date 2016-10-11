@@ -59,7 +59,7 @@ These programs are distributed with the \why~software; we used version 0.87.1.
 Many of the programs are solutions to problems posed at software verification competitions such as VerifyThis \cite{verifythis}, VSTTE \cite{Klebanov2011} and COST \cite{bormer:hal-00789525}. 
 Other programs are implementations of benchmarks proposed by the VACID-0 \cite{Leino10vacid-0:verification} initiative.   
 
-It is our assumption that the \why~examples are representative of software verification workload. Two alternatives to this dataset are the TPTP \cite{TPTP} library and the BWARE \cite{Delahaye2014} collection of industrial proof obligations. The latter dataset consists of Atelier-B  POs translated into the TPTP format \cite{atelierB2w}. Both these datasets are not specific to the software verification domain: they include scheduling, hardware verification and numerical problems in addition to typical SV tasks. The TPTP repository is limited to first-order logic problems: inductive problems cannot be expressed. The BWARE SMT-LIB translation uses an upper-bound logic of UFNIA - this set of theories does not use arrays or real arithmetic\footnote{More information about the SMT-LIB standard for logical theories can be found at \url{http://smtlib.cs.uiowa.edu/logics.shtml} }. Both datasets are, however, much larger. The TPTP library currently consists of 20,306 POs \cite{TPTPsite} - many of which are very similar to each other. There are 12,876 BWARE benchmarks. In comparison, the 128 WhyML programs produced 1048 individual proof obligations. 
+It is our assumption that the \why~examples are representative of software verification workload. Two alternatives to this dataset are the TPTP \cite{TPTP} library and the BWARE \cite{Delahaye2014} collection of industrial proof obligations. The latter dataset consists of Atelier-B  POs translated into the TPTP format \cite{atelierB2w}. Both these datasets are not specific to the software verification domain: they include scheduling, hardware verification and numerical problems in addition to typical SV tasks. The TPTP repository is limited to first-order logic problems: inductive problems cannot be expressed. The BWARE SMT-LIB translation uses an upper-bound logic of UFNIA -- this set of theories does not use arrays or real arithmetic\footnote{More information about the SMT-LIB standard for logical theories can be found at \url{http://smtlib.cs.uiowa.edu/logics.shtml} }. Both datasets are, however, much larger. The TPTP library currently consists of 20,306 POs \cite{TPTPsite} -- many of which are very similar to each other. There are 12,876 BWARE benchmarks. In comparison, the 128 WhyML programs produced 1048 individual proof obligations. 
 
 Importantly, the chosen dataset makes use of the full capabilities of the \why~system: the programs include inductive problems and require the use of as many logical theories as each individual SMT solver can reason with.   
 
@@ -72,11 +72,11 @@ We used six current, general-purpose SMT solvers supported by \textsf{Why3}:
 	\item \textbf{CVC3} is the open-source SMT solver developed by the University of Iowa and New York University. We used version 2.4.1
 	\item \textbf{CVC4} is an entirely re-implemented update to CVC3. Version 1.4 is used by \where
 	\item \textbf{veriT} is an open-source SMT solver developed by the Univerity of Lorraine, France, and the Federal University of Rio Grande do Norte, Brazil. We used the current version, 201506, which is not officially supported by \why~but is the only version available.
-	\item \textbf{Yices} is developed by SRI International\footnote{\url{https://www.sri.com/}} and is free for non commercial use. \where~uses version 1.0.38 rather than Yices2 because the newer implementation does not support quantifiers - making it unsuitable for SV.  
+	\item \textbf{Yices} is developed by SRI International and is free for non commercial use. \where~uses version 1.0.38 rather than Yices2 because the newer implementation does not support quantifiers -- making it unsuitable for SV.  
 	\item \textbf{Z3} is the SMT solver developed at Microsoft Research. The source code has be available in 2012 and it has been open-source since 2015. \where~uses two versions: 4.3.2 and 4.4.1 
 \end{itemize}
 
-As Table \ref{table:solvers} shows, the six solvers use four different input formats between them - three of which are specific to the solver in question. 
+As Table \ref{table:solvers} shows, the six solvers use four different input formats between them -- three of which are specific to the solver in question. 
 This gives some idea of the interoperability capabilities of \why~and the difficulties of comparing tools with a diverse range of input languages. 
 
 Using two versions of Alt-Ergo and Z3 affords the user more flexibility in their local SMT solver installation. 
@@ -320,7 +320,7 @@ A value of 0.1 was chosen for \textit{a}, meaning we can be 90\% confident that 
 We allow the computed mean value to be within 7\% of the actual mean (i.e. 7 degrees of freedom or an allowed error of $\pm$3.5\%). Thus for the equations \ref{eq:c1} to \ref{eq:n}, we take $e = 0.035$.  \\ 
 \\
 \textbf{Example: finding Alt-Ergo's execution time for \textit{first\_last}}: \\
-To show how this method is used in practice, we return to the example introduced in Sec. \ref{sub:extracting} --- the \textit{first\_last} goal from \textbf{edit\_distance.mlw}'s \textbf{Word} theory.
+To show how this method is used in practice, we return to the example introduced in Sec. \ref{sub:extracting} -- the \textit{first\_last} goal from \textbf{edit\_distance.mlw}'s \textbf{Word} theory.
 The 5 sample measurements of CPU time spent by Alt-Ergo (to return an answer of \textit{Unknown}):
 
 \begin{tabularx}

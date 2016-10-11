@@ -10,7 +10,7 @@ A Venn diagram illustrating the intersections of these disciplines and how this 
 We shall concentrate this review on Software Verification and SV research incorporating concepts from the other two disciplines. 
 Where more background in associated topics outside the SV domain is required, the literature is discussed in the relevant sections (i.e. Sec. \ref{sec:lrmm} and \ref{sec:lrml}).
 
-The rest of this chapter will review the literature associated with each segment of Figure \ref{fig:litreview} - moving clockwise from the top. 
+The rest of this chapter will review the literature associated with each segment of Figure \ref{fig:litreview} -- moving clockwise from the top. 
 Each subsection in this review was approached with a question:
 \begin{itemize}
 	\item[\textbf{Q1}] What does the SV tool landscape look like in terms of interoperability?
@@ -50,7 +50,7 @@ the answers of which have informed the design choices made in regard to the \whe
 \section{\why~and Software Verification Systems}
 \label{sec:lrsv}
 
-An overview of the \why~verification system \cite{why:shephard,why:whereprovers} has been given in the previous chapter. The WhyML programming language provides a high-level ML\footnote{The ML language - not to be confused with \underline{M}achine \underline{L}earning}-like language for the specification of programs with pre- and post- conditions, recursive definitions and type invariants. An extensive library of verified polymorphic data-types make WhyML a flexible language \cite{verifythis,why:polymorphic}. 
+An overview of the \why~verification system \cite{why:shephard,why:whereprovers} has been given in the previous chapter. The WhyML programming language provides a high-level ML\footnote{The ML language -- not to be confused with \underline{M}achine \underline{L}earning}-like language for the specification of programs with pre- and post- conditions, recursive definitions and type invariants. An extensive library of verified polymorphic data-types make WhyML a flexible language \cite{verifythis,why:polymorphic}. 
 As we stated in the previous chapter, it is \why's driver-based approach to interfacing with external tools that is of most interest to our project. 
 The \why~approach is, in this regard, quite different from the typical SV system of tightly-integrated systems consisting of an IDE/annotation language/front-end DSL, intermediate logic language, and SMT-solving back-end. 
 Examples of systems which follow this latter model are Spec\# \cite{spec} and Dafny \cite{Dafny} which use the Boogie \cite{Boogie} intermediate language and the Z3 \cite{Z3} SMT solver.
@@ -139,7 +139,7 @@ A small number of abstract specifications for standard problems, mostly collecte
 \subsubsection{Proof Engineering}
 \label{sub:lrsvmmpe}
 
-The scale of formal software engineering projects has grown in recent years. The formal verification of the seL4 microkernel \cite{Klein:2014:CFV} and Thomas Hales' \textit{FlySpeck} proof of the Kepler Conjecture \cite{hales-kepler} are large and complicated engineering projects developed over a number of years. Both projects represent significant engineering efforts - it is estimated that the seL4 verification took 25 person-years of work - and produced a large volume of software artefacts in the form of \textit{proof scripts}. Researchers applying concepts from software engineering to manage and measure such projects call their practice ``proof engineering'' \cite{Klein2014}. Proof engineering is has become an active research area in recent years. 
+The scale of formal software engineering projects has grown in recent years. The formal verification of the seL4 microkernel \cite{Klein:2014:CFV} and Thomas Hales' \textit{FlySpeck} proof of the Kepler Conjecture \cite{hales-kepler} are large and complicated engineering projects developed over a number of years. Both projects represent significant engineering efforts -- it is estimated that the seL4 verification took 25 person-years of work -- and produced a large volume of software artefacts in the form of \textit{proof scripts}. Researchers applying concepts from software engineering to manage and measure such projects call their practice ``proof engineering'' \cite{Klein2014}. Proof engineering is has become an active research area in recent years. 
 
 Both object-oriented software and formal proofs make use of ``modules'' to package related classes and lemmas/axioms respectively. Aspinall and Kaliszyk \cite{Aspinall2016} suggest that this common approach to modularity allows the standard Chidamber and Kemerer \cite{CandK} (CK) metrics to be adapted for formal SE projects. The authors use this analogy to model and measure the dependency tree for proof modules and the derivation of the module's coupling and cohesion metrics (CK metrics will be discussed further in Section \ref{sec:lrmm}).
 
@@ -196,8 +196,11 @@ Recent issues of the journals \textit{Empirical Software Engineering} contain ma
 \section{Machine Learning}
 \label{sec:lrml}
 
-For a broad overview of the extensive subject of Machine Learning, we refer the reader to two useful overviews \cite{Bishop, Mitchell} which balance practical implementation issues for a variety of algorithms with a treatment of their theoretical foundations. 
+For a broad overview of the extensive subject of Machine Learning, we refer the reader to three useful overviews. 
+Mitchell and Bishop \cite{Bishop, Mitchell} both balance practical implementation issues for a variety of algorithms with a treatment of their theoretical foundations. 
+Domingos \cite{domingos2015master} focuses on new research on comparing and combining ML approaches while also giving an entertaining account of the history of many ML algorithms.  
 We focus this section on some of the background literature and considerations associated with the algorithms compared during the development of \where~(Sec. \ref{pred:choosing}).
+More details about the individual algorithm will be given in the later section.
 
 Our learning task is to predict a continuous-valued variable which makes it a \textit{regression} task in ML terms. More specifically, it is a multi-output regression task as there is one output for each SMT solver. Recommendations regarding the use of SVMs (which excel at \textit{binary} classification) for this task are made by Hsu and Lin \cite{MulticlassSVM}. A more general survey of multi-output regression and how various ML algorithms can either be adapted or extended for this use case is provided by Borchani et al. \cite{multisurvey}. 
 
