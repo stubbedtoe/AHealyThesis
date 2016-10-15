@@ -76,9 +76,7 @@ Benchmark repositories and tool competitions have proven to be important as a me
 	\caption[Summary of SV benchmark sources]{Summary of SV benchmark sources}
 	\begin{adjustbox}{angle=90}  
 	\begin{tabularx}{0.9\textheight}{@{}Y|Y|Y|Y|Y|Y|c@{}}
-		\toprule
-		\textsc{Benchmark Source} & \textsc{Target Domain} &  \textsc{Example tools} & \textsc{Input format} & \textsc{Size} & \textsc{Website} \linebreak \small{(last visited 28/9/16)} & \textsc{Reference} \\
-		\midrule
+		\textsc{\textbf{Benchmark Source}} & \textsc{\textbf{Target Domain}} &  \textsc{\textbf{Example tools}} & \textsc{\textbf{Input format}} & \textsc{\textbf{Size}} & \textsc{\textbf{Website}} \linebreak \small{(last visited 28/9/16)} & \textsc{\textbf{Reference}} \\
 		\midrule
 		VerifyThis & Program Verification Systems & \why, Dafny, Spec\#, VeriFast, KIV & Natural Language and Pseudo Code & 33 & \href{http://www.verifythis.org/challenge-db}{verifythis.org} & \cite{Huisman2015} \\ 
 		\midrule
@@ -95,7 +93,6 @@ Benchmark repositories and tool competitions have proven to be important as a me
 		SV-COMP & ATPs and model-checkers & AProVE, BLAST, CPAchecker & C & 6661 files & \href{http://sv-comp.sosy-lab.org}{sv-comp.sosy-lab.org} & \cite{SVCOMP} \\   
 		\midrule
 		The \why~examples & Program verification through \why & \why~and its supported back-ends & WhyML & 128 programs, 1048 POs & \href{http://tocatta.lri.fr/gallery/why3.en.html}{toccata.lri.fr} & \cite{verifythis, tafat:inria-00636083} \\
-		\bottomrule	
 		
 	\end{tabularx}
 	\end{adjustbox}
@@ -245,9 +242,8 @@ Table \ref{table:algorithms} summarises the ML algorithms used by the literature
 	\caption[Summary of ML algorithms used in SV tools]{Summary of ML algorithms used in SV tools}
 	\begin{adjustbox}{angle=90}  
 		\begin{tabularx}{0.9\textheight}{@{}Y|Y|Y|Y@{}}
-			\toprule
-			\textsc{Algorithm} & \textsc{General Use} &  \textsc{Brief Description} & \textsc{Application in SE+SV} \\
-			\midrule
+			
+			\textsc{\textbf{Algorithm}} & \textsc{\textbf{General Use}} &  \textsc{\textbf{Brief Description}} & \textsc{\textbf{Application in SE+SV}} \\
 			\midrule
 			Support Vector Machines (SVM) & Binary Classification. Can be adapted for regression and multi-class uses & Find a number of hyperplanes to separate the data with a maximal margin & Classification and regression of C programs for use by model checkers \cite{MUX,DPVZ15:CAV} \\ 
 			\midrule
@@ -259,8 +255,7 @@ Table \ref{table:algorithms} summarises the ML algorithms used by the literature
 			\midrule
 			Clustering & Multi-output classification & Requires a distance metric for identifying groups of similar data. Can be used in \textit{unsupervised} learning where a ground truth is unknown & Premise selection tools for ITPs: ML4PG \cite{ML4PG} and ACL2(ml) \cite{Heras2013}. Also used by the MaSh engine \cite{Sledgehammer} \\ 
 			\midrule
-			Multiple linear regression & Single-output regression. Can be adapted for many variations & Estimates the parameters of linear prediction functions & The portfolio SAT solver optimised for CSP instances \cite{Hurley2014}. The first version of SATzilla \cite{Satzilla} used a related technique. \\
-			\bottomrule	
+			Multiple linear regression & Single-output regression. Can be adapted for many variations & Estimates the parameters of linear prediction functions & The portfolio SAT solver optimised for CSP instances \cite{Hurley2014}. The first version of SATzilla \cite{Satzilla} used a related technique. \\	
 			
 		\end{tabularx}
 	\end{adjustbox}

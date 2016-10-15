@@ -413,7 +413,7 @@
 @InProceedings{b2w,
   author      = {Ameri, Michael and Furia, Carlo A.},
   title       = {Why Just Boogie?},
-  booktitle   = {Integrated Formal Methods: 12th International Conference, IFM 2016},
+  booktitle   = {Integrated Formal Methods: 12th International Conference, IFM 2016pecp},
   year        = {2016},
   pages       = {79--95},
   address     = {Reykjavik, Iceland},
@@ -710,15 +710,6 @@
   //url       = {http://dx.doi.org/10.1007/978-3-319-33600-8_21},
 }
 
-@book{Coq,
-	author = {Bertot, Yves and Castran, Pierre},
-	title = {Interactive Theorem Proving and Program Development: Coq'Art The Calculus of Inductive Constructions},
-	year = {2010},
-	//isbn = {3642058809, 9783642058806},
-	//edition = {1st},
-	publisher = {Springer-Verlag Berlin Heidelberg},
-} 
-
 @article{NDCG,
 	author = {J\"{a}rvelin, Kalervo},
 	title = {{IR} Research: Systems, Interaction, Evaluation and Theories},
@@ -849,41 +840,12 @@ pages="173--213",
   keywords   = {Computer algorithms; Machine learning},
 }
 
-@article{svm,
-	author={Cortes,Corinna and Vapnik,Vladimir},
-	year={1995},
-	title={Support-Vector Networks},
-	journal={Machine Learning},
-	volume={20},
-	number={3},
-	pages={273-297},
-}
-
-@book{cart,
-	title={Classification and Regression Trees},
-	author={Breiman, Leo and Friedman, Jerome and Stone, Charles J. and Olshen, Richard A.},
-	//isbn={9780412048418},
-	//lccn={83019708},
-	series={The Wadsworth and Brooks-Cole statistics-probability series},
-	//url={https://books.google.ie/books?id=JwQx-WOmSyQC},
-	year={1984},
-	publisher={Taylor \& Francis}
-}
-
-@misc{hsu2003practical,
-	title={A practical guide to support vector classification},
-	author={Hsu, Chih-Wei and Chang, Chih-Chung and Lin, Chih-Jen},
-	year={2003},
-	url={http://www.csie.ntu.edu.tw/~cjlin/papers/guide/guide.pdf}
-}
-
-
 @article{sklearn,
 	title={Scikit-learn: Machine Learning in {P}ython},
-		author={Pedregosa, Fabian and Varoquaux, Ga{\"e}l and Gramfort, Alexandre and Michel, Vincent
-		and Thirion, Bertrand and Grisel, Olivier and Blondel, Mathieu and Prettenhofer, Peter
-		and Weiss, Ron and Dubourg, Vincent and Vanderplas, Jake and Passos, Alexandre and
-		Cournapeau, David and Brucher, Matthieu and Perrot, Matthieu and Duchesnay, \'{E}douard},
+		author={Pedregosa, F. and Varoquaux, G. and Gramfort, A. and Michel, V.
+		and Thirion, B. and Grisel, O. and Blondel, M. and Prettenhofer, P.
+		and Weiss, R. and Dubourg, V. and Vanderplas, J. and Passos, A. and
+		Cournapeau, D. and Brucher, M. and Perrot, M. and Duchesnay, E.},
 	journal={Journal of Machine Learning Research},
 	volume={12},
 	pages={2825--2830},
@@ -964,31 +926,6 @@ pages="173--213",
   //issn  = {1573-7616},
   //url   = {http://dx.doi.org/10.1007/s10664-016-9437-5},
   doi     = {10.1007/s10664-016-9437-5},
-}
-
-@article{ridge,
-	//ISSN = {00401706},
-	//URL = {http://www.jstor.org/stable/1271436},
-	author = {Hoerl, Arthur E. and Kennard, Robert W.},
-	journal = {Technometrics},
-	number = {1},
-	pages = {80-86},
-	//publisher = {[Taylor & Francis, Ltd., American Statistical Association, American Society for Quality]},
-	title = {Ridge Regression: Biased Estimation for Nonorthogonal Problems},
-	volume = {42},
-	year = {2000}
-}
-
-
-@book{domingos2015master,
-	title={The Master Algorithm: How the Quest for the Ultimate Learning Machine Will Remake Our World},
-	author={Domingos, P.},
-	//isbn={9780465065707},
-	//lccn={2015007615},
-	//series={Basic Books},
-	//url={https://books.google.ie/books?id=glUtrgEACAAJ},
-	year={2015},
-	publisher={Basic Books}
 }
 
 @article{cloudML,
@@ -1240,29 +1177,6 @@ pages="173--213",
   volume  = {43},
   number  = {4},
   pages   = {337-362},
-}
-
-@Article{Cortes1995,
-	author="Cortes, Corinna
-	and Vapnik, Vladimir",
-	title="Support-vector networks",
-	journal="Machine Learning",
-	year="1995",
-	volume="20",
-	number="3",
-	pages="273--297",
-	//issn="1573-0565",
-	//doi="10.1007/BF00994018",
-	//url="http://dx.doi.org/10.1007/BF00994018"
-}
-
-
-@Manual{why:manual,
-  title = {The Why3 User Manual},
-  year  = {2016},
-  edition = {0.87.2},
-  author    = {Bobot, Fran{\c{c}}ois and Filli{\^a}tre, Jean-Christophe and March{\'e}, Claude and Melquiond, Guillaume and Paskevich, Andrei},
-  url = {http://why3.lri.fr/doc-0.87.2/},
 }
 
 @Comment{jabref-meta: databaseType:bibtex;}

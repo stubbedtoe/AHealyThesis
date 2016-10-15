@@ -1,2 +1,21 @@
 \chapter{OCaml Implementation}
+\thispagestyle{nohead}
 \label{Implementation}
+
+The implementation of \where~makes use of various techniques and heuristics encountered when researching related premise selection and portfolio-solving tools such as those described in sections \ref{sub:lrsvml} and \ref{sub:lrsvmmml} of the Literature Review.   
+For example, \where's interaction with \why~is inspired by the use of machine learning in the Sledgehammer tool \cite{Sledgehammer} which allows the use of SMT solvers in the interactive theorem prover Isabelle/HOL. 
+We aspired to Sledgehammer's ``zero click, zero maintenance, zero overhead'' philosophy in this regard: \where~should not interfere with a \why~user's normal work-flow nor should it penalise those who do not use it.
+
+The random forest is fitted on the entire training set and encoded as a JSON file for legibility and modularity. This approach allows new trees and forests devised by the user (possibly using new SMT solvers or data) to replace our model.  When the user installs \textsf{Where4} locally, this JSON file is read and printed as an OCaml array. For efficiency, other important configuration information is compiled into OCaml data structures at this stage: e.g. the user's \texttt{why3.conf} file is read to determine the supported SMT solvers. All files are compiled and a native binary is produced. This only needs to be done once (unless the locally installed provers have changed). 
+
+The \textsf{Where4} command-line tool has the following functionality:
+\begin{enumerate}
+	\item Read in the WhyML/Why file and extract feature vectors from its goals.% formulae.
+	\item Find the predicted costs for each of the 8 provers by traversing the random forest, using each goal's feature vector.
+	\item Sort the costs to produce a ranking of the SMT solvers.
+	\item Use the \textsf{Why3} API to call each solver (if it is installed) in rank order.
+	%\item Print the result.
+	\item Repeat 4 as necessary until a \textit{Valid/Invalid} response is recorded or all installed solvers have been called.
+\end{enumerate}
+
+If the user has selected that \textsf{Where4} be available for use through \textsf{Why3}, the file which lets \textsf{Why3} know about supported provers installed locally is modified to contain a new entry for the \textsf{Where4} binary. A simple driver file (which just tells \textsf{Why3} to use the Why logical language for encoding) is added to the drivers' directory. At this point, \textsf{Where4} can be detected by \textsf{Why3}, and then used at the command line, through the IDE or by the OCaml API just like any other supported solver. 
