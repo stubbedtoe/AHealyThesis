@@ -1,7 +1,13 @@
-\chapter{Ocaml code for interacting with Why3} % Main appendix title
-
+\chapter{\where~command-line options} % Main appendix title
 \thispagestyle{nohead}
+\label{App:command} % For referencing this appendix elsewhere, use \ref{AppendixA}
 
-\label{AppendixB} % For referencing this appendix elsewhere, use \ref{AppendixA}
-
-Write your Appendix content here.
+The \textsf{Where4} command-line tool has the following functionality:
+\begin{enumerate}
+	\item Read in the WhyML/Why file and extract feature vectors from its goals.% formulae.
+	\item Find the predicted costs for each of the 8 provers by traversing the random forest, using each goal's feature vector.
+	\item Sort the costs to produce a ranking of the SMT solvers.
+	\item Use the \textsf{Why3} API to call each solver (if it is installed) in rank order.
+	%\item Print the result.
+	\item Repeat 4 as necessary until a \textit{Valid/Invalid} response is recorded or all installed solvers have been called.
+\end{enumerate}

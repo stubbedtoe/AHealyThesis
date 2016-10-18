@@ -321,6 +321,7 @@ We used a modification: training instances ``closer'' to the unseen instances ar
 This variation makes the algorithm more robust to noisy training data. 
 
 \subsection{Experimental Configuration}
+\label{sub:config}
 
 In the previous chapter, we described our dataset as consisting of 1048 \why~POs.
 We now split this dataset into two disjoint subsets: the \textit{training} and \textit{testing} sets. 
@@ -366,7 +367,7 @@ When solver answers are compared in the \texttt{if} statement, the following rel
 		\tcc{$A_S$ = the answer returned by solver $S_i$}
 		$A_S \leftarrow Answer(S_i)$ \\
 		\tcc{add solver $S_i$'s time to the cumulative runtime}
-		$T \leftarrow T + Time(S_i)$ 
+		$T \leftarrow T + Time(S_i)$  \\
 		\If{$A_S > A$}
 		{
 			\tcc{$S_i$'s answer is better than the current best answer}

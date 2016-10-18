@@ -224,6 +224,9 @@ Portfolio-solving approaches have been implemented successfully in the SAT domai
 list the participation of 8 portfolio solvers. The SAT competition has had separate tracks and medals for portfolio solvers since 2012.  
 
 A team from University College Cork show that instances of another NP-complete problem, the Constraint Satisfaction Problem (CSP), can be solved by translating them to a SAT instance and using a portfolio of solvers \cite{Hurley2014}. Their evaluation of several learning algorithms identified linear regression as the best model for their data.
+Other portfolio solvers have been implemented to solve constraint programming and constraint optimisation problems. 
+One such tool is sunny-cp \cite{sunny-cp} which uses a trained K-Nearest Neighbours model to match solvers based on program features.
+Short but useful surveys of portfolio solvers in these domains is provided by Amadini et al \cite{Amadini2013, Amadini2016}.   
 
 Portfolio solvers have also been implemented in the model-checking SV domain. The MUX \cite{MUX} solver uses metrics derived from syntactic features as input variables. SVMs are trained using counts of datatypes such as scalars, arrays and pointers as well as meta-features such as McCabe complexity. The industrial dataset of proprietary device drivers on which MUX is trained and tested is not publicly available, however.   
 
@@ -253,7 +256,7 @@ Table \ref{table:algorithms} summarises the ML algorithms used by the literature
 			\midrule
 			Random Forests & Can be used on the same problems as Decision Trees & Multiple Decision Trees which use a subset of features and/or data. Designed to minimise overfitting & Adapted for use in premise selection \cite{Farber2015} \\
 			\midrule
-			Clustering & Multi-output classification & Requires a distance metric for identifying groups of similar data. Can be used in \textit{unsupervised} learning where a ground truth is unknown & Premise selection tools for ITPs: ML4PG \cite{ML4PG} and ACL2(ml) \cite{Heras2013}. Also used by the MaSh engine \cite{Sledgehammer} \\ 
+			Clustering & Multi-output classification & Requires a distance metric for identifying groups of similar data. Can be used in \textit{unsupervised} learning where a ground truth is unknown & Premise selection tools for ITPs: ML4PG \cite{ML4PG} and ACL2(ml) \cite{Heras2013}. Also used by the MaSh engine \cite{Sledgehammer} and sunny-cp \cite{sunny-cp} \\ 
 			\midrule
 			Multiple linear regression & Single-output regression. Can be adapted for many variations & Estimates the parameters of linear prediction functions & The portfolio SAT solver optimised for CSP instances \cite{Hurley2014}. The first version of SATzilla \cite{Satzilla} used a related technique. \\	
 			

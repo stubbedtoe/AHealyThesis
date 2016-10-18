@@ -69,6 +69,7 @@ headsepline, % Uncomment to get a line under the header
 \usepackage{booktabs}
 \usepackage{adjustbox}
 \usepackage{listings}
+
 \newcolumntype{Y}{>{\raggedright\arraybackslash}X} 
 \newcommand{\midbar}{\tikz[overlay] \draw (-.5em,.8em)--(-.5em,0em);}
 \newcommand{\upbar}{\tikz[overlay] \draw (-.5em,1em)--(-.5em,0em);}
@@ -240,7 +241,7 @@ The approach \why~takes to interfacing with a wide variety of interactive and au
 
 Combining solvers in this way - a \textit{portfolio-solving} approach - maximises the number of goals which can be proved. The driver-based architecture of \why~presents a unique opportunity to use a portfolio of SMT solvers for software verification. The intelligent scheduling of solvers minimises the time it takes to prove these goals by avoiding solvers which return \textit{Timeout} and \textit{Unknown} responses. We assess the suitability of a number of machine-learning algorithms for this scheduling task.  
 
-The performance of our tool \where~is evaluated on a large dataset of proof obligations. We compare \where~to a range of SMT solvers and theoretical scheduling strategies. We find that \where~can prove a greater number of goals in a shorter amount of time than any single solver. Furthermore, \where~can integrate into a \why~user's normal workflow - simplifying and automating the use of SMT solvers for software verification. 
+The performance of our tool \where~is evaluated on a dataset of proof obligations. We compare \where~to a range of SMT solvers and theoretical scheduling strategies. We find that \where~can prove a greater number of goals in a shorter amount of time than any single solver. Furthermore, \where~can integrate into a \why~user's normal workflow - simplifying and automating the non-expert use of SMT solvers for software verification. 
 
 \end{abstract}
 
@@ -317,8 +318,8 @@ The acknowledgments and the people to thank go here, don't forget to include you
 % Include the appendices of the thesis as separate files from the Appendices folder
 % Uncomment the lines as you write the Appendices
 
-%\include{Appendices/AppendixA}
-%\include{Appendices/AppendixB}
+\include{Appendices/AppendixA}
+\include{Appendices/AppendixB}
 \include{Appendices/AppendixC}
 
 %----------------------------------------------------------------------------------------
