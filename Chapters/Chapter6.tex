@@ -21,9 +21,10 @@ Threats to the validity of our study are discussed in Sec. \ref{sec:threats}.
 
 \section{EQ1: How does \where~perform in comparison to the 8 SMT solvers?}
 
+\label{sec:eq1}
 
 \begin{table}
-	\caption[Results for 8 solvers, \where~and 3 strategies on test set]{Number of files, theories and goals proved by each strategy and individual solver. The percentage this represents of the total 32 files, 77 theories and 263 goals and the average time are also shown.}
+	\caption[Results for 8 solvers, \where~and 3 strategies on test set]{Number of files, theories and goals proved by each strategy and individual solver. The percentage this represents of the total 32 files, 77 theories, 263 goals, and the average time in seconds, are also shown.}
 	\begin{tabularx}{1.1\textwidth}{@{}l|ZZZ|ZZZ|ZZZ@{}}
 		\toprule
 		{} & \multicolumn{3}{c|}{\textbf{File}} & \multicolumn{3}{c|}{\textbf{Theory}} & \multicolumn{3}{c}{\textbf{Goal}} \\
@@ -81,6 +82,39 @@ We mentioned that \textsf{Choose Single} is equivalent to choosing  the top-rank
 We return to this concept in Fig. \ref{fig:barchart2} which is similar to Fig. \ref{fig:barcharts} in that it shows the relative amount of Valid/Unknown/Timeout/Failure answers from the eight SMT solvers. 
 Also shown (on the right) are results obtainable by using the top solver (only) with the 3 ranking strategies (where \textsf{Best} $\equiv$ \textsf{Choose Single}) and the \where~predicted ranking (after pre-solving with Alt-Ergo version 1.01).
 
+
+\begin{algorithm}
+	\caption{Returning answers and runtimes from \where~solver rankings using a cost threshold: A minor modification to Alg. \ref{algo:where4} with an additional stopping condition in the \textbf{while} loop}
+	\KwIn{$P$, a \why~program;\\ 
+		$R$, a static ranking of solvers for pre-proving; \\
+		$\phi$, a timeout value; \\ 
+		$\mu$, the cost threshold}
+	\KwOut{$\langle A,T\rangle$ where \\
+		$A$ = the best answer from the solvers; \\
+		$T$ = the cumulative time taken to return $A$}
+	\Begin{
+		\tcc{pre-solving}
+		$S \leftarrow BestInstalled(R) $ \\				
+		$\langle A,T \rangle \leftarrow Call(P, S, 1)$ \\
+		\If{$A \in \lbrace Valid, Invalid \rbrace $}
+		{\Return{$\langle A,T \rangle$}}
+		$F \leftarrow ExtractFeatures(P) $ \\
+		$R \leftarrow PredictRanking(F) $ \\
+		\tcc{the predicted cost of $S$ is an additional stopping condition}
+		\While{$A \notin \lbrace Valid, Invalid \rbrace \wedge R \neq \emptyset \wedge Cost(S) \leq \mu$}
+		{$S \leftarrow BestInstalled(R) $ \\	
+			$\langle A_S,T_S \rangle \leftarrow Call(P, S, \phi)$ \\
+			$T \leftarrow T + T_S$  \\
+			\If{$A_S > A$}
+			{	
+				$A \leftarrow A_S$ }
+			\tcc{remove $S$ from the set of solvers $R$}
+			$R \leftarrow R \setminus \lbrace S \rbrace$}
+		\Return{$\langle A,T\rangle$}}
+	\label{algo:threshold}
+	
+\end{algorithm}
+
 The 62 \text{Valid} answers returned by the top solver from the \textsf{Worst Ranking} (i.e. the worst solver) represent the trivial POs solvable by all 8 solvers. 
 Likewise, the 60 goals for which \textsf{Best} did not return a \textit{Valid} or \textit{Invalid} answer could not be proved by any solver.
 
@@ -99,32 +133,13 @@ After pre-solving, solvers with a predicted cost above this threshold are not ca
 If every solver's cost is predicted to be above the threshold, the pre-solver's result is returned.
 %This modification to Algorithm \ref{algo:where4} is shown in Algorithm \ref{algo:threshold}    
 
-\begin{algorithm}
-	\caption{Returning answers and runtimes from \where~solver rankings using a cost threshold: A minor modification to Alg. \ref{algo:where4} with an additional stopping condition in the \textbf{while} loop}
-	\KwIn{\why~program $P$; Static ranking of solvers for pre-proving $R$; Timeout value $\phi$; the cost threshold $thresh$}
-	\KwOut{$\langle A,T\rangle$ where $A$ = the best answer from the solvers; $T$ = the cumulative time taken to return $A$}
-	\Begin{
-		\tcc{pre-solving}
-		$S \leftarrow BestInstalled(R) $ \\				
-		$\langle A,T \rangle \leftarrow Call(P, S, 1)$ \\
-		\If{$A \in \lbrace Valid, Invalid \rbrace $}
-		{\Return{$\langle A,T \rangle$}}
-		$F \leftarrow ExtractFeatures(P) $ \\
-		$R \leftarrow PredictRanking(F) $ \\
-		\tcc{the predicted cost of $S$ is an additional stopping condition}
-		\While{$A \notin \lbrace Valid, Invalid \rbrace \wedge R \neq \emptyset \wedge Cost(S) \leq thresh$}
-			{$S \leftarrow BestInstalled(R) $ \\	
-			$\langle A_S,T_S \rangle \leftarrow Call(P, S, \phi)$ \\
-			$T \leftarrow T + T_S$  \\
-			\If{$A_S > A$}
-			{	
-				$A \leftarrow A_S$ }
-			\tcc{remove $S$ from the set of solvers $R$}
-			$R \leftarrow R \setminus \lbrace S \rbrace$}
-		\Return{$\langle A,T\rangle$}}
-	\label{algo:threshold}
-	
-\end{algorithm}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth]{thresholds}
+	\caption[The effect of using a cost threshold]{The effect of using a cost threshold. (\textit{a: top plot}) The average time taken for \where~to return an answer compared to 8 SMT solvers. (\textit{b: bottom plot}) The number of Valid/Invalid answers returned by \where~compared to 8 SMT solvers.}
+	\label{fig:thresholds}
+\end{figure}
 
 
 
@@ -152,12 +167,9 @@ The performance penalties associated with portfolio solvers can be mitigated by 
 We found this point to be about 7 for the POs in the training data.
 The value to choose as a threshold may not be obvious in real-world scenarios with unseen results, however. 
 
-\begin{figure}
-	\centering
-	\includegraphics[width=\linewidth]{thresholds}
-	\caption[The effect of using a cost threshold]{The effect of using a cost threshold. (\textit{a: top plot}) The average time taken for \where~to return an answer compared to 8 SMT solvers. (\textit{b: bottom plot}) The number of Valid/Invalid answers returned by \where~compared to 8 SMT solvers.}
-	\label{fig:thresholds}
-\end{figure}
+
+
+
 
 
 \begin{table}
@@ -185,9 +197,8 @@ The value to choose as a threshold may not be obvious in real-world scenarios wi
 	\label{table:threshold}
 \end{table}
 
-
-
 \section{EQ2: How does \where~perform in comparison to the 3 theoretical strategies?}
+
 
 \begin{figure}
 	\centering
@@ -197,9 +208,9 @@ The value to choose as a threshold may not be obvious in real-world scenarios wi
 \end{figure}
 
 Fig. \ref{fig:line_graph_eval_provers} compares the time taken for \where~and the 3 ranking strategies to return \textit{Valid} answers for the 263 POs in the test set.
-This experiment is equivalent to running each strategy on all 263 POs in parallel and measuring the time taken for each strategy to return a total of 2013 \textit{Valid} answers.
+This experiment is equivalent to running each strategy on all 263 POs in parallel and measuring the time taken for each strategy to return a total of 203 \textit{Valid} answers.
 As described in Sec. \ref{sec:strategies}, \textsf{Best Ranking} and \textsf{Worst Ranking} use Alg. \ref{algo:rank} to return their time taken.
-\textsf{Random Ranking}'s time measurement is based on the average of 40,320 use of Alg. \ref{algo:rank}.
+\textsf{Random Ranking}'s time measurement is based on the average of 40,320 (i.e. 8!, the number of individual rankings) uses of Alg. \ref{algo:rank}.
 \where's times are derived from the use of Alg. \ref{algo:where4} with a pre-solver of Alt-Ergo-1.01. 
 Although both \where~and \textsf{Random Ranking} finish at approximately the same time, \where~is significantly faster for returning \textit{Valid/Invalid} answers. 
 \where's solid line is more closely correlated to \textsf{Best Ranking}'s rate of success than the erratic rate of the \textsf{Random Ranking} strategy. 
@@ -214,6 +225,8 @@ Although \where~cannot compete with \textsf{Best Ranking} yet, the performance o
 
 
 \section{EQ3: What is the time overhead of using \where~to prove \why~goals?}
+
+\label{sec:eq3}
 
 The timings for \where~in all plots and tables in this chapter are based solely on the performance of the constituent solvers (the measurement of which is discussed in Sec. \ref{sec:dependant}). They do not measure the time it takes for the OCaml binary to extract the static metrics, traverse the decision trees and predict the ranking. 
 We have found that this adds (on average) 0.46 seconds to the time \where~takes to return a result for each of the files in the test set. 
@@ -237,6 +250,10 @@ In its current form, \where~is more suited to an initial proving step performed 
 
 \section{Threats to Validity}
 \label{sec:threats}
+
+In this section we discuss the threats to the validity of the evaluation presented in this chapter.
+We categorise threats as either \textit{internal} or \textit{external}.
+Internal threats challenge the validity of an experiment's data as it relates to the results: for example, the conclusions drawn from the results do not  
 
 \subsection{Internal}
 

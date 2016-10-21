@@ -6,7 +6,7 @@ This brief chapter will give some details of the choices we made when implementi
 We decided to make \where~available as a stand-alone tool on the command-line as well as through the \why~system by imitating an orthodox SMT solver.   
 
 The implementation of \where~makes use of various techniques and heuristics encountered when researching related premise selection and portfolio solving tools such as those described in sections \ref{sub:lrsvml} and \ref{sub:lrsvmmml} of the Literature Review.   
-For example, \where's interaction with \why~is inspired by Sledgehammer's MaSh \cite{Sledgehammer} tool which uses machine learning to suggest premises based on a large corpus of learned theorems -- allowing POs to be proved automatically by ATP and SMT tools. 
+For example, \where's interaction with \why~is inspired by Sledgehammer's MaSh \cite{Sledgehammer} tool. MaSh uses machine learning to suggest premises based on a large corpus of learned theorems, allowing POs to be proved automatically by ATP and SMT tools. 
 We aspired to Sledgehammer's ``zero click, zero maintenance, zero overhead'' philosophy in this regard: \where~should not interfere with a \why~user's normal work-flow nor should it penalise those who do not use it.
 
 One heuristic we implemented was to call the highest ranking solver installed on the user's system from the following static ranking:
@@ -21,8 +21,11 @@ the following algorithm (Alg. \ref{algo:where4}) only performs feature extractio
 
 \begin{algorithm}
 	\caption{Returning an answer and runtime from a \why~input program}
-	\KwIn{\why~program $P$; Static ranking of solvers for pre-proving $R$; Timeout value $\phi$ }
-	\KwOut{$\langle A,T\rangle$ where $A$ = the best answer from the solvers; $T$ = the cumulative time taken to return $A$}
+	\KwIn{$P$, a \why~program; \\ 
+		$R$, a static ranking of solvers for pre-proving; \\
+		$\phi$, a timeout value}
+	\KwOut{$\langle A,T\rangle$ where\\$A$ = the best answer from the solvers;\\
+	$T$ = the cumulative time taken to return $A$}
 	\Begin{
 		\tcc{Highest ranking solver installed locally}
 		$S \leftarrow BestInstalled(R) $ \\			
@@ -39,7 +42,7 @@ the following algorithm (Alg. \ref{algo:where4}) only performs feature extractio
 			$S \leftarrow BestInstalled(R) $ \\	
 			\tcc{Call solver $S$ on \why~program $P$ with a timeout of $\phi$ seconds}	
 			$\langle A_S,T_S \rangle \leftarrow Call(P, S, \phi)$ \\
-			\tcc{add solver $T_S$ to the cumulative runtime}
+			\tcc{add time $T_S$ to the cumulative runtime}
 			$T \leftarrow T + T_S$  \\
 			\If{$A_S > A$}
 			{
@@ -56,31 +59,40 @@ the following algorithm (Alg. \ref{algo:where4}) only performs feature extractio
 
 We train the Random Forest model described in Sec. \ref{sec:chosen} on the entire training set.
 The Sci-kit Learn library allows the constituent decision trees to be extracted and inspected.
-We print the forest as a JSON array of trees using the schema shown below:
+We print the forest as a JSON array of trees using the data model shown in Fig. \ref{fig:json}. 
+%Each \texttt{Forest} consists of an array of \texttt{Trees}, which in turn consist of an array of \texttt{Nodes}. Each node has a unique identifier which is used for navigating the tree. A \texttt{
 
-\begin{tabularx}{0.8\textwidth}{@{}ZcY@{}}
-	$forest$ &:=&  $tree^+$ \\
-	$tree$ &:=& $node^+$ \\
-	$node$ &:=& $leaf\,|\, decision$ \\
-	$leaf$ &:=& $(index, prediction^+)$ \\
-	$decision$ &:=& $(index, feature, threshold, true, false)$ \\
-	$prediction$ &:=& $(solver, cost)$ \\
-	$index$ &:=& \texttt{integer} \\
-	$feature$ &:=& \texttt{string} \\
-	$threshold$ &:=& \texttt{float} \\
-	$true$ &:=& \texttt{integer} \\
-	$false$ &:=& \texttt{integer} \\
-	$solver$ &:=& \texttt{string} \\
-	$cost$ &:=& \texttt{float} \\	
-\end{tabularx}
+\begin{figure}
+\centering
+\includegraphics[width=0.8\linewidth]{Figures/data}
+\caption[Data design for JSON encoding]{Data design for JSON encoding}
+\label{fig:json}
+\end{figure}
+%
+%
+%\begin{tabularx}{0.8\textwidth}{@{}ZcY@{}}
+%	$forest$ &:=&  $tree^+$ \\
+%	$tree$ &:=& $node^+$ \\
+%	$node$ &:=& $leaf\,|\, decision$ \\
+%	$leaf$ &:=& $(index, prediction^+)$ \\
+%	$decision$ &:=& $(index, feature, threshold, true, false)$ \\
+%	$prediction$ &:=& $(solver, cost)$ \\
+%	$index$ &:=& \texttt{integer} \\
+%	$feature$ &:=& \texttt{string} \\
+%	$threshold$ &:=& \texttt{float} \\
+%	$true$ &:=& \texttt{integer} \\
+%	$false$ &:=& \texttt{integer} \\
+%	$solver$ &:=& \texttt{string} \\
+%	$cost$ &:=& \texttt{float} \\	
+%\end{tabularx}
 
-This JSON schema is designed to be human-readable so that users can define their own simple trees in order to experiment with the effect a particular \textit{feature} may have.
-The \textit{index} attribute is a unique identifier used when traversing the tree: if the value for \textit{feature} is less than or equal to \textit{threshold}, the current focus moves to the \textit{node} with the \textit{index} value of \textit{true}, or to \textit{false} if it is greater.
-This process continues until a \textit{leaf} node is encountered and each solver's cost \textit{prediction} is returned.
+This JSON schema is designed to be human-readable so that users can define their own simple trees in order to experiment with the effect a particular \texttt{feature} may have.
+The \texttt{index} attribute is a unique identifier used when traversing the tree: if the value for \texttt{feature} is less than or equal to \texttt{threshold}, the current focus moves to the \texttt{Node} with the value of \texttt{ifTrue}, or to \texttt{ifFalse} if it is greater.
+This process continues until a \texttt{Leaf} node is encountered and each solver's cost \texttt{Prediction} is returned.
 
 Fig. \ref{fig:Chapter5} shows \where's design in terms of OCaml modules.
 The functions exposed by the interface files (\texttt{*.mli}) are listed in Appendix \ref{App:interfaces}. 
-Upon installation of \where, \texttt{forest.json} is read in by \texttt{print\_tree.ml} and printed as a OCaml array to \texttt{tree.ml}.
+Upon installation of \where, \texttt{forest.json} is read in by \texttt{print\_tree.ml} and an equivalent OCaml array is generated and written to the file \texttt{tree.ml}.
 When \texttt{make\_predictions.ml} is provided with a vector of program features by \texttt{where4.ml}, the forest is traversed  in the manner outlined above.
 Making the forest available as an OCaml data structure (through the \texttt{tree.mli} interface file) is more efficient than reading in the JSON file at each execution of \where.
 Of course, if \texttt{forest.json} changes, \where~needs to be re-installed for these changes to have effect (more information about installing \where~is given in Appendix \ref{App:install}).  
@@ -88,7 +100,7 @@ Of course, if \texttt{forest.json} changes, \where~needs to be re-installed for 
 
 \begin{figure}
 	\centering
-	\includegraphics[width=1.1\linewidth]{Figures/Chapter5}
+	\includegraphics[width=1.0\linewidth]{Figures/Chapter5_stereo}
 	\caption[\where~modules]{The organisation of components in \where's design}
 	\label{fig:Chapter5}
 \end{figure}
@@ -96,7 +108,7 @@ Of course, if \texttt{forest.json} changes, \where~needs to be re-installed for 
 \section{Extracting features}
 
 The previous section described \where's use of a tree data structure to predict solver performance given a vector of program features.
-A tree are also used to derive these feature vectors from \why~programs: the \why~API is used to traverse the abstract syntax tree (AST) for each PO.
+A tree is also used to derive these feature vectors from \why~programs: the \why~API is used to traverse the abstract syntax tree (AST) for each PO.
 As previously discussed in Sec. \ref{sec:independant}, we use a process similar to that used internally by \why~to extract ``goal shapes'' \cite{why:preserving}.
 The \why~Ocaml module to perform this task is named \texttt{termcode.ml} and \where's \texttt{mytermcode.ml} is based upon the same process.
 
@@ -104,25 +116,34 @@ A hash table is maintained while recursively traversing the AST: at each node vi
 Any other information (such as function arity, for example) is also recorded before the rest of the tree is traversed. 
 
 \section{Integration with \why}
-
-\label{sec:why3-integration}.
+\label{sec:why3-integration}
 
 The \texttt{mytermcode.mli}, \texttt{where4.ml} and \texttt{make\_session.mli} files are shown in Fig. \ref{fig:Chapter5} as having access to the \why~API. 
 We have already described how \texttt{mytermcode.ml} uses the AST to extract the feature vector.
 Other important information required by \why~is gathered by the \texttt{make\_session.ml} module.
 For example, this module reads the \why~configuration file to determine which supported SMT solvers are installed locally.
-The drivers for these solver are loaded and a proof session is created in the current directory, and the input file is read.
+\texttt{make\_session.ml} loads drivers for these solvers and creates a proof session in the current directory. This module reads and type-checks the input file; returning its abstract representation.
 These actions are performed using a method described by the \why~manual\footnote{Specifically \url{http://why3.lri.fr/doc-0.87.2/manual005.html\#sec28} (last accessed 16/10/16)} \cite{why:manual}.
 
 \texttt{where4.ml} parses command line options (see Appendix \ref{App:command}) and is summarised by Algorithm \ref{algo:where4}.
 The imitation of an orthodox SMT solver requires a number of modifications and extra files as follows:
 \begin{itemize}
 	\item An entry to the \texttt{provers-detection-data.conf} configuration file must be made for \why~to recognise \where~ as a supported SMT solver.
-	\where's entry lists the command needed to invoke the binary, which version of the tool is supported, and where to find the corresponding driver file
+	\where's entry lists the command needed to invoke the binary, specifies which version of the tool is supported, and where to find the corresponding driver file
 	\item The driver file must contain regular expressions to parse \where's output, making it comprehensible to \why~(defining the characteristics of a \textit{Valid} output, for example). 
 	The driver must also list the printer used by \why~for intermediate files, as well as any transformations which need to be performed to conform to the solver's input language. \where~uses the standard \why~printer and its list of transformations.
 	\item The \why~API requires that supplied paths to input files are relative to the current directory. When called via the driver, however, a temporary file is written by the printer and an absolute path is specified. \where~needs to convert this to a relative path in order to read the input file.     
 \end{itemize}
 
 These modifications allow \where~to be recognised as an orthodox solver which can be used by \why~through the IDE, on the command-line, or even through the OCaml API. 
+
+\section{Summary}
+
+This chapter has presented an overview of the method we used to implement the \where~tool using the \why~OCaml API.
+In total, the six statically-written OCaml modules (i.e. not including \texttt{tree.ml}) contain 712 lines of code.
+We used OCaml version 4.02.3 for their compilation locally.
+The only library we used (in addition to version 0.87.1 of the \why~API) is Yojson\footnote{version 1.2.1 \url{http://mjambon.com/yojson.html}}  to help with parsing the \texttt{forest.json} file. 
+The data disk included with this thesis contains all the source code for \where. 
+The files \texttt{install.sh} and \texttt{readme.md} contain useful information about the compilation of these modules and how to satisfy their few dependencies.
+The same source files are available online at \url{https://github.com/ahealy19/where4}.
 
