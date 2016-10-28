@@ -10,7 +10,7 @@
 % Vel (vel@latextemplates.com)
 %
 % This template is based on a template by:
-% Steve Gunn (http://users.ecs.soton.ac.uk/srg/softwaretools/document/templates/)
+% Steve Gunn %(http://users.ecs.soton.ac.uk/srg/softwaretools/document/templates/)
 % Sunil Patel (http://www.sunilpatel.co.uk/thesis-template/)
 %
 % Template license:
@@ -69,6 +69,7 @@ headsepline, % Uncomment to get a line under the header
 \usepackage{booktabs}
 \usepackage{adjustbox}
 \usepackage{listings}
+\usepackage{enumitem}
 
 \newcolumntype{Y}{>{\raggedright\arraybackslash}X} 
 \newcommand{\midbar}{\tikz[overlay] \draw (-.5em,.8em)--(-.5em,0em);}
@@ -88,15 +89,15 @@ headsepline, % Uncomment to get a line under the header
 	breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
 	breaklines=true,                 % sets automatic line breaking
 	%captionpos=b,                    % sets the caption-position to bottom
-	%commentstyle=\color{mygreen},    % comment style
+	commentstyle=\color{cyan},    % comment style
 	deletekeywords={},            % if you want to delete keywords from the given language
 	escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
 	extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
 	frame=single,	                   % adds a frame around the code
 	keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
 	keywordstyle=\color{blue},       % keyword style
-	language=ML,                 % the language of the code
-	otherkeywords={lemma, forall, Cons, Nil, goal, exists, /\\},           % if you want to add more keywords to the set
+	language={[Objective]Caml},                 % the language of the code
+	otherkeywords={lemma, forall, Cons, Nil, goal, exists, string, float, option, list, int /\\},           % if you want to add more keywords to the set
 	numbers=none,                    % where to put the line-numbers; possible values are (none, left, right)
 	numbersep=5pt,                   % how far the line-numbers are from the code
 	%numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
@@ -252,7 +253,20 @@ The performance of our tool \where~is evaluated on a dataset of proof obligation
 \begin{acknowledgements}
 \addchaptertocentry{\acknowledgementname} % Add the acknowledgements to the table of contents
 
-The acknowledgments and the people to thank go here, don't forget to include your project adviser\ldots
+The first people to acknowledge, even if Umberto Eco finds it distasteful,  are my supervisors: Dr Rosemary Monahan and Dr James F. Power. 
+Their guidance and expertise were critical to the development of this project.
+I thank them for giving me the opportunity to conduct this research.
+
+Secondly, I must thank the broader staff and postgraduate students of the Department of Computer Science.
+They have made the past two years very enjoyable ones.
+Special thanks to members of the POP group, past or present,
+who have been a valuable source of encouragement and domain-specific knowledge. 
+Marie deserves a special mention for proof-reading this thesis.
+
+It is conventional for developers of portfolio solvers to acknowledge the development effort associated with their constituent tools, and I must do the same. 
+In particular, I am indebted to the \why~system, on which this work relies.
+
+Lastly but most importantly, I thank my parents for all their support.  
 
 \end{acknowledgements}
 
@@ -279,6 +293,8 @@ The acknowledgments and the people to thank go here, don't forget to include you
 \textbf{TPTP} & \textbf{T}housands of \textbf{P}roblems for \textbf{T}heorem \textbf{P}rovers \\
 
 \end{abbreviations}
+
+\textbf{N.B.} In the text, to distinguish references to Machine Learning (ML) from references to the \texttt{ML} programming language, the latter is typeset in \texttt{monospace} font.
 
 \listoffigures % Prints the list of figures
 \thispagestyle{nohead}
@@ -320,7 +336,7 @@ The acknowledgments and the people to thank go here, don't forget to include you
 
 \include{Appendices/AppendixA}
 \include{Appendices/AppendixB}
-%\include{Appendices/AppendixC}
+\include{Appendices/AppendixC}
 
 %----------------------------------------------------------------------------------------
 %	BIBLIOGRAPHY

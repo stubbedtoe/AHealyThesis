@@ -2,5 +2,24 @@
 \thispagestyle{nohead}
 \label{App:install}
 
+The installation process for \where~is defined by a shell script \texttt{install.sh}.
+This Appendix gives more details about the options available to the user when calling this file to compile the OCaml files and install the \where~binary locally.
 
-As a random forest is just an array of trees, a JSON file containing a single \textit{tree} may be provided instead, if it is specified as such during installation.
+\begin{itemize}[leftmargin=*]
+	\item[] \textbf{\texttt{\textendash\textendash location / -l PATH}} \\ By default, \where~will be copied to the \texttt{/usr/local/bin/} directory.
+	If the user wishes, this location can be overridden to be \texttt{PATH}. The given directory must be on the user's \texttt{\$PATH} environment variable to be found by \why. 
+	\item[] \textbf{\texttt{\textendash\textendash why3name / -w PATH}} \\ The location of the \why~binary, if it is not on the user's \texttt{\$PATH} can be supplied. \where~is added to \why's list of provers by calling \texttt{why3 config --detect-provers} at the end of the installation process. 
+	\item[] \textbf{\texttt{\textendash\textendash prover-detection / -p PATH}} \\ By default, \why's \texttt{provers-detection-data.conf} file is assumed to be located in \texttt{/usr/local/share/why/}. The location of this file can be specified as \texttt{PATH}.
+	\item[] \textbf{\texttt{\textendash\textendash driver-location / -d PATH}} \\ The location of the \why~driver files. \where~needs to know where to copy \texttt{where4.drv} so that \why~will be able to find it.
+	\item[] \textbf{\texttt{\textendash\textendash reinstall / -r}} \\ Delete the installed binary (i.e. execute \texttt{uninstall.sh}) and repeat the installation process (the \where~entry in \texttt{provers-detection-data.conf} will not be deleted, however). This option can be combined with the above flags.   
+\end{itemize}
+
+By default, \where~assumes there is a JSON file called \texttt{forest.json} in the current directory which is to be used to construct the prediction model.
+The user can control this behaviour with the following flags.
+As a random forest is just an array of decision trees, a JSON file containing a single tree may be provided instead, if it is specified as such during installation.
+
+\begin{itemize}[leftmargin=*]
+	\item[] \textbf{\texttt{\textendash\textendash forest / -f PATH}} \\ Use the JSON file located at \texttt{PATH} to construct the prediction model. This file should define a Random Forest using the JSON schema defined in Sec. \ref{sec:encoding}.
+	\item[] \textbf{\texttt{\textendash\textendash tree / -t PATH}} \\ Use the JSON file located at \texttt{PATH} to construct the prediction model. This file should define a Decision Tree using the JSON schema defined in Sec. \ref{sec:encoding}.
+\end{itemize}
+

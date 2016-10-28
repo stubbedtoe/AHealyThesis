@@ -2,7 +2,7 @@
 \thispagestyle{nohead}
 \label{Implementation}
 
-This brief chapter will give some details of the choices we made when implementing the \where~tool.
+This chapter will give some details of the choices we made when implementing the \where~tool.
 We decided to make \where~available as a stand-alone tool on the command-line as well as through the \why~system by imitating an orthodox SMT solver.   
 
 The implementation of \where~makes use of various techniques and heuristics encountered when researching related premise selection and portfolio solving tools such as those described in sections \ref{sub:lrsvml} and \ref{sub:lrsvmmml} of the Literature Review.   
@@ -12,7 +12,8 @@ We aspired to Sledgehammer's ``zero click, zero maintenance, zero overhead'' phi
 One heuristic we implemented was to call the highest ranking solver installed on the user's system from the following static ranking:
 $ \text{Alt-Ergo-1.01} > \text{CVC4} > \text{CVC3} > \text{Z3-4.4.1} > \text{Alt-Ergo-0.95.1} > \text{Z3-4.3.2} > \text{Yices} > \text{veriT} $.
 We derived this ranking from the total number of POs each solver could prove (as listed in Table \ref{table:avgtimes}).
-Using an initial high-performing solver (with a short time limit value) discharges easy POs without incurring the cost of feature extraction and solver rank prediction.
+The use of a high-performing solver called initially with a short time limit value discharges easy POs.
+It does this without incurring the cost of feature extraction and solver rank prediction.
 This heuristic is implemented successfully in the SATzilla  \cite{SATzilla2012} portfolio solver for SAT instances where it is termed ``pre-solving''.
 SATzilla has inspired the use of pre-solving in portfolio solvers for constraint / optimisation problems such as sunny-cp \cite{sunny-cp}.
 This heuristic improves \where's performance and reduces its reliance on the underlying random forest prediction model. 
@@ -56,6 +57,7 @@ the following algorithm (Alg. \ref{algo:where4}) only performs feature extractio
 \end{algorithm}
 
 \section{Encoding the random forest}
+\label{sec:encoding}
 
 We train the Random Forest model described in Sec. \ref{sec:chosen} on the entire training set.
 The Sci-kit Learn library allows the constituent decision trees to be extracted and inspected.
@@ -110,10 +112,10 @@ Of course, if \texttt{forest.json} changes, \where~needs to be re-installed for 
 The previous section described \where's use of a tree data structure to predict solver performance given a vector of program features.
 A tree is also used to derive these feature vectors from \why~programs: the \why~API is used to traverse the abstract syntax tree (AST) for each PO.
 As previously discussed in Sec. \ref{sec:independant}, we use a process similar to that used internally by \why~to extract ``goal shapes'' \cite{why:preserving}.
-The \why~Ocaml module to perform this task is named \texttt{termcode.ml} and \where's \texttt{mytermcode.ml} is based upon the same process.
+The \why~OCaml module used to perform this task is named \texttt{termcode.ml} and \where's \texttt{mytermcode.ml} is based upon the same process.
 
 A hash table is maintained while recursively traversing the AST: at each node visited the count of the corresponding feature is incremented in the hash table. 
-Any other information (such as function arity, for example) is also recorded before the rest of the tree is traversed. 
+Any other relevant information (such as function arity, for example) is also recorded before the rest of the tree is traversed. 
 
 \section{Integration with \why}
 \label{sec:why3-integration}
@@ -123,19 +125,25 @@ We have already described how \texttt{mytermcode.ml} uses the AST to extract the
 Other important information required by \why~is gathered by the \texttt{make\_session.ml} module.
 For example, this module reads the \why~configuration file to determine which supported SMT solvers are installed locally.
 \texttt{make\_session.ml} loads drivers for these solvers and creates a proof session in the current directory. This module reads and type-checks the input file; returning its abstract representation.
-These actions are performed using a method described by the \why~manual\footnote{Specifically \url{http://why3.lri.fr/doc-0.87.2/manual005.html\#sec28} (last accessed 16/10/16)} \cite{why:manual}.
+These actions are performed using a method described in the \why~manual\footnote{Specifically \url{http://why3.lri.fr/doc-0.87.2/manual005.html\#sec28} (last accessed 16/10/16)} \cite{why:manual}.
 
-\texttt{where4.ml} parses command line options (see Appendix \ref{App:command}) and is summarised by Algorithm \ref{algo:where4}.
+\texttt{where4.ml} parses command line options (see Appendix \ref{App:command}) and prints results to the console.
+The process it uses to schedule solvers is summarised by Algorithm \ref{algo:where4}.
+\where~is available as a stand-alone command-line tool which accepts files written using the WhyML front-end or the Why IVL.
+Such a tool is useful as an initial solving step for large batches of files, but it cannot take full advantage of the \why~system.
+By following the ``zero click, zero maintenance, zero overhead'' philosophy, we wanted \where's functionality to integrate fully with the \why~user's normal workflow.
+To take advantage of the full range of transformations and parsers associated with the \why~system, we decided to make the tool available to be accessed as an individual backend solver.
+   
 The imitation of an orthodox SMT solver requires a number of modifications and extra files as follows:
 \begin{itemize}
 	\item An entry to the \texttt{provers-detection-data.conf} configuration file must be made for \why~to recognise \where~ as a supported SMT solver.
-	\where's entry lists the command needed to invoke the binary, specifies which version of the tool is supported, and where to find the corresponding driver file
+	\where's entry lists the command needed to invoke the binary, specifies which version of the tool is supported, and where to find the corresponding driver file.
 	\item The driver file must contain regular expressions to parse \where's output, making it comprehensible to \why~(defining the characteristics of a \textit{Valid} output, for example). 
 	The driver must also list the printer used by \why~for intermediate files, as well as any transformations which need to be performed to conform to the solver's input language. \where~uses the standard \why~printer and its list of transformations.
 	\item The \why~API requires that supplied paths to input files are relative to the current directory. When called via the driver, however, a temporary file is written by the printer and an absolute path is specified. \where~needs to convert this to a relative path in order to read the input file.     
 \end{itemize}
 
-These modifications allow \where~to be recognised as an orthodox solver which can be used by \why~through the IDE, on the command-line, or even through the OCaml API. 
+These modifications allow \where~to be recognised as an orthodox solver which can be used by \why~through the IDE, on the command-line, or through the OCaml API -- similar to any other supported ATP or SMT tool. 
 
 \section{Summary}
 
@@ -143,7 +151,7 @@ This chapter has presented an overview of the method we used to implement the \w
 In total, the six statically-written OCaml modules (i.e. not including \texttt{tree.ml}) contain 712 lines of code.
 We used OCaml version 4.02.3 for their compilation locally.
 The only library we used (in addition to version 0.87.1 of the \why~API) is Yojson\footnote{version 1.2.1 \url{http://mjambon.com/yojson.html}}  to help with parsing the \texttt{forest.json} file. 
-The data disk included with this thesis contains all the source code for \where. 
+The data disk included with this thesis contains all of the source code for \where. 
 The files \texttt{install.sh} and \texttt{readme.md} contain useful information about the compilation of these modules and how to satisfy their few dependencies.
 The same source files are available online at \url{https://github.com/ahealy19/where4}.
 

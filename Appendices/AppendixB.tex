@@ -2,12 +2,51 @@
 \thispagestyle{nohead}
 \label{App:command} % For referencing this appendix elsewhere, use \ref{AppendixA}
 
-The \textsf{Where4} command-line tool has the following functionality:
-\begin{enumerate}
-	\item Read in the WhyML/Why file and extract feature vectors from its goals.% formulae.
-	\item Find the predicted costs for each of the 8 provers by traversing the random forest, using each goal's feature vector.
-	\item Sort the costs to produce a ranking of the SMT solvers.
-	\item Use the \textsf{Why3} API to call each solver (if it is installed) in rank order.
-	%\item Print the result.
-	\item Repeat 4 as necessary until a \textit{Valid/Invalid} response is recorded or all installed solvers have been called.
-\end{enumerate}
+Much like \why~itself, the \where~tool is intended for use on Unix systems only. 
+During the installation of \where, the location of a binary called \texttt{\textbf{where4}} is added to the user's \texttt{PATH} environment variable. 
+The following options are appended to calls to \texttt{\textbf{where4}} on the command-line:
+
+\begin{itemize}[leftmargin=*]
+	\item[] \textbf{\texttt{\textendash\textendash help / -h}} \\ Print a consise version of this Appendix to the console.
+	\item[] \textbf{\texttt{\textendash\textendash version}} \\ Print \where's version number. This command is used by \why~to determine if a supported version of \where~is installed.
+	\item[] \textbf{\texttt{\textendash\textendash list-provers / -l}} \\ Print each SMT solver known to \where~and \texttt{found} if \where~has determined it is installed locally; \texttt{NOT found} otherwise.	
+\end{itemize}
+
+The following two options, \texttt{predict} and \texttt{prove}, must be followed by \texttt{FILENAME}: a \textit{relative} path to a \texttt{.why} (Why logic language) or \texttt{.mlw} (WhyML programming language) file.
+
+\begin{itemize}[leftmargin=*]
+	\item[]\textbf{\texttt{predict FILENAME}}\\ Print the predicted ranking of solver utility for each PO in \texttt{FILENAME}. The ranking will consist of all 8 solvers known to \where~whether they are installed locally or not.
+	\item[]\textbf{\texttt{predict FILENAME}}\\ Call the pre-solver, then each \textit{installed} solver in the predicted ranking sequentially, for each PO in \texttt{FILENAME}.
+\end{itemize}
+
+
+If the \why~configuration file has been moved to a location other than its default (i.e. \texttt{\$HOME/.why3.conf}), the following option is necessary in order for \texttt{where4 prove} or \texttt{where4 predict} to function correctly:
+
+\begin{itemize}[leftmargin=*]
+	\item[] \textbf{\texttt{\textendash\textendash config / -c CONFIGPATH}} \\Specify the path to \why's \texttt{.why.conf} configuration file as \texttt{CONFIGPATH}. Use the default location (\texttt{\$HOME/.why3.conf}) otherwise.
+\end{itemize}
+	
+A number of optional parameters can be appended to the \texttt{prove FILENAME} command (their order is unimportant):
+	
+\begin{itemize}[leftmargin=*]
+	\item[]\textbf{\texttt{\textendash\textendash verbose}}\\ Print the result of each prover call and the time it took. The default behaviour is to just print out the best result and the cumulative time (see Alg. \ref{algo:threshold}).
+	\item[]\textbf{\texttt{\textendash\textendash why}}\\
+	A special flag for use with the \why~driver which tells \where~to convert the given absolute filename to a relative path.   
+	\item[]\textbf{\texttt{\textendash\textendash time / -tm TIME}}\\ Override the default (5 seconds) timeout value with \texttt{TIME} number of seconds. \texttt{TIME} must be an integer; an error message will be printed otherwise.
+	\item[]\textbf{\texttt{\textendash\textendash threshold / -ts THRESH}}\\ Use a \textit{cost threshold} (see Sec. \ref{sub:threshold}) to limit the number of solvers called based on their predicted ranking. We found in Chapter \ref{Evaluation} that a \texttt{THRESH} value of 7 is optimum for the test set. \texttt{THRESH} must be parsable as a floating-point number; an error message will be printed otherwise.
+\end{itemize} 
+
+\section{The \where~command given to \why}
+
+The following is the command specified in \texttt{provers-detection-data.conf} to call \where:\\
+
+\noindent \texttt{\textbf{where4 prove \%f \textendash\textendash why -tm \%t -ts 7}}
+
+\begin{itemize}
+	\item[\texttt{\textbf{\%f}}] is the absolute path to the temporary file created by \why
+	\item[\texttt{\textbf{\textendash\textendash why}}] tells \where~that the given path is absolute and requires conversion
+	\item[\texttt{\textbf{-tm \%t}}] use the time limit \%t specified by the \why~user
+	\item[\texttt{\textbf{-ts 7}}] enforce a cost threshold of 7
+\end{itemize}
+
+

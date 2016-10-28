@@ -14,13 +14,13 @@ Empirical studies require many choices to be made from the outset. In the case o
 	\item How is \where's interaction with \why~implemented?   
 \end{enumerate}   
 
-In this chapter we detail the tools and data chosen to be measured and the methods used for this measurement; i.e. questions 1-5 are answered. Question 6 is answered in Chapter \ref{Prediction}. The choices made in regard to Question 7 are discussed in Chapter \ref{Implementation}. 
+In this chapter we detail the tools and data we chose to measure and the methods used for this measurement; i.e. questions 1-5 are answered. Question 6 is answered in Chapter \ref{Prediction}. The choices made in regard to Question 7 are discussed in Chapter \ref{Implementation}. 
 
 A diagram illustrating this part of the experimental process is given in Fig. \ref{fig:Chapter3}. 
-Verification POs undergo two processes: feature vectors based on syntax are derived statically, and the result of proving the PO using several SMT solvers are recorded. 
+Verification POs undergo two processes: (i) static syntactic analysis is used to derive feature vectors, and (ii) the result of proving the PO using several SMT solvers is recorded. 
 For each PO in the dataset, the static feature vector is associated with the dynamic measurements for each SMT solver to form our database.
 Three quarters of the database will be used in the next chapter for training and validation of the ML models.
-The same portion be used to train the \where~tool in Chapter \ref{Implementation}.
+The same data will be used to train the \where~tool in Chapter \ref{Implementation}.
 The remaining quarter of the database forms the basis of Chapter \ref{Evaluation}'s evaluation.
    
 In Sec. \ref{sub:why3programs} the repository of verification programs used for training and testing purposes are introduced. 
@@ -68,12 +68,12 @@ Importantly, the chosen dataset makes use of the full capabilities of the \why~s
 
 We used six current, general-purpose SMT solvers supported by \textsf{Why3}: 
 \begin{itemize}
-	\item \textbf{Alt-Ergo} is a general-purpose SMT solver written in OCaml (the others in this list are written in C++). It is the most tightly-integrated solver supported by \why: it supports polymorphic types and its native input format is a previous version of the \why~intermediate language. Two recent major versions, 0.95.1 and 1.01, are used by \where
-	\item \textbf{CVC3} is the open-source SMT solver developed by the University of Iowa and New York University. We used version 2.4.1
-	\item \textbf{CVC4} is an entirely re-implemented update to CVC3. Version 1.4 is used by \where
+	\item \textbf{Alt-Ergo} is a general-purpose SMT solver written in OCaml (the others in this list are written in C++). It is the most tightly-integrated solver supported by \why: it supports polymorphic types and its native input format is a previous version of the \why~intermediate language. Two recent major versions, 0.95.1 and 1.01, are used by \where.
+	\item \textbf{CVC3} is the open-source SMT solver developed by the University of Iowa and New York University. We used version 2.4.1.
+	\item \textbf{CVC4} is an entirely re-implemented update to CVC3. Version 1.4 is used by \where.
 	\item \textbf{veriT} is an open-source SMT solver developed by the Univerity of Lorraine, France, and the Federal University of Rio Grande do Norte, Brazil. We used the current version, 201506, which is not officially supported by \why~but is the only version available.
 	\item \textbf{Yices} is developed by SRI International and is free for non commercial use. \where~uses version 1.0.38 rather than Yices2 because the newer implementation does not support quantifiers -- making it unsuitable for SV.  
-	\item \textbf{Z3} is the SMT solver developed at Microsoft Research. The source code has be available in 2012 and it has been open-source since 2015. \where~uses two versions: 4.3.2 and 4.4.1 
+	\item \textbf{Z3} is the SMT solver developed at Microsoft Research. The source code has been available since 2012 and it has been open-source since 2015. \where~uses two versions: 4.3.2 and 4.4.1. 
 \end{itemize}
 
 As Table \ref{table:solvers} shows, the six solvers use four different input formats between them -- three of which are specific to the solver in question. 
@@ -197,27 +197,32 @@ Instead of producing a string after traversing the AST, our process simply count
 
 Fig. \ref{fig:types} lists the predictor variables that were used in our study.  
 All of these are (integer-valued) metrics that can be calculated by analysing the \textsf{Why3} goal statement, and are similar to the \textit{Syntax} metadata category for proof obligations written in the TPTP format \cite{TPTP}. 
-The metrics we chose to characterise \why~proof obligations are intended to generalise for first-order formul\ae and other IVLs such as Boogie \cite{Boogie} rather than be specific to \why~syntax.
+The metrics we chose to characterise \why~proof obligations are intended to generalise for first-order formul\ae~and other IVLs such as Boogie \cite{Boogie} rather than be specific to \why~syntax.
 The metrics' simplicity also makes the ML models more transparent and understandable: metrics derived from multiple complicated interactions of structural features would be hard to reason about and apply to other related contexts where learning would be useful. 
 
 The features shown in pink rectangles in Fig. \ref{fig:types} are counted individually by traversing the AST. 
 The rounded blue nodes represent metrics that are the sum of their children in the tree. 
 The metrics represented by pink rectangles measure syntactic features and are self-explanatory except for the following:
-\begin{itemize}
-	\item[\textbf{zero-ar}] The number of functions which do not take any arguments (i.e. zero-arity functions)
-	\item[\textbf{depth}] The depth of the AST
-	\item[\textbf{avg-arity}] The total number of arguments for all functions which are children of the \textit{divisor} node, divided by the value of \textit{divisor}
+\begin{itemize}[leftmargin=*]
+	\item[] \textbf{zero-ar:} The number of functions which do not take any arguments (i.e. zero-arity functions).
+	\item[] \textbf{depth:} The depth of the AST.
+	\item[] \textbf{avg-arity:} The total number of arguments for all functions which are children of the \textit{divisor} node, divided by the value of \textit{divisor}.
 \end{itemize}   
 
 \textit{Size} measures the size the expression and is the sum of \textit{ops} (the number of operators), \textit{leaves} (the number of leaf nodes in the AST), and \textit{quants} (the number of quantifiers). 
+We map our notion of \textit{conds} to the number of decision nodes used to calculate McCabe's Cyclomatic Complexity metric.
+  
 
 \subsubsection{Example: \textit{first\_last} lemma}
 
 As a minimal illustrative example, we refer to the code listing in Fig. \ref{fig:code}. 
-This code is one of the 13 \textit{Why} proof obligation goals from the \textbf{edit\_distance.mlw} file in the \textit{Why3} examples directory. 
+This code is one of the 13 POs from the \texttt{edit\_distance.mlw} file in the \why~examples directory. 
 The entire program verifies an algorithm which finds the ``edit distance''\footnote{\url{https://en.wikipedia.org/wiki/Edit_distance}} similarity measure between two strings.  
 Informally, this intermediate lemma checks that the same words are produced by (i) prepending a word (minus its first letter \textit{a}) with \textit{a} and (ii) appending a word (minus its last letter \textit{b}) with \textit{b}. 
-A representation of the parse tree from this lemma is shown in Fig. \ref{fig:tree}. The reader will note that the zero-arity function \textit{Nil} is a leaf node in the tree, while all other functions (\textit{Cons, =, ++, length}) and operators (\textit{and}) have an arity of either 1 or 2. 
+A representation of the parse tree from this lemma is shown in Fig. \ref{fig:tree}. 
+The root node (\textit{forall}) is circled and the leaf nodes are shown as rectangles.
+The name of each \textit{func} (as interpreted by \why) is shown for clarity.
+The reader will note that the zero-arity function \textit{Nil} is a leaf node in the tree, while all other functions (\textit{Cons, =, ++, length}) and operators (\textit{and}) have an arity of either 1 or 2. 
 
 Table \ref{table:examplemetrics} shows the non-zero metrics used to describe the \textit{first\_last} formula for predictive purposes.
 
@@ -285,12 +290,12 @@ We recorded the time spent on CPU by each SMT solver for each proof obligation.
 \subsubsection{Accounting for randomness with confidence intervals}
 \label{sub:confidence}
 
-Efforts to accurate measure execution time are hampered by random errors introduced by the experimental environment.
+Any effort to measure execution time accurately is hampered by random errors introduced by the experimental environment.
 To account for these errors, we used the methodology described by Lilja \cite{LiljaJ} to obtain an approximation of the true mean execution time. 
 
 As each solver execution can be quite expensive in terms of time (a worst case scenario for one measurement of each PO: 1048 (POs) $\times$ 8 (solvers) $\times$ 10 seconds (time limit) $\approxeq$ 23.3 hours of computation time), a small number of initial measurements (5) were made.
 From these sample measurements, the mean execution time $\bar{x}$ and standard deviation $s$ were computed. 
-To determine the number of measurements ($n$) required for a statistically-significant sample, we assume that the random errors have a $t$ distribution. 
+To determine the number of measurements ($n$) required for a statistically-significant sample, we assume that the random errors have a $Student's$ $t$-distribution (similar in shape to a Gaussian distribution). 
 We can use these measurements to find the confidence interval $(c_1, c_2)$ using the equations:
 \begin{equation}
 	c_1=(1-e)\bar{x} = \bar{x}-z_{1-a/2;n-1}\frac{s}{\sqrt{n}} 
@@ -300,7 +305,7 @@ We can use these measurements to find the confidence interval $(c_1, c_2)$ using
 	c_2=(1+e)\bar{x} = \bar{x}+z_{1-a/2;n-1}\frac{s}{\sqrt{n}}
 	\label{eq:c2}
 \end{equation}
-either equation \ref{eq:c1} or \ref{eq:c2} can be used to find 
+Either Equation \ref{eq:c1} or \ref{eq:c2} can be used to find 
 \begin{equation}
 	z_{1-a/2}\frac{s}{\sqrt{n}} = \bar{x}e.
 	\label{eq:simp}
@@ -312,7 +317,7 @@ Solving for $n$ gives
 	\label{eq:n}
 \end{equation}
   
-where $z$ is a value from the $t$ distribution (similar in shape to a Gaussian distribution) which is used to model the measurement error. 
+where $z$ is a value from the $t$-distribution which is used to model the measurement error. 
 An illustration of this distribution, Fig. \ref{fig:confidence}, shows that there is a probability $1-a$ that the actual value being measured (i.e. \textit{x}: the execution time for each solver to return an answer for a particular PO), is within the confidence interval ($c_1, c_2$). 
 As the bounds of ($c_1, c_2$) increase outward, the confidence level increases.
 We can be 100\% confident that the actual mean value is within the interval (0, $\infty$) but this interval is not practical.  
@@ -328,16 +333,16 @@ The 5 sample measurements of CPU time spent by Alt-Ergo (to return an answer of 
 	 $\lbrace$ 0.124, & 0.142, & 0.136, & 0.131, & 0.133 $\rbrace$
 \end{tabularx} 
 
-give a sample mean ($\bar{x}$) and sample standard deviation ($s$) of 0.133 and 0.006 respectively. 
+given a sample mean ($\bar{x}$) and sample standard deviation ($s$) of 0.133 and 0.006 respectively. 
 Consulting a table for the $t$ distribution, we find that when $a=0.1$ and we require 7 degrees of freedom, $t_{0.95;7} = 1.895$.
 Substituting these values into equation \ref{eq:n}, we find
 \begin{equation}
 	n =  \left(\frac{z_{1-a/2}s}{e\bar{x}}\right)^2
-	= \left(\frac{1.895(0.006)}{0.035(0.133)}\right)^2 = 5.966.
+	= \left(\frac{1.895(0.006)}{0.035(0.133)}\right)^2 = 5.966
 \end{equation}    
 Therefore, we need to make 6 measurements to be assured that there is a 90\% chance that the true value is within this $\pm3.5\%$ interval.
 
-For completeness, the extra measurement yielded a value of 0.135; making Alt-Ergo's time spent on CPU solving \textit{first\_last} the mean of the 6 measurements: 0.134 seconds.
+For completeness, the extra measurement yielded a value of 0.135; making the CPU time Alt-Ergo spent solving \textit{first\_last} the mean of the 6 measurements: 0.134 seconds.
 
 \begin{figure}
 \centering
@@ -372,14 +377,17 @@ For completeness, the extra measurement yielded a value of 0.135; making Alt-Erg
 \end{figure}
 
 
-When a solver is sent a goal by \why, it returns an answer $A$ where $A$ is one of $\lbrace Valid,Invalid,Unknown,Timeout,Failure \rbrace$. The following definitions of these answers are taken from the \why~User Manual \cite{why:manual}.  
-\begin{itemize}
-	\item[\textbf{Valid}] The goal is proved in the given context.
-	\item[\textbf{Invalid}] The prover knows the goal cannot be proved.  
-	\item[\textbf{Unknown}] The prover has stopped its search.
-	\item[\textbf{Timeout}] The prover has reached the time limit.
-	\item[\textbf{Failure}] An error has occurred. 
-\end{itemize}
+When a solver is sent a goal by \why, it returns an answer $A$ where $A$ is one of $\lbrace Valid,Invalid,Unknown,Timeout,Failure \rbrace$. The following definitions of these answers are taken from the \why~User Manual \cite{why:manual}.\\  
+
+\begin{tabularx}
+	{\textwidth}{@{}ll@{}}
+	\textbf{Valid}   & The goal is proved in the given context. \\
+	\textbf{Invalid} & The prover knows the goal cannot be proved. \\  
+	\textbf{Unknown} & The prover has stopped its search.\\
+	\textbf{Timeout} & The prover has reached the time limit. \\
+	\textbf{Failure} & An error has occurred. \\
+\end{tabularx}\\
+
 Fig. \ref{fig:barcharts} shows the relative amount of $Valid / Unknown / Timeout / Failure$ answers from the eight SMT solvers (when given a timeout of 60 seconds) on the entire dataset of 1048 POs. 
 For example, Alt-Ergo version 0.95.1 (leftmost bar) returned an answer of \textit{Valid} for 590 POs, \textit{Unknown} for 144 POs, \textit{Timeout} for 300, and \textit{Failure} for 14.
 Note that no tool returned an answer of Invalid for any of the 1048 proof obligations.
@@ -412,12 +420,12 @@ Fig. \ref{fig:line_graph} shows the number of \textit{Valid/Invalid/Unknown} res
 For example, the solid black line shows the useful results for version 4.4.1 of Z3.
 At $2^{-3}$ (0.125) seconds, Z3 returned 130 \textit{Valid/Invalid/Unknown} results. 
 This number increases sharply to 518 after $2^{-2}$ (0.25) seconds, before levelling off.
-If Z3 is given a time limit of 60 seconds, only 125 more POs can proved; giving a total of 632.  
+If Z3 is given a time limit of 60 seconds, only 125 more useful responses are returned; giving a total of 632.  
 
 The value of 60 seconds was chosen as an upper limit, since this timeout value is not realistic for most software verification scenarios.  
 \why, for example, has a default timeout value of 5 seconds.
 By inspecting the plot of solver answers in Fig. \ref{fig:line_graph}, we can see that the number of useful answers returned levels off very quickly. 
-From this observation we deduce that the likelihood of a \textit{Timeout} answer potentially turning into a \textit{Valid/Invalid} answer given more time is minimal.  
+From this observation we deduce that the likelihood of a \textit{Timeout} answer potentially turning into a \textit{Valid/Invalid} answer (if given more time) is minimal.  
 %From Fig. \ref{fig:line_graph} we can see that the vast majority of useful responses are returned very quickly. 
 
 To establish a realistic timeout limit, we find each solver's ``Peter Principle Point'' \cite{Sutcliffe200139}. In resource allocation for theorem proving terms, this point can be defined as the time limit at which more resources will not lead to a significant increase in the number of goals the solver can prove.
@@ -428,7 +436,7 @@ By satisfying ourselves with being able to record 99\% of the useful responses w
 \section{Summary}
 
 In this chapter, we have introduced the SMT solvers, training and testing dataset, predictor and response variables used by the \where~model.
-The choices made in regard to the SMT solvers was dictated to a large extent by \why~and its selection of drivers. 
+The choices made in regard to the SMT solvers were dictated to a large extent by \why~and its selection of drivers. 
 The dataset contains solutions to canonical SV challenges and is designed to demonstrate the specification and verification of data structures and algorithms fundamental to a wide range of applications, using the full capabilities of the \why~system.
 The choice of predictor variables was influenced by the structural metrics introduced by McCabe (see Sec. \ref{sec:lrmm}), which have become established in the SE domain, and syntactic features similar to those used in TPTP library metadata. 
 The response variables of \textit{time} and \textit{result} are similar to the scoring mechanism used for SV tools in the SV-COMP \cite{SVCOMP}.

@@ -3,7 +3,7 @@
 \label{Evaluation} 
 %----------------------------------------------------------------------------------------
 
-This chapter will evaluate the \where's portfolio algorithm on the held-back test data.
+This chapter will evaluate \where's portfolio algorithm on the held-back test data.
 The randomly-selected test set represents 25\% of the entire number of POs and consists of 32 WhyML files, 77 theories and 263 goals  (see Sec. \ref{sub:config}).
 In addition to evaluating \where~'s \textit{predictions}, the OCaml implementation (detailed in the previous chapter) will be discussed in terms of its efficiency.   
 We perform our evaluation guided by three Evaluation Questions:
@@ -52,24 +52,24 @@ Threats to the validity of our study are discussed in Sec. \ref{sec:threats}.
 \begin{figure}
 	\centering
 	\includegraphics[width=\linewidth]{barcharts2}
-	\caption[The relative amount of Valid/Unknown/Timeout/Failure answers from the eight SMT solvers, \where, and 3 theoretical strategies.]{The relative amount of Valid/Unknown/Timeout/Failure answers from the eight SMT solvers, \where~(pre-solver = Alt-Ergo-1.01), and 3 theoretical strategies.}
+	\caption[The relative amount of Valid/Unknown/Timeout/Failure answers from the eight SMT solvers, \where, and 3 theoretical strategies.]{The relative amount of Valid/Unknown/Timeout/Failure answers from the eight SMT solvers, \where~(pre-solver = Alt-Ergo-1.01), and 3 theoretical strategies on the 263 test POs.}
 	\label{fig:barchart2}
 \end{figure}
 
 
 When each solver in \textsf{Where4}'s ranking sequence is run on each goal, the maximum amount of files, theories and goals are provable. 
 As previously mentioned in Sec. \ref{sub:worst} and as Table \ref{table:avgtimes2} shows, the difference between \where~and the set of reference theoretical strategies (\textsf{Best Ranking}, \textsf{Random Ranking}, and \textsf{Worst Ranking}) is the amount of time taken to return the \textit{Valid/Invalid} result. 
-Compared to the 8 SMT provers, the biggest increase is on individual goals: \textsf{Where4} can prove 203 goals, which is 26 (9.9\%) more goals than the next best single SMT solver, Alt-Ergo-1.01.
+Compared to the 8 SMT solvers, the biggest increase is on individual goals: \textsf{Where4} can prove 203 goals, which is 26 (9.9\%) more goals than the next best single SMT solver, Alt-Ergo-1.01.
 
 The average time \where~takes to prove these goals 
 (using Algorithm \ref{algo:where4}) 
 is significantly better than the \textsf{Random Ranking} strategy.
 It is, however, lagging behind the time recorded by the \textsf{Best Ranking} strategy. 
 
-In comparison to the 8 SMT provers, the average time taken by \where~to solve each of the 203 goals is high. 
+In comparison to the 8 SMT solvers, the average time taken by \where~to prove each of the 203 goals is high. 
 This tells us that \where~can perform badly with goals which are not provable by many SMT solvers: expensive \textit{Timeout} results are chosen before the \textit{Valid} result is eventually returned. 
 In the worst case, \where~may try all 8 solvers in sequence, timing out for each solver, whereas each individual solver does this just once. 
-Thus, while having access to more solvers allows more goals to be proved, there is also a time penalty associated with portfolio-based solvers in these circumstances.
+Thus, while having access to more solvers can allow more goals to be proved (if there are goals uniquely-provable by the solvers such as those identified in Table \ref{table:unique}), there is also a time penalty associated with portfolio-based solvers in these circumstances.
 This issue has previously been identified by Amadini et al. in their studies on portfolio solvers for constraint programming \cite{Amadini2013} and constraint optimisation \cite{Amadini2016} where portfolio performance was found to degrade as the number of constituent solvers increased.
 
 The multiple timeout issue raises the question of whether it fair to compare \where~to individual solvers. 
@@ -80,7 +80,7 @@ We remind the reader of the \textsf{Choose Single} solver introduced in Sec. \re
 It provided a motivation for the use of portfolio-solving on the \why~platform by proving the maximum number of goals in the shortest amount of time.
 We mentioned that \textsf{Choose Single} is equivalent to choosing  the top-ranking solver from \textsf{Best Ranking} and stopping.
 We return to this concept in Fig. \ref{fig:barchart2} which is similar to Fig. \ref{fig:barcharts} in that it shows the relative amount of Valid/Unknown/Timeout/Failure answers from the eight SMT solvers. 
-Also shown (on the right) are results obtainable by using the top solver (only) with the 3 ranking strategies (where \textsf{Best} $\equiv$ \textsf{Choose Single}) and the \where~predicted ranking (after pre-solving with Alt-Ergo version 1.01).
+Also shown (on the right) are results obtainable by using the top solver (only) with the 3 ranking strategies (where \textsf{Best Ranking} $\equiv$ \textsf{Choose Single}) and the \where~predicted ranking (after pre-solving with Alt-Ergo version 1.01).
 
 
 \begin{algorithm}
@@ -116,9 +116,9 @@ Also shown (on the right) are results obtainable by using the top solver (only) 
 \end{algorithm}
 
 The 62 \text{Valid} answers returned by the top solver from the \textsf{Worst Ranking} (i.e. the worst solver) represent the trivial POs solvable by all 8 solvers. 
-Likewise, the 60 goals for which \textsf{Best} did not return a \textit{Valid} or \textit{Invalid} answer could not be proved by any solver.
+Likewise, the 60 goals for which \textsf{Best Ranking} did not return a \textit{Valid} or \textit{Invalid} answer could not be proved by any solver.
 
-The results show that limiting the portfolio solver to just using the best predicted individual solver, eliminating the multiple time-out overhead yet reduces the number of goals provable by \where.
+The results show that limiting the portfolio solver to just using the best predicted individual solver eliminates the multiple time-out overhead yet reduces the number of goals provable by \where.
 This number of goals -- 184 -- is still more than the best-performing individual SMT solver, Alt-Ergo version 1.01.  
 
 In an effort to compare \where~to individual SMT solvers, Table \ref{table:avgtimes2} and Fig. \ref{fig:barchart2} show results at two extremes of a spectrum: using all solvers available, and only using one.
@@ -126,11 +126,12 @@ In the next subsection we describe a method to calibrate the use of \where~by us
 
 
 \subsection{Use of a cost threshold}
+\label{sub:threshold}
 
 To balance the time-taken-versus-goals-proved trade-off associated with the two approaches above, we introduce the notion of a \textit{cost threshold} as another method of comparing \where~to individual SMT solvers.
 \where's use of a cost threshold constitutes a minor adjustment to Alg. \ref{algo:where4} and is detailed in Alg. \ref{algo:threshold}. 
 After pre-solving, solvers with a predicted cost above this threshold are not called. 
-If every solver's cost is predicted to be above the threshold, the pre-solver's result is returned.
+If every solver's cost is predicted to be above the threshold $\mu$, the pre-solver's result is returned.
 %This modification to Algorithm \ref{algo:where4} is shown in Algorithm \ref{algo:threshold}    
 
 
@@ -241,7 +242,7 @@ As \where~uses the abstract, internal representation of the program
 The \why~driver mechanism makes this step unavoidable for any supported solver including, of course, the \where~``imitation solver''.
 
 Another issue with calling \where~through \why~is that of applying \why's timeout value to a sequence of solver calls. 
-For example, if a user gives \why~a timeout of 5 seconds for \where~to prove a PO, if the first solver called by \where~goes over that limit, the potentially useful answer returned by the second solver in the sequence would not be returned to the user. \\
+For example, if a user gives \why~a timeout of 5 seconds for \where~to prove a PO and the first solver called by \where~goes over that limit, the potentially useful answer returned by the second solver in the sequence would not be returned to the user. \\
 \\
 \textbf{EQ3 Answer:}
 While pre-solving is an important heuristic for avoiding the overhead of feature extraction and rank prediction, these processes must be optimised for \where~to be practical as a portfolio solver called from \why.   
@@ -253,7 +254,8 @@ In its current form, \where~is more suited to an initial proving step performed 
 
 In this section we discuss the threats to the validity of the evaluation presented in this chapter.
 We categorise threats as either \textit{internal} or \textit{external}.
-Internal threats challenge the validity of an experiment's data as it relates to the results: for example, the conclusions drawn from the results do not  
+Internal threats refer to influences that can affect the response variable without the researcher's knowledge and threaten the conclusions reached about the \textit{cause} of the experimental results \cite{experimentation}. 
+Threats to external validity are conditions that limit the generalisability and reproducibility of an experiment. 
 
 \subsection{Internal}
 
@@ -271,7 +273,7 @@ It is natural that the developers of the \why~examples would write programs whic
 Due to the syntactic similarities in input format and logical similarities such as support for type polymorphism, it is likely that Alt-Ergo would perform well with any \why~dataset. We would hope, however, that the gulf between it and other solvers would narrow.
 
 There may be confounding effects in a solver's results that are not related to the independent variables we used (Sec. \ref{sec:independant}). 
-We were limited in the tools available to extract features from the domain-specific Why logic language (in contrast to related work on model checkers which use the general-purpose C language \cite{DPVZ15:CAV, MUX}). 
+We were limited in the tools available to extract features from the domain-specific Why logic language (in contrast to related work on model checkers which use the general-purpose C language \cite{DPVZ15:CAV, MUX} -- as previously discussed in Sec. \ref{sub:lrsvmmml}). 
 We made the decision to keep the choice of independent variables simple in order to increase generalisability to other formalisms such as Microsoft's Boogie \cite{Boogie} intermediate language.  
 
 \subsection{External}
@@ -298,7 +300,7 @@ By considering the answers to our three Evaluation Questions, we can make assert
 The answer to \textbf{EC1}, \where's performance in comparison to individual SMT solvers, is positive.
 A small improvement in \textit{Valid/Invalid} responses results from using only the top-ranked solver, while a much bigger increase can be seen by making the full ranking of solvers available for use.
 The time penalty associated with calling a number of solvers on an un-provable PO is mitigated by the use of a \textit{cost threshold}.
-Judicious use of this threshold value can balance the time-taken-versus-goals-proved trade-off: in our test set of 263 POs, using a threshold value of 7 results in 192 \textit{Valid} responses -- an increase of 15 of the single best solver -- in a reasonable average time per PO (both \textit{Valid} and otherwise) of 4.59 seconds.
+Judicious use of this threshold value can balance the time-taken-versus-goals-proved trade-off: in our test set of 263 POs, using a threshold value of 7 results in 192 \textit{Valid} responses -- an increase of 15 over the single best solver -- in a reasonable average time per PO (both \textit{Valid} and otherwise) of 4.59 seconds.
 
 There is also cause for optimism in \where's performance as compared to the three theoretical ranking strategies -- the subject of Evaluation Question 2. 
 All but the most stubborn of \textit{Valid} answers are returned in a time far better than \textsf{Random Ranking}.

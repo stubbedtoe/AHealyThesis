@@ -8,12 +8,14 @@ Our final solution, \where, was implemented after a careful consideration of a n
 
 The \where~tool is a random-forest multi-output regressor with a number of optimisation heuristics.
 Users without any knowledge of SMT solvers (i.e. those choosing solvers at random) can prove a greater number of goals in less time by delegating to \where. 
-Although the prediction accuracy of \where~is disappointing on some instances of the test set, we maintain that \where~represents a positive first step in developing the portfolio solver that would simplify discharging POs for non-expert \why~users.
+Although the prediction accuracy of \where~is disappointing on some instances of the test set, we maintain that \where~represents a positive first step in developing the portfolio solver that simplifies
+ discharging POs for non-expert \why~users.
 
 
 We believe that the \why~platform has great potential for machine-learning based portfolio-solving due to its unique approach to interfacing with disparate ATP, SMT and ITP tools.
 We are encouraged by the performance of a theoretical \textsf{Best Ranking} strategy.
-The convenience that such a tool would give \why~users has the potential to make deductive software verification more approachable to the wider software engineering community and provides a motivation for improving \where~through future work.
+The convenience that a tool implementing such a strategy would give \why~users has the potential to make deductive software verification more approachable to the wider software engineering community.
+This ultimate goal provides a motivation for improving \where~through future work.
 
 \section{Future Work}
 \label{sec:future}
@@ -25,16 +27,16 @@ The two viable alternatives to the \why~example dataset discussed in Sec. \ref{s
 The application of an initial splitting transformation (to simplify each PO) would also be relatively simple to implement.
 This would also create an entirely different, and potentially much larger, dataset. 
 For example, applying the \texttt{split\_goal\_wp} transform to each PO in the \why~example dataset would increase its size from 1048 to 7489 POs.
-Of course, any changes to the dataset would require repeating the costly measurement of dependant variables (Sec. \ref{sec:dependant}).
+Of course, any changes to the dataset would require repeating the costly measurement of dependent variables (Sec. \ref{sec:dependant}).
 
 An interesting direction for this work could be the identification of the simplifying transformations (both splitting and non-splitting) which would need to be applied by \why~in order for a PO to be tractable for an SMT solver.
-The tool resulting from this multi-class classification task would be quite different to the one implemented as \where~-- but  potentially very useful.
+The tool resulting from this multi-class classification task would be quite different to the one implemented as \where~but potentially very useful.
 It would complement the existing \where~tool in its goal to assist non-expert \why~users in discharging proof obligations through automation.
 
 Applying multiple solvers in parallel could potentially alleviate some of the time penalties associated with \where~and portfolio solvers in general (identified in Sec. \ref{sec:eq1}).
 The effectiveness of such an approach has been demonstrated by the \texttt{ppfolio} (Parallel PortFOLIO) SAT tool which won 11 medals at the SAT 2011 competition \cite{Malitsky2012}.
 All SMT solvers could either be scheduled to run in parallel (thereby eliminating the need for feature extraction and prediction) or alternatively only the solvers with the lowest predicted cost could be run.
-There is a trade-off in the allocation of computational resources associated with these two approaches are: the time and CPU cycles needed for feature extraction and solver prediction must be balanced with those consumed by a number of low-performing solvers.     
+There is a trade-off in the allocation of computational resources associated with these two approaches: the time and CPU cycles needed for feature extraction and solver prediction must be balanced with those consumed by a number of low-performing solvers.     
  
 As mentioned in Sec. \ref{sec:eq3} in response to Evaluation Question 3, future work could investigate the re-implementation of \where~as a \why~plugin in order to optimise the interaction with \why's internal data structures used for feature extraction.
 Aside from the implementation of the \where~tool itself, a
