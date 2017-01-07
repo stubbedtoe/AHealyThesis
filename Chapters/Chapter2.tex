@@ -231,7 +231,7 @@ list the participation of eight portfolio solvers. The SAT competition has had s
 
 A team from University College Cork show that instances of another NP-complete problem, the Constraint Satisfaction Problem (CSP), can be solved by translating them to a SAT instance and using a portfolio of solvers \cite{Hurley2014}. Their evaluation of several learning algorithms identified linear regression as the best model for their data.
 Other portfolio solvers have been implemented to solve constraint programming and constraint optimisation problems. 
-One such tool is sunny-cp \cite{sunny-cp} which uses a trained K-Nearest Neighbours model to match solvers based on program features.
+One such tool is sunny-cp \cite{sunny-cp} which uses a trained k-Nearest Neighbours model to match solvers based on program features.
 Short but useful surveys of portfolio solvers in these domains are provided by Amadini et al \cite{Amadini2013, Amadini2016}.   
 
 Portfolio solvers have also been implemented in the model-checking SV domain. The MUX \cite{MUX} solver uses metrics derived from syntactic features as input variables. SVMs are trained using counts of datatypes such as scalars, arrays and pointers as well as meta-features such as McCabe complexity. The industrial dataset of proprietary device drivers on which MUX is trained and tested is not publicly available, however.   

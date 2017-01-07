@@ -10,7 +10,7 @@ For example, \where's interaction with \why~is inspired by Sledgehammer's MaSh \
 We aspired to Sledgehammer's ``zero click, zero maintenance, zero overhead'' philosophy in this regard: \where~should not interfere with a \why~user's normal work-flow nor should it penalise those who do not use it.
 
 One heuristic we implemented was to call the highest ranking solver installed on the user's system from the following static ranking:
-$ \text{Alt-Ergo-1.01} > \text{CVC4} > \text{CVC3} > \text{Z3-4.4.1} > \text{Alt-Ergo-0.95.1} > \text{Z3-4.3.2} > \text{Yices} > \text{veriT} $.
+$ \text{Alt-Ergo-1.01}\linebreak > \text{CVC4} > \text{CVC3} > \text{Z3-4.4.1} > \text{Alt-Ergo-0.95.1} > \text{Z3-4.3.2} > \text{Yices} > \text{veriT} $.
 We derived this ranking from the total number of POs each solver could prove (as listed in Table \ref{table:avgtimes}).
 The use of a high-performing solver called initially with a short time limit value discharges easy POs.
 It does this without incurring the cost of feature extraction and solver rank prediction.
@@ -18,7 +18,7 @@ This heuristic is implemented successfully in the SATzilla  \cite{SATzilla2012} 
 SATzilla has inspired the use of pre-solving in portfolio solvers for constraint / optimisation problems such as sunny-cp \cite{sunny-cp}.
 This heuristic improves \where's performance and reduces its reliance on the underlying random forest prediction model. 
 The process described in Algorithm \ref{algo:rank} for obtaining results from solver rankings needs to be modified to describe \where's operation:
-the following algorithm (Alg. \ref{algo:where4}) only performs feature extraction if the initial solver does not solve the input program within 1 second. 
+the following algorithm (Alg. \ref{algo:where4}) only performs feature extraction if the initial solver does not solve the input program within one second. 
 
 \begin{algorithm}
 	\caption{Returning an answer and runtime from a \why~input program}
@@ -92,6 +92,7 @@ This JSON schema is designed to be human-readable so that users can define their
 The \texttt{index} attribute is a unique identifier used when traversing the tree: if the value for \texttt{feature} is less than or equal to \texttt{threshold}, the current focus moves to the \texttt{Node} with the value of \texttt{ifTrue}, or to \texttt{ifFalse} if it is greater.
 This process continues until a \texttt{Leaf} node is encountered and each solver's cost \texttt{Prediction} is returned.
 
+\sloppypar
 Fig. \ref{fig:Chapter5} shows \where's design in terms of OCaml modules.
 The functions exposed by the interface files (\texttt{*.mli}) are listed in Appendix \ref{App:interfaces}. 
 Upon installation of \where, \texttt{forest.json} is read in by \texttt{print\_tree.ml} and an equivalent OCaml array is generated and written to the file \texttt{tree.ml}.
@@ -120,6 +121,7 @@ Any other relevant information (such as function arity, for example) is also rec
 \section{Integration with \why}
 \label{sec:why3-integration}
 
+\sloppypar
 The \texttt{mytermcode.mli}, \texttt{where4.ml} and \texttt{make\_session.mli} files are shown in Fig. \ref{fig:Chapter5} as having access to the \why~API. 
 We have already described how \texttt{mytermcode.ml} uses the AST to extract the feature vector.
 Other important information required by \why~is gathered by the \texttt{make\_session.ml} module.

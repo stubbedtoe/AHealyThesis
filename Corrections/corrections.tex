@@ -66,6 +66,8 @@ Included in Comment \ref{overhang-numbers} of this document.
 
 \subsection{Sec. 2.3.2: Here you discuss/compare concepts that haven't been introduced, with forward references to the place they are introduced (e.g. section 4.2.5). I'd suggest that you delay comparison to when you actually introduce the concept. Another example is that you talk about k-nearest neighbour without having introduced it. Use lowercase k for kNN.}
 
+Lowercase "k" used for "k-NN" throughout.
+
 \subsection{Sec. 2.4 P19: Rephrase second last sentence.}
 
 \section{Chapter 3}
@@ -104,6 +106,106 @@ Included in Comment \ref{overhang-numbers} of this document.
 
 \subsection{Sec. 3.3.2 P31: How did you find the Peter's principle point for each prover? Are these numbers taken from literature or did you compute them (and in that case how)?}
 
+\section{Chapter 4}
 
+\subsection{Sec. 4.1 P33: Explain the relationship between file and theory; I guess a file can have multiple theories (e.g like a structure in ML) and not that a theory can cut across multiple file (e.g. like a module in C\#)?}
+
+\subsection{Sec. 4.1 P35, 4 th para: I would suggest that you delay the comparison with `best ranking' until you have defined it (or at least state what it is at the first point you mention it)}
+
+\subsection{Sec. 4.1 P36: Hard file $\rightarrow$ hard files.}
+
+Typo fixed.
+
+\subsection{Sec. 4.1.1 P37 first line: (briefly) explain the scoring structure.}
+
+\subsection{Sec. 4.2.5 P38-39: did you experiment with different cost functions? If so could you justify why this was chosen.}
+
+\subsection{Sec. 4.3: Why did you use 4 folds? Did you stratify each fold?}
+
+\subsection{Sec. 4.3.1 P40 (SVMs): Explain what you mean by the analogical family (or just omit it).}
+
+\subsection{Sec. 4.3.1 P41 (Decision Trees): Put reference [90] at the end of the sentence. Explain choice of five for the number of training instances.}
+
+Fixed reference placement. Justification for the "choice of five" is given in the final two sentences added to the discussion of the Decision Tree algorithm. Beginning \emph{"This relatively small number..."}. 
+
+\subsection{Sec. 4.3.1. P42 (Random Forests): Explain choice of 100 trees.} 
+	
+\subsection{Sec. 4.3.1 P42 (kNN) Did you normalise the features for kNN? If a feature has a big scale compared to another but this is not meaningful then you need to normalise when measuring distance.}
+
+\subsection{Sec. 4.4 P43 (last line). You may need a total order for reasons that are not clear to me, but Valid >	Invalid seems unnecessary, as it should never happen: if one prover says invalid and one says valid then there is a soundness bug in a prover, so you really need to raise an exception.}
+
+\subsection{Sec. 4.4.2: I found it hard to understand why Worst Ranking is interesting, and felt its inclusion requires more motivation.}
+
+\subsection{Sec. 4.4.2 P44: will called $\rightarrow$ will be called.}
+
+Typo fixed.
+
+\subsection{Sec. 4.4.3 P45: I cannot understand how the random ranking works form this description. Is it deterministic? Does it try provers in a (pseudo-)random order? Some more details (or rephrasing) of the text is needed to clarify this.}
+
+\subsection{Sec. 4.4.4: Define portfolio contributions – how does this relate to marginal contribution which you define?}
+
+\subsection{P45 (line –9): text is outside margin. Fix overhang.}
+
+Included in Comment \ref{overhang-numbers} of this document.
+
+\subsection{Sec. 4.4.4 P46: Why do you multiply with 100/1 and not just 100? Fix overhang.}
+
+Changed 100/1 $\rightarrow$ 100. Fixed overhang.
+
+\subsection{Sec. 4.5.1: What if Valid/Invalid are not included in the set? Do you just ignore the time? Does that imply it is better to fail early than give a results (but require a long time)?}
+
+\subsection{Sec. 4.5.2: It wasn't clear how $R^{2}$ was computed. Could you provide the equation?}
+
+\subsection{Sec. 4.5.3 P49: $B > A > C$ should be $A > B > C$.}
+
+Typo fixed.
+
+\subsection{Sec. 4.5.3: I don't understand what nDCG tells me. Could you give a high-level description of what it really means to have a nDCG of say 0.5?}
+
+\subsection{P50: Change “may be treated” to “should be treated”.} 
+
+"may" $\rightarrow$ "should".
+	
+\subsection{Sec. 4.5.6: What k value did you use and how was it selected?}
+
+\subsection{P51, table 4.5: How did you compute the relative importance shown in the table? Please explain (or give the reference to where it is explained if you have explained it elsewhere [albeit I couldn't find it])}
+
+\subsection{Fix overhang.}
+
+Included in Comment \ref{overhang-numbers} of this document.
+
+\section{Chapter 5}
+
+\subsection{P53: > is outside margin.}
+
+Included in Comment \ref{overhang-numbers} of this document.
+
+\subsection{P53/54: I have a high-level (research methodology related) issue with the use of pre-solving, and this depends a bit on the overall aim/hypothesis of this work. As far as I am concerned, the main contribution of this work is the machine learning aspect. This is also reflected in the title, however the hypothesis is more general and only talk about portfolio solving. Now, the use of pre-solving from an engineering point of view makes sense to me, and would also be okay from the stated hypothesis. However, I feel the main contribution of this work is the machine learning aspect, and by using a pre-solver the analysis gets a bit distorted as it is not clear how much machine learning helps and how much pre-solving helps. I would have liked to see some analysis without the pre-solving to understand how much the machine learning	by itself helps and how much of the results are due to the fast pre-solver. I don't expect you to redo experiments, but I would like to see this acknowledged and discussed at some point.}
+
+\subsection{P56/57: Fix overhang}
+
+Included in Comment \ref{overhang-numbers} of this document.
+
+\section{Chapter 6}
+
+\subsection{Sec. 6.1 P61: Remind the reader what the best, worse etc. strategies does. Looking at table 6.1 I would expect that best is always best, but other seems to be faster for the theory/goal attribute. Could you expand on this?}
+
+\subsection{Sec. 6.1 P61, para 4: it fair -> it is fair.}
+
+Typo fixed.
+
+\subsection{Figure 6.1: what was the timeout limit?}
+
+\subsection{Sec. 6.6.1 P63: You should be careful about changing algorithms during evaluation. It looks like you have used the test-data to tweak the algorithm and drawn a conclusion from it. Instead you should have used the development-data to find the optimal threshold and use the test-data to validate this in order to draw any conclusion. This needs to be discussed; if I have	misinterpreted this then you need to update the text to clarify the approach you took. It would be useful to see if the differences are statistically significant?}
+
+\subsection{Sec. 6.1.1 P65: The answer to EQ1 on defining a cut-off point is nice but does involve further	work/cost.}
+
+\subsection{P68: Resampling techniques for an unbalanced set would be useful here. For example, you can add copies of instances from the under-represented class (known as over-sampling or	sampling with replacement), or you can remove instances from the over-represented class (under-sampling).}
+
+\section{Chapter 7}
+
+\subsection{Sec. 7.1 P70: What is the \texttt{split\_goal\_wp} transform? (Should it say transformation?)}
+
+\subsection{Future work: You could also (i) Compare with just applying all in parallel and take the first valid/invalid answer,	without any analysis (ii) Compare with and without pre-solving (iii) Compare with use of other features}
 
 \end{document}          

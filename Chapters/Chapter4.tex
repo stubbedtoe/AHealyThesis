@@ -2,7 +2,7 @@
 \thispagestyle{nohead}
 \label{Prediction}
 
-This chapter will evaluate the effectiveness of a number of machine learning algorithms at predicting the most appropriate SMT solver to use on any (unseen) \why~PO.
+This chapter will evaluate the effectiveness of a number of machine learning algorithms at predicting the most appropriate SMT solver to use on any (unseen) \textsf{Why3} PO.
 Our goal in this thesis is to construct a ``meta-solver'' or \textit{portfolio} solver which chooses from a range of tools in order to prove more goals than a single solver is capable of.
 We motivate the need for a portfolio solver with an analysis of our dataset 
 in Sec. \ref{sec:portfolio-benefit}. 
@@ -19,7 +19,7 @@ Throughout this chapter, we use the terms ``algorithms'' and ``models'' to refer
 
 \newcolumntype{Z}{>{\raggedleft\arraybackslash}X} 
 \begin{table}
-	\caption[Results of running 8 solvers on the example \why~programs]{Results of running 8 solvers on the example \why~programs.  Also included is a theoretical solver  \textsf{Choose Single}, which always returns the best answer in the fastest time.}
+	\caption[Results of running eight solvers on the example \textsf{Why3} programs]{Results of running eight solvers on the example \textsf{Why3} programs.  Also included is a theoretical solver  \textsf{Choose Single}, which always returns the best answer in the fastest time.}
 	\begin{tabularx}{1.1\textwidth}{@{}l|ZZZ|ZZZ|ZZZ@{}}
 		\toprule
 		{} & \multicolumn{3}{c|}{\textbf{File}} & \multicolumn{3}{c|}{\textbf{Theory}} & \multicolumn{3}{c}{\textbf{Goal}} \\
@@ -41,7 +41,7 @@ Throughout this chapter, we use the terms ``algorithms'' and ``models'' to refer
 %
 %\begin{table}
 %	\centering
-%	\caption[Number of trivial and hard \why~verification tasks]{Number of trivial and hard \why~verification tasks}
+%	\caption[Number of trivial and hard \textsf{Why3}verification tasks]{Number of trivial and hard \textsf{Why3}verification tasks}
 %	\begin{tabularx}{0.8\textwidth}{@{}l|ZZZ@{}}
 %		{} & \multicolumn{1}{r}{\textbf{File}} & \multicolumn{1}{r}{\textbf{Theory}} & \multicolumn{1}{r}{\textbf{Goal}} \\	
 %		\midrule
@@ -82,19 +82,19 @@ Throughout this chapter, we use the terms ``algorithms'' and ``models'' to refer
 \end{table} 
 
 
-Now that the SMT solvers to be supported by \where~have been identified and an appropriate dataset for training and testing purposes has been chosen, we can make a preliminary and exploratory analysis of the behaviour of the SMT tools on the particular data. 
-We aim to make a case for portfolio-solving as an effective method for discharging POs in the \why~system.
+Now that the SMT solvers to be supported by \textsf{Where4} have been identified and an appropriate dataset for training and testing purposes has been chosen, we can make a preliminary and exploratory analysis of the behaviour of the SMT tools on the particular data. 
+We aim to make a case for portfolio-solving as an effective method for discharging POs in the \textsf{Why3} system.
 
-We refer the reader to Table \ref{table:avgtimes} which shows the results of running 8 solvers on the example \why~programs with a timeout value of 10 seconds. 
+We refer the reader to Table \ref{table:avgtimes} which shows the results of running eight solvers on the example \textsf{Why3} programs with a timeout value of ten seconds. 
 The entire dataset is used in this case. 
-WhyML files are modularised as a number of \textit{theories}. The \why~IVL identifies the \textit{goals} which need to be proven in order for the theory (and in turn the entire file) to be verified as correct. 
+WhyML files are modularised as a number of \textit{theories}. The \textsf{Why3} IVL identifies the \textit{goals} which need to be proven in order for the theory (and in turn the entire file) to be verified as correct. 
 Our dataset of 128 WhyML files consists of 289 theories, which in turn generate 1048 goals. 
 Aside from the number of each modular construct proved by the solver (\textit{left sub-column}), the percentage this number represents of the total is given (\textit{centre sub-column}) and the average time taken (in seconds) to prove each construct (as measured using the process described in Sec. \ref{sub:confidence}) is given in the \textit{right sub-column}. 
 
 We show the results of proving a WhyML file using its modular constructs. 
-This method of verification is particularly useful when \why~is run in batch mode from the command line.
-%It is more natural to select separate solvers on a per-goal basis through the \why~IDE which breaks each WhyML program into theories and goals automatically. 
-When using the \why~IDE, it is more natural to prove programs by applying solvers to individual goals.
+This method of verification is particularly useful when \textsf{Why3} is run in batch mode from the command line.
+%It is more natural to select separate solvers on a per-goal basis through the \textsf{Why3}IDE which breaks each WhyML program into theories and goals automatically. 
+When using the \textsf{Why3} IDE, it is more natural to prove programs by applying solvers to individual goals.
 This is because the environment separates WhyML programs into theories and goals automatically.
 
 Table \ref{table:avgtimes} also shows the results for a theoretical solver \textsf{Choose Single}. 
@@ -106,22 +106,22 @@ It is important not to confuse \textsf{Choose Single} with the theoretical strat
 \textsf{Choose Single} refers to a \textit{single} solver (and hence is directly comparable to the other eight SMT solvers in Table \ref{table:avgtimes}), while \textsf{Best Ranking} refers to a \textit{ranking} of all eight solvers. \textsf{Choose Single} is equivalent to using the top-ranking solver from \textsf{Best Ranking} and stopping.
 
 The theoretical solver \textsf{Choose Single} shows the benefit of being able to use the most appropriate solver for each PO: 205 more goals are provable -- an increase of 19.6\% -- over the best single solver (Alt-Ergo version 1.01) which can prove a total of 632. 
-In total, 837 goals are provable by using a combination of the 8 solvers -- a figure that represents 79.9\% of the 1048 goals. 
+In total, 837 goals are provable by using a combination of the eight solvers -- a figure that represents 79.9\% of the 1048 goals. 
 On average, \textsf{Choose Single} proves goals in a shorter amount of time than either version of Alt-Ergo or CVC3. 
-The average time subcolumn provides an insight into how solvers which can prove relatively few goals, theories, or entire files -- such as veriT or Yices -- can be useful in a portfolio-solving context: such solvers often prove what they can in a very short amount of time (veriT takes an average time of just 0.12 seconds, for example, to prove each of 5 entire files) and can be the best choice of solver for those files, theories and goals. 
+The average time subcolumn provides an insight into how solvers which can prove relatively few goals, theories, or entire files -- such as veriT or Yices -- can be useful in a portfolio-solving context: such solvers often prove what they can in a very short amount of time (veriT takes an average time of just 0.12 seconds, for example, to prove each of five entire files) and can be the best choice of solver for those files, theories and goals. 
 
 The advantages of using multiple solvers are further illustrated by the results presented in Table \ref{table:unique}. \textit{Trivial} files, theories and goals (the first row of Table \ref{table:unique}) are defined as those which can be proved by all eight solvers measured. 
-3 files 55 theories and 206 goals fall under the trivial category.
-Again, this table provides an interesting insight into the behaviour of all solvers: 3 of the 5 files proved by veriT are trivially provable by all solvers (which may explain the short amount of time taken, on average, to prove the 5 files). 
-The second row of this table shows the number of \textit{Hard} file, theories and goals. 
+Three files, 55 theories and 206 goals fall under the trivial category.
+Again, this table provides an interesting insight into the behaviour of all solvers: three of the five files proved by veriT are trivially provable by all solvers (which may explain the short amount of time taken, on average, to prove the five files). 
+The second row of this table shows the number of \textit{hard} files, theories and goals. 
 These are the tasks which no solver is able to prove entirely.
 As we have previously discussed in Sec. \ref{sub:prover-output}, these goals usually require the use of an ITP or splitting transformation to be discharged.
-211 goals fall under this category.
+Two hundred and eleven goals fall under this category.
 
 The breakdown of the number of files, theories and goals which \textit{only one} solver is able to prove is given in Table \ref{table:unique}.
-The good performance of Alt-Ergo version 1.01 is obvious: 6 complete files can only be proved in their entirety by the solver. 
+The good performance of Alt-Ergo version 1.01 is obvious: six complete files can only be proved in their entirety by the solver. 
 A higher number of goals require the use of CVC4 in order to be proved, however.
-33 goals (compared to 25 for the newer version of Alt-Ergo) can \textit{only} be proved by this solver.
+Thirty-three goals (compared to twenty-five for the newer version of Alt-Ergo) can \textit{only} be proved by this solver.
 The relatively low numbers for files, theories and goals provable by a single solver suggests that most goals can be proved by more than one tool, if they can be proved at all.
 Indeed, the second-to-bottom row of Table \ref{table:unique} shows that the majority of goals fall in this category. 
 
@@ -129,8 +129,8 @@ Indeed, the second-to-bottom row of Table \ref{table:unique} shows that the majo
 \label{sub:rel-util}
 
 To make assertions about the relative performance of different solvers on the same goal, a definition of the relative \textit{utility} of solver responses is required.
-Should a solver which returns an answer of \textit{Valid} in 5 seconds be seen as ``worse'' than one that returns \textit{Unknown} in 0.5 seconds? 
-Likewise, should the solver returning \textit{Failure} after 1 second be penalised more severely than one returning \textit{Timeout} after the maximum time limit?
+Should a solver which returns an answer of \textit{Valid} in five seconds be seen as ``worse'' than one that returns \textit{Unknown} in half a second? 
+Likewise, should the solver returning \textit{Failure} after one second be penalised more severely than one returning \textit{Timeout} after the maximum time limit?
 
 We define an ordering for response utility as 
 \[
@@ -166,7 +166,7 @@ Instead of predicting a single solver, however, the task involves predicting the
 The benefit of obtaining a ranking is the flexibility it affords in calling SMT solvers sequentially or in parallel.
 If the first solver fails or returns an answer other than \textit{Valid} or \textit{Invalid}, the next best predicted solver is called, and so on.
 
-With 8 SMT solvers there are 8! (or 40,320) rankings which is far too many to be reasonable for a classification task. 
+With eight SMT solvers there are eight factorial (or 40,320) rankings which is far too many to be reasonable for a classification task. 
 We rejected this approach because in our dataset of 1048 POs many of these rankings could not possibly be represented.
 In fact, only 766 of the 40,320 rankings occur in our dataset.  
 %Many of these rankings were observed very rarely or did not appear at all in the training data. 
@@ -186,7 +186,7 @@ This approach shares most of the advantages of predicting solver response and ru
 It is relatively simple to change the cost function, although it can not be done ``on-the-fly'' in the same manner as the previous approach allows.
 A change to the cost function requires re-training the model.
 The major benefit is having one single model to predict both the solver response and the runtime. 
-This is the prediction approach chosen for \where~in this thesis.  
+This is the prediction approach chosen for \textsf{Where4} in this thesis.  
 
 \subsection{The Cost Function}
 \label{sub:scoring}
@@ -209,12 +209,12 @@ This function ensures the best-performing solvers always have the lowest costs. 
 \\
 \textbf{Example: using the cost function to obtain a ranking for \textit{first\_last}}: \\
 To illustrate the effect of applying our cost function, we return to the \textit{first\_last} goal introduced in the previous chapter.
-Table \ref{table:cost} lists the results of executing the 8 solvers on the goal, as measured using the method described in Sec. \ref{sec:dependant}, with a time limit of 10 seconds. 
-The derived cost value for each solver is used as its dependent variable in the prediction models compared in Sec. \ref{pred:choosing} and \where~'s actual implementation.
+Table \ref{table:cost} lists the results of executing the eight solvers on the goal, as measured using the method described in Sec. \ref{sec:dependant}, with a time limit of ten seconds. 
+The derived cost value for each solver is used as its dependent variable in the prediction models compared in Sec. \ref{pred:choosing} and \textsf{Where4}'s actual implementation.
 
 
 \begin{table}
-	\caption[Result of 8 solver executions on \textit{first\_last} ]{Result of 8 solver executions on \textit{first\_last}}
+	\caption[Result of eight solver executions on \textit{first\_last} ]{Result of eight solver executions on \textit{first\_last}}
 	\begin{tabularx}{\textwidth}{@{}YZZYZY@{}}
 		\toprule
 		\textsc{Solver} & \textsc{Version} &  \textsc{Runtime (Secs)} & \textsc{Response} & \textsc{Cost} & \textsc{Rank Position} \\
@@ -242,7 +242,7 @@ The derived cost value for each solver is used as its dependent variable in the 
 \begin{figure}
 	\centering
 	\includegraphics[width=1.0\linewidth]{Figures/Chapter4}
-	\caption{Overview of the process used to derive the \where~prediction model}
+	\caption{Overview of the process used to derive the \textsf{Where4} prediction model}
 	\label{fig:Chapter4}
 \end{figure}
 
@@ -278,12 +278,12 @@ We chose to use the \textit{Radial Bias Function} (RBF) kernel as we can not ass
 The RBF kernel requires the use of two hyperparameters to control how flexible the model is (i.e. how closely it fits the training data). 
 We used a grid search technique \cite{hsu2003practical} to identify the $C$ (hyperplace smoothness) and $gamma$ (the radius of influence for each individual training instance) parameters.
 
-In the multi-output case, each cost value has to be predicted individually for each solver -- requiring the use of 8 SVMs each tuned to different parameters on a per-solver basis.
+In the multi-output case, each cost value has to be predicted individually for each solver -- requiring the use of eight SVMs each tuned to different parameters on a per-solver basis.
 The benefit of using SVMs is their ability to give good results in large-dimensional spaces; even with large datasets. 
 
 \subsubsection{ML Algorithm 2: Decision Trees}
 
-Decision trees \cite{DecisionTrees} recursively construct a binary tree by  splitting the data on the feature and threshold which create the most distinct partitions.
+Decision trees recursively construct a binary tree by  splitting the data on the feature and threshold which create the most distinct partitions \cite{DecisionTrees}.
 This notion of ``distinctiveness'' is defined using either a measure of entropy or information gain.
 Features of new instances are queried according to the thresholds specified by the non-leaf nodes, with leaves consisting of (one or many) predictions. 
 The original implementation required that features be categorical (Quinlan's ID3 algorithm). 
@@ -294,7 +294,9 @@ Since the 1960s, decision trees have been successfully deployed in many domains.
 In the intervening years, techniques have been developed to improve the accuracy and generalisability of decision trees: such techniques include the pruning of \textit{if-then} branches created by sequences of splitting nodes.
 Termination conditions can be used to limit the depth of the tree and make each leaf node account for a minimum number of examples in the training data.
 We chose this last technique as a method to prevent our decision tree from overfitting training data: a minimum of five training instances had to be described by the \textit{if-then} rule associated with the leaf.
-By using this constraint, non-leaf nodes are converted into leaves if, when split, they would have produced leaves of size less than 5. 
+By using this constraint, non-leaf nodes are converted into leaves if, when split, they would have produced leaves of size less than five. 
+This relatively small number (five) was chosen as a compromise: leaves of this size allow the decision tree to generalise better than trees with leaves accounting for fewer training instances. 
+At the same time, the leaves remain small enough to allow the tree to utilise many of the instance's features for its characterisation (i.e. the tree's depth does not become too small).   
 
 \subsubsection{ML Algorithm 3: Random Forests}
 
@@ -316,22 +318,23 @@ We used the Ordinary Least Squares formulation which attempts to minimise the su
 
 Ridge regression \cite{ridge} is a related algorithm which attempts to be more robust to violations in the input variables' independence. 
 
-\subsubsection{ML Algorithm 6: K-Nearest Neighbours Clustering}
+\subsubsection{ML Algorithm 6: k-Nearest Neighbours Clustering}
 
-K-Nearest Neighbours (K-NN) clustering, like SVMs, belong to the analogical family of ML algorithms which rely on a similarity measure to group training instances (we used the standard Euclidean distance).
-The idea is to create $K$ clusters of training instances which are ``most similar'' to each other in terms of features -- with each feature acting as a dimension.   
-In contrast to SVMs however, most clustering algorithms (K-NN included) do not scale well in high-dimensional spaces.
+K-Nearest Neighbours (k-NN) clustering, like SVMs, belong to the analogical family of ML algorithms which rely on a similarity measure to group training instances (we used the standard Euclidean distance).
+The idea is to create $k$ clusters of training instances which are ``most similar'' to each other in terms of features -- with each feature acting as a dimension.   
+In contrast to SVMs however, most clustering algorithms (k-NN included) do not scale well in high-dimensional spaces.
 
-Typically used for classification tasks, the K-NN algorithm can be adapted for regression by calculating the target/response variable as the average of all instances in its cluster.
+\sloppypar
+Typically used for classification tasks, the k-NN algorithm can be adapted for regression by calculating the target/response variable as the average of all instances in its cluster.
 We used a modification: training instances ``closer'' to the unseen instances are weighted more than those further away in the cluster when computing the target variable.
 This modification makes the algorithm more robust to noisy training data. 
 
 \subsection{Experimental Configuration}
 \label{sub:config}
 
-In the previous chapter, we described our dataset as consisting of 1048 \why~POs.
+In the previous chapter, we described our dataset as consisting of 1048 \textsf{Why3} POs.
 We now split this dataset into two disjoint subsets: the \textit{training} and \textit{testing} sets. 
-The rest of this chapter uses only the \textit{training} set while the \textit{testing} set is used in our final evaluation of \where~in Chapter \ref{Evaluation}.
+The rest of this chapter uses only the \textit{training} set while the \textit{testing} set is used in our final evaluation of \textsf{Where4} in Chapter \ref{Evaluation}.
 The training set represents 75\% of the entire dataset: 96 files,   212 theories and 785 goals. 
 The data was split on a per-file basis to ensure that the no PO in the training set belonged to the same theory or file as a PO in the test set. 
 
@@ -400,7 +403,7 @@ Thus for the \textit{first\_last} goal, the \textsf{Best Ranking} strategy retur
 
 Ranks returned by the \textsf{Worst Ranking} strategy are the inverse to those from the \textsf{Best Ranking}. 
 For the \textit{first\_last} goal, Yices will be the first solver called by this strategy.
-As Yices returns an answer other than \textit{Valid} or \textit{Invalid}, the next solver in the ranking (Z3 version 4.4.1) will called, and so on.
+As Yices returns an answer other than \textit{Valid} or \textit{Invalid}, the next solver in the ranking (Z3 version 4.4.1) will be called, and so on.
 The user of this strategy would have to wait until the eighth solver, but a \textit{Valid} answer would eventually be returned.
 For the example goal, the \textsf{Worst Ranking} strategy returns an answer of \textit{Valid} in 41.349 seconds.
 
@@ -417,6 +420,7 @@ For the \textit{first\_last} goal, the \textsf{Random Ranking} strategy returns 
 
 \subsection{Quantifying Solver Contributions Using Ranking Strategies}
 
+\sloppypar
 In addition to the findings presented in Sec. \ref{sub:rel-util} which measured the goals uniquely provable by each solver, this section quantifies how valuable each individual solver is to a ranking of solvers using a notion of \textit{portfolio contribution}.
 We follow a method described by Xu et al \cite{Xu2012}: each constituent solver $A$'s value is measured by observing the performance of the theoretical best solver which does not include $A$.
 Hence, $A$'s \textit{marginal contribution} to \textsf{Best Ranking} can be defined as the difference between \textsf{Best Ranking}'s cumulative cost excluding $A$: $cost(\textsf{Best Ranking}_{-A})$; and its cumulative cost including $A$: $cost(\textsf{Best Ranking})$.
@@ -432,7 +436,7 @@ Including these costs when comparing rankings would bias the results towards the
 
 For each solver in the set of solvers $S$, we normalise its contribution by dividing it by the sum of all solver contributions and multiplying by 100:
 \[
-	contrib_{norm}(A) = \frac{contrib(A)}{\sum_{i=1}^{|S|} contrib(S_i)} \times \frac{100}{1}
+	contrib_{norm}(A) = \frac{contrib(A)}{\sum_{i=1}^{|S|} contrib(S_i)} \times 100
 \]
 \begin{figure}
 \centering
@@ -448,14 +452,14 @@ This implies that (i) Z3 does not perform significantly better than other solver
 
 It is logical that earlier versions of solvers contribute less than more recent versions. 
 Alt-Ergo-0.95.2 contributes significantly less than Alt-Ergo-1.01: we deduce that the earlier version takes more time to return a worse answer for \textit{Hard} POs than the update.
-Nevertheless, including multiple versions of solvers improves prediction accuracy and ultimately makes \where~a more flexible tool for the user.     
+Nevertheless, including multiple versions of solvers improves prediction accuracy and ultimately makes \textsf{Where4} a more flexible tool for the user.     
 
 
 \section{Predictor Selection Results}
 
 \label{sec:pred-results}
 
-In Table \ref{table:predselection} we list the cross-validation results for all 6 trained prediction models (with discretised and/or weighted variants where applicable).
+In Table \ref{table:predselection} we list the cross-validation results for all six trained prediction models (with discretised and/or weighted variants where applicable).
 We compare these  with the three theoretical ranking strategies introduced in Sec. \ref{sec:strategies}.
 For each of the five Evaluation Criteria EC1-5, the best-performing algorithm is marked in bold with an asterisk. 
 
@@ -488,7 +492,7 @@ For this reason, $R^2$ scores are not applicable.
 			& \xmark & \cmark     &     16.29 &  -0.12 & 0.48 &  2.10 &       45.09 \\
 			& \cmark & \cmark &     16.35 &  -0.18 & 0.42 &  2.28 &       45.03 \\
 			\midrule
-			\multirow{2}{*}{K-Nearest Neighbours} & \xmark & \xmark          &     15.93 & 0.16 & \textbf{*0.53} &    \textbf{*2.00} &       43.41 \\
+			\multirow{2}{*}{k-Nearest Neighbours} & \xmark & \xmark          &     15.93 & 0.16 & \textbf{*0.53} &    \textbf{*2.00} &       43.41 \\
 			& \cmark & \xmark          &     15.87 &  -0.18 & 0.42 &  2.32 &       43.24 \\
 			\midrule
 			\multirow{4}{*}{Linear Regression}  & \xmark & \xmark                        &     15.17 &  -0.16 & 0.42 &  2.45 &       49.25 \\
@@ -535,7 +539,7 @@ DCG_p = \sum_{i=1}^{p} \frac{2^{rel_i} - 1}{log_2(i+1)}
 where $rel_i$ refers to the relevance of element $i$ with regard to a ground truth ranking, and we take each solver's relevance to be inversely proportional to its rank index.  
 In our case, $p = 8$ (the number of SMT solvers).  
 The $DCG_p$ is normalised by dividing it by the maximum (or \textit{idealised}) value for ranks of length $p$, denoted $IDCG_p$. 
-As our solver rankings are permutations of the ground truth (making $nDCG$ values of 0 impossible), the values in Table \ref{table:predselection} are further normalised to the range [0..1] using the lower $nDCG$ bound for ranks of length 8 -- found empirically to be 0.4394.
+As our solver rankings are permutations of the ground truth (making $nDCG$ values of zero impossible), the values in Table \ref{table:predselection} are further normalised to the range [0..1] using the lower $nDCG$ bound for ranks of length eight -- found empirically to be 0.4394.
 
 We illustrate our use of this criterion with a small example. 
 Take a ground truth ranking of eight items sorted in decreasing relevance as
@@ -562,7 +566,7 @@ Using the same predicted and actual rankings as the $nDCG$ example, we calculate
 	MAE = \frac{1 + 1 + 0 + 2 + 1 + 1 + 0 + 0}{8} = 0.75
 \]
 
-The Mean Average Error is a good measure of overall ranking accuracy, but it fails to take into account that in many use cases -- including \where~-- it is often the highest-ranking items that are the most important to predict accurately. 
+The Mean Average Error is a good measure of overall ranking accuracy, but it fails to take into account that in many use cases -- including \textsf{Where4} -- it is often the highest-ranking items that are the most important to predict accurately. 
 
 \subsection{EC5: Regression Error}
 
@@ -586,7 +590,7 @@ which gives a per-instance regression error of
 taking the average of the two instances' regression error, 4.1 and 7.3, gives 5.7.
 It is this average error between predicted cost and actual cost for eight solvers which is listed in the rightmost column.
 
-The regression error may be treated with a note of caution, however, as the relative ranking of solvers -- which we argue is the most important prediction -- is not explicitly taken into account.
+The regression error should be treated with a note of caution, however, as the relative ranking of solvers -- which we argue is the most important prediction -- is not explicitly taken into account.
 This qualification also applies to the MAE and $R^2$ score criteria. 
 Note that when the predictions and actual costs are sorted in increasing order the best-performing solver is predicted correctly for both instances in the previous example.
 The entire ranking of solvers is predicted correctly in the first instance.
@@ -606,7 +610,7 @@ Multiple versions of the same solver can also be expected to have highly correla
 
 
 \begin{table}
-	\caption[Relative importance of features for \where]{Relative importance of each feature in the \where~Random Forest model}
+	\caption[Relative importance of features for \where]{Relative importance of each feature in the \textsf{Where4}Random Forest model}
 	
 	
 	\begin{tabularx}{\textwidth}{@{}lr|c|lr@{}}
@@ -640,11 +644,11 @@ Based on these results, we selected Random Forests as the choice of algorithm to
 We chose to implement a Random Forest model which does not use discretisation or instance weighting. 
 Inspecting the results from the entire range of algorithms shows that, in general, the best-performing models do not use these techniques.
 
-The K-Nearest Neighbours model, while coming top for two important criteria, scored poorly in the \textbf{Time} category.
-This result leads us to conclude that K-Nearest Neighbours can often predict good rankings but the instances on which it performs badly are very expensive in terms of time.
+The k-Nearest Neighbours model, while coming top for two important criteria, scored poorly in the \textbf{Time} category.
+This result leads us to conclude that k-Nearest Neighbours can often predict good rankings but the instances on which it performs badly are very expensive in terms of time.
 Overall, the Random Forest model is the most consistent and reliable predictor.
 
-Before discussing the implementation of \where~in the next chapter, we shall investigate the properties of the Random Forest model after it was fit on the entire training dataset.
+Before discussing the implementation of \textsf{Where4}in the next chapter, we shall investigate the properties of the Random Forest model after it was fit on the entire training dataset.
 
 Table \ref{table:importances} shows the relative importance of each predictor variable for decision-making in the Random Forest model. 
 The percentages correspond to the proportion of decision nodes which were split using each metric.
@@ -658,12 +662,12 @@ This reasoning may also account for the fact the universal quantifiers (\texttt{
 
 \section{Summary}
 
-This chapter began by motivating the use of portfolio-solving in the \why~system by showing that more files, theories and goals can be proven by using the best-performing solver on a per-goal basis.
+This chapter began by motivating the use of portfolio-solving in the \textsf{Why3} system by showing that more files, theories and goals can be proven by using the best-performing solver on a per-goal basis.
 We then gave a tour of the prediction approaches considered for use in \where.
 We decided to use a regression method to predict each solver's \textit{cost} -- a value designed to account for solver response as well as the time taken to return the response. 
 
 A number of ranking strategies and evaluation criteria were described in Sec. \ref{sec:strategies} and Sec. \ref{sec:pred-results} respectively.
-%We will encounter these concepts again during the evaluation of \where~on test data in Chapter \ref{Evaluation}.
+%We will encounter these concepts again during the evaluation of \textsf{Where4}on test data in Chapter \ref{Evaluation}.
 In this chapter, we used them to compare various trained models and found Random Forests to be the best choice for implementation in \where.
 
 Some properties of the trained Random Forest model were then discussed.
