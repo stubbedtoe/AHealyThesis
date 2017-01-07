@@ -1,25 +1,109 @@
-\documentclass[]{report}
+\documentclass[]{article}
 
 
+\raggedbottom
+\setcounter{section}{-1}
 % Title Page
-\title{Corrections to \emph{Predicting SMT solver performance for software verification}}
+\title{Corrections to \emph{Predicting SMT solver performance for software verification} based on examiners' comments}
 \author{Andrew Healy}
 
 \begin{document}
 \maketitle
 
-\section[1]{General comments}
+\section{General comments}
 
-\subsection*{While the work focuses largely on machine learning, this is not reflected well in the overall research hypotheses, which feels both too general and difficult to evaluate (e.g. efficient with respect to what?). The overall hypothesis should be changed to better reflect the machine learning focus.}
+\subsection{While the work focuses largely on machine learning, this is not reflected well in the overall research hypotheses, which feels both too general and difficult to evaluate (e.g. efficient with respect to what?). The overall hypothesis should be changed to better reflect the machine learning focus.}
  
-This has been resolved by re-wording the research hypothesis to the following:  
- 
- 
-\subsection*{The use of a pre-solver makes it hard to judge how much contribution the actual machine learning makes. A discussion on the impact of the pre-solver should be provided.}
+\subsection{The use of a pre-solver makes it hard to judge how much contribution the actual machine learning makes. A discussion on the impact of the pre-solver should be provided.}
 	
-\subsection*{Further commentary on the selection and extraction of features is needed. Motivation for the approach taken should be clearly outlined and justified. Examples of alternative features that could have been used should be provided and the reasons for exclusion should be described.}
+\subsection{Further commentary on the selection and extraction of features is needed. Motivation for the approach taken should be clearly outlined and justified. Examples of alternative features that could have been used should be provided and the reasons for exclusion should be described.}
 
-\section[2]{Detailed comments}
+\subsection{Small numbers should be spelt in words. If the number is at the start of a sentence then spell as a word. Fix overhanging words throughout.}
+\label{overhang-numbers}
+Fixed throughout.
+
+\section{Chapter 1}
+
+\subsection{Sec. 1.1.3: last paragraph: rephrase (2 nd sentence needs to be broken up).}
+
+\subsection{Sec. 1.2, I am not convinced by the hypothesis, as it is hard to measure. Can you say beyond a single prover or random prover maybe? I would also bring in machine learning as this is in my part the main contribution of this work.}
+
+\subsection{Sec. 1.2, para –2: A PO my $\rightarrow$ A PO may}
+
+Typo fixed.
+
+\section{Chapter 2}
+
+\subsection{Sec. 2.1, Remove we before stated (second last line)}
+
+Removed clause. Sentence now begins: \emph{"It is \textsf{Why3}'s driver-based..."}.
+
+\subsection{Sec. 2.1, Q1 (First sentence): starting with "integrating..": rephrase as sentence makes no sense. Fix overhang. Change “Why3 is clearly”, to “Why3 is arguably”}
+
+Broke first sentence into two sentences. Beginning with the clause \emph{"For users of SV tools,.."}.
+
+\subsection{Sec. 2.1.1, You could also mention TIP: Tons of Inductive Problems (which is used within the automated induction community). There was a benchmark paper at CICM 2015 that you may want to cite.}
+
+\subsection{Sec. 2.1.1, change “a SMT-LIB” to “an SMT-LIB”. Insert “has” before “a wider scope”.}
+
+Fixed.
+
+\subsection{Sec. 2.1.1, You need to explain "function point" and not just cite it. It gets a bit hard to read as a standalone document if you only give citations.}
+
+\subsection{Sec. 2.1.1. (first paragraph P13): You can also write specification in proof script: the procedural tactic applications are just part of it, so this needs rephrasing. Remove the word “being” line 2.} 
+	
+\subsection{Sec. 2.2: It wasn't clear why you are discussing software metrics to this details, so a bit more motivation would be beneficial}
+
+\subsection{Sec. 2.2.1 P14: change “journals” to “journal”.}
+
+Fixed.
+
+\subsection{Sec. 2.3: Although not as close to your work as others, I believe that a literature review should be broad and shallow, so I would also expect other approaches to learning. One example is tactic learning, e.g. (i) Automatic Learning of Proof Methods in Proof Planning, (ii) Hazel Duncan's PhD thesis (Edinburgh Uni), (iii) Typed meta-interpretive learning for proof strategies (which I was involved in). You could also mention the Aris project in Maynooth, which uses case-based learning.}
+
+\subsection{P15: fix overhang}
+
+Included in Comment \ref{overhang-numbers} of this document.
+
+\subsection{Sec. 2.3.2: Here you discuss/compare concepts that haven't been introduced, with forward references to the place they are introduced (e.g. section 4.2.5). I'd suggest that you delay comparison to when you actually introduce the concept. Another example is that you talk about k-nearest neighbour without having introduced it. Use lowercase k for kNN.}
+
+\subsection{Sec. 2.4 P19: Rephrase second last sentence.}
+
+\section{Chapter 3}
+
+\subsection{P20: Sentence 1 needs closure or remove it and make the point as part of the next sentence.}
+
+\subsection{Sec. 3.1.1 P22: I didn't understand why you don't see POs from Atelier-B to be software verification related? It is after all used to develop software. Do you only consider code-level verification? Please clarify/expand}
+
+\subsection{Sec. 3.1.2: Correct spelling of university.}
+
+Typo fixed.
+
+\subsection{Sec. 3.1.2 P23: Insert a dash between non commercial.}
+
+Fixed.
+
+\subsection{Sec. 3.2 P24: I didn't understand why you used POs and lemmas. Why lemmas? Won't a PO be generated from it? It may just be a matter of clarifying terminology.}
+
+\subsection{Sec. 3.2: Change “predicated” to “predicates”}
+
+Typo fixed.
+
+\subsection{Sec. 3.2.1 P25: In my experience feature selection is the key for successful learning so I was hoping for a bit more details of why you chose these features. Did you for example consider semantic properties (such as associativity of operators, inductively defined types, ...)?}
+
+\subsection{Sec. 3.2.1: P25: You need to explain how to calculate McCabe's cyclomatic complexity, or at least reference the section where this is explained.}
+
+\subsection{Sec. 3.2.1: P25: Note that a lemma asserts and does not check.}
+
+Terminology changed: \emph{"...lemma checks that..." $\rightarrow$ "...lemma asserts that..."}.
+
+\subsection{Sec. 3.3.1 P27: Explain random error and student's t-distribution. How reasonable is the assumption? What are the implications?}
+
+\subsection{Sec. 3.3.2 P30: Fix overhang.}
+
+Included in Comment \ref{overhang-numbers} of this document.
+
+\subsection{Sec. 3.3.2 P31: How did you find the Peter's principle point for each prover? Are these numbers taken from literature or did you compute them (and in that case how)?}
+
 
 
 \end{document}          
