@@ -1,6 +1,7 @@
 \documentclass[]{article}
 
-
+\usepackage[hyphens]{url}
+\PassOptionsToPackage{hyphens}{url}\usepackage{hyperref}
 \raggedbottom
 \setcounter{section}{-1}
 % Title Page
@@ -131,6 +132,14 @@ Fixed reference placement. Justification for the "choice of five" is given in th
 \subsection{Sec. 4.3.1. P42 (Random Forests): Explain choice of 100 trees.} 
 	
 \subsection{Sec. 4.3.1 P42 (kNN) Did you normalise the features for kNN? If a feature has a big scale compared to another but this is not meaningful then you need to normalise when measuring distance.}
+
+Scaling of features had previously been implemented for SVMs only. I added the preprocessing step for k-NN also (see line 55 of \texttt{compare\_regressors.py}). 
+The new results have been documented in Table 4.4. 
+Obviously, the main difference is seen in the k-NN results (which have improved) but the overall best result for each metric is unchanged.
+This preprocessing step has been documented in the introduction to the K-nn algorithm with the two sentences beginning \emph{"In both the k-NN and SVM algorithms,.."}. 
+
+\sloppypar
+More details in \url{https://github.com/ahealy19/F-IDE-2016/commit/-f13ace247b2296a22c815c3c33a7791cf36c5a40}.
 
 \subsection{Sec. 4.4 P43 (last line). You may need a total order for reasons that are not clear to me, but Valid >	Invalid seems unnecessary, as it should never happen: if one prover says invalid and one says valid then there is a soundness bug in a prover, so you really need to raise an exception.}
 

@@ -265,9 +265,11 @@ In this section, we go into more detail about how the algorithms operate and the
 We used the Sci-Kit Learn \cite{sklearn} Python implementation for all algorithms.
 The consistent API is well-designed, the library is well documented and it integrates well with other Python tools for scientific computing (such as NumPy and the Pandas data structure library).
 
+
 \subsubsection{ML Algorithm 1: Support Vector Machines}
 
-As a member of the \textit{analogical} family of learning algorithms, Support Vector Machines (SVMs) \cite{svm} are based on a concept of similarity between training instances. 
+%As a member of the \textit{analogical} family of learning algorithms, 
+Support Vector Machines (SVMs) \cite{svm} are based on a concept of similarity between training instances. 
 During training, a number of separating hyperplanes are determined.
 The idea behind SVMs is to ensure the distance from this hyperplane to any training instances closest to it is maximal.
 This process is known as ``maximising the margin'' and is designed give the model the best chance at classifying unseen instances correctly. 
@@ -322,7 +324,9 @@ Ridge regression \cite{ridge} is a related algorithm which attempts to be more r
 
 K-Nearest Neighbours (k-NN) clustering, like SVMs, belong to the analogical family of ML algorithms which rely on a similarity measure to group training instances (we used the standard Euclidean distance).
 The idea is to create $k$ clusters of training instances which are ``most similar'' to each other in terms of features -- with each feature acting as a dimension.   
-In contrast to SVMs however, most clustering algorithms (k-NN included) do not scale well in high-dimensional spaces.
+In both the k-NN and SVM algorithms, instances must undergo a normalisation process to scale features.  
+This preprocessing step is designed to avoid dominance of one feature over another (due to differences in scale) in distance-based algorithms.
+In contrast to SVMs, most clustering algorithms (k-NN included) do not scale well in high-dimensional spaces.
 
 \sloppypar
 Typically used for classification tasks, the k-NN algorithm can be adapted for regression by calculating the target/response variable as the average of all instances in its cluster.
@@ -489,26 +493,26 @@ For this reason, $R^2$ scores are not applicable.
 			\midrule
 			\multirow{4}{*}{Decision Tree}  & \xmark & \xmark     &     15.80 & 0.11 &  0.50 &    2.06 &       43.12 \\
 			& \cmark & \xmark     &     15.84 &  -0.17 & 0.43 &  2.31 &       43.67 \\
-			& \xmark & \cmark     &     16.29 &  -0.12 & 0.48 &  2.10 &       45.09 \\
-			& \cmark & \cmark &     16.35 &  -0.18 & 0.42 &  2.28 &       45.03 \\
+			& \xmark & \cmark     &     16.31 &  -0.12 & 0.48 &  2.10 &       45.11 \\
+			& \cmark & \cmark &     16.33 &  -0.18 & 0.42 &  2.28 &       45.05 \\
 			\midrule
-			\multirow{2}{*}{k-Nearest Neighbours} & \xmark & \xmark          &     15.93 & 0.16 & \textbf{*0.53} &    \textbf{*2.00} &       43.41 \\
-			& \cmark & \xmark          &     15.87 &  -0.18 & 0.42 &  2.32 &       43.24 \\
+			\multirow{2}{*}{k-Nearest Neighbours} & \xmark & \xmark          &     15.55 & 0.17 & \textbf{*0.54} &    \textbf{*1.94} &       40.66 \\
+			& \cmark & \xmark          &     15.61 &  -0.18 & 0.43 &  2.29 &       41.11 \\
 			\midrule
-			\multirow{4}{*}{Linear Regression}  & \xmark & \xmark                        &     15.17 &  -0.16 & 0.42 &  2.45 &       49.25 \\
-			& \cmark & \xmark                     &     15.17 &  -0.29 & 0.42 &  2.46 &       49.28 \\
-			& \xmark & \cmark                 &     15.32 &  -0.41 & 0.42 &  2.44 &       48.71 \\
-			& \cmark & \cmark             &     15.35 &  -0.27 & 0.41 &  2.45 &       48.99 \\
+			\multirow{4}{*}{Linear Regression}  & \xmark & \xmark                        &     15.15 &  -0.16 & 0.42 &  2.45 &       49.13 \\
+			& \cmark & \xmark                     &     15.15 &  -0.29 & 0.42 &  2.46 &       49.20 \\
+			& \xmark & \cmark                 &     15.33 &  -0.43 & 0.42 &  2.43 &       48.68 \\
+			& \cmark & \cmark             &     15.35 &  -0.27 & 0.42 &  2.44 &       48.97 \\
 			\midrule
 			\multirow{4}{*}{Support Vector Regressor}  & \xmark & \xmark                           &     15.57 &   0.14 & 0.47 &  2.26 &       47.45 \\
 			& \cmark & \xmark                        &     15.43 &  -0.24 & 0.43 &  2.31 &       44.17 \\
 			& \xmark & \cmark                    &     15.61 &  -0.06 & 0.47 &  2.19 &       42.86 \\
-			& \cmark & \cmark                &     15.70 &  -0.20 & 0.45 &  2.23 &       43.34 \\
+			& \cmark & \cmark                &     15.71 &  -0.20 & 0.45 &  2.25 &       43.23 \\
 			\midrule
 			\multirow{4}{*}{Random Forest}   & \xmark & \xmark         &     15.02 &  \textbf{*0.28} & 0.48 &   2.08 &       \textbf{*38.91} \\
 			& \cmark & \xmark         &     \textbf{*14.92} &  -0.18 & 0.48 &  2.13 &       39.19 \\
-			& \xmark & \cmark     &     15.06 &   0.18 & 0.48 &  2.12 &       39.46 \\
-			& \cmark & \cmark &     15.09 &  -0.16 &  0.48 & 2.15 &       39.18 \\
+			& \xmark & \cmark     &     15.08 &   0.18 & 0.48 &  2.12 &       39.53 \\
+			& \cmark & \cmark &     15.09 &  -0.16 &  0.48 & 2.15 &       39.09 \\
 			\midrule
 			\multirow{4}{*}{Ridge Regression}  & \xmark & \xmark                          &     15.11 &  -0.15 & 0.42 &  2.45 &       49.09 \\
 			& \cmark & \xmark                         &     15.14 &  -0.29 & 0.41 &  2.46 &       49.29 \\
