@@ -109,6 +109,8 @@ Included in Comment \ref{overhang-numbers} of this document.
 
 \subsection{Sec. 3.3.2 P31: How did you find the Peter's principle point for each prover? Are these numbers taken from literature or did you compute them (and in that case how)?}
 
+This is further explained by the sentence beginning \emph{``To calculate this time..''}. See also lines 65-66 of \texttt{fig\_3\_7\_linegraph.py}.
+
 \section{Chapter 4}
 
 \subsection{Sec. 4.1 P33: Explain the relationship between file and theory; I guess a file can have multiple theories (e.g like a structure in ML) and not that a theory can cut across multiple file (e.g. like a module in C\#)?}
@@ -143,7 +145,7 @@ Fixed reference placement. Justification for the ``choice of five" is given in t
 	
 \subsection{Sec. 4.3.1 P42 (kNN) Did you normalise the features for kNN? If a feature has a big scale compared to another but this is not meaningful then you need to normalise when measuring distance.}
 
-Scaling of features had previously been implemented for SVMs only. I added the preprocessing step for k-NN also (see line 55 of \texttt{compare\_regressors.py}). 
+Scaling of features had previously been implemented for SVMs only. I added the preprocessing step for k-NN also (see line 55 of \texttt{table\_4\_4\_compare\_regressors.py}). 
 The new results have been documented in Table 4.4. 
 Obviously, the main difference is seen in the k-NN results (which have improved) but the overall best result for each metric is unchanged.
 This preprocessing step has been documented in the introduction to the K-nn algorithm with the two sentences beginning \emph{``In both the k-NN and SVM algorithms,.."}. 

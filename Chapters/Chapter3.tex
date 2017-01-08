@@ -430,7 +430,9 @@ From this observation we deduce that the likelihood of a \textit{Timeout} answer
 %From Fig. \ref{fig:line_graph} we can see that the vast majority of useful responses are returned very quickly. 
 
 To establish a realistic timeout limit, we find each solver's ``Peter Principle Point'' \cite{Sutcliffe200139}. In resource allocation for theorem proving terms, this point can be defined as the time limit at which more resources will not lead to a significant increase in the number of goals the solver can prove.
-By satisfying ourselves with being able to record 99\% of the useful responses which would be returned after 60 seconds, a more reasonable threshold is obtained for each solver. This threshold ranges from 7.35 secs (veriT) to 9.69 secs (Z3-4.3.2). Thus we chose a value of ten seconds (Fig. \ref{fig:line_graph}'s \textit{dotted vertical line}) as a representative, realistic timeout that gives each solver a fair opportunity to return decent results.     
+By satisfying ourselves with being able to record 99\% of the useful responses which would be returned after 60 seconds, a more reasonable threshold is obtained for each solver. 
+To calculate this time value for each solver, we find the time at which 99\% of the solver's total number of \texit{Valid / Invalid / Unknown} responses have be returned. 
+This threshold ranges from 7.35 secs (veriT) to 9.69 secs (Z3-4.3.2). Thus we chose a value of ten seconds (Fig. \ref{fig:line_graph}'s \textit{dotted vertical line}) as a representative, realistic timeout that gives each solver a fair opportunity to return decent results.     
 
 
 
