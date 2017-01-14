@@ -4,7 +4,7 @@
 \BOOKMARK [2][-]{subsection.0.3}{Further commentary on the selection and extraction of features is needed. Motivation for the approach taken should be clearly outlined and justified. Examples of alternative features that could have been used should be provided and the reasons for exclusion should be described.}{section.0}% 4
 \BOOKMARK [2][-]{subsection.0.4}{Small numbers should be spelt in words. If the number is at the start of a sentence then spell as a word. Fix overhanging words throughout.}{section.0}% 5
 \BOOKMARK [1][-]{section.1}{Chapter 1}{}% 6
-\BOOKMARK [2][-]{subsection.1.1}{Sec. 1.1.3: last paragraph: rephrase \(2 nd sentence needs to be broken up\).}{section.1}% 7
+\BOOKMARK [2][-]{subsection.1.1}{Sec. 1.1.3: last paragraph: rephrase \(2nd sentence needs to be broken up\).}{section.1}% 7
 \BOOKMARK [2][-]{subsection.1.2}{Sec. 1.2, I am not convinced by the hypothesis, as it is hard to measure. Can you say beyond a single prover or random prover maybe? I would also bring in machine learning as this is in my part the main contribution of this work.}{section.1}% 8
 \BOOKMARK [2][-]{subsection.1.3}{Sec. 1.2, para –2: A PO my \040A PO may}{section.1}% 9
 \BOOKMARK [1][-]{section.2}{Chapter 2}{}% 10
@@ -35,7 +35,7 @@
 \BOOKMARK [2][-]{subsection.3.12}{Sec. 3.3.2 P31: How did you find the Peter's principle point for each prover? Are these numbers taken from literature or did you compute them \(and in that case how\)?}{section.3}% 35
 \BOOKMARK [1][-]{section.4}{Chapter 4}{}% 36
 \BOOKMARK [2][-]{subsection.4.1}{Sec. 4.1 P33: Explain the relationship between file and theory; I guess a file can have multiple theories \(e.g like a structure in ML\) and not that a theory can cut across multiple file \(e.g. like a module in C\043\)?}{section.4}% 37
-\BOOKMARK [2][-]{subsection.4.2}{Sec. 4.1 P35, 4 th para: I would suggest that you delay the comparison with `best ranking' until you have defined it \(or at least state what it is at the first point you mention it\)}{section.4}% 38
+\BOOKMARK [2][-]{subsection.4.2}{Sec. 4.1 P35, 4th para: I would suggest that you delay the comparison with `best ranking' until you have defined it \(or at least state what it is at the first point you mention it\)}{section.4}% 38
 \BOOKMARK [2][-]{subsection.4.3}{Sec. 4.1 P36: Hard file \040hard files.}{section.4}% 39
 \BOOKMARK [2][-]{subsection.4.4}{Sec. 4.1.1 P37 first line: \(briefly\) explain the scoring structure.}{section.4}% 40
 \BOOKMARK [2][-]{subsection.4.5}{Sec. 4.2.5 P38-39: did you experiment with different cost functions? If so could you justify why this was chosen.}{section.4}% 41

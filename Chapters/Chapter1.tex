@@ -83,8 +83,11 @@ More often, however, a Satisfiability Modulo Theories (SMT) solver is used for S
 
 This component is where \textsf{Why3} differs most from other SV systems.
 It implements a modular architecture based on drivers.
-Using a specific driver file, \textsf{Why3} writes the input format for each supported automatic theorem prover (ATP) such as MetiTarski \cite{Akbarpour2008} and Gappa \cite{gappa} (which specialise in solving numerical problems), SMT solver (the SMT solvers supported by \textsf{Why3} will be introduced later in the thesis) and interactive theorem prover (ITP) (sometimes called a \textit{proof assistant}) such as Coq \cite{Coq} and Isabelle \cite{Isabelle}.
-This driver file lists the transformations that must take place (e.g. remove polymorphism or inductive predicates) in order for \textsf{Why3}'s logic to conform to that of the theorem proving tool.
+Using a specific driver file, \textsf{Why3} writes the input format for each supported automatic theorem prover (ATP), SMT solver, and interactive theorem prover (ITP).
+Supported ATPs such as MetiTarski \cite{Akbarpour2008} and Gappa \cite{gappa} specialise in solving numerical problems.
+The supported SMT solvers will be introduced in a later section as their comparison constitutes a main contribution of this thesis.
+The ITPs supported by \textsf{Why} include Coq \cite{Coq} and Isabelle \cite{Isabelle} (these tools sometimes referred to as \textit{proof assistants}).
+Each tool's driver file lists the transformations that must take place (e.g. remove polymorphism or inductive predicates) in order for \textsf{Why3}'s logic to conform to that of the theorem proving tool.
 
 %\subsection{An overview of various \textsc{SMT} solvers and their capabilities}
 \section{Thesis Statement}
