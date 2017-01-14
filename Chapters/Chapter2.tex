@@ -150,7 +150,10 @@ The \textit{quality} of specifications for a single project (the Web-Service Def
 % This approach is close to the method used to measure \textsf{Why3} POs used by \where (as described in Sec. \ref{sub:extracting}).
 
 The proof obligation formul\ae~used by \where~are more similar to specifications than to the proof scripts used in interactive theorem proving.
-While procedural proof scripts (such as the Isabelle style of theorem proving) can be thought of as being similar to conventional programs (describing \textit{how} something is done), formal specifications are quite different: providing a precise description of formal properties which \textit{must} hold.
+Formal specifications give no indication of \textit{how} the formula is to be proved, only providing a precise description of properties which \textit{must} hold. 
+Procedural proof scripts (such as the Isabelle style of theorem proving) can be thought of as similar to conventional programs because they combine formal specifications and tactic applications to produce machine-verifiable proofs. 
+
+%While procedural proof scripts (such as the Isabelle style of theorem proving) can be thought of as being similar to conventional programs (describing \textit{how} something is done), formal specifications are quite different: providing a precise description of formal properties which \textit{must} hold.
      
 Formal specification is facilitated by the Object Constraint Language (OCL) \cite{OCL} in UML models. 
 Two studies propose complexity metrics for OCL expressions. 

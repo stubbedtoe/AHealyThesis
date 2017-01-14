@@ -12,7 +12,7 @@
 \BOOKMARK [2][-]{subsection.2.2}{Sec. 2.1, Q1 \(First sentence\): starting with ``integrating..": rephrase as sentence makes no sense. Fix overhang. Change ``Why3 is clearly", to ``Why3 is arguably"}{section.2}% 12
 \BOOKMARK [2][-]{subsection.2.3}{Sec. 2.1.1, You could also mention TIP: Tons of Inductive Problems \(which is used within the automated induction community\). There was a benchmark paper at CICM 2015 that you may want to cite.}{section.2}% 13
 \BOOKMARK [2][-]{subsection.2.4}{Sec. 2.1.1, change ``a SMT-LIB" to ``an SMT-LIB". Insert ``has" before ``a wider scope".}{section.2}% 14
-\BOOKMARK [2][-]{subsection.2.5}{Sec. 2.1.1, You need to explain "function point" and not just cite it. It gets a bit hard to read as a standalone document if you only give citations.}{section.2}% 15
+\BOOKMARK [2][-]{subsection.2.5}{Sec. 2.1.1, You need to explain ``function point" and not just cite it. It gets a bit hard to read as a standalone document if you only give citations.}{section.2}% 15
 \BOOKMARK [2][-]{subsection.2.6}{Sec. 2.1.1. \(first paragraph P13\): You can also write specification in proof script: the procedural tactic applications are just part of it, so this needs rephrasing. Remove the word ``being" line 2.}{section.2}% 16
 \BOOKMARK [2][-]{subsection.2.7}{Sec. 2.2: It wasn't clear why you are discussing software metrics to this details, so a bit more motivation would be beneficial}{section.2}% 17
 \BOOKMARK [2][-]{subsection.2.8}{Sec. 2.2.1 P14: change ``journals" to ``journal".}{section.2}% 18
