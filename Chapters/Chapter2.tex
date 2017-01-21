@@ -94,6 +94,8 @@ Benchmark repositories and tool competitions have proven to be important as a me
 		\midrule
 		SV-COMP & ATPs and model-checkers & AProVE, BLAST, CPAchecker & C & 6661 files & \href{http://sv-comp.sosy-lab.org}{sv-comp.sosy-lab.org} & \cite{SVCOMP} \\   
 		\midrule
+		TIP & ATPs supporting induction & HipSpec, ACL2, Zeno & TIP extended SMT-LIB & 343 & \href{https://github.com/tip-org/}{github.com/tip-org} & \cite{Claessen2015} \\  
+		\midrule
 		The \textsf{Why3} examples & Program verification through \textsf{Why3} & \textsf{Why3} and its supported back-ends & WhyML & 128 programs, 1048 POs & \href{http://tocatta.lri.fr/gallery/why3.en.html}{toccata.lri.fr} & \cite{verifythis, tafat:inria-00636083} \\
 		
 	\end{tabularx}
@@ -133,7 +135,12 @@ In contrast to the ATPs competing in SV-COMP, SMT solvers are assumed to be corr
 
 The TPTP (Thousands of Problems for Theorem Provers) project \cite{TPTP} is a benchmark repository with similar aims to SMT-LIB but has a wider scope. The problems target theorem provers which specialise in numerical problems as well as general-purpose SAT and SMT solvers. The TPTP library is specifically designed for the rigorous experimental comparison of solvers \cite{Sutcliffe200139}. There has been a significant development effort by \textsf{Why3} developers to support the TPTP format in \textsf{Why3} and to extend the TPTP language with rank-1 polymorphism \cite{why:tptp} thereby allowing the use of \texttt{ML}-like polymorphic types to be used in an interchange format understood by over two-dozen provers. This extension of the TPTP language makes it more similar to the specification language of \textsf{Why3}. 
 
-Also mention TIP \cite{Claessen2015}, Automatic Learning ... \cite{AutomaticLearning}, Meta-interpretive \cite{meta-interptretive}, Hazel Duncan's PhD thesis \cite{hazelthesis}, Ar\'{\i}s \cite{aris}. \\
+More recently, a group from Chalmers University of Technology has introduced a repository of benchmarks for inductive theorem provers called Tons of Inductive Problems (TIP) \cite{Claessen2015}. 
+The project aims to facilitate the comparison of how various tools handle proving inductive properties and uses a specialised problem description language which is an extension of SMT-LIB.
+An interesting aspect of the project is its approach to interoperability: aside from benchmarks written in the aforementioned format, tools are provided to translate the problems into standard SMT-LIB, Haskell, TPTP, Isabelle/HOL and WhyML.
+  
+
+Also mention Automatic Learning ... \cite{AutomaticLearning}, Meta-interpretive \cite{meta-interptretive}, Hazel Duncan's PhD thesis \cite{hazelthesis}, Ar\'{\i}s \cite{aris}. \\
 
 \textbf{Q2: Does a standardised suite of benchmark programs exist for the comparison of deductive SV tools?} \\
 Although the need for such a benchmark suite is well understood, the diversity of input languages hampers progress towards this goal. 
@@ -174,7 +181,8 @@ Traditional SE metrics have been used as a solid basis for predictor variables i
 \label{sec:lrmm}
 
 The selection of independent variables used by \where~was guided by the research discussed in the previous section. 
-This section gives more background to the need for software metrics in the wider SE domain.
+This section gives context to this research by situating the need for software metrics in the wider SE domain.
+
 The rigorous measurement of software and the definition of metrics to group and comprehend these measurements is vital for the accurate prediction of a project's development schedule, cost, associated lines of code, etc. 
 A comprehensive overview of the topic is given in Fenton and Pfleeger's book \cite{FentonPfleeger}. 
 The metrics of most interest to our project are \textit{internal, structural} code-based metrics. 

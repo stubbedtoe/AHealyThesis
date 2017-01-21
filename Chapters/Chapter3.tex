@@ -61,6 +61,8 @@ Other programs are implementations of benchmarks proposed by the VACID-0 \cite{L
 
 It is our assumption that the \why~examples are representative of software verification workload. Two alternatives to this dataset are the TPTP \cite{TPTP} library and the BWARE \cite{Delahaye2014} collection of industrial proof obligations. The latter dataset consists of Atelier-B  POs translated into the TPTP format \cite{atelierB2w}. Both these datasets are not specific to the software verification domain: they include scheduling, hardware verification and numerical problems in addition to typical SV tasks. The TPTP repository is limited to first-order logic problems: inductive problems cannot be expressed. The BWARE SMT-LIB translation uses an upper-bound logic of UFNIA -- this set of theories does not use arrays or real arithmetic\footnote{More information about the SMT-LIB standard for logical theories can be found at \url{http://smtlib.cs.uiowa.edu/logics.shtml} }. Both datasets are, however, much larger. The TPTP library currently consists of 20,306 POs \cite{TPTPsite} -- many of which are very similar to each other. There are 12,876 BWARE benchmarks. In comparison, the 128 WhyML programs produced 1048 individual proof obligations. 
 
+The TIP benchmarks \cite{Claessen2015}, while interesting, were not considered as they only measure one aspect of a set of SV tools: their ability to discharge proof obligations which require the use of induction. 
+
 Importantly, the chosen dataset makes use of the full capabilities of the \why~system: the programs include inductive problems and require the use of as many logical theories as each individual SMT solver can reason with.   
 
 \subsection{Selection of \textsc{SMT} solvers}
