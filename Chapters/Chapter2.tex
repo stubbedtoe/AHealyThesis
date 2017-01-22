@@ -140,7 +140,7 @@ The project aims to facilitate the comparison of how various tools handle provin
 An interesting aspect of the project is its approach to interoperability: aside from benchmarks written in the aforementioned format, tools are provided to translate the problems into standard SMT-LIB, Haskell, TPTP, Isabelle/HOL and WhyML.
   
 
-Also mention Automatic Learning ... \cite{AutomaticLearning}, Meta-interpretive \cite{meta-interptretive}, Hazel Duncan's PhD thesis \cite{hazelthesis}, Ar\'{\i}s \cite{aris}. \\
+Also mention Ar\'{\i}s \cite{aris}. \\
 
 \textbf{Q2: Does a standardised suite of benchmark programs exist for the comparison of deductive SV tools?} \\
 Although the need for such a benchmark suite is well understood, the diversity of input languages hampers progress towards this goal. 
@@ -230,9 +230,25 @@ After analysing a number of ML approaches (as discussed in detail in Chapter \re
 
 As this project deals with training ML algorithms on software artefacts, it relies on representations of these programs. As discussed in Sec. \ref{sec:lrmm}, the measurement of software requires the use of metrics. The intersection of software verification and machine learning, therefore, necessarily involves concepts from the software metrics and measurement domain. This subsection concentrates on research from the field of interactive theorem proving while the next looks at portfolio solvers in more detail.
 
-We have already introduced the Flyspeck \cite{hales-kepler} proof of the Kepler conjecture. The 14,185 theorems and millions of lemmas form the basis for a number of projects which aim to take advantage of ATP tools within interactive environments \cite{Flyspec, Kaliszyk2015109}. These projects involve the translation of TPTP formul\ae~from the higher-order logic of the  interactive prover \textsf{HOL Light} to the input format of a number of ATPs. Kaliszyk and Urban were also involved with extending the Sledgehammer \cite{threeyears} tool for Isabelle \cite{Isabelle} with machine learning capabilities. The resulting MaSh \cite{Sledgehammer} engine uses a Na{\"i}ve Bayes algorithm and clustering to select facts based on syntactic similarity.       
+We have already introduced the Flyspeck \cite{hales-kepler} proof of the Kepler conjecture. The 14,185 theorems and millions of lemmas form the basis for a number of projects which aim to take advantage of ATP tools within interactive environments \cite{Flyspec, Kaliszyk2015109}. These projects involve the translation of TPTP formul\ae~from the higher-order logic of the  interactive prover \textsf{HOL Light} to the input format of a number of ATPs. Kaliszyk and Urban were also involved with extending the Sledgehammer \cite{threeyears} tool for Isabelle \cite{Isabelle} with machine learning capabilities. The resulting MaSh \cite{Sledgehammer} engine uses a Na{\"i}ve Bayes algorithm and clustering to select facts based on syntactic similarity.    
 
-The AI4FM\footnote{\url{http://www.ai4fm.org}} group includes researchers from Edinburgh, Newcastle and Heriot-Watt universities. Much of the group's work \cite{Heras2013, ML4PG, bundy_et_al:DR:2012:3731} aims to use ML/AI to automate the interactive theorem proving process by learning proof patterns from human experts and proof repositories. The resultant tools such as ACL2(ml) \cite{Heras2013} and ML4PG \cite{ML4PG} use clustering to identify proof patterns which can be translated to ATPs in a process called \textit{premise selection}. The goal is to automate and guide interactive proof sessions, thereby increasing the use of ITP tools in practical scenarios. These tools differ from \where's approach by mostly using \textit{unsupervised} clustering techniques. Random Forests have been used for premise selection \cite{Farber2015} outside the AI4FM group, the authors claiming an improvement on the performance of \textit{k-means} clustering. 
+Tactic learning is a method applied to automate the interactive theorem proving process.
+It works by making a logical association from groups of low-level commands to the syntactic and semantic properties of the problem.
+The groups of commands, called \textit{tactics}, are then applied when a similar problem is recognised. 
+An early example of this approach \cite{AutomaticLearning} uses a custom learning algorithm to learn patterns in the $\Omega$\textsc{mega} proof system.   
+
+The AI4FM\footnote{\url{http://www.ai4fm.org}} group includes researchers from Edinburgh, Newcastle and Heriot-Watt universities. 
+Much of the group's work \cite{meta-interptretive, Heras2013, ML4PG, bundy_et_al:DR:2012:3731} continues the \textit{tactic learning} line of research introduced in the previous paragraph.
+For a number of SV platforms, the group uses ML/AI to automate the interactive theorem proving process by learning proof patterns from human experts and proof repositories. 
+The resultant tools such as ACL2(ml) \cite{Heras2013} and ML4PG \cite{ML4PG} use clustering to identify proof patterns which can be translated to ATPs in a process called \textit{premise selection}. 
+The goal is to automate and guide interactive proof sessions, thereby increasing the use of ITP tools in practical scenarios.
+Hazel Duncan's NewT (New Tactic tool) \cite{hazelthesis} uses a combination of techniques from probabilistic reasoning,
+machine learning and genetic programming to this end.
+
+These tactic learning tools differ from \where's approach by mostly using \textit{unsupervised} learning techniques such as clustering. 
+Random Forests have been used for premise selection \cite{Farber2015} outside the AI4FM group, the authors claiming an improvement on the performance of \textit{k-means} clustering. 
+In Maynooth University, analogical reasoning (which is a \textit{supervised} method) has been applied to recognise similar computer programs of the Spec\# SV system.
+The goal of the Aris \cite{aris} tool is to increase the reuse of formal specifications by automatically matching specifications to implementations.   
 
 \subsection{Where4, portfolio-solving, and the intersection of all three disciplines}
 \label{sub:lrsvmmml}
