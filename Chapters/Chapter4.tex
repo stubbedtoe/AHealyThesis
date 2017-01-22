@@ -7,7 +7,7 @@ Our goal in this thesis is to construct a ``meta-solver'' or \textit{portfolio} 
 We motivate the need for a portfolio solver with an analysis of our dataset 
 in Sec. \ref{sec:portfolio-benefit}. 
 More details about the type of prediction task chosen for the evaluation of ML algorithms is given in Sec. \ref{sec:reg-class}.
-A more detailed introduction to the six prediction algorithms (introduced previously in Sec. \ref{sub:lrsvmmml} and Table \ref{table:algorithms}) is given in Sec. \ref{pred:choosing} before the results of their comparison is discussed. 
+A more detailed introduction to the six prediction algorithms (some of which were introduced previously in Sec. \ref{sec:lrml} and Table \ref{table:algorithms}) is given in Sec. \ref{pred:choosing} before the results of their comparison is discussed. 
 We make this comparison with reference to a number of theoretical strategies introduced in Sec. \ref{sec:strategies}.
 We end this chapter with a more detailed look at the model chosen for use in the actual implementation of \where.
 
@@ -191,6 +191,10 @@ This is the prediction approach chosen for \textsf{Where4} in this thesis.
 \subsection{The Cost Function}
 \label{sub:scoring}
 
+The use of a cost function is inspired by the first version of the SATZilla portfolio solver \cite{Satzilla}. 
+The cited paper describes the prediction of a \textit{performance score}.
+This differs from most portfolio approaches which aim to predict a solver's runtime directly. 
+
 The cost function should reflect the ordering of solver utility defined in Sec. \ref{sub:rel-util}: penalising poorly-performing solvers while ensuring \textit{Valid} and \textit{Invalid} responses incur the lowest cost.
 The following simple function allocates a cost to each solver $S$'s response $\langle answer, time\rangle$ to each goal $G$:
 \[\small
@@ -262,7 +266,7 @@ This technique was used to overcome the difficulties of stratification for regre
 \subsection{The ML algorithms we used for model training}
 
 \label{sub:MLalgorithms}
-The ML algorithms compared in this section have been briefly introduced in Sec. \ref{sub:lrsvmmml}. 
+The ML algorithms compared in this section have been briefly introduced in Sec. \ref{sec:lrml}. 
 We do not compare Na\"ive Bayes which does not support regression tasks. 
 In this section, we go into more detail about how the algorithms operate and the specific variants and parameters chosen for use during this comparison.
 We used the Sci-Kit Learn \cite{sklearn} Python implementation for all algorithms.
@@ -285,6 +289,8 @@ We used a grid search technique \cite{hsu2003practical} to identify the $C$ (hyp
 
 In the multi-output case, each cost value has to be predicted individually for each solver -- requiring the use of eight SVMs each tuned to different parameters on a per-solver basis.
 The benefit of using SVMs is their ability to give good results in large-dimensional spaces; even with large datasets. 
+
+We followed Hsu and Lin's \cite{MulticlassSVM} recommendations regarding the use of SVMs (which excel at \textit{binary} classification) for  multi-output regression tasks. 
 
 \subsubsection{ML Algorithm 2: Decision Trees}
 
@@ -605,12 +611,13 @@ The entire ranking of solvers is predicted correctly in the first instance.
 \subsection{Properties of multi-output problems}
 \label{sub:multi}
 
-An interesting feature of all the best-performing models in Table \ref{table:predselection} -- Random Forests, K-Nearest Neighbours, Decision Trees -- is their ability to predict \textit{multi-output} variables \cite{multisurvey}. 
+An interesting feature of all the best-performing models in Table \ref{table:predselection} -- Random Forests, K-Nearest Neighbours, Decision Trees -- is their ability to predict \textit{multi-output} variables. 
 In contrast to Support Vector Machines, for example, which must predict the cost for each solver individually, an algorithm which supports multi-output problems can predict each solver's cost simultaneously. 
 Not only is this method more efficient (by reducing the number of estimators required), but it has the ability to account for the correlation of the response variables. 
 This is a useful property in the software verification domain where certain goals are not provable and others are trivial for SMT solvers. 
 Multiple versions of the same solver can also be expected to have highly correlated scores.
 
+A more general survey of multi-output regression and how various ML algorithms can either be adapted or extended for this use case is provided by Borchani et al. \cite{multisurvey}.
 
 \subsection{The chosen model}
 \label{sec:chosen}

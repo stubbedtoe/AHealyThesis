@@ -203,7 +203,7 @@ While structural metrics such as McCabe's are statically measured, the statistic
 \label{sub:lrmmml}
 %mention two journals: Empirical Software Enginnering, one that James said
 
-At the intersection of software metrics, measurement, and machine learning, there has been a growing trend of using ML techniques to make predictions about SE metrics. Examples of this trend include the use of text-based clustering to predict defect resolution time \cite{Assar2016}, effort estimation using SVMs \cite{Song:2014:PBR:2639490.2639510} and the use of genetic algorithms for the efficient allocation of cloud-based resources \cite{cloudML}. In a survey on the topic, Gandotra et al. \cite{ClassificationSurvey} cite numerous examples of the use of ML classification algorithms to identify potentially dangerous or intrusive software. 
+At the intersection of software metrics, measurement, and machine learning, there has been a growing trend of using ML techniques to make predictions about SE metrics. Examples of this trend include the use of text-based clustering to predict defect resolution time \cite{Assar2016}, effort estimation using Support Vector Machines (SVMs) \cite{Song:2014:PBR:2639490.2639510} and the use of genetic algorithms for the efficient allocation of cloud-based resources \cite{cloudML}. In a survey on the topic, Gandotra et al. \cite{ClassificationSurvey} cite numerous examples of the use of ML classification algorithms to identify potentially dangerous or intrusive software. 
 
 Recent issues of the journal \textit{Empirical Software Engineering} contain many more articles combining the use of ML techniques and standard software metrics. Zhang and Tsai \cite{ML4SE} edited a collection of such journal papers.  
 
@@ -214,15 +214,21 @@ For a broad overview of the extensive subject of Machine Learning, we refer the 
 Mitchell \cite{Mitchell} and Bishop \cite{Bishop} both balance practical implementation issues for a variety of algorithms with a treatment of their theoretical foundations. 
 Domingos \cite{domingos2015master} focuses on new research on comparing and combining ML approaches while also giving an entertaining account of the history of many ML algorithms.  
 We focus this section on some of the background literature and considerations associated with the algorithms compared during the development of \where~(Sec. \ref{pred:choosing}).
-More details about the individual algorithms will be given in Sec. \ref{sub:MLalgorithms}.
+More details about the individual algorithms will be given in Sec. \ref{sub:MLalgorithms}, but a brief introduction to three algorithms discussed in this chapter -- SVMs, K-Nearest Neighbours, and Random Forests -- is given in this section.
+By briefly introducing a number of algorithms at this stage, we hope that the reader is not lost amongst unfamiliar concepts if ML is new to them.   
 
-\sloppypar
-As we explain further in Sec. \ref{sec:reg-class}, our learning task is to predict a continuous-valued variable which makes it a \textit{regression} task in ML terms. 
-More specifically, it is a multi-output regression task as there is one output for each SMT solver. 
-Recommendations regarding the use of SVMs (which excel at \textit{binary} classification) for this task are made by Hsu and Lin \cite{MulticlassSVM}. 
-A more general survey of multi-output regression and how various ML algorithms can either be adapted or extended for this use case is provided by Borchani et al. \cite{multisurvey}. 
+SVMs \cite{svm} have been mentioned in the previous subsection. 
+Briefly, the algorithm aims to find a number of hyperplanes or (\textit{support vectors}) in an \textit{n}-dimensional space (where \textit{n} is the number of features) so that the distance between any hyperplane and any training instance is maximal.
+Accurate and robust predictions about the characteristics of a testing instance can be made by asking the algorithm which support vectors define its position.
 
-After analysing a number of ML approaches (as discussed in detail in Chapter \ref{Experimental}) \where~ultimately uses a Random Forest \cite{RandomForests} method for prediction. The Random Forest approach is an ensemble extension of the Decision Tree \cite{DecisionTrees} algorithm. Both algorithms support multi-output problems natively. More details on the suitability of these algorithms to our problem are given later in the thesis (Sec. \ref{sub:multi}). 
+K-Nearest Neighbours (k-NN) also utilises a distance metric in \textit{n}-dimensional space for its predictions.
+Instead of finding separating hyperplane, however, a notion of \textit{similarity} is used to group instances into homogeneous clusters.
+Where SVMs are robust to outliers, the k-NN algorithm is more sensitive, and care has to be taken with the distance metric used. 
+
+After analysing a number of ML approaches (as discussed in detail in Chapter \ref{Experimental}) \where~ultimately uses a Random Forest \cite{RandomForests} method for prediction. 
+The Random Forest approach is an ensemble extension of the Decision Tree \cite{DecisionTrees} algorithm.
+A decision tree is constructed by recursively splitting the set of training instances based on the feature and threshold resulting in the largest information gain.
+A random forest takes the average of a number of tree's predictions where the individual trees have been constructed using a random subset of the training instances and/or features. 
 
 
 \subsection{Software Verification and Machine Learning}
@@ -255,7 +261,7 @@ The goal of the Aris \cite{aris} tool is to increase the reuse of formal specifi
 
 Portfolio solving can have a number of meanings. For example, the Z3 SMT solver can run in ``portfolio mode'': a number of Z3 instances with different heuristics are run in parallel in order to return a result in a faster time \cite{WintersteigerHM09}. In the case of \where~and the other projects discussed in this subsection, however, portfolio solving is taken as being the combination of separate ATP tools, used as ``black-box'' algorithms, selected based on features of the PO being solved.
 
-Portfolio-solving approaches have been implemented successfully in the SAT domain by SATzilla \cite{Satzilla}. Early versions of this tool used a ridge regression method to predict runtime for a number of solvers based on an empirical hardness model derived from problem instances. The current version \cite{SATzilla2012} uses a forest of decision trees . The earlier paper describes the prediction of a \textit{performance score} (rather than runtime) directly.  This is comparable to our notion of solver \textit{cost} introduced in Sec. \ref{sub:scoring}. SATzilla has been successful in SAT competitions and several portfolio SAT solvers have been developed in recent years \cite{SAT2012}.  The proceedings of the 2012 SAT competition 
+Portfolio-solving approaches have been implemented successfully in the SAT domain by SATzilla \cite{Satzilla}. Early versions of this tool used a ridge regression method to predict runtime for a number of solvers based on an empirical hardness model derived from problem instances. The current version \cite{SATzilla2012} uses a forest of decision trees. SATzilla has been successful in SAT competitions and several portfolio SAT solvers have been developed in recent years \cite{SAT2012}.  The proceedings of the 2012 SAT competition 
 list the participation of eight portfolio solvers. The SAT competition has had separate tracks and medals for portfolio solvers since 2012.  
 
 A team from University College Cork show that instances of another NP-complete problem, the Constraint Satisfaction Problem (CSP), can be solved by translating them to a SAT instance and using a portfolio of solvers \cite{Hurley2014}. Their evaluation of several learning algorithms identified linear regression as the best model for their data.

@@ -22,6 +22,7 @@ Re-worded the thesis statement to mention the use of machine learning.
 The new version is also more specific and verifiable: the vague term \emph{``efficient"} has been removed and a comparison is made to \emph{``any single solver"}.
  
 \subsection{The use of a pre-solver makes it hard to judge how much contribution the actual machine learning makes. A discussion on the impact of the pre-solver should be provided.}
+\label{presolving}
 	
 \subsection{Further commentary on the selection and extraction of features is needed. Motivation for the approach taken should be clearly outlined and justified. Examples of alternative features that could have been used should be provided and the reasons for exclusion should be described.}
 \label{features}
@@ -93,6 +94,10 @@ Included in Comment \ref{overhang-numbers} of this document.
 
 \subsection{Sec. 2.3.2: Here you discuss/compare concepts that haven't been introduced, with forward references to the place they are introduced (e.g. section 4.2.5). I'd suggest that you delay comparison to when you actually introduce the concept. Another example is that you talk about k-nearest neighbour without having introduced it. Use lowercase k for kNN.}
 
+The cost function comparison has been moved to appropriate subsection later in the thesis (i.e. the first paragraph of Sec. 4.2.5 beginning \emph{``The use of a cost..''}).
+SVM, k-Nearest Neighbours and Random Forests are now introduced in Sec. 2.3 as they are referenced later in Chapter 2. 
+Various references to this subsection have been updated.
+Literature previously cited in this section has been moved to a more appropriate location (i.e. Sec. 4.5.6). 
 Lowercase ``k" used for ``k-NN" throughout.
 
 \subsection{Sec. 2.4 P19: Rephrase second last sentence.}
@@ -215,7 +220,7 @@ Typo fixed.
 
 \subsection{P50: Change ``may be treated" to ``should be treated".} 
 
-"may" $\rightarrow$ "should".
+``may" $\rightarrow$ ``should".
 	
 \subsection{Sec. 4.5.6: What k value did you use and how was it selected?}
 
@@ -232,6 +237,8 @@ Included in Comment \ref{overhang-numbers} of this document.
 Included in Comment \ref{overhang-numbers} of this document.
 
 \subsection{P53/54: I have a high-level (research methodology related) issue with the use of pre-solving, and this depends a bit on the overall aim/hypothesis of this work. As far as I am concerned, the main contribution of this work is the machine learning aspect. This is also reflected in the title, however the hypothesis is more general and only talk about portfolio solving. Now, the use of pre-solving from an engineering point of view makes sense to me, and would also be okay from the stated hypothesis. However, I feel the main contribution of this work is the machine learning aspect, and by using a pre-solver the analysis gets a bit distorted as it is not clear how much machine learning helps and how much pre-solving helps. I would have liked to see some analysis without the pre-solving to understand how much the machine learning by itself helps and how much of the results are due to the fast pre-solver. I don't expect you to redo experiments, but I would like to see this acknowledged and discussed at some point.}
+
+Included in Comment \ref{presolving} of this document.
 
 \subsection{P56/57: Fix overhang}
 
@@ -256,6 +263,8 @@ Typo fixed.
 \section{Chapter 7}
 
 \subsection{Sec. 7.1 P70: What is the \texttt{split\_goal\_wp} transform? (Should it say transformation?)}
+
+``transform" $\rightarrow$ ``transformation". The ``transform" terminology is used in the \textsf{Why3} user manual but I have adjusted it for common usage. 
 
 \subsection{Future work: You could also (i) Compare with just applying all in parallel and take the first valid/invalid answer,	without any analysis (ii) Compare with and without pre-solving (iii) Compare with use of other features}
 
