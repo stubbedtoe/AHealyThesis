@@ -195,7 +195,13 @@ As an example of its use, the suite has been relatively successful for predictio
 As our POs are taken as simple, stand-alone formul\ae, (rather than being organised in classes or modules) we do not use CK metrics. 
 This is in contrast to the projects using interactive proof scripts discussed in the previous subsection. 
 
-One particularly useful metric for measuring code complexity was defined by McCabe in 1976 \cite{McCabe}. The graph-based cyclomatic complexity of a function is a size-independent and intuitive measure of the code's complexity. It has proved useful in unit-testing scenarios \cite{McCabeTesting}. It is also used to estimate \textit{external} metrics such as how long a project is expected to take, or how much it will cost.  McCabe's complexity metric has previously been adapted for use in measuring the complexity of context-free grammars \cite{nuimeprn6458}. As we discuss in the next chapter, we mapped McCabe's use of decision nodes to the number of conditional operators in \textsf{Why3} PO formul\ae.
+One particularly useful metric for measuring code complexity was defined by McCabe in 1976 \cite{McCabe}. 
+The graph-based cyclomatic complexity of a function is a size-independent and intuitive measure of the code's complexity. To calculate the McCabe cyclomatic complexity of a piece of code, a control flow graph representation is constructed where each indivisible sequence of statements is a node. 
+Decision nodes are typically constructed from \texttt{if/else} statements. 
+The number of nodes is subtracted from the number of lines connecting those nodes plus 2.
+For low-level languages, McCabe showed that the cyclomatic complexity of code with a single entry and exit point is equal to the number of decision nodes \cite{McCabe}.
+It has proved useful in unit-testing scenarios \cite{McCabeTesting}. It is also used to estimate \textit{external} metrics such as how long a project is expected to take, or how much it will cost.  McCabe's complexity metric has previously been adapted for use in measuring the complexity of context-free grammars \cite{nuimeprn6458}. 
+%As we discuss in the next chapter, we mapped McCabe's use of decision nodes to the number of conditional operators in \textsf{Why3} PO formul\ae.
 
 While structural metrics such as McCabe's are statically measured, the statistically-accurate \textit{dynamic} measurement of software is important if the predicted behaviour of a program is to be related to the \textit{actual} observed behaviour. Many of the associated issues are addressed by Lilja \cite{LiljaJ} in his book on the subject. Robust experimental methods for software engineering are the subject of other major studies \cite{AdvancedESE}, including recent work by Kitchenham et al. \cite{Kitchenham2016} who propose the use of kernel density plots as a visualisation method to gain a better understanding of data distributions for empirical software engineering.
 
