@@ -87,7 +87,9 @@ We aim to make a case for portfolio-solving as an effective method for dischargi
 
 We refer the reader to Table \ref{table:avgtimes} which shows the results of running eight solvers on the example \textsf{Why3} programs with a timeout value of ten seconds. 
 The entire dataset is used in this case. 
-WhyML files are modularised as a number of \textit{theories}. The \textsf{Why3} IVL identifies the \textit{goals} which need to be proven in order for the theory (and in turn the entire file) to be verified as correct. 
+WhyML files are modularised as one or more complete \textit{theories} which can be used locally by other theories in the same file. 
+The \textsf{Why3} IVL identifies the \textit{goals} which need to be proven in order for the theory (and in turn the entire file) to be verified as correct.
+WhyML theories containing assertions and lemmas can produce many goals while others which merely define types and helper functions can produce none. 
 Our dataset of 128 WhyML files consists of 289 theories, which in turn generate 1048 goals. 
 Aside from the number of each modular construct proved by the solver (\textit{left sub-column}), the percentage this number represents of the total is given (\textit{centre sub-column}) and the average time taken (in seconds) to prove each construct (as measured using the process described in Sec. \ref{sub:confidence}) is given in the \textit{right sub-column}. 
 
@@ -142,8 +144,10 @@ Solvers which reach the timeout limit are unlikely to return a \textit{Valid} or
 Solvers returning the same answer are ranked according to runtime -- with faster solvers being preferred.
 
 This method for defining relative performance has similarities to the scoring structure for ATPs competing in SV-COMP \cite{Beyer2016, SVCOMP}, with some important differences. 
-Although the notion of ``false positive'' and ``false negative'' responses is not applicable in the SMT domain (where tools are assumed to be sound), a ``true positive'' (or \textit{Valid}) is scored marginally higher than a ``true negative'' (or \textit{Invalid}). 
-In contrast, \textit{Unknown, Timeout} and \textit{Failure} responses are not treated separately by the SV-COMP scoring scheme -- they all fall under the \textit{Unknown} response category and receive a neutral score.
+In SV-COMP, \textit{Unknown} responses are given a neutral score of 0, the correct reporting of a property which does not hold (``true negative") is rewarded with smaller score ($+1$) than the correct reporting of a property which is found to hold (``true positive" which scores $+2$).
+Likewise, the incorrect reporting of a property which does not hold (``false negative" or ``false alarm") is punished less severely (with a score of $-4$) than the incorrect reporting of a property which does hold (``false positives" score $-8$).  
+Although the notion of ``false positive'' and ``false negative'' responses is not applicable in the SMT domain (where tools are assumed to be sound), we follow the SV-COMP scoring scheme by warding a ``true positive'' (or \textit{Valid} response) a higher score than a ``true negative'' (or \textit{Invalid} response). 
+\textit{Unknown, Timeout} and \textit{Failure} responses are not treated separately by the SV-COMP scoring scheme -- they all fall under the \textit{Unknown} response category.
 We penalise poorly-performing solvers through the use of a \textit{cost} function.
 %A further refinement to our scoring model was necessary in order for the prediction models to operate effectively. 
 The definition of the cost function we applied to solver results is given in Sec. \ref{sub:scoring} of this chapter. 
