@@ -116,7 +116,7 @@ We describe the process \where~uses to find and use supported SMT solvers on a u
 
 In supervised machine learning terms, these variables represent the known properties of the item from which we want to derive a prediction (in the present case, this item is a computer program). 
 The predictor variables must be an accurate characterisation of the program in order for the ML model to be effective. 
-We chose to use the proof obligation goals and lemmas rather than the axioms and predicates (which tend to be repeated in POs using the same logical theories) associated with each PO. 
+We chose to use the proof obligations from goals and lemmas rather than those from axioms and predicates (which tend to be repeated in files using the same logical theories). 
 Proof obligations are generated from the goals and lemmas only, while the axioms and predicates provide the context for these POs to be proved by the SMT solver.
 %The goals and lemmas are the parts sent to the SMT solver to be proved.   
 
