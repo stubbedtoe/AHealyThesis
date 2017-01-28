@@ -296,12 +296,20 @@ We recorded the time spent on CPU by each SMT solver for each proof obligation.
 \label{sub:confidence}
 
 Any effort to measure execution time accurately is hampered by random errors introduced by the experimental environment.
-To account for these errors, we used the methodology described by Lilja \cite{LiljaJ} to obtain an approximation of the true mean execution time. 
+Such errors are inherent to measuring time in real world computing environments due to factors such as cache misses, competing processes and instructions needed to perform the measurement itself.   
+These errors affect the \textit{precision} of the experiment: ie. how likely a result is to be repeated \textit{exactly} across multiple experiments. 
+To account for these errors, we used the methodology described by Lilja \cite{LiljaJ} to obtain the number of measurements needed to make an approximation of the true mean execution time. 
 
-As each solver execution can be quite expensive in terms of time (a worst case scenario for one measurement of each PO: 1048 (POs) $\times$ 8 (solvers) $\times$ 10 seconds (time limit) $\approxeq$ 23.3 hours of computation time), a small number of initial measurements (five) were made.
+As each solver execution can be quite expensive in terms of time (a worst case scenario for one measurement of each PO: 1048 (POs) $\times$ eight (solvers) $\times$ ten seconds (time limit) $\approxeq$ 23.3 hours of computation time), a small number of initial measurements (five) were made. 
 From these sample measurements, the mean execution time $\bar{x}$ and standard deviation $s$ were computed. 
-To determine the number of measurements ($n$) required for a statistically-significant sample, we assume that the random errors have a $Student's$ $t$-distribution (similar in shape to a Gaussian distribution). 
-We can use these measurements to find the confidence interval $(c_1, c_2)$ using the equations:
+
+To determine the number of measurements ($n$) required for a statistically-significant sample, Lilja recommends that we assume the random errors have a $Student's$ $t$-distribution (similar in shape -- although more spread out -- to a Gaussian distribution). 
+An assumption of the error's distribution is required as there is no \textit{reference value} (ie. the absolutely \textit{correct} time taken by the solver to execute) available.
+This distribution is chosen as the number of sample measurements taken ($<30$) is small whereas if it was large, we could assume errors follow a Gaussian distribution.
+When comparing the two distributions, differing results are most obvious when we use a very small ($<4$) degree of freedom to determine the confidence interval (ie. measurements at the higher and lower end of the range are given more importance). 
+As the following example using seven degrees of freedom shows, this effect is not applicable to our methodology.  
+
+We use the five measurements to find the confidence interval $(c_1, c_2)$ using the equations:
 \begin{equation}
 	c_1=(1-e)\bar{x} = \bar{x}-z_{1-a/2;n-1}\frac{s}{\sqrt{n}} 
 	\label{eq:c1}
