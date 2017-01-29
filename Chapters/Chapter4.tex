@@ -446,7 +446,7 @@ For the \textit{first\_last} goal, the \textsf{Random Ranking} strategy returns 
 \subsection{Quantifying Solver Contributions Using Ranking Strategies}
 
 \sloppypar
-In addition to the findings presented in Sec. \ref{sub:rel-util} which measured the goals uniquely provable by each solver, this section quantifies how valuable each individual solver is to a ranking of solvers using a notion of \textit{portfolio contribution}.
+In addition to the findings presented in Sec. \ref{sub:rel-util} which measured the goals uniquely provable by each solver, this section quantifies how valuable each individual solver is to a ranking of solvers.
 We follow a method described by Xu et al \cite{Xu2012}: each constituent solver $A$'s value is measured by observing the performance of the theoretical best solver which does not include $A$.
 Hence, $A$'s \textit{marginal contribution} to \textsf{Best Ranking} can be defined as the difference between \textsf{Best Ranking}'s cumulative cost excluding $A$: $cost(\textsf{Best Ranking}_{-A})$; and its cumulative cost including $A$: $cost(\textsf{Best Ranking})$.
 \[
