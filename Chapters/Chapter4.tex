@@ -436,8 +436,11 @@ This point is important to bear in mind when evaluating prediction models (and t
 \subsection{\textsf{Random Ranking}}
 
 The \textsf{Random Ranking} strategy differs from the previous two because it does not refer to \textit{one} ranking per goal but to \textit{all possible} rankings for every goal.
-The set of all possible rankings is the same for all goals, but the the runtime and result obviously vary. 
-The runtime associated with the \textsf{Random Ranking} strategy is the average runtime for the 8! or 40,320 possible solver rankings.
+The set of all possible rankings is the same for all goals, but the runtime and result obviously vary.
+As previously mentioned, there are eight factorial (or 40,320) possible solver rankings.
+The runtime for each of the 40,320 rankings is calculated and the mean of these times is returned by \textsf{Random Ranking}.
+As mentioned in relation to \textsf{Worst Ranking}, for any goal the result returned by all rankings (of the same eight solvers) is the same.
+  
 For the \textit{first\_last} goal, the \textsf{Random Ranking} strategy returns an answer of \textit{Valid} in an average time of 20.853 seconds.
 
 \subsection{Quantifying Solver Contributions Using Ranking Strategies}
