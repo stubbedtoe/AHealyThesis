@@ -104,9 +104,6 @@ Table \ref{table:avgtimes} also shows the results for a theoretical solver \text
 For example, if a file contains one theory which consists of three goals, and the best-performing solver is CVC4 for the first goal, Yices for the second, and CVC3 for the third, the result for \textsf{Choose Single} on that file is the sum of the results for CVC4 on the first goal, Yices on the second, etc.
 We define what is means for a solver to be the \textit{best} in the next subsection.
 
-It is important not to confuse \textsf{Choose Single} with the theoretical strategy \textsf{Best Ranking} introduced in Sec. \ref{sub:best}. 
-\textsf{Choose Single} refers to a \textit{single} solver (and hence is directly comparable to the other eight SMT solvers in Table \ref{table:avgtimes}), while \textsf{Best Ranking} refers to a \textit{ranking} of all eight solvers. \textsf{Choose Single} is equivalent to using the top-ranking solver from \textsf{Best Ranking} and stopping.
-
 The theoretical solver \textsf{Choose Single} shows the benefit of being able to use the most appropriate solver for each PO: 205 more goals are provable -- an increase of 19.6\% -- over the best single solver (Alt-Ergo version 1.01) which can prove a total of 632. 
 In total, 837 goals are provable by using a combination of the eight solvers -- a figure that represents 79.9\% of the 1048 goals. 
 On average, \textsf{Choose Single} proves goals in a shorter amount of time than either version of Alt-Ergo or CVC3. 
@@ -414,6 +411,9 @@ Referring to the solver costs listed in Table \ref{table:cost}, the \textsf{Best
 CVC3 > Alt-Ergo-0.95.1 > Alt-Ergo-1.01 > CVC4 > veriT > Z3-4.3.2 > Z3-4.4.1 > Yices. 
 As the first-choice solver according to this ranking (CVC3) returns an answer of \textit{Valid}, no other solver will be called after the first returns its answer. 
 Thus for the \textit{first\_last} goal, the \textsf{Best Ranking} strategy returns an answer of \textsf{Valid} in 0.356 seconds.   
+
+It is important not to confuse the \textsf{Best Ranking} strategy with the theoretical solver \textsf{Choose Single} introduced in Sec. \ref{sec:portfolio-benefit}. 
+\textsf{Choose Single} refers to a \textit{single} solver (and hence is directly comparable to the other eight SMT solvers in Table \ref{table:avgtimes}), while \textsf{Best Ranking} refers to a \textit{ranking} of all eight solvers. \textsf{Choose Single} is equivalent to using the top-ranking solver from \textsf{Best Ranking} and stopping.
 
 \subsection{\textsf{Worst Ranking}}
 \label{sub:worst}
