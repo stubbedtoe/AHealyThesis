@@ -492,6 +492,9 @@ For each of the five Evaluation Criteria EC1-5, the best-performing algorithm is
 
 The first result column, labelled \textbf{Time (secs)}, shows the average time taken for the ranking of solvers returned by the model/strategy to return a \textit{Valid} / \textit{Invalid} response (if such a response was in the set of solver answers -- see Algorithm \ref{algo:rank}).
 
+If there is no \textit{Valid} / \textit{Invalid} response in the set, the time will be the same for any ordering of the solvers (ie. all eight will be called). 
+We do not ignore the time taken for the response to be returned.
+
 \subsection{EC2: $R^2$ Score}
 
 The second numeric column of Table \ref{table:predselection} shows
