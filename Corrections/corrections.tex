@@ -210,6 +210,9 @@ More details in \url{https://github.com/ahealy19/F-IDE-2016/commit/-f13ace247b22
 
 \subsection{Sec. 4.4 P43 (last line). You may need a total order for reasons that are not clear to me, but Valid $>$ Invalid seems unnecessary, as it should never happen: if one prover says invalid and one says valid then there is a soundness bug in a prover, so you really need to raise an exception.}
 
+It is true that a total order was unnecessary here and the order has been changed to better reflect the ``relative utility" of responses introduced in Sec. 4.1.1. 
+Added comment on the soundness issue.
+
 \subsection{Sec. 4.4.2: I found it hard to understand why Worst Ranking is interesting, and felt its inclusion requires more motivation.}
 
 \subsection{Sec. 4.4.2 P44: will called $\rightarrow$ will be called.}

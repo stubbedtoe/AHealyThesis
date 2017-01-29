@@ -367,14 +367,16 @@ This function was designed to give more importance to instances where there was 
 \section{Ranking strategies}
 \label{sec:strategies}
 
-As discussed in relation to \textsf{Choose Single}, rankings are not directly comparable to single solvers. 
-The following theoretical ranking strategies provide a basis by which we can compare and evaluate the solver rankings predicted by the ML models.
+The ranking strategies introduced in this section are not directly comparable to single solvers or to theoretical solvers such as \textsf{Choose Single}. 
+The purpose of defining these strategies is to provide a basis by which we can compare and evaluate the solver rankings predicted by the ML models.
 The \textsf{Best Ranking} and \textsf{Worst Ranking} strategies use the empirical measurements to construct rankings on a per-goal basis, while the \textsf{Random Ranking} strategy uses the same set of rankings for each goal.
 We refer to the following strategies as \textit{theoretical} as they assume knowledge of the actual behaviour of the solvers for the goal in question -- knowledge which is impossible to have prior to execution in a real-world verification scenario.     
 
 Algorithm \ref{algo:rank} describes the process to return answers and runtimes from solver rankings. This process is used in our model evaluation (Sec. \ref{sec:pred-results}).
 Essentially, the runtime of next best solver (according to a given ranking) is added to the cumulative total until an answer of \textit{Valid} or \textit{Invalid} is returned or the array of solvers has been exhausted. 
-When solver answers are compared in the \texttt{if} statement, the following relative value of answers is used: $Valid > Invalid > Unknown > Timeout > Failure$.
+When solver answers are compared in the \texttt{if} statement, the ordering of response utility introduced in Sec. \ref{sub:rel-util} (with \textit{Timeout} responses preferred to \textit{Failure}): $\lbrace Valid, Invalid \rbrace > Unknown > Timeout > Failure$.
+If both \textit{Valid} and \textit{Invalid} responses were recorded for the same PO, it would indeed signal a soundness bug existed in one of the solvers.
+This issue did not arise.  
 
 \begin{algorithm}
 	\caption{Returning answers and runtimes from solver rankings}
