@@ -429,6 +429,9 @@ For the example goal, the \textsf{Worst Ranking} strategy returns an answer of \
 Both the \textsf{Best Ranking} and \textsf{Worst Ranking} strategies provide important upper and lower bounds for any trained model's runtime.
 If a goal is provable by any of the eight solvers, all of our theoretical strategies will be able to prove it.
 The difference between these strategies is how long the goal takes to be proven.  
+\textsf{Worst Ranking} therefore acts as a method to obtain the  \textit{worst case} runtime (which would in fact be equal to that of \textsf{Best Ranking} for POs which cannot be proved by any of the eight solvers).
+This point is important to bear in mind when evaluating prediction models (and their implementation in \textsf{Where4}), as a seemingly ineffective ordering may be equivalent to the best ordering of solvers. 
+
 
 \subsection{\textsf{Random Ranking}}
 
