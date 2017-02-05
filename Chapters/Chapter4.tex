@@ -503,6 +503,20 @@ It measures how well regression models can predict the variance of dependent / r
 The maximum $R^2$ score is 1 but the minimum can be negative. Note that the theoretical strategies return rankings rather than individual solver costs. 
 For this reason, $R^2$ scores are not applicable.
 
+The $R^2$ score is calculated by the following formula
+\begin{equation}
+\label{r2}
+R^2 = 1-\frac{\Sigma(y_i - \hat{y})^2}{\Sigma(y_i - \bar{y})^2}
+\end{equation}
+which can be interpreted as ``the sum of squared error of the predictions divided by the sum of the squared mean".  
+In Formula \ref{r2}, $y_i -\hat{y}$ denotes the distance of the predicted value $\hat{y}$ from the actual value $y$ for data point $i$.
+$\bar{y}$ is the mean value from the set of actual values (which in our case is a two-dimensional array of solver scores).
+We used the Sci-Kit Learn implementation of this formula, which allows $\bar{y}$ to be set to the weighted average of the outputs for multi-output instances.
+We applied uniform weighting to all outputs; meaning the variance of the individual solvers' scores was not considered. 
+
+     
+
+
 
 \begin{table}
 	\caption[Predictor Selection Results]{ Predictor Selection Results. * indicates the best result among the prediction models }
