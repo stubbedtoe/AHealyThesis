@@ -339,7 +339,8 @@ This preprocessing step is designed to avoid dominance of one feature over anoth
 In contrast to SVMs, most clustering algorithms (k-NN included) do not scale well in high-dimensional spaces.
 
 \sloppypar
-Typically used for classification tasks, the k-NN algorithm can be adapted for regression by calculating the target/response variable as the average of all instances in its cluster.
+Typically used for classification tasks, the k-NN algorithm can be adapted for regression by calculating the target/response variable as the average of the $k$ nearest instances in the training data.
+By default, Sci-Kit Learn sets $k=5$: each instance is compared to the five most similar instances (in terms of input variables) in the training set.  
 We used a modification: training instances ``closer'' to the unseen instances are weighted more than those further away in the cluster when computing the target variable.
 This modification makes the algorithm more robust to noisy training data. 
 
