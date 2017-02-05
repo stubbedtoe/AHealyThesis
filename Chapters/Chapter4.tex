@@ -320,7 +320,8 @@ For classification problems, each tree ``votes'' on an instance's class.
 In the regression case, all trees' predictions are averaged to determine the forest's ultimate prediction.   
 
 Similar to our use of decision trees, we limited the depth of each tree by specifying a minimum size of five for each leaf node. 
-We used 100 trees in the random forest.
+For this initial algorithm comparison we used 100 trees in the random forest. 
+This is the default Sci-Kit Learn implementation.
 
 \subsubsection{ML Algorithms 4 \& 5: Linear and Ridge Regression} 
 
@@ -662,20 +663,20 @@ A more general survey of multi-output regression and how various ML algorithms c
 		\textsc{Feature} & \textsc{Importance (\%)} & & 
 		\textsc{Feature} & \textsc{Importance (\%)}  \\
 		\midrule
-		\texttt{func} & 19.94 & & \texttt{n-ops} & 2.90 \\
-		\texttt{avg-op-arity} &  10.55 & & \texttt{divisor} & 2.84 \\
-		\texttt{int} & 8.68 & & \texttt{not} & 1.18 \\
-		\texttt{and} & 5.83 & & \texttt{if} & 1.15 \\
-		\texttt{forall} & 5.75 & & \texttt{case} & 0.97 \\
-		\texttt{depth} & 5.44 & & \texttt{wild} & 0.95 \\
-		\texttt{impl} & 4.98 & & \texttt{false} & 0.38 \\
-		\texttt{var} & 4.98 & & \texttt{iff} & 0.29 \\
-		\texttt{n-quants} & 4.64 & & \texttt{or} & 0.28 \\
-		\texttt{size} & 4.61 & & \texttt{true} & 0.12 \\
-		\texttt{let} & 3.91 & & \texttt{eps} & 0.09 \\
-		\texttt{n-branches} & 3.40 & & \texttt{exists} & 0.04 \\
-		\texttt{n-preds} & 3.12 & & \texttt{float} & 0.03 \\
-		\texttt{zero-ar} & 3.00 & & \texttt{as} & 0.00 \\
+		\texttt{func} & 19.63 & & \texttt{divisor} & 2.66 \\
+		\texttt{avg-op-arity} &  11.05 & & \texttt{n-ops} & 2.48 \\
+		\texttt{int} & 8.96 & & \texttt{not} & 1.15 \\
+		\texttt{forall} & 7.19 & & \texttt{if} & 1.07 \\
+		\texttt{and} & 6.02 & & \texttt{case} & 0.99 \\
+		\texttt{depth} & 5.70 & & \texttt{wild} & 0.84 \\
+		\texttt{var} & 4.84 & & \texttt{false} & 0.37 \\
+		\texttt{impl} & 4.72 & & \texttt{or} & 0.36 \\
+		\texttt{size} & 4.31 & & \texttt{iff} & 0.33 \\
+		\texttt{let} & 4.03 & & \texttt{eps} & 0.13 \\
+		\texttt{n-quants} & 3.70 & & \texttt{true} & 0.12 \\
+		\texttt{n-preds} & 3.27 & & \texttt{exists} & 0.07 \\
+		\texttt{zero-ar} & 3.03 & & \texttt{float} & 0.00 \\
+		\texttt{n-branches} & 2.97 & & \texttt{as} & 0.00 \\
 		\bottomrule	
 	\end{tabularx}
 	\label{table:importances}

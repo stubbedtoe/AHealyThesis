@@ -56,10 +56,49 @@ the following algorithm (Alg. \ref{algo:where4}) only performs feature extractio
 	
 \end{algorithm}
 
+\section{Finding the minimal number of trees}
+\label{sec:min-trees}
+
+As previously discussed, the Random Forest algorithm operates by finding a prediction from each of its constituent decision trees and averaging their results.
+The generalisation of these results is improved by limiting the depth of these trees.
+The heuristic we used to ensure that no prediction was associated with less than five training instances was introduced in the previous chapter.
+
+The Sci-Kit Learn implementation of the Random Forest algorithm uses 100 trees. 
+When implementing our own version of the algorithm, the efficiency of deriving these predictions has to be taken into account.
+For that reason, we want to minimise the number of trees which have to be traversed.
+
+As Table \ref{table:findtrees} shows, the prediction accuracy of the model does not deteriorate significantly as the number of trees decreases. 
+We decided to use 50 trees for the final OCaml implementation: it can be seen that this number represents the point where the number of trees and the model's performance reaches stability.
+No significant increases in terms of Mean Average Error or Regression Error correspond to the use of more trees beyond this point.     
+
+\begin{table}
+\caption{Finding the minimal number of trees }
+
+	\begin{tabular}{lrrrrr}
+		\toprule
+		\textbf{N Trees} &  \textbf{Time} & $R^2$ &  \textbf{nDCG} &    \textbf{MAE} &  \textbf{Reg-error} \\
+		\midrule
+		10 &     15.09 & 0.24 & 0.48 &    2.12 &       41.10 \\
+		20 &     14.99 & 0.27 & 0.48 &    2.12 &       40.39 \\
+		30 &     15.03 & 0.28 & 0.47 &    2.12 &       40.61 \\
+		40 &     15.02 & 0.28 & 0.48 &    2.12 &       40.42 \\
+		50 &     15.00 & 0.28 & 0.48 &    2.10 &       39.55 \\
+		60 &     15.00 & 0.28 & 0.48 &    2.10 &       39.68 \\
+		70 &     15.05 & 0.28 & 0.48 &    2.10 &       39.39 \\
+		80 &     15.00 & 0.28 & 0.48 &    2.10 &       39.37 \\
+		90 &     15.00 & 0.28 & 0.48 &    2.10 &       39.35 \\
+		100&	 14.99 & 0.28 & 0.48 &    2.09 &       39.63 \\
+		\bottomrule
+	\end{tabular}
+	\label{table:findtrees}
+
+\end{table}    
+
+
 \section{Encoding the random forest}
 \label{sec:encoding}
 
-We train the Random Forest model described in Sec. \ref{sec:chosen} on the entire training set.
+We train the Random Forest model described in Sec. \ref{sec:chosen} (and refined in the previous section) on the entire training set.
 The Sci-kit Learn library allows the constituent decision trees to be extracted and inspected.
 We print the forest as a JSON array of trees using the data model shown in Fig. \ref{fig:json}. 
 %Each \texttt{Forest} consists of an array of \texttt{Trees}, which in turn consist of an array of \texttt{Nodes}. Each node has a unique identifier which is used for navigating the tree. A \texttt{
