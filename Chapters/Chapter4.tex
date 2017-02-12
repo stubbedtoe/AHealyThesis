@@ -638,7 +638,30 @@ Applying Equation \ref{eq:ndcg} to these values gives us an $nDCG$ value of
 \]
 It can be shown that $IDCG_8 = 389.591$ which makes the un-normalised $nDCG$ value for the predicted ranking 0.875. Using the lower bound of 0.4394 to normalise this value to the range $\left[0, 1 \right]$ (accounting for permutations of length 8) gives us a final $nDCG$ score of 0.778. 
 
+The nDCG metric is best understood in relation to other rankings in the same problem domain: a score of say, 0.5, is meaningless in isolation.
+For this reason, we provide Table \ref{table:ndcg} so that the reader may gain an intuitive understanding of this metric as we use it.
 
+\begin{table}
+	\centering
+	\caption[Illustration of various nDCG scores]{Illustration of various nDCG scores (normalised for permutations of length 8)}
+	
+	
+	\begin{tabularx}{0.7\textwidth}{@{}lZ@{}}
+		\toprule
+		\textsc{Permutation} & \textsc{nDCG score} \\
+		\midrule
+		\textbf{ABCDEFGH} & \textbf{1.0} \\
+		\textbf{ABCDEF}\textit{HG} & 0.9998\\
+		\textbf{ABCD}\textit{FE}\textbf{GH} & 0.9989\\
+		\textbf{AB}\textit{DC}\textbf{EFGH} & 0.9899\\
+		\textit{BA}\textbf{CDEFGH} & 0.7848\\
+		\textbf{ABCD}\textit{HGFE} & 0.9950\\
+		\textit{DCBA}\textbf{EFGH} & 0.3809\\
+		\textit{HGFEDCBA} & 0.0\\
+		\bottomrule
+	\end{tabularx}
+	\label{table:ndcg}
+\end{table}
 
 \subsection{EC4: Mean Average Error}
 

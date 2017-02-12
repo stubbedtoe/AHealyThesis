@@ -180,6 +180,8 @@ The SV-COMP scoring structure is described in the two sentences beginning \emph{
 
 \subsection{Sec. 4.2.5 P38-39: did you experiment with different cost functions? If so could you justify why this was chosen.}
 
+Previous versions (and the reasons for rejecting them) of the cost function have been added to this subsection in the paragraph beginning \emph{``Other cost functions..."}.
+
 \subsection{Sec. 4.3: Why did you use 4 folds? Did you stratify each fold?}
 
 The justification for 4 folds is given in the sentence beginning \emph{``The number of folds used.."}. A version of stratification for these folds (modified due to the regression task -- stratification is generally more common in classification tasks) has been added. The effect was not dramatic (Table 4.4 has been modified to record the new results) -- k-NN algorithms improved as did weighted and discretised variants of most algorithms.
@@ -256,6 +258,9 @@ Typo fixed.
 
 \subsection{Sec. 4.5.3: I don't understand what nDCG tells me. Could you give a high-level description of what it really means to have a nDCG of say 0.5?}
 
+It is difficult to be absolute about the nDCG scores as they are best understood in relation to those of other permutations/rankings.
+To this end I have added more examples (Table 4.5) and an explanatory paragraph beginning \emph{``The nDCG metric is.."}.
+
 \subsection{P50: Change ``may be treated" to ``should be treated".} 
 
 ``may" $\rightarrow$ ``should".
@@ -290,11 +295,16 @@ Included in Comment \ref{overhang-numbers} of this document.
 
 \subsection{Sec. 6.1 P61: Remind the reader what the best, worse etc. strategies does. Looking at table 6.1 I would expect that best is always best, but other seems to be faster for the theory/goal attribute. Could you expand on this?}
 
+Reminder for theoretical strategies added to EQ2 in the sentence beginning \emph{``As a reminder for the reader..."}.
+The latter point is addressed in the paragraph beginning \emph{``As is shown by Table 6.1..."}.
+
 \subsection{Sec. 6.1 P61, para 4: it fair $\rightarrow$ it is fair.}
 
 Typo fixed.
 
 \subsection{Figure 6.1: what was the timeout limit?}
+
+Oversight corrected: the timeout limit of 10 seconds has been added to the caption.
 
 \subsection{Sec. 6.6.1 P63: You should be careful about changing algorithms during evaluation. It looks like you have used the test-data to tweak the algorithm and drawn a conclusion from it. Instead you should have used the development-data to find the optimal threshold and use the test-data to validate this in order to draw any conclusion. This needs to be discussed; if I have	misinterpreted this then you need to update the text to clarify the approach you took. It would be useful to see if the differences are statistically significant?}
 

@@ -12,6 +12,7 @@ We perform our evaluation guided by three Evaluation Questions:
 	The importance of this question is obvious: the success of \where~depends on its improvement over the status quo. In the case of discharging \why~POs, the status quo is represented as the use of a single solver.
 	\item[EQ2:] \textbf{How does \where~perform in comparison to the three theoretical strategies?}\\
 	The theoretical strategies introduced in Sec. \ref{sec:strategies} provide a fairer basis for comparison than a single solver by taking multiple solver calls per PO into consideration.
+	As a reminder for the reader, the \textsf{Best Ranking} always chooses solvers in the order of ascending cost, \textsf{Random Ranking} is the average result of running \textit{every} possible permutation of the eight solvers, and \textsf{Worst Ranking} is the inverse of \textsf{Best Ranking}: it is the ranking of solvers in order of \textit{descending} cost. 
 	\item[EQ3:] \textbf{What is the time overhead of using \where~to prove \why~goals?}\\
 	The feature extraction and solver scheduling processes incur a time cost. This evaluation criterion measures whether this cost represents a significant proportion of \where~'s overall solving time.    	
 \end{itemize}
@@ -52,7 +53,7 @@ Threats to the validity of our study are discussed in Sec. \ref{sec:threats}.
 \begin{figure}
 	\centering
 	\includegraphics[width=\linewidth]{barcharts2}
-	\caption[The relative amount of Valid/Unknown/Timeout/Failure answers from the eight SMT solvers, \where, and three theoretical strategies.]{The relative amount of Valid/Unknown/Timeout/Failure answers from the eight SMT solvers, \where~(pre-solver = Alt-Ergo-1.01), and three theoretical strategies on the 263 test POs.}
+	\caption[The relative amount of Valid/Unknown/Timeout/Failure answers from the eight SMT solvers, \where, and three theoretical strategies.]{The relative amount of Valid/Unknown/Timeout/Failure answers from the eight SMT solvers, \where~(pre-solver = Alt-Ergo-1.01), and three theoretical strategies on the 263 test POs (with a timeout limit of ten seconds).}
 	\label{fig:barchart2}
 \end{figure}
 
@@ -60,6 +61,10 @@ Threats to the validity of our study are discussed in Sec. \ref{sec:threats}.
 When each solver in \textsf{Where4}'s ranking sequence is run on each goal, the maximum amount of files, theories and goals are provable. 
 As previously mentioned in Sec. \ref{sub:worst} and as Table \ref{table:avgtimes2} shows, the difference between \where~and the set of reference theoretical strategies (\textsf{Best Ranking}, \textsf{Random Ranking}, and \textsf{Worst Ranking}) is the amount of time taken to return the \textit{Valid/Invalid} result. 
 Compared to the eight SMT solvers, the biggest increase is on individual goals: \textsf{Where4} can prove 203 goals, which is 26 (9.9\%) more goals than the next best single SMT solver, Alt-Ergo-1.01.
+
+As is shown by Table \ref{table:avgtimes2}, the average time taken for \textsf{Best Ranking} to return an answer of \textit{Valid} is not necessarily less than that of an individual solver. 
+As \textsf{Best Ranking} can return \textit{Valid} for all provable POs -- more than any individual solver --
+it is the number of \textit{Valid} answers, rather than any inefficiency, that is responsible for this slightly slower average time.  
 
 The average time \where~takes to prove these goals 
 (using Algorithm \ref{algo:where4}) 
