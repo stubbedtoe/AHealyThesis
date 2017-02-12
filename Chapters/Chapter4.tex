@@ -198,7 +198,9 @@ This differs from most portfolio approaches which aim to predict a solver's runt
 
 The cost function should reflect the ordering of solver utility defined in Sec. \ref{sub:rel-util}: penalising poorly-performing solvers while ensuring \textit{Valid} and \textit{Invalid} responses incur the lowest cost.
 The following simple function allocates a cost to each solver $S$'s response $\langle answer, time\rangle$ to each goal $G$:
-\[\small
+\begin{equation}
+\label{eq:chosen-cost}
+\small
 cost(S,G) = 
 \begin{cases}
 time_{S,G}, \text{ if answer}_{S,G} \in \lbrace Valid, Invalid \rbrace \\
@@ -206,11 +208,47 @@ time_{S,G} + \text{timeout}, \text{ if answer}_{S,G} = Unknown \\
 time_{S,G} + (\text{timeout} \times 2), \text{ if answer}_{S,G} \in \lbrace Timeout, Failure \rbrace
 %dist((time_{S,G},\text{timeout}), (0,0)), \text{if answer}_{S,G} \in \lbrace Timeout, Failure \rbrace
 \end{cases}
-\]
+\end{equation}
+
+
+
 Thus, to penalise the solvers that return an \textit{Unknown} result, the timeout limit is added to the time taken, while solvers returning \textit{Timeout} or \textit{Failure} are further penalised by 
 adding double the timeout limit to the time taken.
 A response of \textit{Failure} refers to an error with the back-end solver and usually means a required logical theory is not supported. 
-This function ensures the best-performing solvers always have the lowest costs. A ranking of solvers for each goal in order of decreasing relevance is obtained by sorting the solvers by cost in ascending order.\\ 
+This function ensures the best-performing solvers always have the lowest costs. A ranking of solvers for each goal in order of decreasing relevance is obtained by sorting the solvers by cost in ascending order.
+
+Other cost functions were trialled before this formulation was decided upon.
+Previous methods allocated a cost penalty (based on the answer) and calculated the solver cost as the Euclidean distance from the origin to point defined as this penalty and the solver's time. 
+Eg: $cost(S,G) = dist((time_{S,G}, penalty_{ans}),(0,0))$.
+Where the penalties associated with each response are:
+\begin{equation}
+\label{eq:first-cost}
+penalty_{ans} = \begin{cases}
+0 \text{ if ans} = Valid \\
+5 \text{ if ans} = Invalid \\
+10 \text{ if ans} = Unknown \\
+15 \text{ if ans} = Timeout \\
+20 \text{ if ans} = Failure
+\end{cases}
+\end{equation}
+The problem with this formulation is that the penalty values are arbitrarily determined and bear no relation with the timeout value. 
+It is therefore not guaranteed that our defined \textit{relative utility} of solvers is respected by using the penalties of Eq. \ref{eq:first-cost}. 
+%For example Solver $A$ returning an answer of \textit{Timeout} after 10 seconds would have a cost of $dist((15,10),(0,0)) = 18.03$ whereas Solver $B$ returning a cost of \textit{Failure} after 0.1 seconds (which should have a higher cost than Solver $A$) would have a cost of $dist(())$.  
+This issue led us to re-formulate the cost function to incorporate the timeout value as follows:
+\begin{equation}
+\label{eq:second-cost}
+\small
+cost(S,G) = 
+\begin{cases}
+time_{S,G}, \text{ if answer}_{S,G} \in \lbrace Valid, Invalid \rbrace \\
+time_{S,G} + \text{timeout}, \text{ if answer}_{S,G} = Unknown \\
+dist((time_{S,G},\text{timeout}), (0,0)), \text{if answer}_{S,G} \in \lbrace Timeout, Failure \rbrace
+\end{cases}
+\end{equation}
+which only makes use of the Euclidean distance for \textit{Timeout} and \textit{Failure} responses.
+As pointed out by a reviewer of an early version of this work \cite{FIDE2016}, in certain circumstances a \textit{Timeout} response may have a lower cost than an \textit{Unknown} response.
+This is the case when the \textit{Unknown} response is returned in a time >= 0.42 times that of the time taken to return a response of \textit{Timeout}. 
+This property of the triangle inequality was account for in the final formulation of the cost function (Eq. \ref{eq:chosen-cost}). \\
 \\
 \textbf{Example: using the cost function to obtain a ranking for \textit{first\_last}}: \\
 To illustrate the effect of applying our cost function, we return to the \textit{first\_last} goal introduced in the previous chapter.
@@ -244,12 +282,7 @@ The derived cost value for each solver is used as its dependent variable in the 
  
 \section{Choosing the most effective algorithm for rank prediction}
 \label{pred:choosing}
-\begin{figure}
-	\centering
-	\includegraphics[width=1.0\linewidth]{Figures/Chapter4}
-	\caption{Overview of the process used to derive the \textsf{Where4} prediction model}
-	\label{fig:Chapter4}
-\end{figure}
+
 
 Fig. \ref{fig:Chapter4} illustrates a high-level view of the process used to compare and evaluate the various ranking strategies in this section. 
 The solver timings and results are combined as a single variable using the cost function defined in Sec. \ref{sub:scoring}.
@@ -263,6 +296,13 @@ The general \textit{K-fold} cross validation method allows the use of the entire
 The number of folds used (four) was chosen to reflect the percentage of the total dataset (75\%) used for training. 
 The folds were stratified (i.e. ensuring a representative frequency of values was contained in each split) according to the best performing solver for each instance.
 This technique was used to overcome the difficulties of stratification for regression tasks where values may appear infrequently.  
+
+\begin{figure}
+	\centering
+	\includegraphics[width=1.0\linewidth]{Figures/Chapter4}
+	\caption{Overview of the process used to derive the \textsf{Where4} prediction model}
+	\label{fig:Chapter4}
+\end{figure}
 
 \subsection{The ML algorithms we used for model training}
 
