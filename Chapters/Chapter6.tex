@@ -139,47 +139,58 @@ After pre-solving, solvers with a predicted cost above this threshold are not ca
 If every solver's cost is predicted to be above the threshold $\mu$, the pre-solver's result is returned.
 %This modification to Algorithm \ref{algo:where4} is shown in Algorithm \ref{algo:threshold}    
 
+We determine the appropriate value for this threshold by first splitting the training data into model training and validation sets.
+The model training set used for this step represents 90\% of the total training set (or 706 POs), while the validation set is made up of 79 POs. 
+We train the Random Forest predictor (with pre-solving) before simulating the effect of an increasing cost threshold using the validation set.
 
 \begin{figure}
 	\centering
-	\includegraphics[width=\linewidth]{thresholds}
+	\includegraphics[width=\linewidth]{thresholds1}
+	\caption[Determining a cost threshold]{Determining the appropriate value for a cost threshold (using a validation dataset). (\textit{a: top plot}) The average time taken for \where~to return an answer compared to eight SMT solvers. (\textit{b: bottom plot}) The number of Valid/Invalid answers returned by \where~compared to eight SMT solvers.}
+	\label{fig:thresholds1}
+\end{figure}  
+
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth]{thresholds2}
 	\caption[The effect of using a cost threshold]{The effect of using a cost threshold. (\textit{a: top plot}) The average time taken for \where~to return an answer compared to eight SMT solvers. (\textit{b: bottom plot}) The number of Valid/Invalid answers returned by \where~compared to eight SMT solvers.}
-	\label{fig:thresholds}
+	\label{fig:thresholds2}
 \end{figure}
 
 
 
-Fig. \ref{fig:thresholds}a and \ref{fig:thresholds}b show the effect of varying this threshold when solving POs in the test set.
-The same data is presented numerically in Table \ref{table:threshold}. 
+Fig. \ref{fig:thresholds1}a and \ref{fig:thresholds1}b show the effect of varying this threshold when solving POs in the test set.
 The top plot (\textit{a}) shows a comparison of the average time taken for \textit{any} answer to be returned (not necessarily \textit{Valid / Invalid}).
 The amount of time taken by \where~often depends on the number of solvers called.
 The number of solvers called depends on the cost threshold given to \where. 
-The solid black line of Fig. \ref{fig:thresholds}a, shows the increase in average time taken by \where~to return a response as the cost threshold increases.
-As the corresponding results for each individual solver are unaffected by the threshold parameter, they are represented by horizontal line segments intersecting with the \where~data in Fig. \ref{fig:thresholds}a.
+The solid black line of Fig. \ref{fig:thresholds1}a, shows the increase in average time taken by \where~to return a response as the cost threshold increases.
+Fig. \ref{fig:thresholds1}b shows the number of \textit{Valid / Invalid} responses returned by each individual SMT solver as compared to \where~with a range of threshold values.
+As the corresponding results for each individual solver are unaffected by the threshold parameter, they are represented by horizontal line segments intersecting with the \where~data in Fig. \ref{fig:thresholds1}a.
 
-Fig. \ref{fig:thresholds}b shows the number of \textit{Valid / Invalid} responses returned by each individual SMT solver as compared to \where~with a range of threshold values.
-We note that even when given a threshold value of zero, 168 POs are proven.
-The pre-solving routine (in our case, Alt-Ergo-1.01 given a time limit of one second) is responsible for these results.
-As this figure is larger than the number of provable goals for all individual solvers (except Alt-Ergo-1.01), their results are shown as horizontal lines on the left side of the y-axis.
-As in Fig. \ref{fig:thresholds}a, the results for each individual solver are unaffected by the threshold parameter.
+We note that even when given a threshold value of zero, 46 POs are proven.
+The pre-solving routine (in our case, Alt-Ergo-1.01 given a time limit of one second) is responsible for these results (as the solver cost is never used).
+As this figure is larger than the number of provable goals for all but three individual solvers, their results are shown as horizontal lines on the left side of the y-axis.
+As in Fig. \ref{fig:thresholds1}a, the results for each individual solver are unaffected by the threshold parameter.
 
-Table \ref{table:threshold} shows us that when \where~is given a cost threshold of five, it can prove the same number of POs as the best-performing solver -- Alt-Ergo-1.01. 
-By referring to Fig. \ref{fig:thresholds}a, we see that at the same cost threshold, it takes a shorter time to return a response, on average, than the fastest SMT solver (which is also Alt-Ergo-1.01).
+By inspecting these results, we find that a threshold value of seven gives good results.
+At this threshold, far more \textit{Valid/Invalid} are returned than the best-performing individual solver (Z3-4.4.1) and they are returned in a faster time (on average) than the fastest-returning solver (Yices).
+
+As the dashed red line in Fig. \ref{fig:thresholds2} shows, a threshold value of seven also performs well on the test data.
+These results are shown in numerical form in Table \ref{table:threshold}. 
+When \where~is given a cost threshold of five, it can prove the same number of POs as the best-performing solver -- Alt-Ergo-1.01. 
+By referring to Fig. \ref{fig:thresholds2}a, we see that at the same cost threshold, it takes a shorter time to return a response, on average, than the fastest SMT solver (which is also Alt-Ergo-1.01).
 If the cost threshold is increased to seven, significantly more POs can be proven. 
 The average time taken to return a response is approximately equal to that of the four slowest individual solvers on the test data: CVC4, veriT, and both versions of Z3. \\
 \\
 \textbf{EQ1 Answer:} The cost threshold greatly improves \where's performance in comparison to the individual SMT solvers.
 The performance penalties associated with portfolio solvers can be mitigated by defining a cut-off point and trusting that solvers with a predicted cost greater than this value do not need to be called.
-We found this point to be about seven for the POs in the training data.
+We found this point to be about seven for the POs in the \textsf{Why3} example dataset.
 The value to choose as a threshold may not be obvious in real-world scenarios with unseen results, however. 
 
 
-
-
-
-
 \begin{table}
-	\caption[The effect of using a cost threshold]{The effect of using a cost threshold. The average time taken for \where~to return an answer compared and the number of Valid/Invalid answers. Same data as Fig. \ref{fig:thresholds}}
+	\caption[The effect of using a cost threshold]{The effect of using a cost threshold. The average time taken for \where~to return an answer compared and the number of Valid/Invalid answers. Same data as Fig. \ref{fig:thresholds2}}
 	\begin{tabularx}{0.9\textwidth}{@{}l|Z|Z|Z|Z|Z|Z@{}}
 
 		\textsc{Threshold} & \textbf{0} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} \\

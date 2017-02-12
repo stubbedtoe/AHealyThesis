@@ -304,11 +304,22 @@ Typo fixed.
 
 \subsection{Figure 6.1: what was the timeout limit?}
 
-Oversight corrected: the timeout limit of 10 seconds has been added to the caption.
+Oversight corrected: the timeout limit of ten seconds has been added to the caption.
 
 \subsection{Sec. 6.6.1 P63: You should be careful about changing algorithms during evaluation. It looks like you have used the test-data to tweak the algorithm and drawn a conclusion from it. Instead you should have used the development-data to find the optimal threshold and use the test-data to validate this in order to draw any conclusion. This needs to be discussed; if I have	misinterpreted this then you need to update the text to clarify the approach you took. It would be useful to see if the differences are statistically significant?}
+\label{threshold}
+
+I have changed the method used to determine the optimal threshold value.
+As a result, much of Sec. 6.1.1 has been re-arranged.
+The main difference is the use of a validation set to find the value (which is then used on the test set). 
+The result did not not change: seven is still the optimal value. 
+I have added the plots used to find this value (Fig. 6.2) and a vertical line on the previously-included plots (now Fig 6.3) showing the result of applying the threshold.
 
 \subsection{Sec. 6.1.1 P65: The answer to EQ1 on defining a cut-off point is nice but does involve further work/cost.}
+
+No further work is required using the new method (see Correction \ref{threshold}).
+Of course, this assumes that the \textsf{Where4} user utilises the threshold value presented in this thesis.
+I referred to this issue in my answer to EQ1.
 
 \subsection{P68: Resampling techniques for an unbalanced set would be useful here. For example, you can add copies of instances from the under-represented class (known as over-sampling or sampling with replacement), or you can remove instances from the over-represented class (under-sampling).}
 
