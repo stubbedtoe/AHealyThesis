@@ -277,9 +277,11 @@ The main threat to our work's internal validity is selection bias. All of our tr
 We took care to split the data for training and testing purposes on a \textit{per file} basis, as we discussed in Sec. \ref{sub:config}. 
 This ensured that \where~was not trained on a goal belonging to the same theory or file as any goal used for testing.
  
-The results of running the solvers on our dataset are imbalanced. There were far more \textit{Valid} responses than any other response. 
-No goal in our dataset returned an answer of \textit{Invalid} on any of the eight solvers. 
-This is a serious problem as \where~would not be able to recognize such a goal in real-world use. 
+The results of running the solvers on our dataset are imbalanced: (i) there were far more \textit{Valid} responses than any other response and (ii) no goal in our dataset returned an answer of \textit{Invalid} on any of the eight solvers. 
+Issue (i) could be remedied through the use of resampling.
+The technique either adds copies of instances of under-represented classes (\textit{over-sampling}) or remove instances of POs returning \textit{Valid} responses (\textit{undersampling}).
+A larger dataset of POs would help with resampling to ensure a representative balance of responses is reflected in the test and training set. 
+Issue (ii) is a more serious problem as \where~would not be able to recognize such a goal in real-world use. 
 
 Use of an independent dataset is likely to influence the performance of the solvers. 
 Alt-Ergo was designed for use with the \why~platform -- its input language is a previous version of the Why logic language. 
