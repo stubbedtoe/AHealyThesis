@@ -216,6 +216,13 @@ The metrics represented by pink rectangles measure syntactic features and are se
 
 \textit{Size} measures the size the expression and is the sum of \textit{ops} (the number of operators), \textit{leaves} (the number of leaf nodes in the AST), and \textit{quants} (the number of quantifiers). 
 We map our notion of \textit{conds} to the number of decision nodes used to calculate McCabe's cyclomatic complexity metric discussed in Sec. \ref{sec:lrmm}.
+
+Options for the extraction of features from WhyML programs were limited.
+The domain specific language makes this process more difficult in comparison to related work which uses the general-purpose C language \cite{DPVZ15:CAV, MUX}.
+As a result, we decided to use the purely syntactic analysis outlined in this subsection (along with meta information such as the size of the expression, average arity and depth of AST). 
+Keeping the choice of independent variables simple also has the effect of increasing generalisability to other formalisms such as Microsoft's Boogie \cite{Boogie} intermediate language.
+A direction for future work disscussed in Chapter \ref{Conclusion} is to investigate more elaborate methods for feature extraction.
+   
   
 
 \subsubsection{Example: \textit{first\_last} lemma}
