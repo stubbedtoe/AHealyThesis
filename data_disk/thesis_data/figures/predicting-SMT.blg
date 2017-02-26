@@ -1,0 +1,48 @@
+This is BibTeX, Version 0.99d (TeX Live 2016)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: predicting-SMT.aux
+The style file: eptcs.bst
+Database file #1: predicting.bib
+Warning--empty pages in Leino10vacid-0:verification
+You've used 38 entries,
+            2701 wiz_defined-function locations,
+            876 strings with 13745 characters,
+and the built_in function-call counts, 25416 in all, are:
+= -- 1820
+> -- 896
+< -- 30
++ -- 374
+- -- 328
+* -- 3204
+:= -- 2978
+add.period$ -- 80
+call.type$ -- 38
+change.case$ -- 280
+chr.to.int$ -- 0
+cite$ -- 77
+duplicate$ -- 1948
+empty$ -- 1904
+format.name$ -- 360
+if$ -- 4996
+int.to.chr$ -- 0
+int.to.str$ -- 38
+missing$ -- 480
+newline$ -- 206
+num.names$ -- 76
+pop$ -- 435
+preamble$ -- 1
+purify$ -- 240
+quote$ -- 0
+skip$ -- 642
+stack$ -- 0
+substring$ -- 1075
+swap$ -- 2027
+text.length$ -- 30
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 184
+warning$ -- 1
+while$ -- 161
+width$ -- 40
+write$ -- 467
+(There was 1 warning)
