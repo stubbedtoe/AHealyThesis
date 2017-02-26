@@ -37,6 +37,9 @@ Applying multiple solvers in parallel could potentially alleviate some of the ti
 The effectiveness of such an approach has been demonstrated by the \texttt{ppfolio} (Parallel PortFOLIO) SAT tool which won eleven medals at the SAT 2011 competition \cite{Malitsky2012}.
 All SMT solvers could either be scheduled to run in parallel (thereby eliminating the need for feature extraction and prediction) or alternatively only the solvers with the lowest predicted cost could be run.
 There is a trade-off in the allocation of computational resources associated with these two approaches: the time and CPU cycles needed for feature extraction and solver prediction must be balanced with those consumed by a number of low-performing solvers.     
+
+One of the limitations of this work is lack of comparison of features for extraction. 
+Future would could make a more thorough investigation of how semantic properties of programs (eg. the associativity of the operators found in the program, constructions indicating inductively defined types, etc.) affect accurate predictions for each learning algorithm. 
  
 As mentioned in Sec. \ref{sec:eq3} in response to Evaluation Question 3, future work could investigate the re-implementation of \where~as a \why~plugin in order to optimise the interaction with \why's internal data structures used for feature extraction.
 Aside from the implementation of the \where~tool itself, a
