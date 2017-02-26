@@ -6,6 +6,8 @@
 This chapter will evaluate \where's portfolio algorithm on the held-back test data.
 The randomly-selected test set represents 25\% of the entire number of POs and consists of 32 WhyML files, 77 theories and 263 goals  (see Sec. \ref{sub:config}).
 In addition to evaluating \where~'s \textit{predictions}, the OCaml implementation (detailed in the previous chapter) will be discussed in terms of its efficiency.   
+We also present the results of our prediction algorithm on the training data when no pre-solver is used (i.e. Algorithm \ref{algo:rank} is used).
+We do this to evaluate the prediction model in isolation and compare \where's performance with and without the pre-solving heuristic.
 We perform our evaluation guided by three Evaluation Questions:
 \begin{itemize}
 	\item[EQ1:] \textbf{How does \where~perform in comparison to the eight SMT solvers?}\\
@@ -31,7 +33,8 @@ Threats to the validity of our study are discussed in Sec. \ref{sec:threats}.
 		{} & \multicolumn{3}{c|}{\textbf{File}} & \multicolumn{3}{c|}{\textbf{Theory}} & \multicolumn{3}{c}{\textbf{Goal}} \\
 		{} & \# proved & \% proved & Avg time & \# proved & \% proved & Avg time & \# proved & \% proved & Avg time \\
 		\midrule
-		\where & 11 & 34.4\% & 1.39 &  44 & 57.1\% & 0.99 & 203 & 77.2\% & 1.98 \\
+		\where~(PS) & 11 & 34.4\% & 1.39 &  44 & 57.1\% & 0.99 & 203 & 77.2\% & 1.98 \\
+		\where~(no PS) & \downbar & \downbar & 1.99 & \downbar & \downbar & 1.31 & \downbar & \downbar & 2.32 \\
 		\textsf{Best Rank.} & \downbar  & \downbar & 0.25 & \downbar & \downbar & 0.28 & \downbar & \downbar & 0.37 \\
 		\textsf{Random Rank.} & \downbar & \downbar & 4.19 & \downbar & \downbar & 4.02 & \downbar & \downbar & 5.70 \\
 		\textsf{Worst Rank.} & \upbar & \upbar & 14.71 & \upbar & \upbar & 13.58 & \upbar & \upbar & 18.35 \\
@@ -53,7 +56,7 @@ Threats to the validity of our study are discussed in Sec. \ref{sec:threats}.
 \begin{figure}
 	\centering
 	\includegraphics[width=\linewidth]{barcharts2}
-	\caption[The relative amount of Valid/Unknown/Timeout/Failure answers from the eight SMT solvers, \where, and three theoretical strategies.]{The relative amount of Valid/Unknown/Timeout/Failure answers from the eight SMT solvers, \where~(pre-solver = Alt-Ergo-1.01), and three theoretical strategies on the 263 test POs (with a timeout limit of ten seconds).}
+	\caption[The relative amount of Valid/Unknown/Timeout/Failure answers from the eight SMT solvers and the top-ranking solver from the three theoretical strategies and \where~(w/(o) presolving).]{The relative amount of Valid/Unknown/Timeout/Failure answers from the eight SMT solvers, \where~(PS where pre-solver = Alt-Ergo-1.01), \where~with no Pre-Solver, and three theoretical strategies on the 263 test POs (with a timeout limit of ten seconds).}
 	\label{fig:barchart2}
 \end{figure}
 
@@ -67,9 +70,10 @@ As \textsf{Best Ranking} can return \textit{Valid} for all provable POs -- more 
 it is the number of \textit{Valid} answers, rather than any inefficiency, that is responsible for this slightly slower average time.  
 
 The average time \where~takes to prove these goals 
-(using Algorithm \ref{algo:where4}) 
+(using Algorithm \ref{algo:where4} -- denoted \where~(PS) in Table \ref{table:avgtimes2}) 
 is significantly better than the \textsf{Random Ranking} strategy.
-It is, however, lagging behind the time recorded by the \textsf{Best Ranking} strategy. 
+Without a pre-solver, \where suffers slightly (as denoted by the results for \where~(no PS)). 
+Both algorithms, however, lag behind the time recorded by the \textsf{Best Ranking} strategy. 
 
 In comparison to the eight SMT solvers, the average time taken by \where~to prove each of the 203 goals is high. 
 This tells us that \where~can perform badly with goals which are not provable by many SMT solvers: expensive \textit{Timeout} results are chosen before the \textit{Valid} result is eventually returned. 
@@ -85,7 +89,7 @@ We remind the reader of the \textsf{Choose Single} solver introduced in Sec. \re
 It provided a motivation for the use of portfolio-solving on the \why~platform by proving the maximum number of goals in the shortest amount of time.
 We mentioned that \textsf{Choose Single} is equivalent to choosing  the top-ranking solver from \textsf{Best Ranking} and stopping.
 We return to this concept in Fig. \ref{fig:barchart2} which is similar to Fig. \ref{fig:barcharts} in that it shows the relative amount of Valid/Unknown/Timeout/Failure answers from the eight SMT solvers. 
-Also shown (on the right) are results obtainable by using the top solver (only) with the three ranking strategies (where \textsf{Best Ranking} $\equiv$ \textsf{Choose Single}) and the \where~predicted ranking (after pre-solving with Alt-Ergo version 1.01).
+Also shown (on the right) are results obtainable by using the top solver (only) with the three ranking strategies (where \textsf{Best Ranking} $\equiv$ \textsf{Choose Single}) and the \where~predicted ranking (after pre-solving with Alt-Ergo version 1.01 -- \where~(PS) -- and without: \where~(no PS)).
 
 
 \begin{algorithm}
@@ -163,21 +167,23 @@ We train the Random Forest predictor (with pre-solving) before simulating the ef
 Fig. \ref{fig:thresholds1}a and \ref{fig:thresholds1}b show the effect of varying this threshold when solving POs in the test set.
 The top plot (\textit{a}) shows a comparison of the average time taken for \textit{any} answer to be returned (not necessarily \textit{Valid / Invalid}).
 The amount of time taken by \where~often depends on the number of solvers called.
-The number of solvers called depends on the cost threshold given to \where. 
-The solid black line of Fig. \ref{fig:thresholds1}a, shows the increase in average time taken by \where~to return a response as the cost threshold increases.
+The number of solvers called depends on the cost threshold given to \where.
+This is particularly true in the case where a pre-solver is no used. 
+The solid black/red lines of Fig. \ref{fig:thresholds1}a, shows the increase in average time taken by \where~(with / without pre-solving) to return a response as the cost threshold increases.
 Fig. \ref{fig:thresholds1}b shows the number of \textit{Valid / Invalid} responses returned by each individual SMT solver as compared to \where~with a range of threshold values.
 As the corresponding results for each individual solver are unaffected by the threshold parameter, they are represented by horizontal line segments intersecting with the \where~data in Fig. \ref{fig:thresholds1}a.
 
 We note that even when given a threshold value of zero, 46 POs are proven.
-The pre-solving routine (in our case, Alt-Ergo-1.01 given a time limit of one second) is responsible for these results (as the solver cost is never used).
-As this figure is larger than the number of provable goals for all but three individual solvers, their results are shown as horizontal lines on the left side of the y-axis.
+The difference with the solid red line's more gradual increase makes it obvious that the the pre-solving routine is responsible for these results.
+In our case, Alt-Ergo-1.01 can prove 46 POs given a time limit of one second and the solver cost is never used.
 As in Fig. \ref{fig:thresholds1}a, the results for each individual solver are unaffected by the threshold parameter.
 
 By inspecting these results, we find that a threshold value of seven gives good results.
-At this threshold, far more \textit{Valid/Invalid} are returned than the best-performing individual solver (Z3-4.4.1) and they are returned in a faster time (on average) than the fastest-returning solver (Yices).
+At this threshold, the use of a pre-solver results in far more \textit{Valid/Invalid} responses being returned than the best-performing individual solver (Z3-4.4.1) and they are returned in a faster time (on average) than the fastest-returning solver (Yices).
+Even without pre-solving (the solid red line), about the same number of \textit{Valid/Invalid} responses are returned as by Z3-4-4-1 and in a slightly faster time than the pre-solving version. 
 
 As the dashed red line in Fig. \ref{fig:thresholds2} shows, a threshold value of seven also performs well on the test data.
-These results are shown in numerical form in Table \ref{table:threshold}. 
+The results for \where~using a pre-solver are shown in numerical form in Table \ref{table:threshold}. 
 When \where~is given a cost threshold of five, it can prove the same number of POs as the best-performing solver -- Alt-Ergo-1.01. 
 By referring to Fig. \ref{fig:thresholds2}a, we see that at the same cost threshold, it takes a shorter time to return a response, on average, than the fastest SMT solver (which is also Alt-Ergo-1.01).
 If the cost threshold is increased to seven, significantly more POs can be proven. 
@@ -186,11 +192,12 @@ The average time taken to return a response is approximately equal to that of th
 \textbf{EQ1 Answer:} The cost threshold greatly improves \where's performance in comparison to the individual SMT solvers.
 The performance penalties associated with portfolio solvers can be mitigated by defining a cut-off point and trusting that solvers with a predicted cost greater than this value do not need to be called.
 We found this point to be about seven for the POs in the \textsf{Why3} example dataset.
+Giving \where~a threshold value less than seven may result in significantly worse results without the use of a pre-solver.
 The value to choose as a threshold may not be obvious in real-world scenarios with unseen results, however. 
 
 
 \begin{table}
-	\caption[The effect of using a cost threshold]{The effect of using a cost threshold. The average time taken for \where~to return an answer compared and the number of Valid/Invalid answers. Same data as Fig. \ref{fig:thresholds2}}
+	\caption[The effect of using a cost threshold]{The effect of using a cost threshold. The average time taken for \where~(with pre-solver) to return an answer compared and the number of Valid/Invalid answers. Same data as Fig. \ref{fig:thresholds2}}
 	\begin{tabularx}{0.9\textwidth}{@{}l|Z|Z|Z|Z|Z|Z@{}}
 
 		\textsc{Threshold} & \textbf{0} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} \\
@@ -224,20 +231,25 @@ The value to choose as a threshold may not be obvious in real-world scenarios wi
 	\label{fig:line_graph_eval_provers}
 \end{figure}
 
-Fig. \ref{fig:line_graph_eval_provers} compares the time taken for \where~and the three ranking strategies to return \textit{Valid} answers for the 263 POs in the test set.
+Fig. \ref{fig:line_graph_eval_provers} compares the time taken for \where~(with and without the use of a Pre-Solver) and the three ranking strategies to return \textit{Valid} answers for the 263 POs in the test set.
 This experiment is equivalent to running each strategy on all 263 POs in parallel and measuring the time taken for each strategy to return a total of 203 \textit{Valid} answers.
 As described in Sec. \ref{sec:strategies}, \textsf{Best Ranking} and \textsf{Worst Ranking} use Alg. \ref{algo:rank} to return their time taken.
 \textsf{Random Ranking}'s time measurement is based on the average of 40,320 (i.e. eight factorial, the number of individual rankings) uses of Alg. \ref{algo:rank}.
-\where's times are derived from the use of Alg. \ref{algo:where4} with a pre-solver of Alt-Ergo-1.01. 
-Although both \where~and \textsf{Random Ranking} finish at approximately the same time, \where~is significantly faster for returning \textit{Valid/Invalid} answers. 
-\where's solid line is more closely correlated to \textsf{Best Ranking}'s rate of success than the erratic rate of the \textsf{Random Ranking} strategy. 
+\where~(PS)'s times are derived from the use of Alg. \ref{algo:where4} with a pre-solver of Alt-Ergo-1.01. 
+
+Although both \where~implementations and \textsf{Random Ranking} finish at approximately the same time, \where~is significantly faster for returning \textit{Valid/Invalid} answers. 
+Both \where's solid lines are more closely correlated to \textsf{Best Ranking}'s rate of success than the erratic rate of the \textsf{Random Ranking} strategy.
+Surprisingly, the implementation of \where~which does not use a pre-solver (Fig. \ref{fig:line_graph_eval_provers}'s solid \textit{red} line), finds slightly more \textit{Valid/Invalid} answers  at the lower end of the time scale than the pre-solver.  
+We assert that this is a validation of the prediction algorithm's effectiveness: amongst provable POs, it often chooses a solver faster than the pre-solver.
 Again, we find that \where~struggles to prove a small number of POs.
+This trait can be seen in the amount of time needed for either \where~implementation to return all \textit{Valid/Invalid} responses (42.65/42.30 seconds) compared to that required by the \textsf{Best Ranking} strategy (just 8.75 seconds). 
 \textsf{Best Ranking}'s excellent time result shows the capability of a perfect-scoring learning strategy. \\
 \\
 \textbf{EQ2 Answer:} At almost any point in time from zero seconds to 42.65 seconds, the number of \textit{Valid/Invalid} answers returned by \where~is greater than the number returned by \textsf{Random Ranking}.
 This shows that our prediction model is a better choice than selecting a sequence of SMT solvers at random, without any regard to program features or solver capability.
 \where's performance on all but the hardest POs is encouraging.
-Although \where~cannot compete with \textsf{Best Ranking} yet, the performance of this theoretical strategy is motivation to further improve \where~in the future.   
+Although \where~cannot compete with \textsf{Best Ranking} yet, the performance of this theoretical strategy is motivation to further improve \where~in the future.
+Over the entire test dataset (i.e. both provable and non-provable PO instances), the was no significant time time advantage associated with using a pre-solver.   
 
 
 
