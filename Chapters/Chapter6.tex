@@ -72,7 +72,7 @@ it is the number of \textit{Valid} answers, rather than any inefficiency, that i
 The average time \where~takes to prove these goals 
 (using Algorithm \ref{algo:where4} -- denoted \where~(PS) in Table \ref{table:avgtimes2}) 
 is significantly better than the \textsf{Random Ranking} strategy.
-Without a pre-solver, \where suffers slightly (as denoted by the results for \where~(no PS)). 
+Without a pre-solver, \where~suffers slightly (as denoted by the results for \where~(no PS)). 
 Both algorithms, however, lag behind the time recorded by the \textsf{Best Ranking} strategy. 
 
 In comparison to the eight SMT solvers, the average time taken by \where~to prove each of the 203 goals is high. 
@@ -88,7 +88,7 @@ We remind the reader of the \textsf{Choose Single} solver introduced in Sec. \re
 \textsf{Choose Single} is the \textit{best single solver} as chosen on a per-goal basis.
 It provided a motivation for the use of portfolio-solving on the \why~platform by proving the maximum number of goals in the shortest amount of time.
 We mentioned that \textsf{Choose Single} is equivalent to choosing  the top-ranking solver from \textsf{Best Ranking} and stopping.
-We return to this concept in Fig. \ref{fig:barchart2} which is similar to Fig. \ref{fig:barcharts} in that it shows the relative amount of Valid/Unknown/Timeout/Failure answers from the eight SMT solvers. 
+We return to this concept in Fig. \ref{fig:barchart2} which is similar to Fig. \ref{fig:barcharts} in that it shows the relative amount of \textit{Valid/Unknown/Timeout/Failure} answers from the eight SMT solvers. 
 Also shown (on the right) are results obtainable by using the top solver (only) with the three ranking strategies (where \textsf{Best Ranking} $\equiv$ \textsf{Choose Single}) and the \where~predicted ranking (after pre-solving with Alt-Ergo version 1.01 -- \where~(PS) -- and without: \where~(no PS)).
 
 
@@ -124,7 +124,7 @@ Also shown (on the right) are results obtainable by using the top solver (only) 
 	
 \end{algorithm}
 
-The 62 \text{Valid} answers returned by the top solver from the \textsf{Worst Ranking} (i.e. the worst solver) represent the trivial POs solvable by all eight solvers. 
+The 62 \textit{Valid} answers returned by the top solver from the \textsf{Worst Ranking} (i.e. the worst solver) represent the trivial POs solvable by all eight solvers. 
 Likewise, the 60 goals for which \textsf{Best Ranking} did not return a \textit{Valid} or \textit{Invalid} answer could not be proved by any solver.
 
 The results show that limiting the portfolio solver to just using the best predicted individual solver eliminates the multiple time-out overhead yet reduces the number of goals provable by \where.
@@ -168,13 +168,13 @@ Fig. \ref{fig:thresholds1}a and \ref{fig:thresholds1}b show the effect of varyin
 The top plot (\textit{a}) shows a comparison of the average time taken for \textit{any} answer to be returned (not necessarily \textit{Valid / Invalid}).
 The amount of time taken by \where~often depends on the number of solvers called.
 The number of solvers called depends on the cost threshold given to \where.
-This is particularly true in the case where a pre-solver is no used. 
+This is particularly true in the case where a pre-solver is not used. 
 The solid black/red lines of Fig. \ref{fig:thresholds1}a, shows the increase in average time taken by \where~(with / without pre-solving) to return a response as the cost threshold increases.
 Fig. \ref{fig:thresholds1}b shows the number of \textit{Valid / Invalid} responses returned by each individual SMT solver as compared to \where~with a range of threshold values.
 As the corresponding results for each individual solver are unaffected by the threshold parameter, they are represented by horizontal line segments intersecting with the \where~data in Fig. \ref{fig:thresholds1}a.
 
 We note that even when given a threshold value of zero, 46 POs are proven.
-The difference with the solid red line's more gradual increase makes it obvious that the the pre-solving routine is responsible for these results.
+The difference with the solid red line's more gradual increase makes it obvious that the pre-solving routine is responsible for these results.
 In our case, Alt-Ergo-1.01 can prove 46 POs given a time limit of one second and the solver cost is never used.
 As in Fig. \ref{fig:thresholds1}a, the results for each individual solver are unaffected by the threshold parameter.
 
@@ -246,10 +246,10 @@ This trait can be seen in the amount of time needed for either \where~implementa
 \textsf{Best Ranking}'s excellent time result shows the capability of a perfect-scoring learning strategy. \\
 \\
 \textbf{EQ2 Answer:} At almost any point in time from zero seconds to 42.65 seconds, the number of \textit{Valid/Invalid} answers returned by \where~is greater than the number returned by \textsf{Random Ranking}.
-This shows that our prediction model is a better choice than selecting a sequence of SMT solvers at random, without any regard to program features or solver capability.
+This shows that our prediction model is a better choice than selecting a sequence of SMT solvers at random, without any regard for program features or solver capability.
 \where's performance on all but the hardest POs is encouraging.
 Although \where~cannot compete with \textsf{Best Ranking} yet, the performance of this theoretical strategy is motivation to further improve \where~in the future.
-Over the entire test dataset (i.e. both provable and non-provable PO instances), the was no significant time time advantage associated with using a pre-solver.   
+Over the entire test dataset (i.e. both provable and non-provable PO instances), there was no significant time time advantage associated with using a pre-solver.   
 
 
 

@@ -1,0 +1,4773 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 2.7 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\sortlist[entry]{nty/global/}
+  \entry{CFP}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=I}{%
+         family={19761:2011},
+         family_i={\bibinitperiod},
+         given={ISO/IEC},
+         given_i={I\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{I1}
+    \strng{fullhash}{I1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{1}
+    \field{sortinithash}{1}
+    \field{title}{Software engineering — COSMIC: a functional size
+  measurement method}
+    \field{year}{2011}
+  \endentry
+
+  \entry{Akbarpour2008}{inproceedings}{}
+    \name{author}{2}{}{%
+      {{hash=AB}{%
+         family={Akbarpour},
+         family_i={A\bibinitperiod},
+         given={Behzad},
+         given_i={B\bibinitperiod},
+      }}%
+      {{hash=PLC}{%
+         family={Paulson},
+         family_i={P\bibinitperiod},
+         given={Lawrence\bibnamedelima C.},
+         given_i={L\bibinitperiod\bibinitdelim C\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{ABPLC1}
+    \strng{fullhash}{ABPLC1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{A}
+    \field{sortinithash}{A}
+    \field{booktitle}{Intelligent Computer Mathematics: 9th International
+  Conference, AISC 2008, 15th Symposium, Calculemus 2008, 7th International
+  Conference}
+    \field{pages}{217\bibrangedash 231}
+    \field{title}{MetiTarski: An Automatic Prover for the Elementary Functions}
+    \list{location}{1}{%
+      {Birmingham, UK}%
+    }
+    \field{month}{07}
+    \field{year}{2008}
+  \endentry
+
+  \entry{Alglave2011}{inproceedings}{}
+    \name{author}{4}{}{%
+      {{hash=AJ}{%
+         family={Alglave},
+         family_i={A\bibinitperiod},
+         given={Jade},
+         given_i={J\bibinitperiod},
+      }}%
+      {{hash=DAF}{%
+         family={Donaldson},
+         family_i={D\bibinitperiod},
+         given={Alastair\bibnamedelima F.},
+         given_i={A\bibinitperiod\bibinitdelim F\bibinitperiod},
+      }}%
+      {{hash=KD}{%
+         family={Kroening},
+         family_i={K\bibinitperiod},
+         given={Daniel},
+         given_i={D\bibinitperiod},
+      }}%
+      {{hash=TM}{%
+         family={Tautschnig},
+         family_i={T\bibinitperiod},
+         given={Michael},
+         given_i={M\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer Berlin Heidelberg}%
+    }
+    \strng{namehash}{AJ+1}
+    \strng{fullhash}{AJDAFKDTM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{A}
+    \field{sortinithash}{A}
+    \field{booktitle}{Automated Technology for Verification and Analysis: 9th
+  International Symposium}
+    \field{pages}{28\bibrangedash 42}
+    \field{title}{Making Software Verification Tools Really Work}
+    \list{location}{1}{%
+      {Taipei, Taiwan}%
+    }
+    \field{month}{10}
+    \field{year}{2011}
+  \endentry
+
+  \entry{Amadini2013}{inproceedings}{}
+    \name{author}{3}{}{%
+      {{hash=AR}{%
+         family={Amadini},
+         family_i={A\bibinitperiod},
+         given={Roberto},
+         given_i={R\bibinitperiod},
+      }}%
+      {{hash=GM}{%
+         family={Gabbrielli},
+         family_i={G\bibinitperiod},
+         given={Maurizio},
+         given_i={M\bibinitperiod},
+      }}%
+      {{hash=MJ}{%
+         family={Mauro},
+         family_i={M\bibinitperiod},
+         given={Jacopo},
+         given_i={J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{ARGMMJ1}
+    \strng{fullhash}{ARGMMJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{A}
+    \field{sortinithash}{A}
+    \field{booktitle}{Integration of AI and OR Techniques in Constraint
+  Programming for Combinatorial Optimization Problems: 10th International
+  Conference}
+    \field{pages}{316\bibrangedash 324}
+    \field{title}{An Empirical Evaluation of Portfolios Approaches for Solving
+  CSPs}
+    \list{location}{1}{%
+      {Yorktown Heights, NY, USA}%
+    }
+    \field{month}{05}
+    \field{year}{2013}
+  \endentry
+
+  \entry{Amadini2016}{article}{}
+    \name{author}{3}{}{%
+      {{hash=AR}{%
+         family={Amadini},
+         family_i={A\bibinitperiod},
+         given={Roberto},
+         given_i={R\bibinitperiod},
+      }}%
+      {{hash=GM}{%
+         family={Gabbrielli},
+         family_i={G\bibinitperiod},
+         given={Maurizio},
+         given_i={M\bibinitperiod},
+      }}%
+      {{hash=MJ}{%
+         family={Mauro},
+         family_i={M\bibinitperiod},
+         given={Jacopo},
+         given_i={J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{ARGMMJ1}
+    \strng{fullhash}{ARGMMJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{A}
+    \field{sortinithash}{A}
+    \field{number}{1}
+    \field{pages}{229\bibrangedash 246}
+    \field{title}{Portfolio approaches for constraint optimization problems}
+    \field{volume}{76}
+    \field{journaltitle}{Annals of Mathematics and Artificial Intelligence}
+    \field{year}{2016}
+  \endentry
+
+  \entry{sunny-cp}{inproceedings}{}
+    \name{author}{3}{}{%
+      {{hash=AR}{%
+         family={Amadini},
+         family_i={A\bibinitperiod},
+         given={Roberto},
+         given_i={R\bibinitperiod},
+      }}%
+      {{hash=GM}{%
+         family={Gabbrielli},
+         family_i={G\bibinitperiod},
+         given={Maurizio},
+         given_i={M\bibinitperiod},
+      }}%
+      {{hash=MJ}{%
+         family={Mauro},
+         family_i={M\bibinitperiod},
+         given={Jacopo},
+         given_i={J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{ARGMMJ1}
+    \strng{fullhash}{ARGMMJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{A}
+    \field{sortinithash}{A}
+    \field{booktitle}{ACM Symposium on Applied Computing}
+    \field{pages}{1861\bibrangedash 1867}
+    \field{title}{SUNNY-CP: A Sequential CP Portfolio Solver}
+    \list{location}{1}{%
+      {Salamanca, Spain}%
+    }
+    \field{month}{04}
+    \field{year}{2015}
+  \endentry
+
+  \entry{b2w}{inproceedings}{}
+    \name{author}{2}{}{%
+      {{hash=AM}{%
+         family={Ameri},
+         family_i={A\bibinitperiod},
+         given={Michael},
+         given_i={M\bibinitperiod},
+      }}%
+      {{hash=FCA}{%
+         family={Furia},
+         family_i={F\bibinitperiod},
+         given={Carlo\bibnamedelima A.},
+         given_i={C\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{AMFCA1}
+    \strng{fullhash}{AMFCA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{A}
+    \field{sortinithash}{A}
+    \field{booktitle}{Integrated Formal Methods: 12th International Conference,
+  IFM 2016}
+    \field{pages}{79\bibrangedash 95}
+    \field{title}{Why Just Boogie?}
+    \list{location}{1}{%
+      {Reykjavik, Iceland}%
+    }
+    \field{month}{06}
+    \field{year}{2016}
+  \endentry
+
+  \entry{Aspinall2016}{inproceedings}{}
+    \name{author}{2}{}{%
+      {{hash=AD}{%
+         family={Aspinall},
+         family_i={A\bibinitperiod},
+         given={David},
+         given_i={D\bibinitperiod},
+      }}%
+      {{hash=KC}{%
+         family={Kaliszyk},
+         family_i={K\bibinitperiod},
+         given={Cezary},
+         given_i={C\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{ADKC1}
+    \strng{fullhash}{ADKC1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{A}
+    \field{sortinithash}{A}
+    \field{booktitle}{Fundamental Approaches to Software Engineering: 19th
+  International Conference, FASE 2016}
+    \field{pages}{325\bibrangedash 341}
+    \field{title}{Towards Formal Proof Metrics}
+    \list{location}{1}{%
+      {Eindhoven, The Netherlands}%
+    }
+    \field{month}{04}
+    \field{year}{2016}
+  \endentry
+
+  \entry{Assar2016}{article}{}
+    \name{author}{3}{}{%
+      {{hash=AS}{%
+         family={Assar},
+         family_i={A\bibinitperiod},
+         given={Sa{\"i}d},
+         given_i={S\bibinitperiod},
+      }}%
+      {{hash=BM}{%
+         family={Borg},
+         family_i={B\bibinitperiod},
+         given={Markus},
+         given_i={M\bibinitperiod},
+      }}%
+      {{hash=PD}{%
+         family={Pfahl},
+         family_i={P\bibinitperiod},
+         given={Dietmar},
+         given_i={D\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{ASBMPD1}
+    \strng{fullhash}{ASBMPD1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{A}
+    \field{sortinithash}{A}
+    \field{number}{4}
+    \field{pages}{1437\bibrangedash 1475}
+    \field{title}{Using text clustering to predict defect resolution time: a
+  conceptual replication and an evaluation of prediction accuracy}
+    \field{volume}{21}
+    \field{journaltitle}{Empirical Software Engineering}
+    \field{year}{2016}
+  \endentry
+
+  \entry{SAT2012}{report}{}
+    \name{author}{6}{}{%
+      {{hash=BA}{%
+         family={Balint},
+         family_i={B\bibinitperiod},
+         given={Adrian},
+         given_i={A\bibinitperiod},
+      }}%
+      {{hash=BA}{%
+         family={Belov},
+         family_i={B\bibinitperiod},
+         given={Anton},
+         given_i={A\bibinitperiod},
+      }}%
+      {{hash=DD}{%
+         family={Diepold},
+         family_i={D\bibinitperiod},
+         given={Daniel},
+         given_i={D\bibinitperiod},
+      }}%
+      {{hash=GS}{%
+         family={Gerber},
+         family_i={G\bibinitperiod},
+         given={Simon},
+         given_i={S\bibinitperiod},
+      }}%
+      {{hash=JM}{%
+         family={Jarvisalo},
+         family_i={J\bibinitperiod},
+         given={Matti},
+         given_i={M\bibinitperiod},
+      }}%
+      {{hash=SC}{%
+         family={Sinz},
+         family_i={S\bibinitperiod},
+         given={Carsten},
+         given_i={C\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {University of Helsinki, Department of Computer Science}%
+    }
+    \strng{namehash}{BA+1}
+    \strng{fullhash}{BABADDGSJMSC1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{number}{2}
+    \field{title}{Proceedings of SAT Challenge 2012; Solver and Benchmark
+  Descriptions}
+    \field{volume}{2012}
+    \list{location}{1}{%
+      {Helsinki, Finland}%
+    }
+    \list{institution}{1}{%
+      {University of Helsinki}%
+    }
+    \field{type}{techreport}
+    \field{journaltitle}{Department of Computer Science Series of Publications
+  B}
+    \field{year}{2012}
+  \endentry
+
+  \entry{spec}{inproceedings}{}
+    \name{author}{3}{}{%
+      {{hash=BM}{%
+         family={Barnett},
+         family_i={B\bibinitperiod},
+         given={Mike},
+         given_i={M\bibinitperiod},
+      }}%
+      {{hash=LKRM}{%
+         family={Leino},
+         family_i={L\bibinitperiod},
+         given={K.\bibnamedelima Rustan\bibnamedelima M.},
+         given_i={K\bibinitperiod\bibinitdelim R\bibinitperiod\bibinitdelim
+  M\bibinitperiod},
+      }}%
+      {{hash=SW}{%
+         family={Schulte},
+         family_i={S\bibinitperiod},
+         given={Wolfram},
+         given_i={W\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BMLKRMSW1}
+    \strng{fullhash}{BMLKRMSW1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{booktitle}{Construction and Analysis of Safe, Secure and
+  Interoperable Smart devices}
+    \field{pages}{49\bibrangedash 69}
+    \field{title}{The {S}pec\# Programming System: An Overview}
+    \list{location}{1}{%
+      {Marseille, France}%
+    }
+    \field{month}{03}
+    \field{year}{2004}
+  \endentry
+
+  \entry{Boogie}{inproceedings}{}
+    \name{author}{5}{}{%
+      {{hash=BM}{%
+         family={Barnett},
+         family_i={B\bibinitperiod},
+         given={Mike},
+         given_i={M\bibinitperiod},
+      }}%
+      {{hash=CBYE}{%
+         family={Chang},
+         family_i={C\bibinitperiod},
+         given={Bor-Yuh\bibnamedelima Evan},
+         given_i={B\bibinitperiod-Y\bibinitperiod\bibinitdelim
+  E\bibinitperiod},
+      }}%
+      {{hash=DR}{%
+         family={DeLine},
+         family_i={D\bibinitperiod},
+         given={Robert},
+         given_i={R\bibinitperiod},
+      }}%
+      {{hash=JB}{%
+         family={Jacobs},
+         family_i={J\bibinitperiod},
+         given={Bart},
+         given_i={B\bibinitperiod},
+      }}%
+      {{hash=LKRM}{%
+         family={Leino},
+         family_i={L\bibinitperiod},
+         given={K.\bibnamedelima Rustan\bibnamedelima M.},
+         given_i={K\bibinitperiod\bibinitdelim R\bibinitperiod\bibinitdelim
+  M\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BM+1}
+    \strng{fullhash}{BMCBYEDRJBLKRM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{booktitle}{Formal Methods for Components and Objects: 4th
+  International Symposium}
+    \field{pages}{364\bibrangedash 387}
+    \field{title}{Boogie: A Modular Reusable Verifier for Object-Oriented
+  Programs}
+    \list{location}{1}{%
+      {Amsterdam, The Netherlands}%
+    }
+    \field{month}{11}
+    \field{year}{2005}
+  \endentry
+
+  \entry{BarFT-SMTLIB}{misc}{}
+    \name{author}{3}{}{%
+      {{hash=BC}{%
+         family={Barrett},
+         family_i={B\bibinitperiod},
+         given={Clark},
+         given_i={C\bibinitperiod},
+      }}%
+      {{hash=FP}{%
+         family={Fontaine},
+         family_i={F\bibinitperiod},
+         given={Pascal},
+         given_i={P\bibinitperiod},
+      }}%
+      {{hash=TC}{%
+         family={Tinelli},
+         family_i={T\bibinitperiod},
+         given={Cesare},
+         given_i={C\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BCFPTC1}
+    \strng{fullhash}{BCFPTC1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{howpublished}{{\tt www.SMT-LIB.org}}
+    \field{title}{{The Satisfiability Modulo Theories Library (SMT-LIB)}}
+    \field{year}{2016}
+  \endentry
+
+  \entry{SMTLIB}{misc}{}
+    \name{author}{3}{}{%
+      {{hash=BC}{%
+         family={Barrett},
+         family_i={B\bibinitperiod},
+         given={Clark},
+         given_i={C\bibinitperiod},
+      }}%
+      {{hash=SA}{%
+         family={Stump},
+         family_i={S\bibinitperiod},
+         given={Aaron},
+         given_i={A\bibinitperiod},
+      }}%
+      {{hash=TC}{%
+         family={Tinelli},
+         family_i={T\bibinitperiod},
+         given={Cesare},
+         given_i={C\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BCSATC1}
+    \strng{fullhash}{BCSATC1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{title}{{The Satisfiability Modulo Theories Library (SMT-LIB)}}
+    \verb{url}
+    \verb http://www.smt-lib.org
+    \endverb
+    \field{year}{2010}
+  \endentry
+
+  \entry{CVC3}{inproceedings}{}
+    \name{author}{2}{}{%
+      {{hash=BC}{%
+         family={Barrett},
+         family_i={B\bibinitperiod},
+         given={Clark},
+         given_i={C\bibinitperiod},
+      }}%
+      {{hash=TC}{%
+         family={Tinelli},
+         family_i={T\bibinitperiod},
+         given={Cesare},
+         given_i={C\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BCTC1}
+    \strng{fullhash}{BCTC1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{booktitle}{Computer Aided Verification}
+    \field{pages}{298\bibrangedash 302}
+    \field{title}{{CVC3}}
+    \list{location}{1}{%
+      {Berlin, Germany}%
+    }
+    \field{month}{07}
+    \field{year}{2007}
+  \endentry
+
+  \entry{CVC4}{inproceedings}{}
+    \name{author}{8}{}{%
+      {{hash=BC}{%
+         family={Barrett},
+         family_i={B\bibinitperiod},
+         given={Clark},
+         given_i={C\bibinitperiod},
+      }}%
+      {{hash=CCL}{%
+         family={Conway},
+         family_i={C\bibinitperiod},
+         given={Christopher\bibnamedelima L.},
+         given_i={C\bibinitperiod\bibinitdelim L\bibinitperiod},
+      }}%
+      {{hash=DM}{%
+         family={Deters},
+         family_i={D\bibinitperiod},
+         given={Morgan},
+         given_i={M\bibinitperiod},
+      }}%
+      {{hash=HL}{%
+         family={Hadarean},
+         family_i={H\bibinitperiod},
+         given={Liana},
+         given_i={L\bibinitperiod},
+      }}%
+      {{hash=JD}{%
+         family={Jovanovi\'{c}},
+         family_i={J\bibinitperiod},
+         given={Dejan},
+         given_i={D\bibinitperiod},
+      }}%
+      {{hash=KT}{%
+         family={King},
+         family_i={K\bibinitperiod},
+         given={Tim},
+         given_i={T\bibinitperiod},
+      }}%
+      {{hash=RA}{%
+         family={Reynolds},
+         family_i={R\bibinitperiod},
+         given={Andrew},
+         given_i={A\bibinitperiod},
+      }}%
+      {{hash=TC}{%
+         family={Tinelli},
+         family_i={T\bibinitperiod},
+         given={Cesare},
+         given_i={C\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BC+1}
+    \strng{fullhash}{BCCCLDMHLJDKTRATC1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{booktitle}{Computer Aided Verification}
+    \field{pages}{171\bibrangedash 177}
+    \field{title}{{\scshape CVC4}}
+    \list{location}{1}{%
+      {Snowbird, UT, USA}%
+    }
+    \field{month}{07}
+    \field{year}{2011}
+  \endentry
+
+  \entry{Coq}{book}{}
+    \name{author}{2}{}{%
+      {{hash=BY}{%
+         family={Bertot},
+         family_i={B\bibinitperiod},
+         given={Yves},
+         given_i={Y\bibinitperiod},
+      }}%
+      {{hash=CP}{%
+         family={Castran},
+         family_i={C\bibinitperiod},
+         given={Pierre},
+         given_i={P\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer-Verlag Berlin Heidelberg}%
+    }
+    \strng{namehash}{BYCP1}
+    \strng{fullhash}{BYCP1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{title}{Interactive Theorem Proving and Program Development: Coq'Art
+  The Calculus of Inductive Constructions}
+    \field{year}{2010}
+  \endentry
+
+  \entry{Beyer2016}{inproceedings}{}
+    \name{author}{1}{}{%
+      {{hash=BD}{%
+         family={Beyer},
+         family_i={B\bibinitperiod},
+         given={Dirk},
+         given_i={D\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BD1}
+    \strng{fullhash}{BD1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{booktitle}{Tools and Algorithms for the Construction and Analysis of
+  Systems}
+    \field{pages}{887\bibrangedash 904}
+    \field{title}{Reliable and Reproducible Competition Results with BenchExec
+  and Witnesses (Report on SV-COMP 2016)}
+    \list{location}{1}{%
+      {Eindhoven, The Netherlands}%
+    }
+    \field{month}{04}
+    \field{year}{2016}
+  \endentry
+
+  \entry{SVCOMP}{inproceedings}{}
+    \name{author}{1}{}{%
+      {{hash=BD}{%
+         family={Beyer},
+         family_i={B\bibinitperiod},
+         given={Dirk},
+         given_i={D\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BD1}
+    \strng{fullhash}{BD1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{booktitle}{Tools and Algorithms for the Construction and Analysis of
+  Systems}
+    \field{pages}{373\bibrangedash 388}
+    \field{title}{Status Report on Software Verification}
+    \list{location}{1}{%
+      {Grenoble, France}%
+    }
+    \field{month}{04}
+    \field{year}{2014}
+  \endentry
+
+  \entry{benchexec}{inproceedings}{}
+    \name{author}{3}{}{%
+      {{hash=BD}{%
+         family={Beyer},
+         family_i={B\bibinitperiod},
+         given={Dirk},
+         given_i={D\bibinitperiod},
+      }}%
+      {{hash=LS}{%
+         family={L{\"{o}}we},
+         family_i={L\bibinitperiod},
+         given={Stefan},
+         given_i={S\bibinitperiod},
+      }}%
+      {{hash=WP}{%
+         family={Wendler},
+         family_i={W\bibinitperiod},
+         given={Philipp},
+         given_i={P\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BDLSWP1}
+    \strng{fullhash}{BDLSWP1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{booktitle}{Model Checking Software - 22nd International Symposium,
+  {SPIN} 2015}
+    \field{pages}{160\bibrangedash 178}
+    \field{title}{Benchmarking and Resource Measurement}
+    \list{location}{1}{%
+      {Stellenbosch, South Africa}%
+    }
+    \field{month}{08}
+    \field{year}{2015}
+  \endentry
+
+  \entry{Dagstuhl}{article}{}
+    \name{author}{4}{}{%
+      {{hash=BD}{%
+         family={Beyer},
+         family_i={B\bibinitperiod},
+         given={Dirk},
+         given_i={D\bibinitperiod},
+      }}%
+      {{hash=HM}{%
+         family={Huisman},
+         family_i={H\bibinitperiod},
+         given={Marieke},
+         given_i={M\bibinitperiod},
+      }}%
+      {{hash=KV}{%
+         family={Klebanov},
+         family_i={K\bibinitperiod},
+         given={Vladimir},
+         given_i={V\bibinitperiod},
+      }}%
+      {{hash=MR}{%
+         family={Monahan},
+         family_i={M\bibinitperiod},
+         given={Rosemary},
+         given_i={R\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Schloss Dagstuhl--Leibniz-Zentrum fuer Informatik}%
+    }
+    \strng{namehash}{BD+1}
+    \strng{fullhash}{BDHMKVMR1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \verb{doi}
+    \verb 10.4230/DagRep.4.4.1
+    \endverb
+    \field{number}{4}
+    \field{title}{{Evaluating Software Verification Systems: Benchmarks and
+  Competitions (Dagstuhl Reports 14171)}}
+    \field{volume}{4}
+    \list{location}{1}{%
+      {Dagstuhl, Germany}%
+    }
+    \field{journaltitle}{Dagstuhl Reports}
+    \field{year}{2014}
+  \endentry
+
+  \entry{Bishop}{book}{}
+    \name{author}{1}{}{%
+      {{hash=BCM}{%
+         family={Bishop},
+         family_i={B\bibinitperiod},
+         given={Christopher\bibnamedelima M.},
+         given_i={C\bibinitperiod\bibinitdelim M\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer}%
+    }
+    \strng{namehash}{BCM1}
+    \strng{fullhash}{BCM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{title}{Pattern recognition and machine learning}
+    \list{location}{1}{%
+      {New York, USA}%
+    }
+    \field{year}{2006}
+  \endentry
+
+  \entry{why:tptp}{inproceedings}{}
+    \name{author}{2}{}{%
+      {{hash=BJC}{%
+         family={Blanchette},
+         family_i={B\bibinitperiod},
+         given={Jasmin\bibnamedelima Christian},
+         given_i={J\bibinitperiod\bibinitdelim C\bibinitperiod},
+      }}%
+      {{hash=PA}{%
+         family={Paskevich},
+         family_i={P\bibinitperiod},
+         given={Andrei},
+         given_i={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BJCPA1}
+    \strng{fullhash}{BJCPA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{booktitle}{CADE-24: 24th International Conference on Automated
+  Deduction}
+    \field{pages}{414\bibrangedash 420}
+    \field{title}{TFF1: The TPTP Typed First-Order Form with Rank-1
+  Polymorphism}
+    \list{location}{1}{%
+      {Lake Placid, NY, USA}%
+    }
+    \field{month}{06}
+    \field{year}{2013}
+  \endentry
+
+  \entry{Sledgehammer}{article}{}
+    \name{author}{5}{}{%
+      {{hash=BJC}{%
+         family={Blanchette},
+         family_i={B\bibinitperiod},
+         given={Jasmin\bibnamedelima Christian},
+         given_i={J\bibinitperiod\bibinitdelim C\bibinitperiod},
+      }}%
+      {{hash=GD}{%
+         family={Greenaway},
+         family_i={G\bibinitperiod},
+         given={David},
+         given_i={D\bibinitperiod},
+      }}%
+      {{hash=KC}{%
+         family={Kaliszyk},
+         family_i={K\bibinitperiod},
+         given={Cezary},
+         given_i={C\bibinitperiod},
+      }}%
+      {{hash=KD}{%
+         family={K{\"u}hlwein},
+         family_i={K\bibinitperiod},
+         given={Daniel},
+         given_i={D\bibinitperiod},
+      }}%
+      {{hash=UJ}{%
+         family={Urban},
+         family_i={U\bibinitperiod},
+         given={Josef},
+         given_i={J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BJC+1}
+    \strng{fullhash}{BJCGDKCKDUJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{number}{3}
+    \field{pages}{219\bibrangedash 244}
+    \field{title}{A Learning-Based Fact Selector for Isabelle/HOL}
+    \field{volume}{57}
+    \field{journaltitle}{Journal of Automated Reasoning}
+    \field{year}{2016}
+  \endentry
+
+  \entry{why:polymorphic}{inproceedings}{}
+    \name{author}{2}{}{%
+      {{hash=BF}{%
+         family={Bobot},
+         family_i={B\bibinitperiod},
+         given={Fran{\c{c}}ois},
+         given_i={F\bibinitperiod},
+      }}%
+      {{hash=PA}{%
+         family={Paskevich},
+         family_i={P\bibinitperiod},
+         given={Andrei},
+         given_i={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BFPA1}
+    \strng{fullhash}{BFPA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{booktitle}{Frontiers of Combining Systems: 8th International
+  Symposium, FroCoS 2011.}
+    \field{pages}{87\bibrangedash 102}
+    \field{title}{Expressing Polymorphic Types in a Many-Sorted Language}
+    \list{location}{1}{%
+      {Saarbr{\"u}cken, Germany}%
+    }
+    \field{month}{10}
+    \field{year}{2011}
+  \endentry
+
+  \entry{verifythis}{article}{}
+    \name{author}{4}{}{%
+      {{hash=BF}{%
+         family={Bobot},
+         family_i={B\bibinitperiod},
+         given={Fran{\c{c}}ois},
+         given_i={F\bibinitperiod},
+      }}%
+      {{hash=FJC}{%
+         family={Filli{\^a}tre},
+         family_i={F\bibinitperiod},
+         given={Jean-Christophe},
+         given_i={J\bibinitperiod-C\bibinitperiod},
+      }}%
+      {{hash=MC}{%
+         family={March{\'e}},
+         family_i={M\bibinitperiod},
+         given={Claude},
+         given_i={C\bibinitperiod},
+      }}%
+      {{hash=PA}{%
+         family={Paskevich},
+         family_i={P\bibinitperiod},
+         given={Andrei},
+         given_i={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BF+1}
+    \strng{fullhash}{BFFJCMCPA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{number}{6}
+    \field{pages}{709\bibrangedash 727}
+    \field{title}{Let's verify this with {W}hy3}
+    \field{volume}{17}
+    \field{journaltitle}{International Journal on Software Tools for Technology
+  Transfer}
+    \field{year}{2015}
+  \endentry
+
+  \entry{why:preserving}{inproceedings}{}
+    \name{author}{5}{}{%
+      {{hash=BF}{%
+         family={Bobot},
+         family_i={B\bibinitperiod},
+         given={Fran{\c{c}}ois},
+         given_i={F\bibinitperiod},
+      }}%
+      {{hash=FJC}{%
+         family={Filli{\^a}tre},
+         family_i={F\bibinitperiod},
+         given={Jean-Christophe},
+         given_i={J\bibinitperiod-C\bibinitperiod},
+      }}%
+      {{hash=MC}{%
+         family={March{\'e}},
+         family_i={M\bibinitperiod},
+         given={Claude},
+         given_i={C\bibinitperiod},
+      }}%
+      {{hash=MG}{%
+         family={Melquiond},
+         family_i={M\bibinitperiod},
+         given={Guillaume},
+         given_i={G\bibinitperiod},
+      }}%
+      {{hash=PA}{%
+         family={Paskevich},
+         family_i={P\bibinitperiod},
+         given={Andrei},
+         given_i={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BF+1}
+    \strng{fullhash}{BFFJCMCMGPA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{booktitle}{Verified Software: Theories, Tools, Experiments: 5th
+  International Conference}
+    \field{pages}{191\bibrangedash 201}
+    \field{title}{Preserving User Proofs across Specification Changes}
+    \list{location}{1}{%
+      {Menlo Park, CA, USA}%
+    }
+    \field{month}{05}
+    \field{year}{2013}
+  \endentry
+
+  \entry{why:manual}{manual}{}
+    \name{author}{5}{}{%
+      {{hash=BF}{%
+         family={Bobot},
+         family_i={B\bibinitperiod},
+         given={Fran{\c{c}}ois},
+         given_i={F\bibinitperiod},
+      }}%
+      {{hash=FJC}{%
+         family={Filli{\^a}tre},
+         family_i={F\bibinitperiod},
+         given={Jean-Christophe},
+         given_i={J\bibinitperiod-C\bibinitperiod},
+      }}%
+      {{hash=MC}{%
+         family={March{\'e}},
+         family_i={M\bibinitperiod},
+         given={Claude},
+         given_i={C\bibinitperiod},
+      }}%
+      {{hash=MG}{%
+         family={Melquiond},
+         family_i={M\bibinitperiod},
+         given={Guillaume},
+         given_i={G\bibinitperiod},
+      }}%
+      {{hash=PA}{%
+         family={Paskevich},
+         family_i={P\bibinitperiod},
+         given={Andrei},
+         given_i={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BF+1}
+    \strng{fullhash}{BFFJCMCMGPA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{edition}{0.87.2}
+    \field{title}{The Why3 User Manual}
+    \verb{url}
+    \verb http://why3.lri.fr/doc-0.87.2/
+    \endverb
+    \field{year}{2016}
+  \endentry
+
+  \entry{why:shephard}{inproceedings}{}
+    \name{author}{4}{}{%
+      {{hash=BF}{%
+         family={Bobot},
+         family_i={B\bibinitperiod},
+         given={Fran{\c{c}}ois},
+         given_i={F\bibinitperiod},
+      }}%
+      {{hash=FJC}{%
+         family={Filli{\^a}tre},
+         family_i={F\bibinitperiod},
+         given={Jean-Christophe},
+         given_i={J\bibinitperiod-C\bibinitperiod},
+      }}%
+      {{hash=MC}{%
+         family={March{\'e}},
+         family_i={M\bibinitperiod},
+         given={Claude},
+         given_i={C\bibinitperiod},
+      }}%
+      {{hash=PA}{%
+         family={Paskevich},
+         family_i={P\bibinitperiod},
+         given={Andrei},
+         given_i={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BF+1}
+    \strng{fullhash}{BFFJCMCPA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{booktitle}{Workshop on Intermediate Verification Languages}
+    \field{pages}{53\bibrangedash 64}
+    \field{title}{Why3: Shepherd your herd of provers}
+    \list{location}{1}{%
+      {Wroclaw, Poland}%
+    }
+    \field{month}{08}
+    \field{year}{2011}
+  \endentry
+
+  \entry{Zspecs}{inproceedings}{}
+    \name{author}{1}{}{%
+      {{hash=BA}{%
+         family={Bollin},
+         family_i={B\bibinitperiod},
+         given={Andreas},
+         given_i={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BA1}
+    \strng{fullhash}{BA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{booktitle}{Formal Methods and Software Engineering: 13th
+  International Conference on Formal Engineering Methods}
+    \field{pages}{66\bibrangedash 81}
+    \field{title}{Is There Evolution Before Birth? Deterioration Effects of
+  Formal Z Specifications}
+    \list{location}{1}{%
+      {Durham, UK}%
+    }
+    \field{month}{10}
+    \field{year}{2011}
+  \endentry
+
+  \entry{multisurvey}{article}{}
+    \name{author}{4}{}{%
+      {{hash=BH}{%
+         family={Borchani},
+         family_i={B\bibinitperiod},
+         given={Hanen},
+         given_i={H\bibinitperiod},
+      }}%
+      {{hash=VG}{%
+         family={Varando},
+         family_i={V\bibinitperiod},
+         given={Gherardo},
+         given_i={G\bibinitperiod},
+      }}%
+      {{hash=BC}{%
+         family={Bielza},
+         family_i={B\bibinitperiod},
+         given={Concha},
+         given_i={C\bibinitperiod},
+      }}%
+      {{hash=LP}{%
+         family={Larranaga},
+         family_i={L\bibinitperiod},
+         given={Pedro},
+         given_i={P\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Wiley \& Sons}%
+    }
+    \strng{namehash}{BH+1}
+    \strng{fullhash}{BHVGBCLP1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{number}{5}
+    \field{pages}{216\bibrangedash 233}
+    \field{title}{A survey on multi-output regression}
+    \field{volume}{5}
+    \field{journaltitle}{Data Mining And Knowledge Discovery}
+    \field{year}{2015}
+  \endentry
+
+  \entry{bormer:hal-00789525}{inproceedings}{}
+    \name{author}{17}{}{%
+      {{hash=BT}{%
+         family={Bormer},
+         family_i={B\bibinitperiod},
+         given={Thorsten},
+         given_i={T\bibinitperiod},
+      }}%
+      {{hash=BM}{%
+         family={Brockschmidt},
+         family_i={B\bibinitperiod},
+         given={Marc},
+         given_i={M\bibinitperiod},
+      }}%
+      {{hash=DD}{%
+         family={Distefano},
+         family_i={D\bibinitperiod},
+         given={Dino},
+         given_i={D\bibinitperiod},
+      }}%
+      {{hash=EG}{%
+         family={Ernst},
+         family_i={E\bibinitperiod},
+         given={Gidon},
+         given_i={G\bibinitperiod},
+      }}%
+      {{hash=FJC}{%
+         family={Filli{\^a}tre},
+         family_i={F\bibinitperiod},
+         given={Jean-Christophe},
+         given_i={J\bibinitperiod-C\bibinitperiod},
+      }}%
+      {{hash=GR}{%
+         family={Grigore},
+         family_i={G\bibinitperiod},
+         given={Radu},
+         given_i={R\bibinitperiod},
+      }}%
+      {{hash=HM}{%
+         family={Huisman},
+         family_i={H\bibinitperiod},
+         given={Marieke},
+         given_i={M\bibinitperiod},
+      }}%
+      {{hash=KV}{%
+         family={Klebanov},
+         family_i={K\bibinitperiod},
+         given={Vladimir},
+         given_i={V\bibinitperiod},
+      }}%
+      {{hash=MC}{%
+         family={March{\'e}},
+         family_i={M\bibinitperiod},
+         given={Claude},
+         given_i={C\bibinitperiod},
+      }}%
+      {{hash=MR}{%
+         family={Monahan},
+         family_i={M\bibinitperiod},
+         given={Rosemary},
+         given_i={R\bibinitperiod},
+      }}%
+      {{hash=MW}{%
+         family={Mostowski},
+         family_i={M\bibinitperiod},
+         given={Wojciech},
+         given_i={W\bibinitperiod},
+      }}%
+      {{hash=PN}{%
+         family={Polikarpova},
+         family_i={P\bibinitperiod},
+         given={Nadia},
+         given_i={N\bibinitperiod},
+      }}%
+      {{hash=SC}{%
+         family={Scheben},
+         family_i={S\bibinitperiod},
+         given={Christoph},
+         given_i={C\bibinitperiod},
+      }}%
+      {{hash=SG}{%
+         family={Schellhorn},
+         family_i={S\bibinitperiod},
+         given={Gerhard},
+         given_i={G\bibinitperiod},
+      }}%
+      {{hash=TB}{%
+         family={Tofan},
+         family_i={T\bibinitperiod},
+         given={Bogdan},
+         given_i={B\bibinitperiod},
+      }}%
+      {{hash=TJ}{%
+         family={Tschannen},
+         family_i={T\bibinitperiod},
+         given={Julian},
+         given_i={J\bibinitperiod},
+      }}%
+      {{hash=UM}{%
+         family={Ulbrich},
+         family_i={U\bibinitperiod},
+         given={Mattias},
+         given_i={M\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BT+1}
+    \strng{fullhash}{BTBMDDEGFJCGRHMKVMCMRMWPNSCSGTBTJUM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{booktitle}{{Formal Verification of Object-Oriented Software}}
+    \field{pages}{3\bibrangedash 21}
+    \field{title}{{The COST IC0701 Verification Competition 2011}}
+    \list{location}{1}{%
+      {Torino, Italy}%
+    }
+    \verb{file}
+    \verb costcomp2011.pdf:https\://hal.inria.fr/hal-00789525/file/costcomp2011
+    \verb .pdf:PDF
+    \endverb
+    \field{month}{10}
+    \field{year}{2011}
+  \endentry
+
+  \entry{Atelier-B}{inbook}{}
+    \name{author}{1}{}{%
+      {{hash=BJL}{%
+         family={Boulanger},
+         family_i={B\bibinitperiod},
+         given={Jean-Louis},
+         given_i={J\bibinitperiod-L\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {John Wiley \& Sons}%
+    }
+    \strng{namehash}{BJL1}
+    \strng{fullhash}{BJL1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{booktitle}{Formal Methods Applied to Complex Systems}
+    \field{pages}{35\bibrangedash 46}
+    \field{title}{Atelier B}
+    \list{location}{1}{%
+      {New York, USA}%
+    }
+    \field{year}{2014}
+  \endentry
+
+  \entry{veriT}{inproceedings}{}
+    \name{author}{4}{}{%
+      {{hash=BT}{%
+         family={Bouton},
+         family_i={B\bibinitperiod},
+         given={Thomas},
+         given_i={T\bibinitperiod},
+      }}%
+      {{hash=CBdOD}{%
+         prefix={Caminha B.\bibnamedelima de},
+         prefix_i={C\bibinitperiod\bibinitdelim B\bibinitperiod\bibinitdelim
+  d\bibinitperiod},
+         family={Oliveira},
+         family_i={O\bibinitperiod},
+         given={Diego},
+         given_i={D\bibinitperiod},
+      }}%
+      {{hash=DD}{%
+         family={D{\'e}harbe},
+         family_i={D\bibinitperiod},
+         given={David},
+         given_i={D\bibinitperiod},
+      }}%
+      {{hash=FP}{%
+         family={Fontaine},
+         family_i={F\bibinitperiod},
+         given={Pascal},
+         given_i={P\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BT+2}
+    \strng{fullhash}{BTODCBdDDFP1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{booktitle}{22nd International Conference on Automated Deduction}
+    \field{pages}{151\bibrangedash 156}
+    \field{title}{VeriT: An Open, Trustable and Efficient {SMT}-Solver}
+    \list{location}{1}{%
+      {Montreal, Canada}%
+    }
+    \field{month}{08}
+    \field{year}{2009}
+  \endentry
+
+  \entry{RandomForests}{article}{}
+    \name{author}{1}{}{%
+      {{hash=BL}{%
+         family={Breiman},
+         family_i={B\bibinitperiod},
+         given={Leo},
+         given_i={L\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BL1}
+    \strng{fullhash}{BL1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{number}{1}
+    \field{pages}{5\bibrangedash 32}
+    \field{title}{Random Forests}
+    \field{volume}{45}
+    \field{journaltitle}{Machine Learning}
+    \field{year}{2001}
+  \endentry
+
+  \entry{cart}{book}{}
+    \name{author}{4}{}{%
+      {{hash=BL}{%
+         family={Breiman},
+         family_i={B\bibinitperiod},
+         given={Leo},
+         given_i={L\bibinitperiod},
+      }}%
+      {{hash=FJ}{%
+         family={Friedman},
+         family_i={F\bibinitperiod},
+         given={Jerome},
+         given_i={J\bibinitperiod},
+      }}%
+      {{hash=SCJ}{%
+         family={Stone},
+         family_i={S\bibinitperiod},
+         given={Charles\bibnamedelima J.},
+         given_i={C\bibinitperiod\bibinitdelim J\bibinitperiod},
+      }}%
+      {{hash=ORA}{%
+         family={Olshen},
+         family_i={O\bibinitperiod},
+         given={Richard\bibnamedelima A.},
+         given_i={R\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Taylor \& Francis}%
+    }
+    \strng{namehash}{BL+1}
+    \strng{fullhash}{BLFJSCJORA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{series}{The Wadsworth and Brooks-Cole statistics-probability series}
+    \field{title}{Classification and Regression Trees}
+    \field{year}{1984}
+  \endentry
+
+  \entry{bundy_et_al:DR:2012:3731}{article}{}
+    \name{author}{4}{}{%
+      {{hash=BA}{%
+         family={Bundy},
+         family_i={B\bibinitperiod},
+         given={Alan},
+         given_i={A\bibinitperiod},
+      }}%
+      {{hash=HD}{%
+         family={Hutter},
+         family_i={H\bibinitperiod},
+         given={Dieter},
+         given_i={D\bibinitperiod},
+      }}%
+      {{hash=JCB}{%
+         family={Jones},
+         family_i={J\bibinitperiod},
+         given={Cliff\bibnamedelima B.},
+         given_i={C\bibinitperiod\bibinitdelim B\bibinitperiod},
+      }}%
+      {{hash=MJS}{%
+         family={Moore},
+         family_i={M\bibinitperiod},
+         given={J\bibnamedelima Strother},
+         given_i={J\bibinitperiod\bibinitdelim S\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Schloss Dagstuhl--Leibniz-Zentrum fuer Informatik}%
+    }
+    \strng{namehash}{BA+1}
+    \strng{fullhash}{BAHDJCBMJS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \verb{doi}
+    \verb 10.4230/DagRep.2.7.1
+    \endverb
+    \field{number}{7}
+    \field{pages}{1\bibrangedash 29}
+    \field{title}{{AI meets Formal Software Development (Dagstuhl Seminar
+  12271)}}
+    \field{volume}{2}
+    \list{location}{1}{%
+      {Dagstuhl, Germany}%
+    }
+    \field{journaltitle}{Dagstuhl Reports}
+    \field{year}{2012}
+  \endentry
+
+  \entry{JML}{article}{}
+    \name{author}{8}{}{%
+      {{hash=BL}{%
+         family={Burdy},
+         family_i={B\bibinitperiod},
+         given={Lilian},
+         given_i={L\bibinitperiod},
+      }}%
+      {{hash=CY}{%
+         family={Cheon},
+         family_i={C\bibinitperiod},
+         given={Yoonsik},
+         given_i={Y\bibinitperiod},
+      }}%
+      {{hash=CDR}{%
+         family={Cok},
+         family_i={C\bibinitperiod},
+         given={David\bibnamedelima R.},
+         given_i={D\bibinitperiod\bibinitdelim R\bibinitperiod},
+      }}%
+      {{hash=EMD}{%
+         family={Ernst},
+         family_i={E\bibinitperiod},
+         given={Michael\bibnamedelima D.},
+         given_i={M\bibinitperiod\bibinitdelim D\bibinitperiod},
+      }}%
+      {{hash=KJR}{%
+         family={Kiniry},
+         family_i={K\bibinitperiod},
+         given={Joseph\bibnamedelima R.},
+         given_i={J\bibinitperiod\bibinitdelim R\bibinitperiod},
+      }}%
+      {{hash=LGT}{%
+         family={Leavens},
+         family_i={L\bibinitperiod},
+         given={Gary\bibnamedelima T.},
+         given_i={G\bibinitperiod\bibinitdelim T\bibinitperiod},
+      }}%
+      {{hash=LKRM}{%
+         family={Leino},
+         family_i={L\bibinitperiod},
+         given={K.\bibnamedelima Rustan\bibnamedelima M.},
+         given_i={K\bibinitperiod\bibinitdelim R\bibinitperiod\bibinitdelim
+  M\bibinitperiod},
+      }}%
+      {{hash=PE}{%
+         family={Poll},
+         family_i={P\bibinitperiod},
+         given={Erik},
+         given_i={E\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BL+2}
+    \strng{fullhash}{BLCYCDREMDKJRLGTLKRMPE1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{number}{3}
+    \field{pages}{212\bibrangedash 232}
+    \field{title}{An overview of JML tools and applications}
+    \field{volume}{7}
+    \field{journaltitle}{International Journal on Software Tools for Technology
+  Transfer}
+    \field{year}{2005}
+  \endentry
+
+  \entry{OCLalt}{inproceedings}{}
+    \name{author}{2}{}{%
+      {{hash=CJ}{%
+         family={Cabot},
+         family_i={C\bibinitperiod},
+         given={Jordi},
+         given_i={J\bibinitperiod},
+      }}%
+      {{hash=TE}{%
+         family={Teniente},
+         family_i={T\bibinitperiod},
+         given={Ernest},
+         given_i={E\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{CJTE1}
+    \strng{fullhash}{CJTE1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \field{booktitle}{Workshop on Model Size Metrics (co-located with MODELS
+  2006)}
+    \field{title}{A metric for measuring the complexity of {OCL} expressions}
+    \list{location}{1}{%
+      {Genova, Italy}%
+    }
+    \field{month}{10}
+    \field{year}{2006}
+  \endentry
+
+  \entry{Charette:2005:WSF:2241236.2242319}{article}{}
+    \name{author}{1}{}{%
+      {{hash=CRN}{%
+         family={Charette},
+         family_i={C\bibinitperiod},
+         given={Robert\bibnamedelima N.},
+         given_i={R\bibinitperiod\bibinitdelim N\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {IEEE Press}%
+    }
+    \strng{namehash}{CRN1}
+    \strng{fullhash}{CRN1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \field{number}{9}
+    \field{pages}{42\bibrangedash 49}
+    \field{title}{Why Software Fails [Software Failure]}
+    \field{volume}{42}
+    \field{journaltitle}{IEEE Spectr.}
+    \field{month}{09}
+    \field{year}{2005}
+  \endentry
+
+  \entry{CandK}{article}{}
+    \name{author}{2}{}{%
+      {{hash=CSR}{%
+         family={Chidamber},
+         family_i={C\bibinitperiod},
+         given={Shyam\bibnamedelima R.},
+         given_i={S\bibinitperiod\bibinitdelim R\bibinitperiod},
+      }}%
+      {{hash=KCF}{%
+         family={Kemerer},
+         family_i={K\bibinitperiod},
+         given={Chris\bibnamedelima F.},
+         given_i={C\bibinitperiod\bibinitdelim F\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{CSRKCF1}
+    \strng{fullhash}{CSRKCF1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \field{number}{6}
+    \field{pages}{476\bibrangedash 493}
+    \field{title}{A metrics suite for object oriented design}
+    \field{volume}{20}
+    \field{journaltitle}{IEEE Transactions on Software Engineering}
+    \field{year}{1994}
+  \endentry
+
+  \entry{Claessen2015}{inproceedings}{}
+    \name{author}{4}{}{%
+      {{hash=CK}{%
+         family={Claessen},
+         family_i={C\bibinitperiod},
+         given={Koen},
+         given_i={K\bibinitperiod},
+      }}%
+      {{hash=JM}{%
+         family={Johansson},
+         family_i={J\bibinitperiod},
+         given={Moa},
+         given_i={M\bibinitperiod},
+      }}%
+      {{hash=RD}{%
+         family={Ros{\'e}n},
+         family_i={R\bibinitperiod},
+         given={Dan},
+         given_i={D\bibinitperiod},
+      }}%
+      {{hash=SN}{%
+         family={Smallbone},
+         family_i={S\bibinitperiod},
+         given={Nicholas},
+         given_i={N\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{CK+1}
+    \strng{fullhash}{CKJMRDSN1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \field{booktitle}{Intelligent Computer Mathematics: International
+  Conference}
+    \field{pages}{333\bibrangedash 337}
+    \field{title}{TIP: Tons of Inductive Problems}
+    \list{location}{1}{%
+      {Washington, DC, USA}%
+    }
+    \field{month}{07}
+    \field{year}{2015}
+  \endentry
+
+  \entry{OCL}{book}{}
+    \name{author}{2}{}{%
+      {{hash=CT}{%
+         family={Clark},
+         family_i={C\bibinitperiod},
+         given={Tony},
+         given_i={T\bibinitperiod},
+      }}%
+      {{hash=WJB}{%
+         family={Warmer},
+         family_i={W\bibinitperiod},
+         given={Jos\bibnamedelima B.},
+         given_i={J\bibinitperiod\bibinitdelim B\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer}%
+    }
+    \strng{namehash}{CTWJB1}
+    \strng{fullhash}{CTWJB1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \field{title}{Object modeling with the OCL: the rationale behind the Object
+  Constraint Language}
+    \list{location}{1}{%
+      {New York, USA}%
+    }
+    \field{year}{2002}
+  \endentry
+
+  \entry{SMTEVAL2013}{article}{}
+    \name{author}{3}{}{%
+      {{hash=CDR}{%
+         family={Cok},
+         family_i={C\bibinitperiod},
+         given={David\bibnamedelima R.},
+         given_i={D\bibinitperiod\bibinitdelim R\bibinitperiod},
+      }}%
+      {{hash=SA}{%
+         family={Stump},
+         family_i={S\bibinitperiod},
+         given={Aaron},
+         given_i={A\bibinitperiod},
+      }}%
+      {{hash=WT}{%
+         family={Weber},
+         family_i={W\bibinitperiod},
+         given={Tjark},
+         given_i={T\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{CDRSAWT1}
+    \strng{fullhash}{CDRSAWT1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \field{number}{1}
+    \field{pages}{61\bibrangedash 90}
+    \field{title}{The 2013 Evaluation of {SMT-COMP} and {SMT-LIB}}
+    \field{volume}{55}
+    \field{journaltitle}{Journal of Automated Reasoning}
+    \field{year}{2015}
+  \endentry
+
+  \entry{AltErgo}{misc}{}
+    \name{author}{2}{}{%
+      {{hash=CS}{%
+         family={Conchon},
+         family_i={C\bibinitperiod},
+         given={Sylvain},
+         given_i={S\bibinitperiod},
+      }}%
+      {{hash=CE}{%
+         family={Contejean},
+         family_i={C\bibinitperiod},
+         given={\'{E}van},
+         given_i={E\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{CSCE1}
+    \strng{fullhash}{CSCE1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \field{title}{The {A}lt-{E}rgo automatic theorem prover}
+    \verb{url}
+    \verb http://alt-ergo.lri.fr/
+    \endverb
+    \field{year}{2008}
+  \endentry
+
+  \entry{svm}{article}{}
+    \name{author}{2}{}{%
+      {{hash=CC}{%
+         family={Cortes},
+         family_i={C\bibinitperiod},
+         given={Corinna},
+         given_i={C\bibinitperiod},
+      }}%
+      {{hash=VV}{%
+         family={Vapnik},
+         family_i={V\bibinitperiod},
+         given={Vladimir},
+         given_i={V\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{CCVV1}
+    \strng{fullhash}{CCVV1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \field{number}{3}
+    \field{pages}{273\bibrangedash 297}
+    \field{title}{Support-Vector Networks}
+    \field{volume}{20}
+    \field{journaltitle}{Machine Learning}
+    \field{year}{1995}
+  \endentry
+
+  \entry{Z3}{inproceedings}{}
+    \name{author}{2}{}{%
+      {{hash=DML}{%
+         family={De\bibnamedelima Moura},
+         family_i={D\bibinitperiod\bibinitdelim M\bibinitperiod},
+         given={Leonardo},
+         given_i={L\bibinitperiod},
+      }}%
+      {{hash=BN}{%
+         family={Bj{\o}rner},
+         family_i={B\bibinitperiod},
+         given={Nikolaj},
+         given_i={N\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{DMLBN1}
+    \strng{fullhash}{DMLBN1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{D}
+    \field{sortinithash}{D}
+    \field{booktitle}{Tools and Algorithms for the Construction and Analysis of
+  Systems}
+    \field{pages}{337\bibrangedash 340}
+    \field{title}{Z3: An Efficient {SMT} Solver}
+    \list{location}{1}{%
+      {Budapest, Hungary}%
+    }
+    \field{month}{03}
+    \field{year}{2008}
+  \endentry
+
+  \entry{Delahaye2014}{inproceedings}{}
+    \name{author}{4}{}{%
+      {{hash=DD}{%
+         family={Delahaye},
+         family_i={D\bibinitperiod},
+         given={David},
+         given_i={D\bibinitperiod},
+      }}%
+      {{hash=DC}{%
+         family={Dubois},
+         family_i={D\bibinitperiod},
+         given={Catherine},
+         given_i={C\bibinitperiod},
+      }}%
+      {{hash=MC}{%
+         family={March{\'e}},
+         family_i={M\bibinitperiod},
+         given={Claude},
+         given_i={C\bibinitperiod},
+      }}%
+      {{hash=MD}{%
+         family={Mentr{\'e}},
+         family_i={M\bibinitperiod},
+         given={David},
+         given_i={D\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{DD+1}
+    \strng{fullhash}{DDDCMCMD1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{D}
+    \field{sortinithash}{D}
+    \field{booktitle}{Abstract State Machines, Alloy, B, TLA, VDM, and Z: 4th
+  International Conference, ABZ 2014}
+    \field{pages}{290\bibrangedash 293}
+    \field{title}{The BWare Project: Building a Proof Platform for the
+  Automated Verification of B Proof Obligations}
+    \list{location}{1}{%
+      {Toulouse, France}%
+    }
+    \field{month}{06}
+    \field{year}{2014}
+  \endentry
+
+  \entry{DPVZ15:CAV}{inproceedings}{}
+    \name{author}{4}{}{%
+      {{hash=DY}{%
+         family={Demyanova},
+         family_i={D\bibinitperiod},
+         given={Yulia},
+         given_i={Y\bibinitperiod},
+      }}%
+      {{hash=PT}{%
+         family={Pani},
+         family_i={P\bibinitperiod},
+         given={Thomas},
+         given_i={T\bibinitperiod},
+      }}%
+      {{hash=VH}{%
+         family={Veith},
+         family_i={V\bibinitperiod},
+         given={Helmut},
+         given_i={H\bibinitperiod},
+      }}%
+      {{hash=ZF}{%
+         family={Zuleger},
+         family_i={Z\bibinitperiod},
+         given={Florian},
+         given_i={F\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{DY+1}
+    \strng{fullhash}{DYPTVHZF1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{D}
+    \field{sortinithash}{D}
+    \field{booktitle}{Computer Aided Verification}
+    \field{pages}{561\bibrangedash 579}
+    \field{title}{Empirical Software Metrics for Benchmarking of Verification
+  Tools}
+    \list{location}{1}{%
+      {San Francisco, CA, USA}%
+    }
+    \field{month}{07}
+    \field{year}{2015}
+  \endentry
+
+  \entry{gappa}{inproceedings}{}
+    \name{author}{3}{}{%
+      {{hash=dDF}{%
+         prefix={de},
+         prefix_i={d\bibinitperiod},
+         family={Dinechin},
+         family_i={D\bibinitperiod},
+         given={Florent},
+         given_i={F\bibinitperiod},
+      }}%
+      {{hash=LCQ}{%
+         family={Lauter},
+         family_i={L\bibinitperiod},
+         given={Christoph\bibnamedelima Quirin},
+         given_i={C\bibinitperiod\bibinitdelim Q\bibinitperiod},
+      }}%
+      {{hash=MG}{%
+         family={Melquiond},
+         family_i={M\bibinitperiod},
+         given={Guillaume},
+         given_i={G\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{DFdLCQMG1}
+    \strng{fullhash}{DFdLCQMG1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{D}
+    \field{sortinithash}{D}
+    \field{booktitle}{ACM Symposium on Applied Computing}
+    \field{pages}{1318\bibrangedash 1322}
+    \field{title}{Assisted Verification of Elementary Functions Using Gappa}
+    \field{year}{2006}
+  \endentry
+
+  \entry{domingos2015master}{book}{}
+    \name{author}{1}{}{%
+      {{hash=DP}{%
+         family={Domingos},
+         family_i={D\bibinitperiod},
+         given={P.},
+         given_i={P\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Basic Books}%
+    }
+    \strng{namehash}{DP1}
+    \strng{fullhash}{DP1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{D}
+    \field{sortinithash}{D}
+    \field{title}{The Master Algorithm: How the Quest for the Ultimate Learning
+  Machine Will Remake Our World}
+    \field{year}{2015}
+  \endentry
+
+  \entry{hazelthesis}{thesis}{}
+    \name{author}{1}{}{%
+      {{hash=DH}{%
+         family={Duncan},
+         family_i={D\bibinitperiod},
+         given={Hazel},
+         given_i={H\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{DH1}
+    \strng{fullhash}{DH1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{D}
+    \field{sortinithash}{D}
+    \field{title}{The Use of Data-Mining for the Automatic Formation of
+  Tactics}
+    \verb{url}
+    \verb https://www.era.lib.ed.ac.uk/bitstream/handle/1842/1768/hazelthesis.p
+    \verb df
+    \endverb
+    \list{location}{1}{%
+      {UK}%
+    }
+    \list{institution}{1}{%
+      {School of Informatics, University of Edinburgh}%
+    }
+    \field{type}{phdthesis}
+    \field{year}{2007}
+  \endentry
+
+  \entry{Yices}{misc}{}
+    \name{author}{2}{}{%
+      {{hash=DB}{%
+         family={Dutertre},
+         family_i={D\bibinitperiod},
+         given={Bruno},
+         given_i={B\bibinitperiod},
+      }}%
+      {{hash=dML}{%
+         prefix={de},
+         prefix_i={d\bibinitperiod},
+         family={Moura},
+         family_i={M\bibinitperiod},
+         given={Leonardo},
+         given_i={L\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{DBMLd1}
+    \strng{fullhash}{DBMLd1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{D}
+    \field{sortinithash}{D}
+    \field{title}{The {Y}ices {SMT} Solver}
+    \verb{url}
+    \verb http://yices.csl.sri.com/papers/tool-paper.pdf
+    \endverb
+    \field{year}{2006}
+  \endentry
+
+  \entry{Farber2015}{inproceedings}{}
+    \name{author}{2}{}{%
+      {{hash=FM}{%
+         family={F{\"a}rber},
+         family_i={F\bibinitperiod},
+         given={Michael},
+         given_i={M\bibinitperiod},
+      }}%
+      {{hash=KC}{%
+         family={Kaliszyk},
+         family_i={K\bibinitperiod},
+         given={Cezary},
+         given_i={C\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{FMKC1}
+    \strng{fullhash}{FMKC1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{F}
+    \field{sortinithash}{F}
+    \field{booktitle}{Frontiers of Combining Systems: 10th International
+  Symposium}
+    \field{pages}{325\bibrangedash 340}
+    \field{title}{Random Forests for Premise Selection}
+    \list{location}{1}{%
+      {Wroclaw, Poland}%
+    }
+    \field{month}{09}
+    \field{year}{2015}
+  \endentry
+
+  \entry{meta-interptretive}{inproceedings}{}
+    \name{author}{5}{}{%
+      {{hash=FC}{%
+         family={Farquhar},
+         family_i={F\bibinitperiod},
+         given={Colin},
+         given_i={C\bibinitperiod},
+      }}%
+      {{hash=GG}{%
+         family={Grov},
+         family_i={G\bibinitperiod},
+         given={Gudmund},
+         given_i={G\bibinitperiod},
+      }}%
+      {{hash=CA}{%
+         family={Cropper},
+         family_i={C\bibinitperiod},
+         given={Andrew},
+         given_i={A\bibinitperiod},
+      }}%
+      {{hash=MS}{%
+         family={Muggleton},
+         family_i={M\bibinitperiod},
+         given={Stephen},
+         given_i={S\bibinitperiod},
+      }}%
+      {{hash=BA}{%
+         family={Bundy},
+         family_i={B\bibinitperiod},
+         given={Alan},
+         given_i={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{FC+1}
+    \strng{fullhash}{FCGGCAMSBA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{F}
+    \field{sortinithash}{F}
+    \field{booktitle}{Late Breaking Papers of Inductive Logic Programming 2015}
+    \field{title}{Typed meta-interpretive learning for proof strategies}
+    \verb{url}
+    \verb http://ceur-ws.org/Vol-1636/paper-02.pdf
+    \endverb
+    \list{location}{1}{%
+      {Kyoto, Japan}%
+    }
+    \field{month}{08}
+    \field{year}{2015}
+  \endentry
+
+  \entry{FentonPfleeger}{book}{}
+    \name{author}{2}{}{%
+      {{hash=FNE}{%
+         family={Fenton},
+         family_i={F\bibinitperiod},
+         given={Norman\bibnamedelima E.},
+         given_i={N\bibinitperiod\bibinitdelim E\bibinitperiod},
+      }}%
+      {{hash=PSL}{%
+         family={Pfleeger},
+         family_i={P\bibinitperiod},
+         given={Shari\bibnamedelima L.},
+         given_i={S\bibinitperiod\bibinitdelim L\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {PWS Pub}%
+    }
+    \strng{namehash}{FNEPSL1}
+    \strng{fullhash}{FNEPSL1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{F}
+    \field{sortinithash}{F}
+    \field{edition}{2nd}
+    \field{title}{Software metrics: a rigorous and practical approach}
+    \list{location}{1}{%
+      {Boston;London;}%
+    }
+    \field{year}{1997}
+  \endentry
+
+  \entry{deductiveSV}{article}{}
+    \name{author}{1}{}{%
+      {{hash=FJC}{%
+         family={Filli{\^a}tre},
+         family_i={F\bibinitperiod},
+         given={Jean-Christophe},
+         given_i={J\bibinitperiod-C\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{FJC1}
+    \strng{fullhash}{FJC1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{F}
+    \field{sortinithash}{F}
+    \field{number}{5}
+    \field{pages}{397\bibrangedash 403}
+    \field{title}{Deductive software verification}
+    \field{volume}{13}
+    \field{journaltitle}{International Journal on Software Tools for Technology
+  Transfer}
+    \field{year}{2011}
+  \endentry
+
+  \entry{why:whereprovers}{inproceedings}{}
+    \name{author}{2}{}{%
+      {{hash=FJC}{%
+         family={Filli{\^a}tre},
+         family_i={F\bibinitperiod},
+         given={Jean-Christophe},
+         given_i={J\bibinitperiod-C\bibinitperiod},
+      }}%
+      {{hash=PA}{%
+         family={Paskevich},
+         family_i={P\bibinitperiod},
+         given={Andrei},
+         given_i={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{FJCPA1}
+    \strng{fullhash}{FJCPA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{F}
+    \field{sortinithash}{F}
+    \field{booktitle}{Programming Languages and Systems: 22nd European
+  Symposium on Programming, ESOP 2013.}
+    \field{pages}{125\bibrangedash 128}
+    \field{title}{Why3 --- Where Programs Meet Provers}
+    \list{location}{1}{%
+      {Rome, Italy}%
+    }
+    \field{month}{03}
+    \field{year}{2013}
+  \endentry
+
+  \entry{ClassificationSurvey}{article}{}
+    \name{author}{3}{}{%
+      {{hash=GE}{%
+         family={Gandotra},
+         family_i={G\bibinitperiod},
+         given={Ekta},
+         given_i={E\bibinitperiod},
+      }}%
+      {{hash=BD}{%
+         family={Bansal},
+         family_i={B\bibinitperiod},
+         given={Divya},
+         given_i={D\bibinitperiod},
+      }}%
+      {{hash=SS}{%
+         family={Sofat},
+         family_i={S\bibinitperiod},
+         given={Sanjeev},
+         given_i={S\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{GEBDSS1}
+    \strng{fullhash}{GEBDSS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{G}
+    \field{sortinithash}{G}
+    \verb{doi}
+    \verb 10.4236/jis.2014.52006
+    \endverb
+    \field{pages}{56\bibrangedash 64}
+    \field{title}{Malware Analysis and Classification: A Survey}
+    \field{volume}{5}
+    \field{journaltitle}{Journal of Information Security}
+    \field{year}{2014}
+  \endentry
+
+  \entry{hales-kepler}{misc}{}
+    \name{author}{22}{}{%
+      {{hash=HTC}{%
+         family={Hales},
+         family_i={H\bibinitperiod},
+         given={Thomas\bibnamedelima C.},
+         given_i={T\bibinitperiod\bibinitdelim C\bibinitperiod},
+      }}%
+      {{hash=AM}{%
+         family={Adams},
+         family_i={A\bibinitperiod},
+         given={Mark},
+         given_i={M\bibinitperiod},
+      }}%
+      {{hash=BG}{%
+         family={Bauer},
+         family_i={B\bibinitperiod},
+         given={Gertrud},
+         given_i={G\bibinitperiod},
+      }}%
+      {{hash=DDT}{%
+         family={Dang},
+         family_i={D\bibinitperiod},
+         given={Dat\bibnamedelima Tat},
+         given_i={D\bibinitperiod\bibinitdelim T\bibinitperiod},
+      }}%
+      {{hash=HJ}{%
+         family={Harrison},
+         family_i={H\bibinitperiod},
+         given={John},
+         given_i={J\bibinitperiod},
+      }}%
+      {{hash=HTL}{%
+         family={Hoang},
+         family_i={H\bibinitperiod},
+         given={Truong\bibnamedelima Le},
+         given_i={T\bibinitperiod\bibinitdelim L\bibinitperiod},
+      }}%
+      {{hash=KC}{%
+         family={Kaliszyk},
+         family_i={K\bibinitperiod},
+         given={Cezary},
+         given_i={C\bibinitperiod},
+      }}%
+      {{hash=MV}{%
+         family={Magron},
+         family_i={M\bibinitperiod},
+         given={Victor},
+         given_i={V\bibinitperiod},
+      }}%
+      {{hash=MS}{%
+         family={McLaughlin},
+         family_i={M\bibinitperiod},
+         given={Sean},
+         given_i={S\bibinitperiod},
+      }}%
+      {{hash=NTT}{%
+         family={Nguyen},
+         family_i={N\bibinitperiod},
+         given={Thang\bibnamedelima Tat},
+         given_i={T\bibinitperiod\bibinitdelim T\bibinitperiod},
+      }}%
+      {{hash=NTQ}{%
+         family={Nguyen},
+         family_i={N\bibinitperiod},
+         given={Truong\bibnamedelima Quang},
+         given_i={T\bibinitperiod\bibinitdelim Q\bibinitperiod},
+      }}%
+      {{hash=NT}{%
+         family={Nipkow},
+         family_i={N\bibinitperiod},
+         given={Tobias},
+         given_i={T\bibinitperiod},
+      }}%
+      {{hash=OS}{%
+         family={Obua},
+         family_i={O\bibinitperiod},
+         given={Steven},
+         given_i={S\bibinitperiod},
+      }}%
+      {{hash=PJ}{%
+         family={Pleso},
+         family_i={P\bibinitperiod},
+         given={Joseph},
+         given_i={J\bibinitperiod},
+      }}%
+      {{hash=RJ}{%
+         family={Rute},
+         family_i={R\bibinitperiod},
+         given={Jason},
+         given_i={J\bibinitperiod},
+      }}%
+      {{hash=SA}{%
+         family={Solovyev},
+         family_i={S\bibinitperiod},
+         given={Alexey},
+         given_i={A\bibinitperiod},
+      }}%
+      {{hash=TAHT}{%
+         family={Ta},
+         family_i={T\bibinitperiod},
+         given={An\bibnamedelima Hoai\bibnamedelima Thi},
+         given_i={A\bibinitperiod\bibinitdelim H\bibinitperiod\bibinitdelim
+  T\bibinitperiod},
+      }}%
+      {{hash=TTN}{%
+         family={Tran},
+         family_i={T\bibinitperiod},
+         given={Trung\bibnamedelima Nam},
+         given_i={T\bibinitperiod\bibinitdelim N\bibinitperiod},
+      }}%
+      {{hash=TDT}{%
+         family={Trieu},
+         family_i={T\bibinitperiod},
+         given={Diep\bibnamedelima Thi},
+         given_i={D\bibinitperiod\bibinitdelim T\bibinitperiod},
+      }}%
+      {{hash=UJ}{%
+         family={Urban},
+         family_i={U\bibinitperiod},
+         given={Josef},
+         given_i={J\bibinitperiod},
+      }}%
+      {{hash=VKK}{%
+         family={Vu},
+         family_i={V\bibinitperiod},
+         given={Ky\bibnamedelima Khac},
+         given_i={K\bibinitperiod\bibinitdelim K\bibinitperiod},
+      }}%
+      {{hash=ZR}{%
+         family={Zumkeller},
+         family_i={Z\bibinitperiod},
+         given={Roland},
+         given_i={R\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{HTC+1}
+    \strng{fullhash}{HTCAMBGDDTHJHTLKCMVMSNTTNTQNTOSPJRJSATAHTTTNTDTUJVKKZR1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{H}
+    \field{sortinithash}{H}
+    \verb{eprint}
+    \verb 1501.02155
+    \endverb
+    \field{title}{A formal proof of the Kepler conjecture}
+    \field{eprinttype}{arXiv}
+    \field{year}{2015}
+  \endentry
+
+  \entry{aris}{thesis}{}
+    \name{author}{1}{}{%
+      {{hash=HF}{%
+         family={Halim},
+         family_i={H\bibinitperiod},
+         given={Felicia},
+         given_i={F\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{HF1}
+    \strng{fullhash}{HF1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{H}
+    \field{sortinithash}{H}
+    \field{title}{Evaluate and Benchmark Ar\'{\i}s}
+    \verb{url}
+    \verb http://eprints.maynoothuniversity.ie/5341/
+    \endverb
+    \list{institution}{1}{%
+      {National University of Ireland Maynooth}%
+    }
+    \field{type}{mathesis}
+    \field{month}{07}
+    \field{year}{2014}
+  \endentry
+
+  \entry{Healy:2016}{inproceedings}{}
+    \name{author}{3}{}{%
+      {{hash=HA}{%
+         family={Healy},
+         family_i={H\bibinitperiod},
+         given={Andrew},
+         given_i={A\bibinitperiod},
+      }}%
+      {{hash=MR}{%
+         family={Monahan},
+         family_i={M\bibinitperiod},
+         given={Rosemary},
+         given_i={R\bibinitperiod},
+      }}%
+      {{hash=PJF}{%
+         family={Power},
+         family_i={P\bibinitperiod},
+         given={James\bibnamedelima F.},
+         given_i={J\bibinitperiod\bibinitdelim F\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{HAMRPJF1}
+    \strng{fullhash}{HAMRPJF1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{H}
+    \field{sortinithash}{H}
+    \field{booktitle}{31st Annual ACM Symposium on Applied Computing}
+    \field{pages}{1558\bibrangedash 1561}
+    \field{title}{Evaluating the Use of a General-purpose Benchmark Suite for
+  Domain-specific SMT-solving}
+    \list{location}{1}{%
+      {Pisa, Italy}%
+    }
+    \field{month}{05}
+    \field{year}{2016}
+  \endentry
+
+  \entry{FIDE2016}{inproceedings}{}
+    \name{author}{3}{}{%
+      {{hash=HA}{%
+         family={Healy},
+         family_i={H\bibinitperiod},
+         given={Andrew},
+         given_i={A\bibinitperiod},
+      }}%
+      {{hash=MR}{%
+         family={Monahan},
+         family_i={M\bibinitperiod},
+         given={Rosemary},
+         given_i={R\bibinitperiod},
+      }}%
+      {{hash=PJF}{%
+         family={Power},
+         family_i={P\bibinitperiod},
+         given={James\bibnamedelima F.},
+         given_i={J\bibinitperiod\bibinitdelim F\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{HAMRPJF1}
+    \strng{fullhash}{HAMRPJF1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{H}
+    \field{sortinithash}{H}
+    \field{booktitle}{{\rm Proceedings of the Third Workshop on} Formal
+  Integrated Development Environment}
+    \field{pages}{20\bibrangedash 37}
+    \field{title}{Predicting SMT Solver Performance for Software Verification}
+    \list{location}{1}{%
+      {Limassol, Cyprus}%
+    }
+    \field{year}{2017}
+  \endentry
+
+  \entry{Heras2013}{inproceedings}{}
+    \name{author}{4}{}{%
+      {{hash=HJ}{%
+         family={Heras},
+         family_i={H\bibinitperiod},
+         given={J{\'o}nathan},
+         given_i={J\bibinitperiod},
+      }}%
+      {{hash=KE}{%
+         family={Komendantskaya},
+         family_i={K\bibinitperiod},
+         given={Ekaterina},
+         given_i={E\bibinitperiod},
+      }}%
+      {{hash=JM}{%
+         family={Johansson},
+         family_i={J\bibinitperiod},
+         given={Moa},
+         given_i={M\bibinitperiod},
+      }}%
+      {{hash=ME}{%
+         family={Maclean},
+         family_i={M\bibinitperiod},
+         given={Ewen},
+         given_i={E\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{HJ+1}
+    \strng{fullhash}{HJKEJMME1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{H}
+    \field{sortinithash}{H}
+    \field{booktitle}{Logic for Programming, Artificial Intelligence, and
+  Reasoning: 19th International Conference}
+    \field{pages}{389\bibrangedash 406}
+    \field{title}{Proof-Pattern Recognition and Lemma Discovery in ACL2}
+    \list{location}{1}{%
+      {Stellenbosch, South Africa}%
+    }
+    \field{month}{12}
+    \field{year}{2013}
+  \endentry
+
+  \entry{ridge}{article}{}
+    \name{author}{2}{}{%
+      {{hash=HAE}{%
+         family={Hoerl},
+         family_i={H\bibinitperiod},
+         given={Arthur\bibnamedelima E.},
+         given_i={A\bibinitperiod\bibinitdelim E\bibinitperiod},
+      }}%
+      {{hash=KRW}{%
+         family={Kennard},
+         family_i={K\bibinitperiod},
+         given={Robert\bibnamedelima W.},
+         given_i={R\bibinitperiod\bibinitdelim W\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{HAEKRW1}
+    \strng{fullhash}{HAEKRW1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{H}
+    \field{sortinithash}{H}
+    \field{number}{1}
+    \field{pages}{80\bibrangedash 86}
+    \field{title}{Ridge Regression: Biased Estimation for Nonorthogonal
+  Problems}
+    \field{volume}{42}
+    \field{journaltitle}{Technometrics}
+    \field{year}{2000}
+  \endentry
+
+  \entry{hsu2003practical}{misc}{}
+    \name{author}{3}{}{%
+      {{hash=HCW}{%
+         family={Hsu},
+         family_i={H\bibinitperiod},
+         given={Chih-Wei},
+         given_i={C\bibinitperiod-W\bibinitperiod},
+      }}%
+      {{hash=CCC}{%
+         family={Chang},
+         family_i={C\bibinitperiod},
+         given={Chih-Chung},
+         given_i={C\bibinitperiod-C\bibinitperiod},
+      }}%
+      {{hash=LCJ}{%
+         family={Lin},
+         family_i={L\bibinitperiod},
+         given={Chih-Jen},
+         given_i={C\bibinitperiod-J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{HCWCCCLCJ1}
+    \strng{fullhash}{HCWCCCLCJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{H}
+    \field{sortinithash}{H}
+    \field{title}{A practical guide to support vector classification}
+    \verb{url}
+    \verb http://www.csie.ntu.edu.tw/~cjlin/papers/guide/guide.pdf
+    \endverb
+    \field{year}{2003}
+  \endentry
+
+  \entry{MulticlassSVM}{article}{}
+    \name{author}{2}{}{%
+      {{hash=HCW}{%
+         family={Hsu},
+         family_i={H\bibinitperiod},
+         given={Chih-Wei},
+         given_i={C\bibinitperiod-W\bibinitperiod},
+      }}%
+      {{hash=LCJ}{%
+         family={Lin},
+         family_i={L\bibinitperiod},
+         given={Chih-Jen},
+         given_i={C\bibinitperiod-J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{HCWLCJ1}
+    \strng{fullhash}{HCWLCJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{H}
+    \field{sortinithash}{H}
+    \field{number}{2}
+    \field{pages}{415\bibrangedash 425}
+    \field{title}{A comparison of methods for multiclass support vector
+  machines}
+    \field{volume}{13}
+    \field{journaltitle}{IEEE Transactions on Neural Networks}
+    \field{year}{2002}
+  \endentry
+
+  \entry{cloudML}{article}{}
+    \name{author}{5}{}{%
+      {{hash=HCJ}{%
+         family={Huang},
+         family_i={H\bibinitperiod},
+         given={Chenn-Jung},
+         given_i={C\bibinitperiod-J\bibinitperiod},
+      }}%
+      {{hash=WYW}{%
+         family={Wang},
+         family_i={W\bibinitperiod},
+         given={Yu-Wu},
+         given_i={Y\bibinitperiod-W\bibinitperiod},
+      }}%
+      {{hash=GCT}{%
+         family={Guan},
+         family_i={G\bibinitperiod},
+         given={Chih-Tai},
+         given_i={C\bibinitperiod-T\bibinitperiod},
+      }}%
+      {{hash=CHM}{%
+         family={Chen},
+         family_i={C\bibinitperiod},
+         given={Heng-Ming},
+         given_i={H\bibinitperiod-M\bibinitperiod},
+      }}%
+      {{hash=JJJ}{%
+         family={Jian},
+         family_i={J\bibinitperiod},
+         given={Jui-Jiun},
+         given_i={J\bibinitperiod-J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{HCJ+1}
+    \strng{fullhash}{HCJWYWGCTCHMJJJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{H}
+    \field{sortinithash}{H}
+    \field{number}{2}
+    \field{pages}{148\bibrangedash 152}
+    \field{title}{Applications of Machine Learning to Resource Management in
+  Cloud Computing}
+    \field{volume}{3}
+    \field{journaltitle}{International Journal of Modeling and Optimization}
+    \field{year}{2013}
+  \endentry
+
+  \entry{Huisman2015}{article}{}
+    \name{author}{3}{}{%
+      {{hash=HM}{%
+         family={Huisman},
+         family_i={H\bibinitperiod},
+         given={Marieke},
+         given_i={M\bibinitperiod},
+      }}%
+      {{hash=KV}{%
+         family={Klebanov},
+         family_i={K\bibinitperiod},
+         given={Vladimir},
+         given_i={V\bibinitperiod},
+      }}%
+      {{hash=MR}{%
+         family={Monahan},
+         family_i={M\bibinitperiod},
+         given={Rosemary},
+         given_i={R\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{HMKVMR1}
+    \strng{fullhash}{HMKVMR1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{H}
+    \field{sortinithash}{H}
+    \field{number}{6}
+    \field{pages}{647\bibrangedash 657}
+    \field{title}{VerifyThis 2012}
+    \field{volume}{17}
+    \field{journaltitle}{International Journal on Software Tools for Technology
+  Transfer}
+    \field{year}{2015}
+  \endentry
+
+  \entry{Hurley2014}{inproceedings}{}
+    \name{author}{4}{}{%
+      {{hash=HB}{%
+         family={Hurley},
+         family_i={H\bibinitperiod},
+         given={Barry},
+         given_i={B\bibinitperiod},
+      }}%
+      {{hash=KL}{%
+         family={Kotthoff},
+         family_i={K\bibinitperiod},
+         given={Lars},
+         given_i={L\bibinitperiod},
+      }}%
+      {{hash=MY}{%
+         family={Malitsky},
+         family_i={M\bibinitperiod},
+         given={Yuri},
+         given_i={Y\bibinitperiod},
+      }}%
+      {{hash=OB}{%
+         family={O'Sullivan},
+         family_i={O\bibinitperiod},
+         given={Barry},
+         given_i={B\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{HB+1}
+    \strng{fullhash}{HBKLMYOB1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{H}
+    \field{sortinithash}{H}
+    \field{booktitle}{Integration of AI and OR Techniques in Constraint
+  Programming: 11th International Conference}
+    \field{pages}{301\bibrangedash 317}
+    \field{title}{Proteus: A Hierarchical Portfolio of Solvers and
+  Transformations}
+    \list{location}{1}{%
+      {Cork, Ireland}%
+    }
+    \field{month}{05}
+    \field{year}{2014}
+  \endentry
+
+  \entry{rodinplugin}{inproceedings}{}
+    \name{author}{4}{}{%
+      {{hash=IA}{%
+         family={Iliasov},
+         family_i={I\bibinitperiod},
+         given={Alexei},
+         given_i={A\bibinitperiod},
+      }}%
+      {{hash=SP}{%
+         family={Stankaitis},
+         family_i={S\bibinitperiod},
+         given={Paulius},
+         given_i={P\bibinitperiod},
+      }}%
+      {{hash=AYD}{%
+         family={Adjepon-Yamoah},
+         family_i={A\bibinitperiod-Y\bibinitperiod},
+         given={David},
+         given_i={D\bibinitperiod},
+      }}%
+      {{hash=RA}{%
+         family={Romanovsky},
+         family_i={R\bibinitperiod},
+         given={Alexander},
+         given_i={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{IA+1}
+    \strng{fullhash}{IASPAYDRA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{I}
+    \field{sortinithash}{I}
+    \field{booktitle}{ABZ 2016: Abstract State Machines, Alloy, B, TLA, VDM,
+  and Z: 5th International Conference}
+    \field{pages}{275\bibrangedash 281}
+    \field{title}{Rodin Platform {W}hy3 Plug-In}
+    \list{location}{1}{%
+      {Linz, Austria}%
+    }
+    \field{month}{05}
+    \field{year}{2016}
+  \endentry
+
+  \entry{AutomaticLearning}{article}{}
+    \name{author}{3}{}{%
+      {{hash=JM}{%
+         family={Jamnik},
+         family_i={J\bibinitperiod},
+         given={Mateja},
+         given_i={M\bibinitperiod},
+      }}%
+      {{hash=KM}{%
+         family={Kerber},
+         family_i={K\bibinitperiod},
+         given={Manfred},
+         given_i={M\bibinitperiod},
+      }}%
+      {{hash=PM}{%
+         family={Pollet},
+         family_i={P\bibinitperiod},
+         given={Martin},
+         given_i={M\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{JMKMPM1}
+    \strng{fullhash}{JMKMPM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{J}
+    \field{sortinithash}{J}
+    \field{number}{6}
+    \field{pages}{647\bibrangedash 673}
+    \field{title}{Automatic Learning of Proof Methods in Proof Planning}
+    \field{volume}{11}
+    \field{journaltitle}{Logic Journal of IGPL}
+    \field{year}{2003}
+  \endentry
+
+  \entry{NDCG}{article}{}
+    \name{author}{1}{}{%
+      {{hash=JK}{%
+         family={J\"{a}rvelin},
+         family_i={J\bibinitperiod},
+         given={Kalervo},
+         given_i={K\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {ACM}%
+    }
+    \strng{namehash}{JK1}
+    \strng{fullhash}{JK1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{J}
+    \field{sortinithash}{J}
+    \field{number}{2}
+    \field{pages}{17\bibrangedash 31}
+    \field{title}{{IR} Research: Systems, Interaction, Evaluation and Theories}
+    \field{volume}{45}
+    \list{location}{1}{%
+      {New York, NY, USA}%
+    }
+    \field{journaltitle}{SIGIR Forum}
+    \field{year}{2012}
+  \endentry
+
+  \entry{Flyspec}{article}{}
+    \name{author}{2}{}{%
+      {{hash=KC}{%
+         family={Kaliszyk},
+         family_i={K\bibinitperiod},
+         given={Cezary},
+         given_i={C\bibinitperiod},
+      }}%
+      {{hash=UJ}{%
+         family={Urban},
+         family_i={U\bibinitperiod},
+         given={Josef},
+         given_i={J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{KCUJ1}
+    \strng{fullhash}{KCUJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{K}
+    \field{sortinithash}{K}
+    \field{number}{2}
+    \field{pages}{173\bibrangedash 213}
+    \field{title}{Learning-Assisted Automated Reasoning with {F}lyspeck}
+    \field{volume}{53}
+    \field{journaltitle}{Journal of Automated Reasoning}
+    \field{year}{2014}
+  \endentry
+
+  \entry{Kaliszyk2015109}{article}{}
+    \name{author}{2}{}{%
+      {{hash=KC}{%
+         family={Kaliszyk},
+         family_i={K\bibinitperiod},
+         given={Cezary},
+         given_i={C\bibinitperiod},
+      }}%
+      {{hash=UJ}{%
+         family={Urban},
+         family_i={U\bibinitperiod},
+         given={Josef},
+         given_i={J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{KCUJ1}
+    \strng{fullhash}{KCUJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{K}
+    \field{sortinithash}{K}
+    \field{pages}{109 \bibrangedash  128}
+    \field{title}{Learning-assisted theorem proving with millions of lemmas}
+    \field{volume}{69}
+    \field{journaltitle}{Journal of Symbolic Computation}
+    \field{month}{07}
+    \field{year}{2015}
+  \endentry
+
+  \entry{Kitchenham2016}{article}{}
+    \name{author}{8}{}{%
+      {{hash=KB}{%
+         family={Kitchenham},
+         family_i={K\bibinitperiod},
+         given={Barbara},
+         given_i={B\bibinitperiod},
+      }}%
+      {{hash=ML}{%
+         family={Madeyski},
+         family_i={M\bibinitperiod},
+         given={Lech},
+         given_i={L\bibinitperiod},
+      }}%
+      {{hash=BD}{%
+         family={Budgen},
+         family_i={B\bibinitperiod},
+         given={David},
+         given_i={D\bibinitperiod},
+      }}%
+      {{hash=KJ}{%
+         family={Keung},
+         family_i={K\bibinitperiod},
+         given={Jacky},
+         given_i={J\bibinitperiod},
+      }}%
+      {{hash=BP}{%
+         family={Brereton},
+         family_i={B\bibinitperiod},
+         given={Pearl},
+         given_i={P\bibinitperiod},
+      }}%
+      {{hash=CS}{%
+         family={Charters},
+         family_i={C\bibinitperiod},
+         given={Stuart},
+         given_i={S\bibinitperiod},
+      }}%
+      {{hash=GS}{%
+         family={Gibbs},
+         family_i={G\bibinitperiod},
+         given={Shirley},
+         given_i={S\bibinitperiod},
+      }}%
+      {{hash=PA}{%
+         family={Pohthong},
+         family_i={P\bibinitperiod},
+         given={Amnart},
+         given_i={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{KB+1}
+    \strng{fullhash}{KBMLBDKJBPCSGSPA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{K}
+    \field{sortinithash}{K}
+    \verb{doi}
+    \verb 10.1007/s10664-016-9437-5
+    \endverb
+    \field{pages}{1\bibrangedash 52}
+    \field{title}{Robust Statistical Methods for Empirical Software
+  Engineering}
+    \field{journaltitle}{Empirical Software Engineering}
+    \field{year}{2016}
+  \endentry
+
+  \entry{Klebanov2011}{inproceedings}{}
+    \name{author}{22}{}{%
+      {{hash=KV}{%
+         family={Klebanov},
+         family_i={K\bibinitperiod},
+         given={Vladimir},
+         given_i={V\bibinitperiod},
+      }}%
+      {{hash=MP}{%
+         family={M{\"u}ller},
+         family_i={M\bibinitperiod},
+         given={Peter},
+         given_i={P\bibinitperiod},
+      }}%
+      {{hash=SN}{%
+         family={Shankar},
+         family_i={S\bibinitperiod},
+         given={Natarajan},
+         given_i={N\bibinitperiod},
+      }}%
+      {{hash=LGT}{%
+         family={Leavens},
+         family_i={L\bibinitperiod},
+         given={Gary\bibnamedelima T.},
+         given_i={G\bibinitperiod\bibinitdelim T\bibinitperiod},
+      }}%
+      {{hash=WV}{%
+         family={W{\"u}stholz},
+         family_i={W\bibinitperiod},
+         given={Valentin},
+         given_i={V\bibinitperiod},
+      }}%
+      {{hash=AE}{%
+         family={Alkassar},
+         family_i={A\bibinitperiod},
+         given={Eyad},
+         given_i={E\bibinitperiod},
+      }}%
+      {{hash=AR}{%
+         family={Arthan},
+         family_i={A\bibinitperiod},
+         given={Rob},
+         given_i={R\bibinitperiod},
+      }}%
+      {{hash=BD}{%
+         family={Bronish},
+         family_i={B\bibinitperiod},
+         given={Derek},
+         given_i={D\bibinitperiod},
+      }}%
+      {{hash=CR}{%
+         family={Chapman},
+         family_i={C\bibinitperiod},
+         given={Rod},
+         given_i={R\bibinitperiod},
+      }}%
+      {{hash=CE}{%
+         family={Cohen},
+         family_i={C\bibinitperiod},
+         given={Ernie},
+         given_i={E\bibinitperiod},
+      }}%
+      {{hash=HM}{%
+         family={Hillebrand},
+         family_i={H\bibinitperiod},
+         given={Mark},
+         given_i={M\bibinitperiod},
+      }}%
+      {{hash=JB}{%
+         family={Jacobs},
+         family_i={J\bibinitperiod},
+         given={Bart},
+         given_i={B\bibinitperiod},
+      }}%
+      {{hash=LKRM}{%
+         family={Leino},
+         family_i={L\bibinitperiod},
+         given={K.\bibnamedelima Rustan\bibnamedelima M.},
+         given_i={K\bibinitperiod\bibinitdelim R\bibinitperiod\bibinitdelim
+  M\bibinitperiod},
+      }}%
+      {{hash=MR}{%
+         family={Monahan},
+         family_i={M\bibinitperiod},
+         given={Rosemary},
+         given_i={R\bibinitperiod},
+      }}%
+      {{hash=PF}{%
+         family={Piessens},
+         family_i={P\bibinitperiod},
+         given={Frank},
+         given_i={F\bibinitperiod},
+      }}%
+      {{hash=PN}{%
+         family={Polikarpova},
+         family_i={P\bibinitperiod},
+         given={Nadia},
+         given_i={N\bibinitperiod},
+      }}%
+      {{hash=RT}{%
+         family={Ridge},
+         family_i={R\bibinitperiod},
+         given={Tom},
+         given_i={T\bibinitperiod},
+      }}%
+      {{hash=SJ}{%
+         family={Smans},
+         family_i={S\bibinitperiod},
+         given={Jan},
+         given_i={J\bibinitperiod},
+      }}%
+      {{hash=TS}{%
+         family={Tobies},
+         family_i={T\bibinitperiod},
+         given={Stephan},
+         given_i={S\bibinitperiod},
+      }}%
+      {{hash=TT}{%
+         family={Tuerk},
+         family_i={T\bibinitperiod},
+         given={Thomas},
+         given_i={T\bibinitperiod},
+      }}%
+      {{hash=UM}{%
+         family={Ulbrich},
+         family_i={U\bibinitperiod},
+         given={Mattias},
+         given_i={M\bibinitperiod},
+      }}%
+      {{hash=WB}{%
+         family={Wei{\ss}},
+         family_i={W\bibinitperiod},
+         given={Benjamin},
+         given_i={B\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{KV+1}
+    \strng{fullhash}{KVMPSNLGTWVAEARBDCRCEHMJBLKRMMRPFPNRTSJTSTTUMWB1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{K}
+    \field{sortinithash}{K}
+    \field{booktitle}{FM 2011: 17th International Symposium on Formal Methods}
+    \field{pages}{154\bibrangedash 168}
+    \field{title}{The 1st Verified Software Competition: Experience Report}
+    \list{location}{1}{%
+      {Limerick, Ireland}%
+    }
+    \field{month}{06}
+    \field{year}{2011}
+  \endentry
+
+  \entry{Klein2014}{inproceedings}{}
+    \name{author}{1}{}{%
+      {{hash=KG}{%
+         family={Klein},
+         family_i={K\bibinitperiod},
+         given={Gerwin},
+         given_i={G\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{KG1}
+    \strng{fullhash}{KG1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{K}
+    \field{sortinithash}{K}
+    \field{booktitle}{FM 2014: Formal Methods: 19th International Symposium}
+    \field{pages}{16\bibrangedash 21}
+    \field{title}{Proof Engineering Considered Essential}
+    \list{location}{1}{%
+      {Singapore}%
+    }
+    \field{month}{05}
+    \field{year}{2014}
+  \endentry
+
+  \entry{Klein:2014:CFV}{article}{}
+    \name{author}{7}{}{%
+      {{hash=KG}{%
+         family={Klein},
+         family_i={K\bibinitperiod},
+         given={Gerwin},
+         given_i={G\bibinitperiod},
+      }}%
+      {{hash=AJ}{%
+         family={Andronick},
+         family_i={A\bibinitperiod},
+         given={June},
+         given_i={J\bibinitperiod},
+      }}%
+      {{hash=EK}{%
+         family={Elphinstone},
+         family_i={E\bibinitperiod},
+         given={Kevin},
+         given_i={K\bibinitperiod},
+      }}%
+      {{hash=MT}{%
+         family={Murray},
+         family_i={M\bibinitperiod},
+         given={Toby},
+         given_i={T\bibinitperiod},
+      }}%
+      {{hash=ST}{%
+         family={Sewell},
+         family_i={S\bibinitperiod},
+         given={Thomas},
+         given_i={T\bibinitperiod},
+      }}%
+      {{hash=KR}{%
+         family={Kolanski},
+         family_i={K\bibinitperiod},
+         given={Rafal},
+         given_i={R\bibinitperiod},
+      }}%
+      {{hash=HG}{%
+         family={Heiser},
+         family_i={H\bibinitperiod},
+         given={Gernot},
+         given_i={G\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {ACM}%
+    }
+    \strng{namehash}{KG+1}
+    \strng{fullhash}{KGAJEKMTSTKRHG1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{K}
+    \field{sortinithash}{K}
+    \field{number}{1}
+    \field{pages}{2:1\bibrangedash 2:70}
+    \field{title}{Comprehensive Formal Verification of an OS Microkernel}
+    \field{volume}{32}
+    \list{location}{1}{%
+      {New York, NY, USA}%
+    }
+    \field{journaltitle}{ACM Transactions on Computer Systems}
+    \field{month}{02}
+    \field{year}{2014}
+  \endentry
+
+  \entry{ML4PG}{inproceedings}{}
+    \name{author}{3}{}{%
+      {{hash=KE}{%
+         family={Komendantskaya},
+         family_i={K\bibinitperiod},
+         given={Ekaterina},
+         given_i={E\bibinitperiod},
+      }}%
+      {{hash=HJ}{%
+         family={Heras},
+         family_i={H\bibinitperiod},
+         given={J{\'{o}}nathan},
+         given_i={J\bibinitperiod},
+      }}%
+      {{hash=GG}{%
+         family={Grov},
+         family_i={G\bibinitperiod},
+         given={Gudmund},
+         given_i={G\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{KEHJGG1}
+    \strng{fullhash}{KEHJGG1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{K}
+    \field{sortinithash}{K}
+    \field{booktitle}{10th International Workshop On User Interfaces for
+  Theorem Provers}
+    \field{pages}{15\bibrangedash 41}
+    \field{title}{Machine Learning in Proof General: Interfacing Interfaces}
+    \list{location}{1}{%
+      {Bremen, Germany}%
+    }
+    \field{month}{07}
+    \field{year}{2012}
+  \endentry
+
+  \entry{spark}{inproceedings}{}
+    \name{author}{4}{}{%
+      {{hash=KN}{%
+         family={Kosmatov},
+         family_i={K\bibinitperiod},
+         given={Nikolai},
+         given_i={N\bibinitperiod},
+      }}%
+      {{hash=MC}{%
+         family={March{\'e}},
+         family_i={M\bibinitperiod},
+         given={Claude},
+         given_i={C\bibinitperiod},
+      }}%
+      {{hash=MY}{%
+         family={Moy},
+         family_i={M\bibinitperiod},
+         given={Yannick},
+         given_i={Y\bibinitperiod},
+      }}%
+      {{hash=SJ}{%
+         family={Signoles},
+         family_i={S\bibinitperiod},
+         given={Julien},
+         given_i={J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{KN+1}
+    \strng{fullhash}{KNMCMYSJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{K}
+    \field{sortinithash}{K}
+    \field{booktitle}{{7th International Symposium on Leveraging Applications}}
+    \field{pages}{16}
+    \field{title}{{Static versus Dynamic Verification in Why3, Frama-C and
+  SPARK 2014}}
+    \list{location}{1}{%
+      {Corfu, Greece}%
+    }
+    \field{month}{10}
+    \field{year}{2016}
+  \endentry
+
+  \entry{Dafny}{inproceedings}{}
+    \name{author}{1}{}{%
+      {{hash=LKRM}{%
+         family={Leino},
+         family_i={L\bibinitperiod},
+         given={K.\bibnamedelima Rustan\bibnamedelima M.},
+         given_i={K\bibinitperiod\bibinitdelim R\bibinitperiod\bibinitdelim
+  M\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{LKRM1}
+    \strng{fullhash}{LKRM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{L}
+    \field{sortinithash}{L}
+    \field{booktitle}{Logic for Programming, Artificial Intelligence, and
+  Reasoning: 16th International Conference}
+    \field{pages}{348\bibrangedash 370}
+    \field{title}{Dafny: An Automatic Program Verifier for Functional
+  Correctness}
+    \list{location}{1}{%
+      {Dakar, Senegal}%
+    }
+    \field{month}{04}
+    \field{year}{2010}
+  \endentry
+
+  \entry{Leino10vacid-0:verification}{inproceedings}{}
+    \name{author}{2}{}{%
+      {{hash=LKRM}{%
+         family={Leino},
+         family_i={L\bibinitperiod},
+         given={K.\bibnamedelima Rustan\bibnamedelima M.},
+         given_i={K\bibinitperiod\bibinitdelim R\bibinitperiod\bibinitdelim
+  M\bibinitperiod},
+      }}%
+      {{hash=MM}{%
+         family={Moskal},
+         family_i={M\bibinitperiod},
+         given={Micha\l{}},
+         given_i={M\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{LKRMMM1}
+    \strng{fullhash}{LKRMMM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{L}
+    \field{sortinithash}{L}
+    \field{booktitle}{Tools and Experiments Workshop at VSTTE}
+    \field{title}{VACID-0: Verification of Ample Correctness of Invariants of
+  Data-structures, Edition 0}
+    \list{location}{1}{%
+      {Edinburgh, UK}%
+    }
+    \field{month}{08}
+    \field{year}{2010}
+  \endentry
+
+  \entry{LiHenry}{article}{}
+    \name{author}{2}{}{%
+      {{hash=LW}{%
+         family={Li},
+         family_i={L\bibinitperiod},
+         given={Wei},
+         given_i={W\bibinitperiod},
+      }}%
+      {{hash=HS}{%
+         family={Henry},
+         family_i={H\bibinitperiod},
+         given={Sallie},
+         given_i={S\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{LWHS1}
+    \strng{fullhash}{LWHS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{L}
+    \field{sortinithash}{L}
+    \field{number}{2}
+    \field{pages}{111\bibrangedash 122}
+    \field{title}{Object-oriented metrics that predict maintainability}
+    \field{volume}{23}
+    \field{journaltitle}{The Journal of Systems and Software}
+    \field{year}{1993}
+  \endentry
+
+  \entry{LiljaJ}{book}{}
+    \name{author}{1}{}{%
+      {{hash=LDJ}{%
+         family={Lilja},
+         family_i={L\bibinitperiod},
+         given={David\bibnamedelima J},
+         given_i={D\bibinitperiod\bibinitdelim J\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Cambridge Univ. Press}%
+    }
+    \keyw{Evaluation; Electronic digital computers; Congre; Computer Science;
+  COMPUTERS; Performance of systems; Computer systems organisation; Electronic
+  digital computers -- Evaluation -- Congresses}
+    \strng{namehash}{LDJ1}
+    \strng{fullhash}{LDJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{L}
+    \field{sortinithash}{L}
+    \field{title}{Measuring computer performance: a practitioner's guide}
+    \list{location}{1}{%
+      {Cambridge, UK}%
+    }
+    \field{year}{2000}
+  \endentry
+
+  \entry{Malitsky2012}{inproceedings}{}
+    \name{author}{4}{}{%
+      {{hash=MY}{%
+         family={Malitsky},
+         family_i={M\bibinitperiod},
+         given={Yuri},
+         given_i={Y\bibinitperiod},
+      }}%
+      {{hash=SA}{%
+         family={Sabharwal},
+         family_i={S\bibinitperiod},
+         given={Ashish},
+         given_i={A\bibinitperiod},
+      }}%
+      {{hash=SH}{%
+         family={Samulowitz},
+         family_i={S\bibinitperiod},
+         given={Horst},
+         given_i={H\bibinitperiod},
+      }}%
+      {{hash=SM}{%
+         family={Sellmann},
+         family_i={S\bibinitperiod},
+         given={Meinolf},
+         given_i={M\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{MY+1}
+    \strng{fullhash}{MYSASHSM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{M}
+    \field{sortinithash}{M}
+    \field{booktitle}{Principles and Practice of Constraint Programming: 18th
+  International Conference}
+    \field{pages}{512\bibrangedash 526}
+    \field{title}{Parallel SAT Solver Selection and Scheduling}
+    \list{location}{1}{%
+      {Qu{\'e}bec City, QC, Canada}%
+    }
+    \field{month}{10}
+    \field{year}{2012}
+  \endentry
+
+  \entry{Jessie:manual}{manual}{}
+    \name{author}{2}{}{%
+      {{hash=MC}{%
+         family={March{\'e}},
+         family_i={M\bibinitperiod},
+         given={Claude},
+         given_i={C\bibinitperiod},
+      }}%
+      {{hash=MY}{%
+         family={Moy},
+         family_i={M\bibinitperiod},
+         given={Yannick},
+         given_i={Y\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{MCMY1}
+    \strng{fullhash}{MCMY1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{M}
+    \field{sortinithash}{M}
+    \field{edition}{2.35}
+    \field{title}{The Jessie plugin for Deductive Verification in Frama-C}
+    \verb{url}
+    \verb http://krakatoa.lri.fr/jessie.pdf
+    \endverb
+    \field{year}{2015}
+  \endentry
+
+  \entry{CostIndicator}{inproceedings}{}
+    \name{author}{6}{}{%
+      {{hash=MD}{%
+         family={Matichuk},
+         family_i={M\bibinitperiod},
+         given={Daniel},
+         given_i={D\bibinitperiod},
+      }}%
+      {{hash=MT}{%
+         family={Murray},
+         family_i={M\bibinitperiod},
+         given={Toby},
+         given_i={T\bibinitperiod},
+      }}%
+      {{hash=AJ}{%
+         family={Andronick},
+         family_i={A\bibinitperiod},
+         given={June},
+         given_i={J\bibinitperiod},
+      }}%
+      {{hash=JR}{%
+         family={Jeffery},
+         family_i={J\bibinitperiod},
+         given={Ross},
+         given_i={R\bibinitperiod},
+      }}%
+      {{hash=KG}{%
+         family={Klein},
+         family_i={K\bibinitperiod},
+         given={Gerwin},
+         given_i={G\bibinitperiod},
+      }}%
+      {{hash=SM}{%
+         family={Staples},
+         family_i={S\bibinitperiod},
+         given={Mark},
+         given_i={M\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{MD+1}
+    \strng{fullhash}{MDMTAJJRKGSM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{M}
+    \field{sortinithash}{M}
+    \field{booktitle}{37th International Conference on Software Engineering}
+    \field{pages}{722\bibrangedash 732}
+    \field{title}{Empirical study towards a leading indicator for cost of
+  formal software verification}
+    \field{volume}{1}
+    \list{location}{1}{%
+      {Florence, Italy}%
+    }
+    \field{month}{05}
+    \field{year}{2015}
+  \endentry
+
+  \entry{McCabe}{article}{}
+    \name{author}{1}{}{%
+      {{hash=MTJ}{%
+         family={McCabe},
+         family_i={M\bibinitperiod},
+         given={Thomas\bibnamedelima J.},
+         given_i={T\bibinitperiod\bibinitdelim J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{MTJ1}
+    \strng{fullhash}{MTJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{M}
+    \field{sortinithash}{M}
+    \field{number}{4}
+    \field{pages}{308\bibrangedash 320}
+    \field{title}{A Complexity Measure}
+    \field{volume}{SE-2}
+    \field{journaltitle}{IEEE Transactions on Software Engineering}
+    \field{year}{1976}
+  \endentry
+
+  \entry{McCabeTesting}{article}{}
+    \name{author}{2}{}{%
+      {{hash=MTJ}{%
+         family={McCabe},
+         family_i={M\bibinitperiod},
+         given={Thomas\bibnamedelima J.},
+         given_i={T\bibinitperiod\bibinitdelim J\bibinitperiod},
+      }}%
+      {{hash=BCW}{%
+         family={Butler},
+         family_i={B\bibinitperiod},
+         given={Charles\bibnamedelima W.},
+         given_i={C\bibinitperiod\bibinitdelim W\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {ACM}%
+    }
+    \strng{namehash}{MTJBCW1}
+    \strng{fullhash}{MTJBCW1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{M}
+    \field{sortinithash}{M}
+    \field{number}{12}
+    \field{pages}{1415\bibrangedash 1425}
+    \field{title}{Design Complexity Measurement and Testing}
+    \field{volume}{32}
+    \field{journaltitle}{Communications of the ACM}
+    \field{year}{1989}
+  \endentry
+
+  \entry{atelierB2w}{inproceedings}{}
+    \name{author}{4}{}{%
+      {{hash=MD}{%
+         family={Mentr{\'e}},
+         family_i={M\bibinitperiod},
+         given={David},
+         given_i={D\bibinitperiod},
+      }}%
+      {{hash=MC}{%
+         family={March{\'e}},
+         family_i={M\bibinitperiod},
+         given={Claude},
+         given_i={C\bibinitperiod},
+      }}%
+      {{hash=FJC}{%
+         family={Filli{\^a}tre},
+         family_i={F\bibinitperiod},
+         given={Jean-Christophe},
+         given_i={J\bibinitperiod-C\bibinitperiod},
+      }}%
+      {{hash=AM}{%
+         family={Asuka},
+         family_i={A\bibinitperiod},
+         given={Masashi},
+         given_i={M\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{MD+2}
+    \strng{fullhash}{MDMCFJCAM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{M}
+    \field{sortinithash}{M}
+    \field{booktitle}{ABZ'2012 - 3rd International Conference on Abstract State
+  Machines, Alloy, B and Z}
+    \field{pages}{238\bibrangedash 251}
+    \field{title}{Discharging Proof Obligations from {Atelier~B} using Multiple
+  Automated Provers}
+    \list{location}{1}{%
+      {Pisa, Italy}%
+    }
+    \field{month}{06}
+    \field{year}{2012}
+  \endentry
+
+  \entry{Mitchell}{book}{}
+    \name{author}{1}{}{%
+      {{hash=MTM}{%
+         family={Mitchell},
+         family_i={M\bibinitperiod},
+         given={Tom\bibnamedelima M.},
+         given_i={T\bibinitperiod\bibinitdelim M\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {McGraw-Hill}%
+    }
+    \keyw{Computer algorithms; Machine learning}
+    \strng{namehash}{MTM1}
+    \strng{fullhash}{MTM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{M}
+    \field{sortinithash}{M}
+    \field{title}{Machine Learning}
+    \list{location}{1}{%
+      {New York, USA}%
+    }
+    \field{year}{1997}
+  \endentry
+
+  \entry{Isabelle}{book}{}
+    \name{author}{3}{}{%
+      {{hash=NT}{%
+         family={Nipkow},
+         family_i={N\bibinitperiod},
+         given={Tobias},
+         given_i={T\bibinitperiod},
+      }}%
+      {{hash=PLC}{%
+         family={Paulson},
+         family_i={P\bibinitperiod},
+         given={Lawrence\bibnamedelima C.},
+         given_i={L\bibinitperiod\bibinitdelim C\bibinitperiod},
+      }}%
+      {{hash=WM}{%
+         family={Wenzel},
+         family_i={W\bibinitperiod},
+         given={Markus},
+         given_i={M\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer}%
+    }
+    \strng{namehash}{NTPLCWM1}
+    \strng{fullhash}{NTPLCWM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{N}
+    \field{sortinithash}{N}
+    \field{title}{Isabelle/HOL: a proof assistant for higher-order logic}
+    \list{location}{1}{%
+      {New York, USA}%
+    }
+    \field{year}{2002}
+  \endentry
+
+  \entry{threeyears}{inproceedings}{}
+    \name{author}{2}{}{%
+      {{hash=PLC}{%
+         family={Paulson},
+         family_i={P\bibinitperiod},
+         given={Lawrence\bibnamedelima C.},
+         given_i={L\bibinitperiod\bibinitdelim C\bibinitperiod},
+      }}%
+      {{hash=BJC}{%
+         family={Blanchette},
+         family_i={B\bibinitperiod},
+         given={Jasmine\bibnamedelima Christian},
+         given_i={J\bibinitperiod\bibinitdelim C\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{PLCBJC1}
+    \strng{fullhash}{PLCBJC1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{P}
+    \field{sortinithash}{P}
+    \field{booktitle}{8th International Workshop on the Implementation of
+  Logics}
+    \field{title}{Three Years of Experience with Sledgehammer, a Practical Link
+  between Automatic and Interactive Theorem Provers}
+    \list{location}{1}{%
+      {Yogyakarta, Indonesia}%
+    }
+    \field{month}{10}
+    \field{year}{2010}
+  \endentry
+
+  \entry{sklearn}{article}{}
+    \name{author}{16}{}{%
+      {{hash=PF}{%
+         family={Pedregosa},
+         family_i={P\bibinitperiod},
+         given={Fabian},
+         given_i={F\bibinitperiod},
+      }}%
+      {{hash=VG}{%
+         family={Varoquaux},
+         family_i={V\bibinitperiod},
+         given={Ga{\"e}l},
+         given_i={G\bibinitperiod},
+      }}%
+      {{hash=GA}{%
+         family={Gramfort},
+         family_i={G\bibinitperiod},
+         given={Alexandre},
+         given_i={A\bibinitperiod},
+      }}%
+      {{hash=MV}{%
+         family={Michel},
+         family_i={M\bibinitperiod},
+         given={Vincent},
+         given_i={V\bibinitperiod},
+      }}%
+      {{hash=TB}{%
+         family={Thirion},
+         family_i={T\bibinitperiod},
+         given={Bertrand},
+         given_i={B\bibinitperiod},
+      }}%
+      {{hash=GO}{%
+         family={Grisel},
+         family_i={G\bibinitperiod},
+         given={Olivier},
+         given_i={O\bibinitperiod},
+      }}%
+      {{hash=BM}{%
+         family={Blondel},
+         family_i={B\bibinitperiod},
+         given={Mathieu},
+         given_i={M\bibinitperiod},
+      }}%
+      {{hash=PP}{%
+         family={Prettenhofer},
+         family_i={P\bibinitperiod},
+         given={Peter},
+         given_i={P\bibinitperiod},
+      }}%
+      {{hash=WR}{%
+         family={Weiss},
+         family_i={W\bibinitperiod},
+         given={Ron},
+         given_i={R\bibinitperiod},
+      }}%
+      {{hash=DV}{%
+         family={Dubourg},
+         family_i={D\bibinitperiod},
+         given={Vincent},
+         given_i={V\bibinitperiod},
+      }}%
+      {{hash=VJ}{%
+         family={Vanderplas},
+         family_i={V\bibinitperiod},
+         given={Jake},
+         given_i={J\bibinitperiod},
+      }}%
+      {{hash=PA}{%
+         family={Passos},
+         family_i={P\bibinitperiod},
+         given={Alexandre},
+         given_i={A\bibinitperiod},
+      }}%
+      {{hash=CD}{%
+         family={Cournapeau},
+         family_i={C\bibinitperiod},
+         given={David},
+         given_i={D\bibinitperiod},
+      }}%
+      {{hash=BM}{%
+         family={Brucher},
+         family_i={B\bibinitperiod},
+         given={Matthieu},
+         given_i={M\bibinitperiod},
+      }}%
+      {{hash=PM}{%
+         family={Perrot},
+         family_i={P\bibinitperiod},
+         given={Matthieu},
+         given_i={M\bibinitperiod},
+      }}%
+      {{hash=DE}{%
+         family={Duchesnay},
+         family_i={D\bibinitperiod},
+         given={\'{E}douard},
+         given_i={E\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{PF+1}
+    \strng{fullhash}{PFVGGAMVTBGOBMPPWRDVVJPACDBMPMDE1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{P}
+    \field{sortinithash}{P}
+    \field{pages}{2825\bibrangedash 2830}
+    \field{title}{Scikit-learn: Machine Learning in {P}ython}
+    \field{volume}{12}
+    \field{journaltitle}{Journal of Machine Learning Research}
+    \field{year}{2011}
+  \endentry
+
+  \entry{nuimeprn6458}{incollection}{}
+    \name{author}{2}{}{%
+      {{hash=PJF}{%
+         family={Power},
+         family_i={P\bibinitperiod},
+         given={James\bibnamedelima F.},
+         given_i={J\bibinitperiod\bibinitdelim F\bibinitperiod},
+      }}%
+      {{hash=MBA}{%
+         family={Malloy},
+         family_i={M\bibinitperiod},
+         given={Brian\bibnamedelima A.},
+         given_i={B\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{PJFMBA1}
+    \strng{fullhash}{PJFMBA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{P}
+    \field{sortinithash}{P}
+    \field{booktitle}{8th International Workshop on Program Comprehension}
+    \field{pages}{171\bibrangedash 178}
+    \field{title}{Metric-based analysis of context-free grammars}
+    \list{location}{1}{%
+      {Limerick, Ireland}%
+    }
+    \field{month}{06}
+    \field{year}{2000}
+  \endentry
+
+  \entry{DecisionTrees}{article}{}
+    \name{author}{1}{}{%
+      {{hash=QJR}{%
+         family={Quinlan},
+         family_i={Q\bibinitperiod},
+         given={J.\bibnamedelima R.},
+         given_i={J\bibinitperiod\bibinitdelim R\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{QJR1}
+    \strng{fullhash}{QJR1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{Q}
+    \field{sortinithash}{Q}
+    \field{number}{1}
+    \field{pages}{81\bibrangedash 106}
+    \field{title}{Induction of decision trees}
+    \field{volume}{1}
+    \field{journaltitle}{Machine Learning}
+    \field{year}{1986}
+  \endentry
+
+  \entry{TowardsOCL}{article}{}
+    \name{author}{3}{}{%
+      {{hash=RL}{%
+         family={Reynoso},
+         family_i={R\bibinitperiod},
+         given={Luis},
+         given_i={L\bibinitperiod},
+      }}%
+      {{hash=GM}{%
+         family={Genero},
+         family_i={G\bibinitperiod},
+         given={Marcela},
+         given_i={M\bibinitperiod},
+      }}%
+      {{hash=PM}{%
+         family={Piattini},
+         family_i={P\bibinitperiod},
+         given={Mario},
+         given_i={M\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{RLGMPM1}
+    \strng{fullhash}{RLGMPM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{R}
+    \field{sortinithash}{R}
+    \field{number}{1}
+    \field{pages}{38\bibrangedash 44}
+    \field{title}{Towards a metric suite for OCL Expressions expressed within
+  UML/OCL models}
+    \field{volume}{4}
+    \field{journaltitle}{Journal of Computer Science and Technology}
+    \field{year}{2004}
+  \endentry
+
+  \entry{UML}{book}{}
+    \name{author}{3}{}{%
+      {{hash=RJ}{%
+         family={Rumbaugh},
+         family_i={R\bibinitperiod},
+         given={James},
+         given_i={J\bibinitperiod},
+      }}%
+      {{hash=JI}{%
+         family={Jacobson},
+         family_i={J\bibinitperiod},
+         given={Ivar},
+         given_i={I\bibinitperiod},
+      }}%
+      {{hash=BG}{%
+         family={Booch},
+         family_i={B\bibinitperiod},
+         given={Grady},
+         given_i={G\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Pearson Higher Education}%
+    }
+    \strng{namehash}{RJJIBG1}
+    \strng{fullhash}{RJJIBG1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{R}
+    \field{sortinithash}{R}
+    \field{title}{Unified Modeling Language Reference Manual, The (2nd
+  Edition)}
+    \list{location}{1}{%
+      {New York, USA}%
+    }
+    \field{year}{2004}
+  \endentry
+
+  \entry{AdvancedESE}{book}{}
+    \name{author}{3}{}{%
+      {{hash=SF}{%
+         family={Shull},
+         family_i={S\bibinitperiod},
+         given={Forrest},
+         given_i={F\bibinitperiod},
+      }}%
+      {{hash=SJ}{%
+         family={Singer},
+         family_i={S\bibinitperiod},
+         given={Janice},
+         given_i={J\bibinitperiod},
+      }}%
+      {{hash=SDIK}{%
+         family={Sjoberg},
+         family_i={S\bibinitperiod},
+         given={Dag I.\bibnamedelima K.},
+         given_i={D\bibinitperiod\bibinitdelim I\bibinitperiod\bibinitdelim
+  K\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer}%
+    }
+    \strng{namehash}{SFSJSDIK1}
+    \strng{fullhash}{SFSJSDIK1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{title}{Guide to advanced empirical software engineering}
+    \list{location}{1}{%
+      {London, UK}%
+    }
+    \field{year}{2010}
+  \endentry
+
+  \entry{Song:2014:PBR:2639490.2639510}{inproceedings}{}
+    \name{author}{3}{}{%
+      {{hash=SL}{%
+         family={Song},
+         family_i={S\bibinitperiod},
+         given={Liyan},
+         given_i={L\bibinitperiod},
+      }}%
+      {{hash=MLL}{%
+         family={Minku},
+         family_i={M\bibinitperiod},
+         given={Leandro\bibnamedelima L.},
+         given_i={L\bibinitperiod\bibinitdelim L\bibinitperiod},
+      }}%
+      {{hash=YX}{%
+         family={Yao},
+         family_i={Y\bibinitperiod},
+         given={Xin},
+         given_i={X\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SLMLLYX1}
+    \strng{fullhash}{SLMLLYX1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{booktitle}{10th International Conference on Predictive Models in
+  Software Engineering}
+    \field{pages}{52\bibrangedash 61}
+    \field{series}{PROMISE '14}
+    \field{title}{The Potential Benefit of Relevance Vector Machine to Software
+  Effort Estimation}
+    \list{location}{1}{%
+      {Turin, Italy}%
+    }
+    \field{month}{09}
+    \field{year}{2014}
+  \endentry
+
+  \entry{Staples:2013}{inproceedings}{}
+    \name{author}{8}{}{%
+      {{hash=SM}{%
+         family={Staples},
+         family_i={S\bibinitperiod},
+         given={Mark},
+         given_i={M\bibinitperiod},
+      }}%
+      {{hash=KR}{%
+         family={Kolanski},
+         family_i={K\bibinitperiod},
+         given={Rafal},
+         given_i={R\bibinitperiod},
+      }}%
+      {{hash=KG}{%
+         family={Klein},
+         family_i={K\bibinitperiod},
+         given={Gerwin},
+         given_i={G\bibinitperiod},
+      }}%
+      {{hash=LC}{%
+         family={Lewis},
+         family_i={L\bibinitperiod},
+         given={Corey},
+         given_i={C\bibinitperiod},
+      }}%
+      {{hash=AJ}{%
+         family={Andronick},
+         family_i={A\bibinitperiod},
+         given={June},
+         given_i={J\bibinitperiod},
+      }}%
+      {{hash=MT}{%
+         family={Murray},
+         family_i={M\bibinitperiod},
+         given={Toby},
+         given_i={T\bibinitperiod},
+      }}%
+      {{hash=JR}{%
+         family={Jeffery},
+         family_i={J\bibinitperiod},
+         given={Ross},
+         given_i={R\bibinitperiod},
+      }}%
+      {{hash=BL}{%
+         family={Bass},
+         family_i={B\bibinitperiod},
+         given={Len},
+         given_i={L\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SM+1}
+    \strng{fullhash}{SMKRKGLCAJMTJRBL1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{booktitle}{2013 International Conference on Software Engineering}
+    \field{pages}{1257\bibrangedash 1260}
+    \field{title}{Formal Specifications Better Than Function Points for Code
+  Sizing}
+    \list{location}{1}{%
+      {San Francisco, CA, USA}%
+    }
+    \field{month}{05}
+    \field{year}{2013}
+  \endentry
+
+  \entry{TPTPsite}{report}{}
+    \name{author}{1}{}{%
+      {{hash=SG}{%
+         family={Sutcliffe},
+         family_i={S\bibinitperiod},
+         given={Geoff},
+         given_i={G\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SG1}
+    \strng{fullhash}{SG1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{title}{The TPTP Problem Library}
+    \verb{url}
+    \verb www.cs.miami.edu/~tptp/TPTP/TR/TPTPTR.shtml
+    \endverb
+    \list{institution}{1}{%
+      {Dept. of Computer Science, University of Miami}%
+    }
+    \field{type}{techreport}
+    \field{year}{2016}
+  \endentry
+
+  \entry{SS98}{article}{}
+    \name{author}{1}{}{%
+      {{hash=SG}{%
+         family={Sutcliffe},
+         family_i={S\bibinitperiod},
+         given={Geoff},
+         given_i={G\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SG1}
+    \strng{fullhash}{SG1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{number}{4}
+    \field{pages}{337\bibrangedash 362}
+    \field{title}{{The TPTP Problem Library and Associated Infrastructure: The
+  FOF and CNF Parts, v3.5.0}}
+    \field{volume}{43}
+    \field{journaltitle}{Journal of Automated Reasoning}
+    \field{year}{2009}
+  \endentry
+
+  \entry{Sutcliffe200139}{article}{}
+    \name{author}{2}{}{%
+      {{hash=SG}{%
+         family={Sutcliffe},
+         family_i={S\bibinitperiod},
+         given={Geoff},
+         given_i={G\bibinitperiod},
+      }}%
+      {{hash=SC}{%
+         family={Suttner},
+         family_i={S\bibinitperiod},
+         given={Christian},
+         given_i={C\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SGSC1}
+    \strng{fullhash}{SGSC1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{number}{1-2}
+    \field{pages}{39\bibrangedash 54}
+    \field{title}{Evaluating general purpose automated theorem proving systems}
+    \field{volume}{131}
+    \field{journaltitle}{Artificial Intelligence}
+    \field{year}{2001}
+  \endentry
+
+  \entry{TPTP}{article}{}
+    \name{author}{2}{}{%
+      {{hash=SG}{%
+         family={Sutcliffe},
+         family_i={S\bibinitperiod},
+         given={Geoff},
+         given_i={G\bibinitperiod},
+      }}%
+      {{hash=SC}{%
+         family={Suttner},
+         family_i={S\bibinitperiod},
+         given={Christian},
+         given_i={C\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer-Verlag New York, Inc.}%
+    }
+    \strng{namehash}{SGSC1}
+    \strng{fullhash}{SGSC1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{number}{2}
+    \field{pages}{177\bibrangedash 203}
+    \field{title}{The {TPTP} Problem Library}
+    \field{volume}{21}
+    \list{location}{1}{%
+      {Secaucus, NJ, USA}%
+    }
+    \field{journaltitle}{Journal Automated Reasoning}
+    \field{month}{10}
+    \field{year}{1998}
+  \endentry
+
+  \entry{tafat:inria-00636083}{report}{}
+    \name{author}{2}{}{%
+      {{hash=TA}{%
+         family={Tafat},
+         family_i={T\bibinitperiod},
+         given={Asma},
+         given_i={A\bibinitperiod},
+      }}%
+      {{hash=MC}{%
+         family={March{\'e}},
+         family_i={M\bibinitperiod},
+         given={Claude},
+         given_i={C\bibinitperiod},
+      }}%
+    }
+    \keyw{Formal Specification ; Modularity ; Abstraction ; Theories ; Binary
+  Heap ; Heapsort ; Why3}
+    \strng{namehash}{TAMC1}
+    \strng{fullhash}{TAMC1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{T}
+    \field{sortinithash}{T}
+    \field{number}{RR-7780}
+    \field{title}{{Binary Heaps Formally Verified in Why3}}
+    \verb{url}
+    \verb https://hal.inria.fr/inria-00636083
+    \endverb
+    \list{institution}{1}{%
+      {{INRIA}}%
+    }
+    \verb{file}
+    \verb main.pdf:https\://hal.inria.fr/inria-00636083/file/main.pdf:PDF
+    \endverb
+    \field{type}{Research Report}
+    \field{month}{10}
+    \field{year}{2011}
+  \endentry
+
+  \entry{MUX}{inproceedings}{}
+    \name{author}{5}{}{%
+      {{hash=TV}{%
+         family={Tulsian},
+         family_i={T\bibinitperiod},
+         given={Varun},
+         given_i={V\bibinitperiod},
+      }}%
+      {{hash=KA}{%
+         family={Kanade},
+         family_i={K\bibinitperiod},
+         given={Aditya},
+         given_i={A\bibinitperiod},
+      }}%
+      {{hash=KR}{%
+         family={Kumar},
+         family_i={K\bibinitperiod},
+         given={Rahul},
+         given_i={R\bibinitperiod},
+      }}%
+      {{hash=LA}{%
+         family={Lal},
+         family_i={L\bibinitperiod},
+         given={Akash},
+         given_i={A\bibinitperiod},
+      }}%
+      {{hash=NAV}{%
+         family={Nori},
+         family_i={N\bibinitperiod},
+         given={Aditya\bibnamedelima V.},
+         given_i={A\bibinitperiod\bibinitdelim V\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{TV+1}
+    \strng{fullhash}{TVKAKRLANAV1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{T}
+    \field{sortinithash}{T}
+    \field{booktitle}{11th Working Conference on Mining Software Repositories}
+    \field{pages}{132\bibrangedash 141}
+    \field{title}{{MUX}: algorithm selection for software model checkers}
+    \list{location}{1}{%
+      {Hydrabad, India}%
+    }
+    \field{month}{05}
+    \field{year}{2014}
+  \endentry
+
+  \entry{Weide2008}{inbook}{}
+    \name{author}{9}{}{%
+      {{hash=WBW}{%
+         family={Weide},
+         family_i={W\bibinitperiod},
+         given={Bruce\bibnamedelima W.},
+         given_i={B\bibinitperiod\bibinitdelim W\bibinitperiod},
+      }}%
+      {{hash=SM}{%
+         family={Sitaraman},
+         family_i={S\bibinitperiod},
+         given={Murali},
+         given_i={M\bibinitperiod},
+      }}%
+      {{hash=HHK}{%
+         family={Harton},
+         family_i={H\bibinitperiod},
+         given={Heather\bibnamedelima K.},
+         given_i={H\bibinitperiod\bibinitdelim K\bibinitperiod},
+      }}%
+      {{hash=AB}{%
+         family={Adcock},
+         family_i={A\bibinitperiod},
+         given={Bruce},
+         given_i={B\bibinitperiod},
+      }}%
+      {{hash=BP}{%
+         family={Bucci},
+         family_i={B\bibinitperiod},
+         given={Paolo},
+         given_i={P\bibinitperiod},
+      }}%
+      {{hash=BD}{%
+         family={Bronish},
+         family_i={B\bibinitperiod},
+         given={Derek},
+         given_i={D\bibinitperiod},
+      }}%
+      {{hash=HWD}{%
+         family={Heym},
+         family_i={H\bibinitperiod},
+         given={Wayne\bibnamedelima D.},
+         given_i={W\bibinitperiod\bibinitdelim D\bibinitperiod},
+      }}%
+      {{hash=KJ}{%
+         family={Kirschenbaum},
+         family_i={K\bibinitperiod},
+         given={Jason},
+         given_i={J\bibinitperiod},
+      }}%
+      {{hash=FD}{%
+         family={Frazier},
+         family_i={F\bibinitperiod},
+         given={David},
+         given_i={D\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{WBW+1}
+    \strng{fullhash}{WBWSMHHKABBPBDHWDKJFD1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{W}
+    \field{sortinithash}{W}
+    \field{booktitle}{Verified Software: Theories, Tools, Experiments: Second
+  International Conference, VSTTE 2008}
+    \field{pages}{84\bibrangedash 98}
+    \field{title}{Incremental Benchmarks for Software Verification Tools and
+  Techniques}
+    \list{location}{1}{%
+      {Toronto, Canada}%
+    }
+    \field{month}{10}
+    \field{year}{2008}
+  \endentry
+
+  \entry{WintersteigerHM09}{inproceedings}{}
+    \name{author}{3}{}{%
+      {{hash=WCM}{%
+         family={Wintersteiger},
+         family_i={W\bibinitperiod},
+         given={Christoph\bibnamedelima M.},
+         given_i={C\bibinitperiod\bibinitdelim M\bibinitperiod},
+      }}%
+      {{hash=HY}{%
+         family={Hamadi},
+         family_i={H\bibinitperiod},
+         given={Youssef},
+         given_i={Y\bibinitperiod},
+      }}%
+      {{hash=dML}{%
+         prefix={de},
+         prefix_i={d\bibinitperiod},
+         family={Moura},
+         family_i={M\bibinitperiod},
+         given={Leonardo},
+         given_i={L\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{WCMHYMLd1}
+    \strng{fullhash}{WCMHYMLd1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{W}
+    \field{sortinithash}{W}
+    \field{booktitle}{Computer Aided Verification, 21st International
+  Conference, CAV 2009}
+    \field{pages}{715\bibrangedash 720}
+    \field{title}{A Concurrent Portfolio Approach to {SMT} Solving}
+    \list{location}{1}{%
+      {Grenoble, France}%
+    }
+    \field{month}{06}
+    \field{year}{2009}
+  \endentry
+
+  \entry{experimentation}{book}{}
+    \name{author}{6}{}{%
+      {{hash=WC}{%
+         family={Wohlin},
+         family_i={W\bibinitperiod},
+         given={Claes},
+         given_i={C\bibinitperiod},
+      }}%
+      {{hash=RP}{%
+         family={Runeson},
+         family_i={R\bibinitperiod},
+         given={Per},
+         given_i={P\bibinitperiod},
+      }}%
+      {{hash=HM}{%
+         family={H\"{o}st},
+         family_i={H\bibinitperiod},
+         given={Martin},
+         given_i={M\bibinitperiod},
+      }}%
+      {{hash=OMC}{%
+         family={Ohlsson},
+         family_i={O\bibinitperiod},
+         given={Magnus\bibnamedelima C.},
+         given_i={M\bibinitperiod\bibinitdelim C\bibinitperiod},
+      }}%
+      {{hash=RB}{%
+         family={Regnell},
+         family_i={R\bibinitperiod},
+         given={Bj\"{o}rn},
+         given_i={B\bibinitperiod},
+      }}%
+      {{hash=WA}{%
+         family={Wessl\'{e}n},
+         family_i={W\bibinitperiod},
+         given={Anders},
+         given_i={A\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer}%
+    }
+    \strng{namehash}{WC+1}
+    \strng{fullhash}{WCRPHMOMCRBWA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{W}
+    \field{sortinithash}{W}
+    \field{title}{Experimentation in Software Engineering}
+    \list{location}{1}{%
+      {New York, USA}%
+    }
+    \field{year}{2012}
+  \endentry
+
+  \entry{Zlang}{book}{}
+    \name{author}{2}{}{%
+      {{hash=WJ}{%
+         family={Woodcock},
+         family_i={W\bibinitperiod},
+         given={Jim},
+         given_i={J\bibinitperiod},
+      }}%
+      {{hash=DJ}{%
+         family={Davies},
+         family_i={D\bibinitperiod},
+         given={Jim},
+         given_i={J\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Prentice Hall}%
+    }
+    \strng{namehash}{WJDJ1}
+    \strng{fullhash}{WJDJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{W}
+    \field{sortinithash}{W}
+    \field{title}{Using Z: specification, refinement, and proof}
+    \list{location}{1}{%
+      {London, UK}%
+    }
+    \field{year}{1996}
+  \endentry
+
+  \entry{Xu2012}{inproceedings}{}
+    \name{author}{4}{}{%
+      {{hash=XL}{%
+         family={Xu},
+         family_i={X\bibinitperiod},
+         given={Lin},
+         given_i={L\bibinitperiod},
+      }}%
+      {{hash=HF}{%
+         family={Hutter},
+         family_i={H\bibinitperiod},
+         given={Frank},
+         given_i={F\bibinitperiod},
+      }}%
+      {{hash=HH}{%
+         family={Hoos},
+         family_i={H\bibinitperiod},
+         given={Holger},
+         given_i={H\bibinitperiod},
+      }}%
+      {{hash=LBK}{%
+         family={Leyton-Brown},
+         family_i={L\bibinitperiod-B\bibinitperiod},
+         given={Kevin},
+         given_i={K\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{XL+1}
+    \strng{fullhash}{XLHFHHLBK1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{X}
+    \field{sortinithash}{X}
+    \field{booktitle}{Theory and Applications of Satisfiability Testing -- SAT
+  2012}
+    \field{pages}{228\bibrangedash 241}
+    \field{title}{Evaluating Component Solver Contributions to Portfolio-Based
+  Algorithm Selectors}
+    \list{location}{1}{%
+      {Trento, Italy}%
+    }
+    \field{month}{06}
+    \field{year}{2012}
+  \endentry
+
+  \entry{Satzilla}{article}{}
+    \name{author}{4}{}{%
+      {{hash=XL}{%
+         family={Xu},
+         family_i={X\bibinitperiod},
+         given={Lin},
+         given_i={L\bibinitperiod},
+      }}%
+      {{hash=HF}{%
+         family={Hutter},
+         family_i={H\bibinitperiod},
+         given={Frank},
+         given_i={F\bibinitperiod},
+      }}%
+      {{hash=HHH}{%
+         family={Hoos},
+         family_i={H\bibinitperiod},
+         given={Holger\bibnamedelima H.},
+         given_i={H\bibinitperiod\bibinitdelim H\bibinitperiod},
+      }}%
+      {{hash=LBK}{%
+         family={Leyton-Brown},
+         family_i={L\bibinitperiod-B\bibinitperiod},
+         given={Kevin},
+         given_i={K\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {AI Access Foundation}%
+    }
+    \strng{namehash}{XL+1}
+    \strng{fullhash}{XLHFHHHLBK1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{X}
+    \field{sortinithash}{X}
+    \field{number}{1}
+    \field{pages}{565\bibrangedash 606}
+    \field{title}{{SAT}zilla: Portfolio-based Algorithm Selection for {SAT}}
+    \field{volume}{32}
+    \list{location}{1}{%
+      {USA}%
+    }
+    \field{journaltitle}{Journal of Artificial Intelligence Research}
+    \field{year}{2008}
+  \endentry
+
+  \entry{SATzilla2012}{inproceedings}{}
+    \name{author}{4}{}{%
+      {{hash=XL}{%
+         family={Xu},
+         family_i={X\bibinitperiod},
+         given={Lin},
+         given_i={L\bibinitperiod},
+      }}%
+      {{hash=HF}{%
+         family={Hutter},
+         family_i={H\bibinitperiod},
+         given={Frank},
+         given_i={F\bibinitperiod},
+      }}%
+      {{hash=HHH}{%
+         family={Hoos},
+         family_i={H\bibinitperiod},
+         given={Holger\bibnamedelima H.},
+         given_i={H\bibinitperiod\bibinitdelim H\bibinitperiod},
+      }}%
+      {{hash=LBK}{%
+         family={Leyton-Brown},
+         family_i={L\bibinitperiod-B\bibinitperiod},
+         given={Kevin},
+         given_i={K\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{XL+1}
+    \strng{fullhash}{XLHFHHHLBK1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{X}
+    \field{sortinithash}{X}
+    \field{booktitle}{Proceedings of SAT Challenge 2012; Solver and Benchmark
+  Descriptions}
+    \field{note}{System Description}
+    \field{title}{SATzilla2012: Improved Algorithm Selection Based on
+  Cost-sensitive Classification Models}
+    \list{location}{1}{%
+      {Helsinki, Finland}%
+    }
+    \field{year}{2012}
+  \endentry
+
+  \entry{ML4SE}{book}{}
+    \name{editor}{2}{}{%
+      {{hash=ZD}{%
+         family={Zhang},
+         family_i={Z\bibinitperiod},
+         given={Du},
+         given_i={D\bibinitperiod},
+      }}%
+      {{hash=TJJ}{%
+         family={Tsai},
+         family_i={T\bibinitperiod},
+         given={Jeffrey\bibnamedelima J.},
+         given_i={J\bibinitperiod\bibinitdelim J\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {World Scientific}%
+    }
+    \strng{namehash}{ZDTJJ1}
+    \strng{fullhash}{ZDTJJ1}
+    \field{labelnamesource}{editor}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{Z}
+    \field{sortinithash}{Z}
+    \field{series}{Series on software Engineering and Knowledge Engineering}
+    \field{title}{Machine learning applications in software engineering}
+    \field{volume}{16}
+    \list{location}{1}{%
+      {Hackensack, N.J, USA}%
+    }
+    \field{year}{2005}
+  \endentry
+\endsortlist
+\endinput

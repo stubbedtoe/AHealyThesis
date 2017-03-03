@@ -304,7 +304,7 @@ We recorded the time spent on CPU by each SMT solver for each proof obligation.
 
 Any effort to measure execution time accurately is hampered by random errors introduced by the experimental environment.
 Such errors are inherent to measuring time in real world computing environments due to factors such as cache misses, competing processes and instructions needed to perform the measurement itself.   
-These errors affect the \textit{precision} of the experiment: ie. how likely a result is to be repeated \textit{exactly} across multiple experiments. 
+These errors affect the \textit{precision} of the experiment: i.e. how likely a result is to be repeated \textit{exactly} across multiple experiments. 
 To account for these errors, we used the methodology described by Lilja \cite{LiljaJ} to obtain the number of measurements needed to make an approximation of the true mean execution time. 
 
 As each solver execution can be quite expensive in terms of time (a worst case scenario for one measurement of each PO: 1048 (POs) $\times$ eight (solvers) $\times$ ten seconds (time limit) $\approxeq$ 23.3 hours of computation time), a small number of initial measurements (five) were made. 
@@ -408,7 +408,7 @@ When a solver is sent a goal by \why, it returns an answer $A$ where $A$ is one 
 	\textbf{Failure} & An error has occurred. \\
 \end{tabularx}\\
 
-Fig. \ref{fig:barcharts} shows the relative amount of $Valid / Unknown / Timeout / Failure$ answers from the eight SMT solvers (when given a timeout of 60 seconds) on the entire dataset of 1048 POs. 
+Fig. \ref{fig:barcharts} shows the relative amount of $Valid / Unknown / Timeout / $ $ Failure$ answers from the eight SMT solvers (when given a timeout of 60 seconds) on the entire dataset of 1048 POs. 
 For example, Alt-Ergo version 0.95.1 (leftmost bar) returned an answer of \textit{Valid} for 590 POs, \textit{Unknown} for 144 POs, \textit{Timeout} for 300, and \textit{Failure} for 14.
 Note that no tool returned an answer of Invalid for any of the 1048 proof obligations.
 We assume this is because the example programs are verified algorithms/data-structures and an answer of \textit{Invalid} would indicate a violated pre-/post- condition or invariant.

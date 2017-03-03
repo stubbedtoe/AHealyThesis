@@ -10,10 +10,10 @@ main.lot
 main.lof
 main.toc
 main-blx.bib
-main.pdf
-main.bbl
 main.out
 main.run.xml
 example.bib.bak
-
+experiments.*
+plot_roc_002.png
+confidence.svg
 

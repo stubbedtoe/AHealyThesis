@@ -143,7 +143,7 @@ Solvers returning the same answer are ranked according to runtime -- with faster
 This method for defining relative performance has similarities to the scoring structure for ATPs competing in SV-COMP \cite{Beyer2016, SVCOMP}, with some important differences. 
 In SV-COMP, \textit{Unknown} responses are given a neutral score of 0, the correct reporting of a property which does not hold (``true negative") is rewarded with smaller score ($+1$) than the correct reporting of a property which is found to hold (``true positive" which scores $+2$).
 Likewise, the incorrect reporting of a property which does not hold (``false negative" or ``false alarm") is punished less severely (with a score of $-4$) than the incorrect reporting of a property which does hold (``false positives" score $-8$).  
-Although the notion of ``false positive'' and ``false negative'' responses is not applicable in the SMT domain (where tools are assumed to be sound), we follow the SV-COMP scoring scheme by warding a ``true positive'' (or \textit{Valid} response) a higher score than a ``true negative'' (or \textit{Invalid} response). 
+Although the notion of ``false positive'' and ``false negative'' responses is not applicable in the SMT domain (where tools are assumed to be sound), we follow the SV-COMP scoring scheme by awarding a ``true positive'' (or \textit{Valid} response) a higher score than a ``true negative'' (or \textit{Invalid} response). 
 \textit{Unknown, Timeout} and \textit{Failure} responses are not treated separately by the SV-COMP scoring scheme -- they all fall under the \textit{Unknown} response category.
 We penalise poorly-performing solvers through the use of a \textit{cost} function.
 %A further refinement to our scoring model was necessary in order for the prediction models to operate effectively. 
@@ -678,7 +678,7 @@ The Mean Average Error is a good measure of overall ranking accuracy, but it fai
 \subsection{EC5: Regression Error}
 
 The rightmost column of Table \ref{table:predselection} (labelled \textbf{Reg. error}) lists the average regression error per instance. 
-We illustrate the calculation of the regression error error with a small example. For two testing instances, the predicted and actual costs for three solvers are: 
+We illustrate the calculation of the regression error with a small example. For two testing instances, the predicted and actual costs for three solvers are: 
 \[ \left( \begin{array}{ccc}
 0.5 & 10.0 & 5.0 \\
 0.4 & 5.5 & 10.0  \end{array} \right) = \text{predicted};
@@ -764,7 +764,7 @@ This criterion is called the \textit{Gini impurity} \cite{RandomForests}.
 The percentages correspond to the proportion of the \textit{Gini} decrease accounted for splitting by each feature.
 This data is part of Sci-Kit Learn's implementation of Decision Trees and Random Forests. 
 
-It can be seen that the number of functions in each PO is the by far the most important factor in determining each solver's cost, with the average branching factor of functions and other operators also being important.
+It can be seen that the number of functions in each PO is by far the most important factor in determining each solver's cost, with the average branching factor of functions and other operators also being important.
 It is somewhat surprising that the number of integer constants is one of the more important factors while the number of floating point constants is relatively unimportant.
 This may be due to the fact that there are more integer-based POs in our dataset than those which use floating point numbers.
 This reasoning may also account for the fact the universal quantifiers (\texttt{forall}) rank higher than existential (\texttt{exists}) quantifiers.
